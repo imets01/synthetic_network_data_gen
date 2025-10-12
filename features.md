@@ -54,24 +54,46 @@ Here are our proposed features:
 |10|`bytes_sent_client`| Numeric| Number of transmitted bytes from client to server|X|X|
 |11|`packets_sent_server`| Numeric| 	Number of packets transmitted from server to client |X|X|
 |12|`packets_sent_client`| Numeric| Number of packets transmitted from client to server|X|X|
-|13|`version_negotiation_occurred`| Binary   | A flag indicating if there was Version Negotiation at the start of the connection.| X|X|
-|14|`retry_occurred`| Binary   | A flag indicating if there was a Retry packet sent by the server after the first Initial packet of the client. |X|X|
-|15| `migration_type`        | Categorical     | An enumeration of what changed: `IP_ONLY`, `PORT_ONLY`, `IP_AND_PORT`, `NO_CHANGE` | X|X|
-|16| `handshake_duration`        | Numeric     |  The time from the first *Initial* packet to the completion of the TLS handshake (e.g., when the first 1-RTT keys are available and application data can be sent). | X|X|
-|17| `time_to_migration`        | Numeric     | The relative time (in seconds) from the start of the connection to the first packet from the new client IP/port. This would be 0 or null if no migration occurred. | X|X|
-|18| `packets_before_migration`        | Numeric     | The total number of packets (client + server) exchanged before the migration event occurred. 0 or null if no migration. |X|X|
-|19| `app_data_bytes_before_migration`        | Numeric     | The total volume of application data (HTTP/3 frames) exchanged between the client and server on the original path before the migration begins. |X|
-|20| `migration_duration`        | Numeric    | Time from first new-path packet to `PATH_CHALLENGE`/`PATH_RESPONSE` completion |X|
-|21| `path_validation_initiated`              | Binary     | A flag that is True if a *PATH_CHALLENGE* frame was sent by the client, as the connection migration is a client initiated process. |X|
-|22| `path_validation_response_latency`              | Numerical     | The time delta between the client sending a *PATH_CHALLENGE* on the new path and receiving the corresponding PATH_RESPONSE from the server. |X|
-|23| `padding_bytes_in_validation`              | Numerical     | The total number of padding bytes included in the *PATH_CHALLENGE* and *PATH_RESPONSE* packets. |X|
-|24| `new_connection_ids_issued_server`              | Numeric     | The number of new Connection IDs the server provided to the client (via *NEW_CONNECTION_ID* frames). A client can only migrate if the server has provided it with new, unused connection IDs. This feature captures the server's readiness and support for migration. |X|
-|25| `new_connection_ids_issued_client`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the client sends after a successful migration to invalidate the CID associated with the old path. |X|
-|26| `retired_cid_count_client`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the client sends, maybe after a successful migration to invalidate the CID associated with the old path.|X|
-|27| `retired_cid_count_server`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the server sends, maybe after a successful migration to invalidate the CID associated with the old path.|X|
-|28| `total_http_streams`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|29| `http_request_response_byte_ratio`     | Numeric     | The ratio of total bytes of HTTP request bodies to total bytes of HTTP response bodies. A value < 1 indicates a download-heavy connection (e.g., getting a file), while a value > 1 indicates an upload-heavy connection. |X|
-|30| `connection_close_type`     | Categorical     | An enumeration of how the connection terminated: `CLIENT_CLOSE`, `SERVER_CLOSE`, `IDLE_TIMEOUT`. |X|
+|13|`quic_packets_sent_server`| Numeric| Number of packets transmitted from client to server|X|X|
+|14|`quic_packets_sent_client`| Numeric| Number of packets transmitted from client to server|X|X|
+|15|`version_negotiation_occurred`| Binary   | A flag indicating if there was Version Negotiation at the start of the connection.| X|X|
+|16|`retry_occurred`| Binary   | A flag indicating if there was a Retry packet sent by the server after the first Initial packet of the client. |X|X|
+|17| `migration_type`        | Categorical     | An enumeration of what changed: `IP_ONLY`, `PORT_ONLY`, `IP_AND_PORT`, `NO_CHANGE` | X|X|
+|18| `handshake_duration`        | Numeric     |  The time from the first *Initial* packet to the completion of the TLS handshake (e.g., when the first 1-RTT keys are available and application data can be sent). | X|X|
+|19| `time_to_migration`        | Numeric     | The relative time (in seconds) from the start of the connection to the first packet from the new client IP/port. This would be 0 or null if no migration occurred. | X|X|
+|20| `packets_before_migration`        | Numeric     | The total number of packets (client + server) exchanged before the migration event occurred. 0 or null if no migration. |X|X|
+|21| `app_data_bytes_before_migration`        | Numeric     | The total volume of application data (HTTP/3 frames) exchanged between the client and server on the original path before the migration begins. |X|
+|22| `migration_duration`        | Numeric    | Time from first new-path packet to `PATH_CHALLENGE`/`PATH_RESPONSE` completion |X|
+|23| `path_validation_initiated`              | Binary     | A flag that is True if a *PATH_CHALLENGE* frame was sent by the client, as the connection migration is a client initiated process. |X|
+|24| `path_validation_response_latency`              | Numerical     | The time delta between the client sending a *PATH_CHALLENGE* on the new path and receiving the corresponding PATH_RESPONSE from the server. |X|
+|25| `padding_bytes_in_validation_pc`              | Numerical     | The total number of padding bytes included in the *PATH_CHALLENGE* and *PATH_RESPONSE* packets. |X|
+|26| `padding_bytes_in_validation_pr`              | Numerical     | The total number of padding bytes included in the *PATH_CHALLENGE* and *PATH_RESPONSE* packets. |X|
+|27| `mtu`              | Numerical     | The total number of padding bytes included in the *PATH_CHALLENGE* and *PATH_RESPONSE* packets. |X|
+|28| `new_connection_ids_issued_server`              | Numeric     | The number of new Connection IDs the server provided to the client (via *NEW_CONNECTION_ID* frames). A client can only migrate if the server has provided it with new, unused connection IDs. This feature captures the server's readiness and support for migration. |X|
+|29| `new_connection_ids_issued_client`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the client sends after a successful migration to invalidate the CID associated with the old path. |X|
+|30| `retired_cid_count_client`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the client sends, maybe after a successful migration to invalidate the CID associated with the old path.|X|
+|31| `retired_cid_count_server`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the server sends, maybe after a successful migration to invalidate the CID associated with the old path.|X|
+|32| `total_bidi_streams_client_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|33| `total_bidi_streams_server_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|34| `total_udi_streams_client_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|35| `total_udi_streams_server_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|36| `bytes_bidi_streams_client_init_client_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|37| `bytes_bidi_streams_client_init_server_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|38| `bytes_bidi_streams_server_init_client_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|39| `bytes_bidi_streams_server_init_server_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|40| `bytes_udi_streams_client_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|41| `bytes_udi_streams_server_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|42| `ack_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|43| `ack_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|44| `crypto_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|45| `crypto_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|46| `handshake_done_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|47| `handshake_done_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|48| `path_challenge_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|49| `path_challenge_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|50| `path_response_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|51| `path_response_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|52| `connection_close_type`     | Categorical     | An enumeration of how the connection terminated: `CLIENT_CLOSE`, `SERVER_CLOSE`, `IDLE_TIMEOUT`. |X|
 
 These high-level features are fileld out after Stage 2, when we have the packets generated:
 
