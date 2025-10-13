@@ -58,7 +58,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "48704",
@@ -69,6 +70,7 @@
           "udp.checksum": "0x02cd",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "1",
           "Timestamps": {
             "udp.time_relative": "0.000000000",
             "udp.time_delta": "0.000000000"
@@ -156,7 +158,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -167,6 +170,7 @@
           "udp.checksum": "0xfe4b",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "2",
           "Timestamps": {
             "udp.time_relative": "0.000234000",
             "udp.time_delta": "0.000234000"
@@ -249,7 +253,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "48704",
@@ -260,6 +265,7 @@
           "udp.checksum": "0x02cd",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "3",
           "Timestamps": {
             "udp.time_relative": "0.000648000",
             "udp.time_delta": "0.000414000"
@@ -286,7 +292,7 @@
           "quic.packet_number": "1",
           "quic.payload": "b3:35:f6:46:b0:ad:b2:c3:63:1d:48:b3:1a:3a:c2:95:6f:69:64:de:dc:50:0a:36:8a:c7:27:76:94:90:3d:8e:32:8b:ab:cb:0d:48:74:a8:0d:cf:d8:fb:32:58:6c:d7:f5:d7:02:31:e6:7a:e4:81:ad:5b:4e:63:a7:d9:5e:9b:16:1c:84:c4:d6:1d:8f:8f:9f:2d:67:99:30:90:e5:50:d1:63:e8:3a:0e:75:67:45:0b:f4:8a:ac:b7:e0:99:f7:4d:24:65:00:d8:d4:f9:86:a5:5d:47:d6:fb:83:2f:61:f3:40:26:3a:c4:12:08:e7:a0:8e:63:19:df:39:33:b2:6d:9b:ed:e7:2e:0e:43:f3:cd:30:45:3a:4a:f5:e7:f3:d1:8f:94:8c:74:5d:ee:c0:e1:47:7a:a1:b2:ad:00:c2:4d:57:27:72:be:5a:ef:25:c2:a2:52:75:7a:78:6a:03:55:ba:9e:ba:37:4d:dd:f1:b5:21:67:a5:3c:b6:d6:60:17:36:52:05:5e:29:58:81:da:32:5e:69:66:7e:e9:ba:89:9e:f4:f9:ee:e8:82:cf:0e:c6:cc:65:88:eb:13:63:11:91:de:40:ee:dc:65:11:17:ad:44:39:2a:50:6c:82:38:5d:e5:70:44:f7:36:66:ec:de:34:9b:48:9a:f6:28:de:3e:8c:74:56:78:ce:9a:9a",
           "quic.frame": {
-            "quic.frame_type": "6",
+            "quic.frame_type": "0x0000000000000006",
             "quic.crypto.offset": "0",
             "quic.crypto.length": "245",
             "quic.crypto.crypto_data": "",
@@ -295,6 +301,14 @@
                 "tls.handshake.type": "1",
                 "tls.handshake.length": "241",
                 "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
                 "tls.handshake.random": "47:c6:00:84:96:37:e9:54:31:ec:48:70:34:1b:cb:e2:ce:8e:b6:ec:41:f7:63:f6:e7:29:db:df:1e:48:ec:ba",
                 "tls.handshake.session_id_length": "0",
                 "tls.handshake.cipher_suites_length": "6",
@@ -308,7 +322,7 @@
                   "tls.handshake.comp_method": "0"
                 },
                 "tls.handshake.extensions_length": "194",
-                "Extension: supported_groups (len=8)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "10",
                   "tls.handshake.extension.len": "8",
                   "tls.handshake.extensions_supported_groups_length": "6",
@@ -318,7 +332,7 @@
                     "tls.handshake.extensions_supported_group": "0x0018"
                   }
                 },
-                "Extension: application_layer_protocol_negotiation (len=25)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "16",
                   "tls.handshake.extension.len": "25",
                   "tls.handshake.extensions_alpn_len": "23",
@@ -331,7 +345,7 @@
                     "tls.handshake.extensions_alpn_str": "http/0.9"
                   }
                 },
-                "Extension: signature_algorithms (len=20)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "13",
                   "tls.handshake.extension.len": "20",
                   "tls.handshake.sig_hash_alg_len": "18",
@@ -383,7 +397,7 @@
                     }
                   }
                 },
-                "Extension: key_share (len=38) x25519": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "51",
                   "tls.handshake.extension.len": "38",
                   "Key Share extension": {
@@ -395,19 +409,19 @@
                     }
                   }
                 },
-                "Extension: psk_key_exchange_modes (len=2)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "45",
                   "tls.handshake.extension.len": "2",
                   "tls.extension.psk_ke_modes_length": "1",
                   "tls.extension.psk_ke_mode": "1"
                 },
-                "Extension: supported_versions (len=3) TLS 1.3": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "43",
                   "tls.handshake.extension.len": "3",
                   "tls.handshake.extensions.supported_versions_len": "2",
                   "tls.handshake.extensions.supported_version": "0x0304"
                 },
-                "Extension: quic_transport_parameters (len=70)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "57",
                   "tls.handshake.extension.len": "70",
                   "Parameter: max_idle_timeout (len=4) 30000 ms": {
@@ -477,8 +491,8 @@
                     "tls.quic.parameter.initial_source_connection_id": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4"
                   }
                 },
-                "tls.handshake.ja4": "u13i0307h3_55b375c5d22e_f0736a66fa6b",
-                "tls.handshake.ja4_r": "u13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+                "tls.handshake.ja4": "q13i0307h3_55b375c5d22e_f0736a66fa6b",
+                "tls.handshake.ja4_r": "q13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
                 "tls.handshake.ja3_full": "771,4865-4866-4867,10-16-13-51-45-43-57,29-23-24,",
                 "tls.handshake.ja3": "86871fd0d48de0c82beec154cd3f1744"
               }
@@ -555,7 +569,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -566,6 +581,7 @@
           "udp.checksum": "0xfe75",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "4",
           "Timestamps": {
             "udp.time_relative": "0.000822000",
             "udp.time_delta": "0.000174000"
@@ -649,7 +665,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "48704",
@@ -660,6 +677,7 @@
           "udp.checksum": "0x02cd",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "5",
           "Timestamps": {
             "udp.time_relative": "0.001119000",
             "udp.time_delta": "0.000297000"
@@ -687,7 +705,7 @@
           "quic.packet_number": "2",
           "quic.payload": "62:c7:cc:39:05:47:e1:3b:db:62:87:4e:2a:e7:7c:77:af:33:d8:c5:a3:7a:b3:e3:1f:24:e1:27:48:47:41:24:43:e5:85:2c:fe:34:46:7a:81:b9:33:7e:bb:69:7c:fd:c7:22:b0:a3:72:bc:29:5e:0a:21:7f:ca:8a:1f:dc:b5:77:32:aa:f1:7c:c9:0b:48:89:8c:ac:26:86:3b:c2:15:9c:21:b5:96:66:cb:bc:65:5a:6c:24:bf:41:4d:ca:2b:eb:2d:d9:d8:6b:5f:3c:74:0d:65:f9:47:6e:6b:f3:0c:de:25:3c:fb:e0:d1:65:c0:6d:64:8a:e4:1a:e3:06:c1:d2:0a:16:c1:c3:1d:59:f5:71:1d:be:d1:9a:83:af:54:8e:65:fe:0a:73:fb:a5:91:7d:ad:09:f4:9e:44:1a:ab:dc:18:cb:75:de:91:89:4b:30:1c:8a:e5:3c:8e:bc:e3:51:7f:8e:bf:c2:6a:48:7d:1b:ab:2f:86:0e:c6:04:20:63:5f:55:bc:b4:50:b9:09:e8:fd:cc:67:50:d5:1e:f7:1e:e3:47:e8:66:68:f4:45:c7:b8:60:17:62:6b:7a:70:99:09:29:ee:2f:5b:33:f3:91:2c:03:ec:6d:cc:1a:a1:f6:fb:12:90:28:e0:a5:92:fe:a6:16:65:af:61:d4:ae:98:a4:1b:a8:bd:c4:45:ea:25",
           "quic.frame": {
-            "quic.frame_type": "6",
+            "quic.frame_type": "0x0000000000000006",
             "quic.crypto.offset": "0",
             "quic.crypto.length": "245",
             "quic.crypto.crypto_data": "",
@@ -696,6 +714,14 @@
                 "tls.handshake.type": "1",
                 "tls.handshake.length": "241",
                 "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
                 "tls.handshake.random": "58:2c:2e:da:61:24:91:55:ca:b0:88:8b:69:1f:42:64:b9:b6:88:67:ec:6f:27:29:86:3a:74:50:3c:f3:0d:73",
                 "tls.handshake.session_id_length": "0",
                 "tls.handshake.cipher_suites_length": "6",
@@ -709,7 +735,7 @@
                   "tls.handshake.comp_method": "0"
                 },
                 "tls.handshake.extensions_length": "194",
-                "Extension: supported_groups (len=8)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "10",
                   "tls.handshake.extension.len": "8",
                   "tls.handshake.extensions_supported_groups_length": "6",
@@ -719,7 +745,7 @@
                     "tls.handshake.extensions_supported_group": "0x0018"
                   }
                 },
-                "Extension: application_layer_protocol_negotiation (len=25)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "16",
                   "tls.handshake.extension.len": "25",
                   "tls.handshake.extensions_alpn_len": "23",
@@ -732,7 +758,7 @@
                     "tls.handshake.extensions_alpn_str": "http/0.9"
                   }
                 },
-                "Extension: signature_algorithms (len=20)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "13",
                   "tls.handshake.extension.len": "20",
                   "tls.handshake.sig_hash_alg_len": "18",
@@ -784,7 +810,7 @@
                     }
                   }
                 },
-                "Extension: key_share (len=38) x25519": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "51",
                   "tls.handshake.extension.len": "38",
                   "Key Share extension": {
@@ -796,19 +822,19 @@
                     }
                   }
                 },
-                "Extension: psk_key_exchange_modes (len=2)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "45",
                   "tls.handshake.extension.len": "2",
                   "tls.extension.psk_ke_modes_length": "1",
                   "tls.extension.psk_ke_mode": "1"
                 },
-                "Extension: supported_versions (len=3) TLS 1.3": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "43",
                   "tls.handshake.extension.len": "3",
                   "tls.handshake.extensions.supported_versions_len": "2",
                   "tls.handshake.extensions.supported_version": "0x0304"
                 },
-                "Extension: quic_transport_parameters (len=70)": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "57",
                   "tls.handshake.extension.len": "70",
                   "Parameter: max_idle_timeout (len=4) 30000 ms": {
@@ -878,8 +904,8 @@
                     "tls.quic.parameter.initial_source_connection_id": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4"
                   }
                 },
-                "tls.handshake.ja4": "u13i0307h3_55b375c5d22e_f0736a66fa6b",
-                "tls.handshake.ja4_r": "u13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+                "tls.handshake.ja4": "q13i0307h3_55b375c5d22e_f0736a66fa6b",
+                "tls.handshake.ja4_r": "q13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
                 "tls.handshake.ja3_full": "771,4865-4866-4867,10-16-13-51-45-43-57,29-23-24,",
                 "tls.handshake.ja3": "86871fd0d48de0c82beec154cd3f1744"
               }
@@ -917,7 +943,7 @@
           "frame.cap_len": "1248",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic:tls"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:tls:tls"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -956,7 +982,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -967,6 +994,7 @@
           "udp.checksum": "0x02cd",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "6",
           "Timestamps": {
             "udp.time_relative": "0.002482000",
             "udp.time_delta": "0.001363000"
@@ -993,14 +1021,14 @@
           "quic.packet_number": "0",
           "quic.payload": "01:61:56:82:5a:98:00:ae:ef:dc:e6:7c:a4:5b:87:e4:41:ce:8c:26:eb:c3:5b:35:2a:7b:4c:24:15:30:07:4f:78:8b:f5:c5:5b:1f:72:bd:5f:a7:3f:00:21:5f:6e:2b:a6:37:60:a4:e6:57:be:20:b0:fa:07:5b:18:1f:7d:45:72:e1:4e:b7:f6:8f:72:48:32:3a:9d:b0:07:89:8a:8d:19:7a:24:d4:ae:f3:43:bc:af:ff:f6:60:56:00:59:97:42:4d:f5:84:91:c5:33:7f:3b:4d:34:64:d5:ef:f9:04:3f:08:01:00",
           "quic.frame": {
-            "quic.frame_type": "2",
+            "quic.frame_type": "0x0000000000000002",
             "quic.ack.largest_acknowledged": "2",
             "quic.ack.ack_delay": "129",
             "quic.ack.ack_range_count": "0",
             "quic.ack.first_ack_range": "0"
           },
           "quic.frame": {
-            "quic.frame_type": "6",
+            "quic.frame_type": "0x0000000000000006",
             "quic.crypto.offset": "0",
             "quic.crypto.length": "90",
             "quic.crypto.crypto_data": "",
@@ -1009,12 +1037,20 @@
                 "tls.handshake.type": "2",
                 "tls.handshake.length": "86",
                 "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
                 "tls.handshake.random": "60:17:e3:72:de:63:6f:72:80:f3:a3:b0:fc:17:fd:5b:e2:6e:ef:a1:2b:19:0a:16:c8:3b:c8:2b:12:f1:16:56",
                 "tls.handshake.session_id_length": "0",
                 "tls.handshake.ciphersuite": "0x1301",
                 "tls.handshake.comp_method": "0",
                 "tls.handshake.extensions_length": "46",
-                "Extension: key_share (len=36) x25519": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "51",
                   "tls.handshake.extension.len": "36",
                   "Key Share extension": {
@@ -1025,7 +1061,7 @@
                     }
                   }
                 },
-                "Extension: supported_versions (len=2) TLS 1.3": {
+                "tls.handshake.extension": {
                   "tls.handshake.extension.type": "43",
                   "tls.handshake.extension.len": "2",
                   "tls.handshake.extensions.supported_version": "0x0304"
@@ -1041,19 +1077,121 @@
           "quic.header_form": "1",
           "quic.fixed_bit": "1",
           "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
           "quic.version": "0x00000001",
           "quic.dcil": "20",
           "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
           "quic.scil": "20",
           "quic.scid": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
           "quic.length": "984",
-          "_ws.expert": {
-            "quic.decryption_failed": "",
-            "_ws.expert.message": "Failed to create decryption context: Secrets are not available",
-            "_ws.expert.severity": "6291456",
-            "_ws.expert.group": "201326592"
-          },
-          "quic.remaining_payload": "75:73:07:2b:1a:06:dc:4a:bc:b4:ce:c7:0e:09:a7:1a:39:e9:75:19:48:19:47:d2:21:a5:2b:86:49:56:6e:19:61:e6:a5:b1:96:55:f8:5e:bc:e9:de:40:f7:76:a7:c7:b4:c4:20:cb:e6:f2:07:cd:a1:16:e0:00:4d:0e:34:b4:71:e9:c2:8e:dd:5d:20:c3:42:d0:12:d8:71:1a:a3:4b:b5:c0:67:79:70:e6:b7:6c:e7:74:6d:78:02:a8:9a:13:5f:a8:b4:7c:e0:95:1d:ae:e0:76:27:80:9b:ea:11:73:24:fd:5a:48:7c:9b:52:2f:7a:16:84:aa:f2:d6:bf:20:d6:b6:82:4a:87:6e:ae:f1:9b:97:79:9f:62:e6:af:f2:fd:c4:6f:7f:70:64:2a:c9:37:96:9d:ba:cb:49:8b:0e:7f:b1:8c:1c:96:a1:69:35:c6:43:e7:95:57:7a:46:c7:8d:63:70:d9:f9:8a:02:9b:55:5f:e7:14:40:c9:5f:09:1b:11:3f:1b:df:d5:6e:1a:15:be:a4:41:13:89:75:08:c6:06:2d:5e:ca:7f:ee:f7:94:15:29:ef:8e:82:46:b7:5a:46:4f:48:56:b3:d3:2f:21:07:a7:5d:27:52:8e:24:22:28:de:0a:85:b8:f5:55:dc:ca:d8:4c:8d:53:85:67:fc:77:06:f9:34:66:3d:e9:dc:d4:0e:f5:d2:68:bd:18:73:35:60:aa:9b:07:58:4a:d5:fb:c4:10:9a:0e:90:ac:ef:91:c7:8b:1a:c4:6c:f6:fb:cc:7d:aa:af:69:9d:67:11:02:bd:8e:52:a0:41:b7:33:62:17:d8:c9:0b:9e:8e:85:76:fa:0d:e7:59:22:04:df:d6:17:a8:aa:4e:ad:29:ea:45:fc:3b:4b:f1:a6:dc:ae:b7:19:8f:1f:22:67:3d:23:b3:a1:81:69:96:86:8e:e6:c7:79:ca:fd:af:17:46:b4:23:e2:2f:b0:29:7a:fb:b0:a8:aa:b1:ba:1b:9e:25:e2:c7:de:7c:e6:32:60:80:36:a8:f0:35:1d:73:a1:82:d6:5b:98:19:d8:b2:80:69:f8:54:af:74:ea:20:e9:c1:9d:7e:e2:ff:4f:fc:2a:fa:b6:93:3b:c1:75:b3:8a:08:b0:c5:fd:b3:94:d0:40:8a:e3:bb:cd:ee:96:d1:bc:a9:cb:15:95:00:e0:cc:08:5b:ce:4c:38:21:dd:20:fb:ce:da:1c:0a:e4:64:c0:45:6f:e4:03:66:a3:63:bc:62:e6:7c:52:2d:9e:81:34:21:fc:cb:88:f8:db:f7:7d:65:e0:b3:b5:da:8a:be:cc:2c:10:7c:7e:db:60:8d:eb:c5:3b:97:ed:18:31:c3:3b:8b:de:ca:8b:47:e3:49:1f:ae:12:2e:9a:90:3d:94:c7:10:20:25:d3:d5:5c:76:2e:53:4b:f9:3a:bf:79:e2:e9:1e:73:9e:4a:3a:32:b9:f3:39:9c:e7:fd:67:80:3d:0d:59:86:eb:8a:54:a4:26:f8:08:35:0a:74:15:5e:e9:1c:d3:70:a3:d4:16:ae:d2:cb:ca:db:14:83:69:4d:15:25:0c:b2:50:1f:d7:e4:e2:bf:42:0a:e3:9e:0f:71:a2:34:ab:b7:d1:a3:1d:d6:fb:26:42:98:f9:db:d2:6e:7f:ab:19:ea:21:17:19:11:8d:60:4b:ff:17:e8:da:d2:95:c8:5e:72:53:13:ac:ce:ec:32:cb:e4:42:26:54:1d:01:bb:a0:6b:be:72:a7:3e:48:cb:b9:94:03:37:e7:d8:53:18:ff:b7:e8:b4:19:71:f3:62:53:ce:9e:a1:49:2f:3e:54:82:80:83:a2:b4:b3:9b:8b:a9:5c:ea:1a:f2:93:5d:d2:54:fb:f8:e9:43:3a:15:00:28:de:98:d7:31:f9:5a:45:e4:25:d8:c7:96:ef:b5:2f:15:87:a3:47:a2:4c:50:c7:17:15:6b:01:a3:0e:d6:99:c6:d4:f0:6f:f7:45:6d:c2:1b:91:7d:b6:78:c8:8e:3c:e6:69:fb:0c:61:05:66:52:60:db:8b:fe:40:18:16:0b:2f:5b:d7:75:ce:10:e4:84:77:51:68:c9:29:fe:6e:19:d2:76:9b:22:a9:03:ae:69:ed:fb:a1:5f:5a:ce:ba:40:93:4d:56:5d:cd:56:a4:77:a9:da:50:1f:d1:9c:3a:4a:30:9b:d6:ff:33:b2:7a:e9:dc:6b:ff:ba:b6:5c:ae:7a:61:98:75:31:ec:25:b6:69:7a:12:fd:ee:68:88:36:79:e2:04:64:8b:75:40:1c:81:f5:d4:1c:85:17:ad:23:e0:88:d5:a8:56:ce:60:c0:11:95:60:87:4f:af:41:59:9b:ec:89:e7:6d:79:c1:dc:b0:94:37:c8:6a:f8:a3:38:61:86:d8:f0:11:b5:b0:ca:23:be:00:36:fd:7b:b3:b8:68:f1:2d:88:2e:dd:10:19:4c:e3:d0:3a:c2:5e:2c:aa:dd:b7:66:e1:37:e1:9c:de:d9:a6:e6:f7:fa:f2:32:21:76:31:75:7c:f4:ac:97:fa:b2:8b:96:e4:2e:e4:26:89:d7:d4:6a:8d:d3:43:43:4f:df:40:7d"
+          "quic.packet_number": "1",
+          "quic.payload": "73:07:2b:1a:06:dc:4a:bc:b4:ce:c7:0e:09:a7:1a:39:e9:75:19:48:19:47:d2:21:a5:2b:86:49:56:6e:19:61:e6:a5:b1:96:55:f8:5e:bc:e9:de:40:f7:76:a7:c7:b4:c4:20:cb:e6:f2:07:cd:a1:16:e0:00:4d:0e:34:b4:71:e9:c2:8e:dd:5d:20:c3:42:d0:12:d8:71:1a:a3:4b:b5:c0:67:79:70:e6:b7:6c:e7:74:6d:78:02:a8:9a:13:5f:a8:b4:7c:e0:95:1d:ae:e0:76:27:80:9b:ea:11:73:24:fd:5a:48:7c:9b:52:2f:7a:16:84:aa:f2:d6:bf:20:d6:b6:82:4a:87:6e:ae:f1:9b:97:79:9f:62:e6:af:f2:fd:c4:6f:7f:70:64:2a:c9:37:96:9d:ba:cb:49:8b:0e:7f:b1:8c:1c:96:a1:69:35:c6:43:e7:95:57:7a:46:c7:8d:63:70:d9:f9:8a:02:9b:55:5f:e7:14:40:c9:5f:09:1b:11:3f:1b:df:d5:6e:1a:15:be:a4:41:13:89:75:08:c6:06:2d:5e:ca:7f:ee:f7:94:15:29:ef:8e:82:46:b7:5a:46:4f:48:56:b3:d3:2f:21:07:a7:5d:27:52:8e:24:22:28:de:0a:85:b8:f5:55:dc:ca:d8:4c:8d:53:85:67:fc:77:06:f9:34:66:3d:e9:dc:d4:0e:f5:d2:68:bd:18:73:35:60:aa:9b:07:58:4a:d5:fb:c4:10:9a:0e:90:ac:ef:91:c7:8b:1a:c4:6c:f6:fb:cc:7d:aa:af:69:9d:67:11:02:bd:8e:52:a0:41:b7:33:62:17:d8:c9:0b:9e:8e:85:76:fa:0d:e7:59:22:04:df:d6:17:a8:aa:4e:ad:29:ea:45:fc:3b:4b:f1:a6:dc:ae:b7:19:8f:1f:22:67:3d:23:b3:a1:81:69:96:86:8e:e6:c7:79:ca:fd:af:17:46:b4:23:e2:2f:b0:29:7a:fb:b0:a8:aa:b1:ba:1b:9e:25:e2:c7:de:7c:e6:32:60:80:36:a8:f0:35:1d:73:a1:82:d6:5b:98:19:d8:b2:80:69:f8:54:af:74:ea:20:e9:c1:9d:7e:e2:ff:4f:fc:2a:fa:b6:93:3b:c1:75:b3:8a:08:b0:c5:fd:b3:94:d0:40:8a:e3:bb:cd:ee:96:d1:bc:a9:cb:15:95:00:e0:cc:08:5b:ce:4c:38:21:dd:20:fb:ce:da:1c:0a:e4:64:c0:45:6f:e4:03:66:a3:63:bc:62:e6:7c:52:2d:9e:81:34:21:fc:cb:88:f8:db:f7:7d:65:e0:b3:b5:da:8a:be:cc:2c:10:7c:7e:db:60:8d:eb:c5:3b:97:ed:18:31:c3:3b:8b:de:ca:8b:47:e3:49:1f:ae:12:2e:9a:90:3d:94:c7:10:20:25:d3:d5:5c:76:2e:53:4b:f9:3a:bf:79:e2:e9:1e:73:9e:4a:3a:32:b9:f3:39:9c:e7:fd:67:80:3d:0d:59:86:eb:8a:54:a4:26:f8:08:35:0a:74:15:5e:e9:1c:d3:70:a3:d4:16:ae:d2:cb:ca:db:14:83:69:4d:15:25:0c:b2:50:1f:d7:e4:e2:bf:42:0a:e3:9e:0f:71:a2:34:ab:b7:d1:a3:1d:d6:fb:26:42:98:f9:db:d2:6e:7f:ab:19:ea:21:17:19:11:8d:60:4b:ff:17:e8:da:d2:95:c8:5e:72:53:13:ac:ce:ec:32:cb:e4:42:26:54:1d:01:bb:a0:6b:be:72:a7:3e:48:cb:b9:94:03:37:e7:d8:53:18:ff:b7:e8:b4:19:71:f3:62:53:ce:9e:a1:49:2f:3e:54:82:80:83:a2:b4:b3:9b:8b:a9:5c:ea:1a:f2:93:5d:d2:54:fb:f8:e9:43:3a:15:00:28:de:98:d7:31:f9:5a:45:e4:25:d8:c7:96:ef:b5:2f:15:87:a3:47:a2:4c:50:c7:17:15:6b:01:a3:0e:d6:99:c6:d4:f0:6f:f7:45:6d:c2:1b:91:7d:b6:78:c8:8e:3c:e6:69:fb:0c:61:05:66:52:60:db:8b:fe:40:18:16:0b:2f:5b:d7:75:ce:10:e4:84:77:51:68:c9:29:fe:6e:19:d2:76:9b:22:a9:03:ae:69:ed:fb:a1:5f:5a:ce:ba:40:93:4d:56:5d:cd:56:a4:77:a9:da:50:1f:d1:9c:3a:4a:30:9b:d6:ff:33:b2:7a:e9:dc:6b:ff:ba:b6:5c:ae:7a:61:98:75:31:ec:25:b6:69:7a:12:fd:ee:68:88:36:79:e2:04:64:8b:75:40:1c:81:f5:d4:1c:85:17:ad:23:e0:88:d5:a8:56:ce:60:c0:11:95:60:87:4f:af:41:59:9b:ec:89:e7:6d:79:c1:dc:b0:94:37:c8:6a:f8:a3:38:61:86:d8:f0:11:b5:b0:ca:23:be:00:36:fd:7b:b3:b8:68:f1:2d:88:2e:dd:10:19:4c:e3:d0:3a:c2:5e:2c:aa:dd:b7:66:e1:37:e1:9c:de:d9:a6:e6:f7:fa:f2:32:21:76:31:75:7c:f4:ac:97:fa:b2:8b:96:e4:2e:e4:26:89:d7:d4:6a:8d:d3:43:43:4f:df:40:7d",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "963",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "8",
+                "tls.handshake.length": "125",
+                "tls.handshake.extensions_length": "123",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "16",
+                  "tls.handshake.extension.len": "5",
+                  "tls.handshake.extensions_alpn_len": "3",
+                  "tls.handshake.extensions_alpn_list": {
+                    "tls.handshake.extensions_alpn_str_len": "2",
+                    "tls.handshake.extensions_alpn_str": "h3"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "57",
+                  "tls.handshake.extension.len": "110",
+                  "Parameter: original_destination_connection_id (len=16)": {
+                    "tls.quic.parameter.type": "0",
+                    "tls.quic.parameter.length": "16",
+                    "tls.quic.parameter.value": "15:e2:2f:7a:bc:aa:ec:c7:e7:25:d0:80:1b:55:58:31",
+                    "tls.quic.parameter.original_destination_connection_id": "15:e2:2f:7a:bc:aa:ec:c7:e7:25:d0:80:1b:55:58:31"
+                  },
+                  "Parameter: max_idle_timeout (len=4) 30000 ms": {
+                    "tls.quic.parameter.type": "1",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:75:30",
+                    "tls.quic.parameter.max_idle_timeout": "30000"
+                  },
+                  "Parameter: max_udp_payload_size (len=2) 1350": {
+                    "tls.quic.parameter.type": "3",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "45:46",
+                    "tls.quic.parameter.max_udp_payload_size": "1350"
+                  },
+                  "Parameter: initial_max_data (len=4) 10000000": {
+                    "tls.quic.parameter.type": "4",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:98:96:80",
+                    "tls.quic.parameter.initial_max_data": "10000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_local (len=4) 1000000": {
+                    "tls.quic.parameter.type": "5",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_local": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_remote (len=4) 1000000": {
+                    "tls.quic.parameter.type": "6",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_remote": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_uni (len=4) 1000000": {
+                    "tls.quic.parameter.type": "7",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_uni": "1000000"
+                  },
+                  "Parameter: initial_max_streams_bidi (len=2) 100": {
+                    "tls.quic.parameter.type": "8",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_bidi": "100"
+                  },
+                  "Parameter: initial_max_streams_uni (len=2) 100": {
+                    "tls.quic.parameter.type": "9",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_uni": "100"
+                  },
+                  "Parameter: ack_delay_exponent (len=1)": {
+                    "tls.quic.parameter.type": "10",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.ack_delay_exponent": "3"
+                  },
+                  "Parameter: max_ack_delay (len=1) 25": {
+                    "tls.quic.parameter.type": "11",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "19",
+                    "tls.quic.parameter.max_ack_delay": "25"
+                  },
+                  "Parameter: initial_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "15",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
+                    "tls.quic.parameter.initial_source_connection_id": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30"
+                  },
+                  "Parameter: retry_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "16",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
+                    "tls.quic.parameter.retry_source_connection_id": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30"
+                  }
+                }
+              },
+              "tls.handshake": ""
+            }
+          }
         }
       }
     }
@@ -1078,7 +1216,7 @@
           "frame.cap_len": "517",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:tls:x509sat:x509sat:x509sat:x509sat:x509sat:x509sat:x509sat:x509sat:x509ce:x509ce:x509ce"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -1117,7 +1255,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -1128,6 +1267,7 @@
           "udp.checksum": "0xfff1",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "7",
           "Timestamps": {
             "udp.time_relative": "0.002536000",
             "udp.time_delta": "0.000054000"
@@ -1142,19 +1282,197 @@
           "quic.header_form": "1",
           "quic.fixed_bit": "1",
           "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
           "quic.version": "0x00000001",
           "quic.dcil": "20",
           "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
           "quic.scil": "20",
           "quic.scid": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
           "quic.length": "420",
-          "_ws.expert": {
-            "quic.decryption_failed": "",
-            "_ws.expert.message": "Failed to create decryption context: Secrets are not available",
-            "_ws.expert.severity": "6291456",
-            "_ws.expert.group": "201326592"
-          },
-          "quic.remaining_payload": "5c:b9:5a:8c:58:ef:9b:07:1a:30:1d:e7:71:54:7e:b1:b5:ce:de:1f:86:fc:47:52:07:ff:5e:cb:d1:2e:5b:4f:fb:ee:d8:c0:0b:26:5b:36:1b:6f:2e:96:d8:6b:d4:6d:26:6f:4c:d2:0f:3e:c1:59:7e:98:c5:34:f7:6a:82:79:e2:1e:7c:bd:fa:26:b9:29:3d:7a:06:c8:d1:52:be:1a:f3:b3:ba:cf:86:91:7e:a4:fc:36:4f:b0:b5:d8:66:61:37:1c:c6:23:29:3e:04:be:e1:e5:cf:f2:64:b5:04:19:15:35:6b:3c:f4:e0:da:d0:bf:d0:69:a2:9a:94:f1:08:ab:8e:c1:30:b8:ee:41:42:af:01:14:0c:83:ec:49:63:bb:24:a9:31:f9:66:e1:63:fe:30:ee:9a:25:aa:3f:1d:e3:2e:1a:1d:9c:ca:7d:9e:fb:62:07:aa:71:d7:64:00:dc:4f:cb:61:07:3b:77:2f:ae:94:c6:42:fa:99:d0:d9:eb:e5:40:60:65:36:14:57:67:b4:88:fe:71:35:91:79:6f:61:db:32:d6:23:ad:19:b8:2f:d8:2f:95:1c:d7:50:9d:19:87:a1:05:01:75:05:31:f5:69:4c:ba:e9:13:f6:dd:87:45:c9:a0:12:56:36:68:53:b3:c8:c4:11:46:29:7d:46:8d:6d:40:f9:15:cb:06:6c:79:d8:ea:99:df:a7:e2:f5:9c:83:b0:63:04:b1:e6:85:67:94:cc:ec:ab:78:c6:b7:38:bc:60:40:5a:0b:3e:8e:fc:07:63:e3:85:ae:64:4e:32:d8:1c:7e:cb:8a:c9:d4:10:a8:56:2d:6b:37:51:03:d5:ba:5d:5d:43:e3:56:e9:03:5d:ce:0c:b3:81:e8:66:cf:2e:12:d2:6b:4b:5c:00:36:29:06:d2:2f:00:75:aa:3b:53:b6:3e:17:81:3e:93:e8:e5:77:79:d5:f9:bf:a9:21:d9:a8:38:e3:0e:6e:25:ba:70:20:9c:24:17:e6:75:f4:5e:e1:2f:87:d9:62:28:2a:05:65:63:a5:6c:51:5c:85:9c:7b:39:41:44:d6:6a:b6:04:00:74:9c:7f:11:68:ae:e6"
+          "quic.packet_number": "2",
+          "quic.payload": "b9:5a:8c:58:ef:9b:07:1a:30:1d:e7:71:54:7e:b1:b5:ce:de:1f:86:fc:47:52:07:ff:5e:cb:d1:2e:5b:4f:fb:ee:d8:c0:0b:26:5b:36:1b:6f:2e:96:d8:6b:d4:6d:26:6f:4c:d2:0f:3e:c1:59:7e:98:c5:34:f7:6a:82:79:e2:1e:7c:bd:fa:26:b9:29:3d:7a:06:c8:d1:52:be:1a:f3:b3:ba:cf:86:91:7e:a4:fc:36:4f:b0:b5:d8:66:61:37:1c:c6:23:29:3e:04:be:e1:e5:cf:f2:64:b5:04:19:15:35:6b:3c:f4:e0:da:d0:bf:d0:69:a2:9a:94:f1:08:ab:8e:c1:30:b8:ee:41:42:af:01:14:0c:83:ec:49:63:bb:24:a9:31:f9:66:e1:63:fe:30:ee:9a:25:aa:3f:1d:e3:2e:1a:1d:9c:ca:7d:9e:fb:62:07:aa:71:d7:64:00:dc:4f:cb:61:07:3b:77:2f:ae:94:c6:42:fa:99:d0:d9:eb:e5:40:60:65:36:14:57:67:b4:88:fe:71:35:91:79:6f:61:db:32:d6:23:ad:19:b8:2f:d8:2f:95:1c:d7:50:9d:19:87:a1:05:01:75:05:31:f5:69:4c:ba:e9:13:f6:dd:87:45:c9:a0:12:56:36:68:53:b3:c8:c4:11:46:29:7d:46:8d:6d:40:f9:15:cb:06:6c:79:d8:ea:99:df:a7:e2:f5:9c:83:b0:63:04:b1:e6:85:67:94:cc:ec:ab:78:c6:b7:38:bc:60:40:5a:0b:3e:8e:fc:07:63:e3:85:ae:64:4e:32:d8:1c:7e:cb:8a:c9:d4:10:a8:56:2d:6b:37:51:03:d5:ba:5d:5d:43:e3:56:e9:03:5d:ce:0c:b3:81:e8:66:cf:2e:12:d2:6b:4b:5c:00:36:29:06:d2:2f:00:75:aa:3b:53:b6:3e:17:81:3e:93:e8:e5:77:79:d5:f9:bf:a9:21:d9:a8:38:e3:0e:6e:25:ba:70:20:9c:24:17:e6:75:f4:5e:e1:2f:87:d9:62:28:2a:05:65:63:a5:6c:51:5c:85:9c:7b:39:41:44:d6:6a:b6:04:00:74:9c:7f:11:68:ae:e6",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "963",
+            "quic.crypto.length": "398",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": "",
+              "tls.handshake.fragments": {
+                "tls.handshake.fragment": "6",
+                "tls.handshake.fragment": "7",
+                "tls.handshake.fragment.count": "2"
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "11",
+                "tls.handshake.length": "928",
+                "tls.handshake.certificate_request_context_length": "0",
+                "tls.handshake.certificates_length": "924",
+                "tls.handshake.certificates": {
+                  "tls.handshake.certificate_length": "919",
+                  "tls.handshake.certificate": "30:82:03:93:30:82:02:7b:a0:03:02:01:02:02:14:6a:3d:ba:0f:2c:eb:d9:6f:51:f2:3b:8a:9b:6a:4d:ca:bb:5a:b6:2d:30:0d:06:09:2a:86:48:86:f7:0d:01:01:0b:05:00:30:59:31:0b:30:09:06:03:55:04:06:13:02:41:55:31:13:30:11:06:03:55:04:08:0c:0a:53:6f:6d:65:2d:53:74:61:74:65:31:21:30:1f:06:03:55:04:0a:0c:18:49:6e:74:65:72:6e:65:74:20:57:69:64:67:69:74:73:20:50:74:79:20:4c:74:64:31:12:30:10:06:03:55:04:03:0c:09:71:75:69:63:2e:74:65:63:68:30:1e:17:0d:31:38:30:39:33:30:32:32:31:31:34:38:5a:17:0d:31:39:30:39:33:30:32:32:31:31:34:38:5a:30:59:31:0b:30:09:06:03:55:04:06:13:02:41:55:31:13:30:11:06:03:55:04:08:0c:0a:53:6f:6d:65:2d:53:74:61:74:65:31:21:30:1f:06:03:55:04:0a:0c:18:49:6e:74:65:72:6e:65:74:20:57:69:64:67:69:74:73:20:50:74:79:20:4c:74:64:31:12:30:10:06:03:55:04:03:0c:09:71:75:69:63:2e:74:65:63:68:30:82:01:22:30:0d:06:09:2a:86:48:86:f7:0d:01:01:01:05:00:03:82:01:0f:00:30:82:01:0a:02:82:01:01:00:aa:b4:b7:d1:f9:e4:23:a4:3e:e5:22:ac:05:79:08:c2:78:4e:eb:5c:7f:5a:0b:74:ce:8e:4f:fb:4c:93:01:90:d8:55:8b:44:85:19:5f:98:9d:de:b0:49:5e:3b:59:ea:e4:cb:4c:dd:df:ba:69:50:49:97:0b:53:8b:ca:41:3b:35:5f:26:49:67:c5:dd:3b:37:7a:ca:87:71:d9:6c:61:f2:6e:38:49:14:64:fd:53:8b:14:ad:c2:9c:0a:94:8a:25:a1:2e:ec:84:2c:41:0b:35:1e:1d:01:eb:b3:1e:a8:91:b7:17:b3:9c:60:21:77:39:70:b5:d5:62:b7:0a:d0:c3:29:c2:dc:b1:ad:b1:f9:62:26:ce:c3:df:6b:2c:c4:8d:0e:04:2d:35:43:3f:bd:e8:40:64:7a:0f:71:da:59:ab:8a:11:2e:09:8c:8f:42:32:7f:04:25:10:9c:c6:3c:1e:b7:e7:38:53:79:10:83:6c:f9:28:36:e8:a0:17:c2:7e:bc:e6:5f:7f:c4:a4:c7:ff:45:a0:12:69:4b:59:17:79:20:7c:34:fa:e3:c7:48:09:65:28:8a:96:ab:a3:55:7b:de:98:36:bc:37:b9:46:c0:29:e2:7d:40:ed:50:98:e3:c5:6f:18:4c:fd:42:07:29:f1:01:73:b6:91:49:9f:02:03:01:00:01:a3:53:30:51:30:1d:06:03:55:1d:0e:04:16:04:14:14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46:30:1f:06:03:55:1d:23:04:18:30:16:80:14:14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46:30:0f:06:03:55:1d:13:01:01:ff:04:05:30:03:01:01:ff:30:0d:06:09:2a:86:48:86:f7:0d:01:01:0b:05:00:03:82:01:01:00:65:ae:d7:2b:73:32:e0:9a:5e:48:bc:f4:04:08:f8:e1:0b:60:84:67:60:f7:c4:05:47:78:99:12:79:f4:5c:2d:3d:1e:b9:21:6e:36:91:f0:c6:b7:76:7d:10:c8:c0:d1:b8:f2:cb:36:5e:63:dd:55:ae:ac:3a:a7:80:43:5b:b8:92:41:3c:69:02:4f:3a:33:15:f3:14:e8:c6:73:18:b2:b5:96:32:22:1b:39:0c:5d:51:1a:6a:64:a3:ec:60:c9:d9:e4:76:8b:67:01:ba:08:8c:62:fe:cd:fd:ef:05:6d:23:11:05:7a:18:54:f8:ee:92:80:3c:43:00:c9:85:2f:e8:37:8e:ef:b7:4f:95:b1:38:b9:c1:a8:7d:77:7b:74:44:2a:ee:01:ef:f8:4c:44:e8:8c:fc:63:6c:41:93:43:bd:5d:99:4e:ba:c4:f6:4c:ae:7a:a5:18:23:5a:e2:43:76:6a:50:83:35:f4:a0:d7:24:69:e2:3d:74:cd:29:8a:d2:31:c4:1c:eb:a2:1e:58:96:fd:97:3e:68:b1:05:71:50:75:40:79:88:ca:f7:01:22:12:a2:b8:36:df:6e:45:ab:a9:28:9e:97:a9:cb:49:c2:2f:84:96:89:3a:b1:b3:41:80:5f:8d:e6:78:4c:ed:26:20:72:54:a2:37:20:64",
+                  "tls.handshake.certificate_tree": {
+                    "x509af.signedCertificate_element": {
+                      "x509af.version": "2",
+                      "x509af.serialNumber": "6a:3d:ba:0f:2c:eb:d9:6f:51:f2:3b:8a:9b:6a:4d:ca:bb:5a:b6:2d",
+                      "x509af.signature_element": {
+                        "x509af.algorithm.id": "1.2.840.113549.1.1.11"
+                      },
+                      "x509af.issuer": "0",
+                      "x509af.issuer_tree": {
+                        "x509if.rdnSequence": "4",
+                        "x509if.rdnSequence_tree": {
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.6",
+                              "x509sat.CountryName": "AU"
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.8",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Some-State"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.10",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Internet Widgits Pty Ltd"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.3",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "quic.tech"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "x509af.validity_element": {
+                        "x509af.notBefore": "0",
+                        "x509af.notBefore_tree": {
+                          "x509af.utcTime": "2018-09-30 22:11:48 (UTC)"
+                        },
+                        "x509af.notAfter": "0",
+                        "x509af.notAfter_tree": {
+                          "x509af.utcTime": "2019-09-30 22:11:48 (UTC)"
+                        }
+                      },
+                      "x509af.subject": "0",
+                      "x509af.subject_tree": {
+                        "x509af.rdnSequence": "4",
+                        "x509af.rdnSequence_tree": {
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.6",
+                              "x509sat.CountryName": "AU"
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.8",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Some-State"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.10",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Internet Widgits Pty Ltd"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.3",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "quic.tech"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "x509af.subjectPublicKeyInfo_element": {
+                        "x509af.algorithm_element": {
+                          "x509af.algorithm.id": "1.2.840.113549.1.1.1"
+                        },
+                        "x509af.subjectPublicKey": "30:82:01:0a:02:82:01:01:00:aa:b4:b7:d1:f9:e4:23:a4:3e:e5:22:ac:05:79:08:c2:78:4e:eb:5c:7f:5a:0b:74:ce:8e:4f:fb:4c:93:01:90:d8:55:8b:44:85:19:5f:98:9d:de:b0:49:5e:3b:59:ea:e4:cb:4c:dd:df:ba:69:50:49:97:0b:53:8b:ca:41:3b:35:5f:26:49:67:c5:dd:3b:37:7a:ca:87:71:d9:6c:61:f2:6e:38:49:14:64:fd:53:8b:14:ad:c2:9c:0a:94:8a:25:a1:2e:ec:84:2c:41:0b:35:1e:1d:01:eb:b3:1e:a8:91:b7:17:b3:9c:60:21:77:39:70:b5:d5:62:b7:0a:d0:c3:29:c2:dc:b1:ad:b1:f9:62:26:ce:c3:df:6b:2c:c4:8d:0e:04:2d:35:43:3f:bd:e8:40:64:7a:0f:71:da:59:ab:8a:11:2e:09:8c:8f:42:32:7f:04:25:10:9c:c6:3c:1e:b7:e7:38:53:79:10:83:6c:f9:28:36:e8:a0:17:c2:7e:bc:e6:5f:7f:c4:a4:c7:ff:45:a0:12:69:4b:59:17:79:20:7c:34:fa:e3:c7:48:09:65:28:8a:96:ab:a3:55:7b:de:98:36:bc:37:b9:46:c0:29:e2:7d:40:ed:50:98:e3:c5:6f:18:4c:fd:42:07:29:f1:01:73:b6:91:49:9f:02:03:01:00:01",
+                        "x509af.subjectPublicKey_tree": {
+                          "pkcs1.modulus": "00:aa:b4:b7:d1:f9:e4:23:a4:3e:e5:22:ac:05:79:08:c2:78:4e:eb:5c:7f:5a:0b:74:ce:8e:4f:fb:4c:93:01:90:d8:55:8b:44:85:19:5f:98:9d:de:b0:49:5e:3b:59:ea:e4:cb:4c:dd:df:ba:69:50:49:97:0b:53:8b:ca:41:3b:35:5f:26:49:67:c5:dd:3b:37:7a:ca:87:71:d9:6c:61:f2:6e:38:49:14:64:fd:53:8b:14:ad:c2:9c:0a:94:8a:25:a1:2e:ec:84:2c:41:0b:35:1e:1d:01:eb:b3:1e:a8:91:b7:17:b3:9c:60:21:77:39:70:b5:d5:62:b7:0a:d0:c3:29:c2:dc:b1:ad:b1:f9:62:26:ce:c3:df:6b:2c:c4:8d:0e:04:2d:35:43:3f:bd:e8:40:64:7a:0f:71:da:59:ab:8a:11:2e:09:8c:8f:42:32:7f:04:25:10:9c:c6:3c:1e:b7:e7:38:53:79:10:83:6c:f9:28:36:e8:a0:17:c2:7e:bc:e6:5f:7f:c4:a4:c7:ff:45:a0:12:69:4b:59:17:79:20:7c:34:fa:e3:c7:48:09:65:28:8a:96:ab:a3:55:7b:de:98:36:bc:37:b9:46:c0:29:e2:7d:40:ed:50:98:e3:c5:6f:18:4c:fd:42:07:29:f1:01:73:b6:91:49:9f",
+                          "pkcs1.publicExponent": "65537"
+                        }
+                      },
+                      "x509af.extensions": "3",
+                      "x509af.extensions_tree": {
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.14",
+                          "x509ce.SubjectKeyIdentifier": "14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46"
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.35",
+                          "x509ce.AuthorityKeyIdentifier_element": {
+                            "x509ce.keyIdentifier": "14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46"
+                          }
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.19",
+                          "x509af.critical": "1",
+                          "x509ce.BasicConstraintsSyntax_element": {
+                            "x509ce.cA": "1"
+                          }
+                        }
+                      }
+                    },
+                    "x509af.algorithmIdentifier_element": {
+                      "x509af.algorithm.id": "1.2.840.113549.1.1.11"
+                    },
+                    "ber.bitstring.padding": "0",
+                    "x509af.encrypted": "65:ae:d7:2b:73:32:e0:9a:5e:48:bc:f4:04:08:f8:e1:0b:60:84:67:60:f7:c4:05:47:78:99:12:79:f4:5c:2d:3d:1e:b9:21:6e:36:91:f0:c6:b7:76:7d:10:c8:c0:d1:b8:f2:cb:36:5e:63:dd:55:ae:ac:3a:a7:80:43:5b:b8:92:41:3c:69:02:4f:3a:33:15:f3:14:e8:c6:73:18:b2:b5:96:32:22:1b:39:0c:5d:51:1a:6a:64:a3:ec:60:c9:d9:e4:76:8b:67:01:ba:08:8c:62:fe:cd:fd:ef:05:6d:23:11:05:7a:18:54:f8:ee:92:80:3c:43:00:c9:85:2f:e8:37:8e:ef:b7:4f:95:b1:38:b9:c1:a8:7d:77:7b:74:44:2a:ee:01:ef:f8:4c:44:e8:8c:fc:63:6c:41:93:43:bd:5d:99:4e:ba:c4:f6:4c:ae:7a:a5:18:23:5a:e2:43:76:6a:50:83:35:f4:a0:d7:24:69:e2:3d:74:cd:29:8a:d2:31:c4:1c:eb:a2:1e:58:96:fd:97:3e:68:b1:05:71:50:75:40:79:88:ca:f7:01:22:12:a2:b8:36:df:6e:45:ab:a9:28:9e:97:a9:cb:49:c2:2f:84:96:89:3a:b1:b3:41:80:5f:8d:e6:78:4c:ed:26:20:72:54:a2:37:20:64"
+                  },
+                  "tls.handshake.extensions_length": "0"
+                }
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "15",
+                "tls.handshake.length": "260",
+                "tls.handshake.sig_hash_alg": "0x0804",
+                "tls.handshake.sig_hash_alg_tree": {
+                  "tls.handshake.sig_hash_hash": "8",
+                  "tls.handshake.sig_hash_sig": "4"
+                },
+                "tls.handshake.client_cert_vrfy.sig_len": "256",
+                "tls.handshake.client_cert_vrfy.sig": "58:81:9d:68:4f:70:00:9e:d3:7e:dc:3f:d6:85:42:7f:2b:f1:11:40:f3:62:ca:25:ef:c4:38:70:61:6d:ce:77:e7:a1:2f:2b:92:97:67:30:49:44:57:dc:09:36:58:2e:9d:5e:01:b4:93:5f:cd:16:53:83:f2:e5:b6:ee:99:ab:1b:d4:6c:af:66:ff:91:41:62:02:70:c7:55:3b:b5:95:9f:33:78:53:37:87:79:ef:4c:1c:74:d7:fb:e5:eb:ed:2e:d6:4e:8d:de:11:85:46:2c:1a:6f:c5:5a:da:2c:1a:85:62:77:04:67:29:5e:ce:ab:26:4b:35:2c:e8:c9:ff:7f:dd:02:ed:6f:7e:d2:9f:16:66:09:e3:9c:a9:2d:f8:91:9d:84:ca:3e:88:66:a0:0f:60:c5:a5:7d:7a:72:1d:ac:a4:26:18:7e:7c:42:25:80:9e:a5:fe:79:80:f2:c2:f7:cb:8e:a0:10:3d:85:4e:62:0a:48:ff:53:07:32:98:e6:56:d5:c8:86:0a:bc:4a:51:60:9f:26:d1:6f:60:8c:21:80:d7:e4:9b:73:90:82:74:6b:4f:2b:97:32:92:e7:e8:ea:3d:ba:f7:c2:59:12:46:29:47:97:cf:c7:64:73:94:c8:37:9d:bf:05:21:ab:82:25:98:cd:99:06:39:d0"
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "20",
+                "tls.handshake.length": "32",
+                "tls.handshake.verify_data": ""
+              }
+            }
+          }
         }
       }
     }
@@ -1179,7 +1497,7 @@
           "frame.cap_len": "1398",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:tls"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -1218,7 +1536,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "48704",
@@ -1229,6 +1548,7 @@
           "udp.checksum": "0x0363",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "8",
           "Timestamps": {
             "udp.time_relative": "0.006158000",
             "udp.time_delta": "0.003622000"
@@ -1256,7 +1576,7 @@
           "quic.packet_number": "3",
           "quic.payload": "a2:e1:29:10:47:75:a8:a9:19:f0:6e:61:1f:31:69:f1:56:2f:8c:41:61:25",
           "quic.frame": {
-            "quic.frame_type": "2",
+            "quic.frame_type": "0x0000000000000002",
             "quic.ack.largest_acknowledged": "0",
             "quic.ack.ack_delay": "438",
             "quic.ack.ack_range_count": "0",
@@ -1268,26 +1588,61 @@
           "quic.header_form": "1",
           "quic.fixed_bit": "1",
           "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
           "quic.version": "0x00000001",
           "quic.dcil": "20",
           "quic.dcid": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
           "quic.scil": "20",
           "quic.scid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
           "quic.length": "63",
-          "_ws.expert": {
-            "quic.decryption_failed": "",
-            "_ws.expert.message": "Failed to create decryption context: Secrets are not available",
-            "_ws.expert.severity": "6291456",
-            "_ws.expert.group": "201326592"
+          "quic.packet_number": "4",
+          "quic.payload": "f5:4b:45:3a:89:b5:da:9e:20:5a:bb:c8:cb:fb:13:ce:68:b0:44:17:5a:8b:f0:bf:df:dc:e3:0e:24:f5:1f:ed:90:f9:5e:52:18:6a:a8:4b:6c:68:81:7a:13:17:53:39:11:50:ce:69:5c:5e:1d:88:5f:de:a7:c3:6d:c6",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "2",
+            "quic.ack.ack_delay": "248",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "1"
           },
-          "quic.remaining_payload": "4c:f5:4b:45:3a:89:b5:da:9e:20:5a:bb:c8:cb:fb:13:ce:68:b0:44:17:5a:8b:f0:bf:df:dc:e3:0e:24:f5:1f:ed:90:f9:5e:52:18:6a:a8:4b:6c:68:81:7a:13:17:53:39:11:50:ce:69:5c:5e:1d:88:5f:de:a7:c3:6d:c6"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "36",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "20",
+                "tls.handshake.length": "32",
+                "tls.handshake.verify_data": ""
+              }
+            }
+          }
         },
         "quic": {
-          "_ws.expert": {
-            "quic.coalesced_padding_data": "",
-            "_ws.expert.message": "(Random) padding data appended to the datagram",
-            "_ws.expert.severity": "4194304",
-            "_ws.expert.group": "150994944"
+          "quic.packet_length": "1139",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
+            "quic.packet_number": "5",
+            "quic.protected_payload": "d3:e5:86:09:e3:92:cf:34:cc:8c:8d:26:06:4e:bd:dc:31:a2:ed:42:39:2f:ff:5a:16:87:39:8a:91:2b:13:b0:bc:34:19:15:a4:16:19:43:65:1f:17:bb:21:15:2c:b7:c2:a9:69:a5:3c:44:6b:37:3c:9d:e9:8d:fa:00:16:b2:62:60:68:65:87:14:c7:c6:13:8c:9a:ed:b3:c8:74:bd:14:9d:82:24:10:f4:92:80:ed:c1:f8:ef:3e:bd:6e:b7:37:fa:39:15:ae:6a:9b:74:d7:f8:65:ed:b2:ac:83:56:b4:6a:e8:1f:0e:2e:ca:c7:c6:67:68:65:b3:0d:61:b5:23:43:fc:20:2c:5c:d2:f8:63:de:41:74:a6:d1:cc:e5:ca:f6:b4:a5:d3:8c:c1:61:58:d7:1a:4c:8e:1f:9b:88:49:b2:05:e9:ba:48:1b:87:b1:1c:e2:8d:c0:12:fa:13:7f:f5:62:f2:0c:ac:8e:98:d6:32:4a:8f:ec:e9:14:2b:e8:27:8f:05:bd:fc:91:a0:e8:6c:c2:4c:b7:af:78:0a:36:da:20:2e:46:5c:b9:67:b1:c9:d2:6f:59:4d:9a:65:af:c5:1b:b5:9c:bb:a9:c2:c4:16:18:a8:49:32:40:b9:5d:9e:56:a0:e5:41:83:dd:cc:b3:26:f4:e4:50:05:31:b4:73:91:45:dc:46:8e:74:3f:ab:06:6d:b1:18:53:db:62:c3:75:3f:f2:fc:10:23:e7:36:42:cd:a5:fa:1a:ed:f3:27:d4:55:1b:5b:cb:35:d0:93:8c:99:2a:e7:bc:9d:59:7a:85:80:b4:ea:d7:b8:d0:3e:ea:7a:22:5e:2d:ea:a7:fb:0e:6d:7a:cb:7a:9f:0d:57:7d:fa:ec:eb:a7:8f:13:4e:bb:4d:1a:44:da:94:e8:ac:3a:2c:d5:4d:7e:2c:e1:21:c1:0a:f9:82:e0:6f:38:f5:56:35:da:d1:cf:3b:41:5a:1e:36:a4:6b:7a:2a:0a:28:c4:e7:3a:12:30:12:86:c0:d5:3e:18:fc:fe:8f:ec:d2:15:3d:a1:64:76:14:23:ca:ae:3f:17:10:d3:d0:9b:3b:c5:78:c6:12:41:2d:b9:8d:eb:8f:e1:a3:04:98:23:08:ee:10:55:ac:4a:41:7b:10:84:57:f8:b6:3e:78:88:dc:85:5e:00:20:16:bc:93:71:97:98:d9:96:76:0c:fe:fa:fc:e6:ea:e2:de:b5:18:04:49:20:7a:71:5a:19:48:4a:51:68:c3:02:13:25:93:f2:29:61:46:c6:1e:ba:50:2c:8e:b2:70:86:9e:43:a5:d7:89:9e:57:a2:7c:56:03:bf:07:08:d9:65:c9:35:36:bc:f1:cf:20:67:4d:50:85:65:d8:15:56:cc:7a:32:bc:de:15:fc:57:d3:a8:28:43:c3:a0:eb:02:65:07:b0:0f:64:ce:ee:aa:46:d3:73:18:4c:12:ed:e1:52:dc:dd:9e:61:af:09:43:1b:55:c2:60:99:dc:a9:86:d3:26:c3:80:6a:a2:bf:35:3f:6f:a4:63:00:17:ce:f9:b7:e0:fa:ad:8d:28:c8:1e:98:66:ea:3b:96:6a:bf:1a:d9:e5:6b:7a:8f:c6:97:09:51:7d:69:74:96:55:4c:b9:f6:22:53:b8:47:6d:da:93:10:c3:e5:76:2c:48:31:b3:bd:8c:75:54:7f:98:f6:96:e2:ff:ab:f9:69:b7:06:0e:ac:3d:ba:5c:c4:db:3a:3f:34:23:d0:45:59:64:5c:3a:b6:ea:00:7e:ed:da:b6:d3:72:fe:b4:97:9b:92:85:b5:30:80:19:84:d0:6d:10:95:74:32:e6:00:08:36:c3:23:63:fa:70:1b:4e:50:04:70:de:f7:45:b0:e3:f2:a3:8d:4b:c6:c2:bd:85:3a:4a:b7:2d:04:bd:60:ac:ba:68:7f:b5:9f:3d:60:b3:1a:88:82:66:d1:dd:22:73:23:8b:c3:19:ea:91:94:d4:60:4d:48:6a:fa:6a:44:39:a6:98:d3:d9:53:df:a4:cd:43:c8:03:53:8e:26:fc:b4:24:3c:9a:ed:9f:85:7e:b0:49:96:6a:15:50:95:4b:3b:fc:86:75:fa:ed:54:8b:8a:72:35:38:ec:5b:bc:a5:45:bb:b1:a0:6c:2e:7c:9b:94:31:4b:e6:54:26:45:55:2f:fd:52:eb:89:96:84:b8:e7:20:30:e9:76:9c:22:19:24:f0:2d:8f:4a:01:63:55:44:92:fa:52:0e:ec:00:11:1f:02:ea:d6:84:78:cf:1d:44:9a:11:a9:c1:b1:31:1e:0b:d4:ce:12:a0:3a:ac:38:96:15:9e:ea:96:8b:42:a9:be:c3:68:71:cf:68:dc:95:b0:94:66:38:6d:c1:9c:ee:c7:84:11:d8:83:12:5b:a6:38:20:af:2a:33:08:7b:a2:04:17:57:37:40:b9:40:ab:2f:7a:d3:dc:18:00:56:5f:fb:bd:a3:db:be:67:75:14:67:b7:f5:63:3e:1a:d7:7b:1e:86:65:54:08:7a:d8:fc:60:26:a6:dc:e3:0d:ac:db:11:f9:33:d5:a5:eb:aa:9b:43:d3:59:cf:02:f1:33:fd:92:6f:29:e8:c4:a2:42:22:17:34:f4:97:c2:2a:02:a7:ed:01:99:6c:3e:2e:4a:0b:5f:41:4f:a2:0f:32:ab:32:5d:4c:ce:9d:21:ab:65:d3:a1:3d:ca:22:7c:46:c3:9d:44:91:c4:9c:3d:17:57:c4:4f:24:76:70:8b:ca:f3:29:60:5a:6c:cd:5e:93:e0:92:a2:7c:f6:24:55:f7:9d:c9:6d:6c:7a:ef:4f:4a:df:dd:8e:25:4e:1f:47:6e:c0:68:80:2a:28:b2:5b:0f:06:8a:e2:96:e4:9c:8c:2e:86:2e:9d:b3:0b:cc:59:96:fb:55:66:e1:9f:3a:d3:d3:9c:0f:11:24:2a:a8"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000018",
+            "quic.nci.sequence": "1",
+            "quic.nci.retire_prior_to": "0",
+            "quic.nci.connection_id.length": "20",
+            "quic.nci.connection_id": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94",
+            "quic.nci.stateless_reset_token": "60:7b:d0:99:01:bf:6b:3f:62:24:21:02:2d:ff:10:65"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000000",
+            "quic.padding_length": "1061"
           }
         }
       }
@@ -1313,7 +1668,7 @@
           "frame.cap_len": "556",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:tls:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -1352,7 +1707,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -1363,6 +1719,7 @@
           "udp.checksum": "0x0019",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "9",
           "Timestamps": {
             "udp.time_relative": "0.006678000",
             "udp.time_delta": "0.000520000"
@@ -1378,15 +1735,105 @@
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
             "quic.spin_bit": "0",
-            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4"
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
+            "quic.packet_number": "3",
+            "quic.protected_payload": "a2:92:a3:fd:40:24:10:3d:cc:03:08:90:dd:cd:4f:96:85:25:dc:23:35:f7:e4:23:47:a0:1a:0c:b9:3d:f1:f0:a5:1a:43:7e:89:4e:6f:75:7d:6c:58:3f:ea:bb:27:c4:80:0f:f6:57:a7:29:7c:12:85:2a:6b:c9:fd:48:91:9c:cf:b7:fa:d8:f3:27:a7:aa:f7:00:de:ec:d5:0c:c2:ec:47:c5:3c:30:ce:28:0b:9d:1b:6c:96:96:87:45:8d:9a:59:0d:a5:57:db:78:b1:91:31:86:ff:0b:ee:76:ab:d7:9b:d8:18:ef:12:9d:ae:a4:0a:0a:be:06:d1:19:40:e9:dc:a5:4f:42:80:e2:84:77:2b:38:1a:63:05:e7:55:4d:e8:93:49:29:e9:7e:8b:72:83:5c:35:15:f0:44:72:df:8f:2a:0f:e4:e9:56:47:88:60:08:db:6c:c1:0a:46:fe:17:5a:e7:0a:79:dd:a4:10:9f:32:0a:b7:54:24:d6:5e:68:4a:42:b2:33:3d:7e:f1:d6:38:a8:ab:d3:33:83:b2:59:7a:86:2d:55:7d:46:62:85:be:61:e7:a2:7a:77:89:ab:13:59:5b:25:9e:2b:4a:f2:a0:96:c2:4e:21:21:6b:61:15:a8:ce:82:66:f2:0b:e7:98:bc:7a:69:7b:68:6a:bb:9f:e0:b7:ee:0d:28:09:e6:00:d5:66:b0:ac:c3:2e:fd:35:52:23:91:40:80:9b:3c:51:e9:de:2b:3f:f2:a9:97:0d:d8:b3:a3:35:5e:e3:e0:5d:dc:de:92:29:d5:63:fd:3e:d8:d6:a0:4f:d9:99:c9:a5:a6:a4:c9:53:61:42:c3:87:e4:2e:c1:67:ad:e8:bd:fb:62:82:24:0b:0e:1d:92:50:06:ec:98:b2:4d:c8:bc:8e:06:57:29:0b:37:74:ed:ba:c4:50:e4:99:76:b4:96:a7:0c:8f:14:e6:fa:3b:2d:64:09:d5:a5:a5:19:ce:9e:4f:be:11:ad:4a:f2:f6:8f:fc:dc:79:fb:7d:c6:99:54:64:b5:ad:cc:b0:66:c3:52:39:34:a8:2f:bc:87:31:4b:22:2d:c5:b0:39:cd:cd:ae:d7:93:66:6c:42:6c:b1:a0:ea:31:0e:e9:b7:e6:9d:ff:51:bc:e3:62:8d:10:d1:fd:75:43:2b:91:d8:aa:60:4c:64:1d:87:df:ca:0c:43:71:75:b6:ec:d4:47:f4:77:be:9f:fd:80:80:9d:a1:b7:0e:09:26:f0:63:68:79:83:d3:e6:1e:b1:ed:dc"
           },
-          "_ws.expert": {
-            "quic.decryption_failed": "",
-            "_ws.expert.message": "Failed to create decryption context: Secrets are not available",
-            "_ws.expert.severity": "6291456",
-            "_ws.expert.group": "201326592"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "5",
+            "quic.ack.ack_delay": "18",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
           },
-          "quic.remaining_payload": "24:a2:92:a3:fd:40:24:10:3d:cc:03:08:90:dd:cd:4f:96:85:25:dc:23:35:f7:e4:23:47:a0:1a:0c:b9:3d:f1:f0:a5:1a:43:7e:89:4e:6f:75:7d:6c:58:3f:ea:bb:27:c4:80:0f:f6:57:a7:29:7c:12:85:2a:6b:c9:fd:48:91:9c:cf:b7:fa:d8:f3:27:a7:aa:f7:00:de:ec:d5:0c:c2:ec:47:c5:3c:30:ce:28:0b:9d:1b:6c:96:96:87:45:8d:9a:59:0d:a5:57:db:78:b1:91:31:86:ff:0b:ee:76:ab:d7:9b:d8:18:ef:12:9d:ae:a4:0a:0a:be:06:d1:19:40:e9:dc:a5:4f:42:80:e2:84:77:2b:38:1a:63:05:e7:55:4d:e8:93:49:29:e9:7e:8b:72:83:5c:35:15:f0:44:72:df:8f:2a:0f:e4:e9:56:47:88:60:08:db:6c:c1:0a:46:fe:17:5a:e7:0a:79:dd:a4:10:9f:32:0a:b7:54:24:d6:5e:68:4a:42:b2:33:3d:7e:f1:d6:38:a8:ab:d3:33:83:b2:59:7a:86:2d:55:7d:46:62:85:be:61:e7:a2:7a:77:89:ab:13:59:5b:25:9e:2b:4a:f2:a0:96:c2:4e:21:21:6b:61:15:a8:ce:82:66:f2:0b:e7:98:bc:7a:69:7b:68:6a:bb:9f:e0:b7:ee:0d:28:09:e6:00:d5:66:b0:ac:c3:2e:fd:35:52:23:91:40:80:9b:3c:51:e9:de:2b:3f:f2:a9:97:0d:d8:b3:a3:35:5e:e3:e0:5d:dc:de:92:29:d5:63:fd:3e:d8:d6:a0:4f:d9:99:c9:a5:a6:a4:c9:53:61:42:c3:87:e4:2e:c1:67:ad:e8:bd:fb:62:82:24:0b:0e:1d:92:50:06:ec:98:b2:4d:c8:bc:8e:06:57:29:0b:37:74:ed:ba:c4:50:e4:99:76:b4:96:a7:0c:8f:14:e6:fa:3b:2d:64:09:d5:a5:a5:19:ce:9e:4f:be:11:ad:4a:f2:f6:8f:fc:dc:79:fb:7d:c6:99:54:64:b5:ad:cc:b0:66:c3:52:39:34:a8:2f:bc:87:31:4b:22:2d:c5:b0:39:cd:cd:ae:d7:93:66:6c:42:6c:b1:a0:ea:31:0e:e9:b7:e6:9d:ff:51:bc:e3:62:8d:10:d1:fd:75:43:2b:91:d8:aa:60:4c:64:1d:87:df:ca:0c:43:71:75:b6:ec:d4:47:f4:77:be:9f:fd:80:80:9d:a1:b7:0e:09:26:f0:63:68:79:83:d3:e6:1e:b1:ed:dc"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000018",
+            "quic.nci.sequence": "1",
+            "quic.nci.retire_prior_to": "0",
+            "quic.nci.connection_id.length": "20",
+            "quic.nci.connection_id": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.nci.stateless_reset_token": "e9:c4:13:e5:cb:03:49:da:44:2a:39:70:7d:fb:d6:1c"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001e"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "396",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "4",
+                "tls.handshake.length": "194",
+                "TLS Session Ticket": {
+                  "tls.handshake.session_ticket_lifetime_hint": "172800",
+                  "tls.handshake.session_ticket_age_add": "3092302888",
+                  "tls.handshake.session_ticket_nonce_length": "1",
+                  "tls.handshake.session_ticket_nonce": "00",
+                  "tls.handshake.session_ticket_length": "176",
+                  "tls.handshake.session_ticket": "0a:06:96:6e:8d:17:97:43:df:95:2b:eb:4e:cb:2b:d6:0c:bb:54:23:ca:ab:92:fc:66:60:8e:79:ca:fb:96:59:b2:ac:80:94:20:41:b7:b6:25:ab:e9:2e:09:9f:5f:80:6a:7a:f5:62:95:ba:c7:90:cb:8e:ed:fc:aa:00:c6:00:25:0f:9a:e9:0b:d2:0c:af:75:6b:84:45:e2:60:82:bd:29:0d:a1:77:7d:2a:99:74:c7:8e:df:f7:4d:5b:7a:5e:89:64:cd:07:3d:0e:90:54:0a:20:3c:31:05:50:7a:ba:df:20:8b:6d:6a:cd:d3:c2:70:2d:22:31:4f:a9:7e:fd:4d:e3:27:54:3f:d8:ca:a7:38:32:c0:5d:9d:e3:1f:9d:96:0e:a0:fa:a2:b6:48:4d:f6:34:d0:49:2d:9d:94:f2:1c:d6:d0:e4:a2:4c:c2:04:0f:2e:2f:0b:a3:fc:08:f4",
+                  "tls.handshake.extensions_length": "4",
+                  "tls.handshake.extension": {
+                    "tls.handshake.extension.type": "51914",
+                    "tls.handshake.extension.len": "0",
+                    "tls.handshake.extension.data": ""
+                  }
+                }
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "4",
+                "tls.handshake.length": "194",
+                "TLS Session Ticket": {
+                  "tls.handshake.session_ticket_lifetime_hint": "172800",
+                  "tls.handshake.session_ticket_age_add": "279120203",
+                  "tls.handshake.session_ticket_nonce_length": "1",
+                  "tls.handshake.session_ticket_nonce": "01",
+                  "tls.handshake.session_ticket_length": "176",
+                  "tls.handshake.session_ticket": "0a:06:96:6e:8d:17:97:43:df:95:2b:eb:4e:cb:2b:d6:08:37:27:0f:1e:5d:9e:7c:93:a4:b5:68:51:55:b2:29:40:15:8f:97:c6:27:3a:31:e3:46:d2:21:6b:3a:f8:cc:a9:e9:03:bb:4d:7e:5b:29:4f:2f:fa:1b:ac:d2:e0:7d:8d:8e:74:52:29:2d:7d:71:8f:9f:1f:f7:ee:39:d2:11:cf:1f:78:01:ce:6c:2e:c4:b2:50:ae:73:8c:dc:0b:1c:b3:ab:14:52:5c:b8:6d:23:1e:f9:71:f2:8e:22:73:01:00:1d:17:b4:f1:96:28:b0:e0:2c:68:32:c0:94:a2:6a:ed:40:b3:6a:8d:ab:90:40:c5:66:3f:23:ec:61:44:5c:63:e1:51:64:b3:57:d3:54:3f:db:27:3e:50:97:f1:8d:60:49:35:f6:0b:d7:b5:cb:a9:ef:65:40:46:3b:69:5d",
+                  "tls.handshake.extensions_length": "4",
+                  "tls.handshake.extension": {
+                    "tls.handshake.extension.type": "51914",
+                    "tls.handshake.extension.len": "0",
+                    "tls.handshake.extension.data": ""
+                  }
+                }
+              }
+            }
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "3",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "19",
+            "quic.stream_data": "00:04:10:f4:ac:e3:ba:50:38:f6:32:ed:e1:6d:68:d7:e3:11:bf"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000000",
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000004",
+              "http3.frame_length": "16",
+              "http3.frame_payload": "f4:ac:e3:ba:50:38:f6:32:ed:e1:6d:68:d7:e3:11:bf",
+              "http3.settings": {
+                "http3.settings.id": "0x34ace3ba5038f632",
+                "http3.settings.value": "3306043898532663743"
+              }
+            }
+          }
         }
       }
     }
@@ -1411,7 +1858,7 @@
           "frame.cap_len": "92",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -1450,7 +1897,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -1461,6 +1909,7 @@
           "udp.checksum": "0xfe48",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "10",
           "Timestamps": {
             "udp.time_relative": "0.006733000",
             "udp.time_delta": "0.000055000"
@@ -1476,9 +1925,35 @@
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
             "quic.spin_bit": "0",
-            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4"
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
+            "quic.packet_number": "4",
+            "quic.protected_payload": "07:c5:a6:4a:81:9e:08:ca:42:06:b2:3d:29:82:ad:9b:50:05:43:e7:c9:33"
           },
-          "quic.remaining_payload": "da:07:c5:a6:4a:81:9e:08:ca:42:06:b2:3d:29:82:ad:9b:50:05:43:e7:c9:33"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "7",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "02"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000002",
+            "http3.qpack.encoder": ""
+          }
         }
       }
     }
@@ -1503,7 +1978,7 @@
           "frame.cap_len": "92",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -1542,7 +2017,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -1553,6 +2029,7 @@
           "udp.checksum": "0xfe48",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "11",
           "Timestamps": {
             "udp.time_relative": "0.006754000",
             "udp.time_delta": "0.000021000"
@@ -1568,9 +2045,34 @@
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
             "quic.spin_bit": "0",
-            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4"
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
+            "quic.packet_number": "5",
+            "quic.protected_payload": "31:d2:15:e4:57:44:e4:35:79:0d:09:00:5c:44:09:be:09:1f:08:ef:c4:08"
           },
-          "quic.remaining_payload": "5b:31:d2:15:e4:57:44:e4:35:79:0d:09:00:5c:44:09:be:09:1f:08:ef:c4:08"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "11",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "03"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000003"
+          }
         }
       }
     }
@@ -1595,7 +2097,7 @@
           "frame.cap_len": "117",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -1634,7 +2136,8 @@
           "ip.dst": "127.0.0.2",
           "ip.addr": "127.0.0.2",
           "ip.dst_host": "127.0.0.2",
-          "ip.host": "127.0.0.2"
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -1645,6 +2148,7 @@
           "udp.checksum": "0xfe61",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "12",
           "Timestamps": {
             "udp.time_relative": "0.006771000",
             "udp.time_delta": "0.000017000"
@@ -1660,9 +2164,34 @@
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
             "quic.spin_bit": "0",
-            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4"
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4",
+            "quic.packet_number": "6",
+            "quic.protected_payload": "02:a3:d4:51:eb:10:2a:df:b7:91:22:b3:4e:79:53:f8:26:e4:4f:22:f9:da:25:ea:7b:e3:a4:a1:c8:e3:3e:c3:ed:12:77:28:28:12:ba:a5:20:14:b1:d5:51:67:ae"
           },
-          "quic.remaining_payload": "83:02:a3:d4:51:eb:10:2a:df:b7:91:22:b3:4e:79:53:f8:26:e4:4f:22:f9:da:25:ea:7b:e3:a4:a1:c8:e3:3e:c3:ed:12:77:28:28:12:ba:a5:20:14:b1:d5:51:67:ae"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "15",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "26",
+            "quic.stream_data": "c8:a0:ec:ce:43:62:14:00:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x08a0ecce43621400"
+          }
         }
       }
     }
@@ -1726,7 +2255,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
         },
         "udp": {
           "udp.srcport": "48704",
@@ -1737,6 +2267,7 @@
           "udp.checksum": "0xfe47",
           "udp.checksum.status": "2",
           "udp.stream": "0",
+          "udp.stream.pnum": "13",
           "Timestamps": {
             "udp.time_relative": "0.007314000",
             "udp.time_delta": "0.000543000"
@@ -1752,9 +2283,20 @@
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
             "quic.spin_bit": "0",
-            "quic.dcid": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30"
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "70:eb:8b:20:e9:10:8e:29:1e:43:92:52:3f:9f:d0:d6:d7:2f:43:30",
+            "quic.packet_number": "6",
+            "quic.protected_payload": "9f:86:0c:18:7b:f2:34:a7:de:af:3e:be:fc:ff:f3:d8:e9:64:4e:94:1c"
           },
-          "quic.remaining_payload": "ae:9f:86:0c:18:7b:f2:34:a7:de:af:3e:be:fc:ff:f3:d8:e9:64:4e:94:1c"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "6",
+            "quic.ack.ack_delay": "35",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "3"
+          }
         }
       }
     }
@@ -1818,7 +2360,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -1829,6 +2372,7 @@
           "udp.checksum": "0x0364",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "1",
           "Timestamps": {
             "udp.time_relative": "0.000000000",
             "udp.time_delta": "0.000000000"
@@ -1837,20 +2381,28 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "1350",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "7",
+            "quic.protected_payload": "07:83:7d:6d:e4:ec:f1:28:0d:44:c7:3c:09:ab:24:f6:53:11:91:81:d1:b1:60:ca:90:34:cc:62:2b:fc:38:85:31:95:3f:81:4a:74:db:40:10:a0:60:3a:2f:0e:ac:eb:66:f6:65:bf:f7:77:a5:94:cb:ef:91:ec:4c:9e:54:e2:8f:89:29:f3:2d:38:04:bd:3a:8a:e8:b7:d7:bd:ff:a8:53:10:b9:20:c8:21:f5:bf:81:73:91:64:7a:bb:ce:90:3d:6c:2d:0d:e5:e6:c9:62:1a:eb:dc:e1:c8:8d:a6:1b:59:f8:f4:61:47:04:dd:4a:26:66:c2:1d:a0:da:b4:02:c4:0b:0c:e5:e8:af:3a:dd:85:6e:37:8c:53:83:47:9a:ab:86:43:88:db:a8:20:47:aa:c4:99:6a:24:93:3c:5f:a6:2b:db:3e:26:9d:4a:ac:f6:d1:d0:4d:30:10:f1:e3:bd:64:44:07:20:49:19:40:0c:02:06:e6:63:d6:21:70:36:e3:00:f0:2c:78:45:fa:af:76:23:2c:b6:94:d8:7c:6f:54:50:b7:a5:48:6b:65:65:db:8e:2e:e7:da:45:88:b0:36:42:f6:03:99:94:af:de:f6:0a:c0:ae:25:4d:0a:60:68:ce:9d:2f:1c:2c:45:db:a7:fd:bd:e1:f9:76:a1:3c:38:98:86:74:8e:7c:96:d2:c1:f6:b3:53:68:64:18:b7:ff:98:42:4a:9c:12:6a:88:72:de:7d:dd:c0:fe:e8:4c:fa:ad:e2:87:00:8a:54:46:b2:2a:7b:08:c0:cd:20:66:1e:ef:50:b7:58:e0:ef:4c:b4:f4:bc:2a:07:de:e0:c0:31:56:54:a8:3e:05:c0:e8:30:72:57:d3:8a:27:b3:7e:79:0f:02:4d:16:34:5e:e3:5f:40:c8:fe:a4:4d:bc:e3:0c:e7:85:ff:62:6d:27:78:fb:c1:79:ee:a9:b3:c8:89:de:df:3d:53:ed:0b:1d:88:cc:0b:04:4b:fe:d0:50:70:cb:3d:e3:47:80:8e:5f:bd:21:40:17:6a:4b:0d:d0:3e:09:19:77:60:7b:bc:88:80:bb:11:5a:22:c3:5e:85:75:d2:88:dd:cd:5c:f7:69:2d:3b:5c:90:8f:10:f7:7b:f2:fb:25:82:0b:ba:7e:d6:14:7e:2a:cd:b6:fd:5c:e5:c6:72:d1:12:b4:7b:8b:3b:1e:ec:23:ea:35:9e:c4:e5:1f:c8:d3:84:94:4e:b9:e2:26:48:38:70:c2:80:da:4f:e1:4d:3d:17:b1:10:de:78:96:35:e6:64:3e:34:85:05:c4:da:e2:be:a3:1e:4b:06:d9:7d:e5:81:ba:90:23:81:ce:a9:33:b5:de:b3:33:87:aa:ae:be:07:8a:e1:0b:90:5c:b9:2e:0e:03:c7:2b:3e:4d:eb:0f:0b:66:51:61:4b:5a:d0:9b:80:2c:bb:aa:87:03:80:29:55:27:7d:2d:ca:46:b8:b2:e0:b5:b0:41:03:ef:c9:d7:ea:20:b3:d8:36:9c:41:86:1f:bd:a8:c9:7b:55:44:5d:2d:c3:d4:f3:b3:1f:b3:ae:a6:9c:7d:ab:24:55:2e:8f:02:2d:15:f6:f4:1c:f6:7f:e6:7f:f7:45:a7:61:27:04:03:e5:99:6c:a5:ba:9c:5e:33:dd:ce:f4:6c:4d:db:9a:0f:92:dd:3e:ce:61:f7:bc:49:83:90:0f:02:86:4b:88:01:d0:35:6f:69:f7:92:52:1c:7b:95:ad:88:12:66:6f:ee:fa:c4:0c:60:53:1c:1c:8c:fa:6f:c5:2c:7c:21:33:7c:19:de:f7:09:c3:2f:9c:d0:0b:5a:8f:1b:9d:a8:77:64:cb:33:3c:fc:21:7c:6f:28:36:cc:d5:f6:68:d3:30:9a:7a:3e:19:14:9f:db:0b:14:93:a6:d3:3c:e7:f9:a2:7c:1e:90:ae:37:60:79:16:51:9a:e7:45:0f:ec:4f:51:52:e9:bb:d9:0a:ba:1e:50:4b:3e:d3:9a:22:05:f4:c8:d4:94:a5:ff:be:da:a4:85:af:94:fa:ac:ca:82:46:ad:43:1a:a2:d4:5b:21:a1:77:53:ae:6d:d5:f0:1e:f9:a8:84:cf:c8:19:6e:f4:1e:62:3f:17:8b:95:bc:83:3d:2c:d8:84:48:59:dd:7c:d7:58:c9:6a:83:0f:d6:91:2b:98:78:f8:a2:8c:bf:a2:0c:7c:f2:76:a5:10:08:b2:f0:6d:48:93:ef:ac:92:fa:62:14:e1:99:11:7b:ec:16:fc:ad:5a:38:df:63:37:57:51:df:65:88:39:ce:d0:cf:c3:ec:5f:67:d4:3b:4e:dc:9d:44:2b:2c:8c:42:d9:21:0d:54:04:b3:ea:e5:21:8b:61:80:02:5e:a2:d1:b7:d3:02:25:1d:09:53:e2:e1:f8:7a:5e:c9:6c:aa:b2:f3:bd:c2:0b:0d:f3:44:d0:67:86:35:cf:69:2d:2b:14:b1:c9:a7:60:e1:93:6c:4a:52:39:4d:14:19:aa:97:8d:b0:00:d8:6f:59:3c:63:61:29:15:e3:9c:36:42:3e:3e:bc:f7:1a:0e:7b:de:8f:14:a3:ac:e0:70:2e:50:99:d8:68:71:a9:95:a8:be:71:1c:03:93:84:aa:77:e3:96:62:2c:14:19:bf:14:b3:66:58:d5:dc:c3:2c:b3:1d:7c:4c:20:ba:f4:93:4b:08:d8:a6:d0:3b:91:63:c5:d1:d5:b6:f6:96:1f:6e:83:01:3d:6f:17:45:e4:a3:21:48:c8:71:ad:7d:c5:df:19:9e:28:a4:7d:5a:85:65:e1:b3:3d:03:51:cd:fd:1d:5f:64:4e:6d:af:d2:c4:d8:f3:b9:0e:52:ed:a5:98:05:57:68:da:93:9b:61:e1:02:65:32:1c:12:ac:c5:9e:5a:c3:b3:24:33:c3:2c:b7:2d:09:84:62:13:23:1a:b1:d0:89:54:77:c7:9e:7c:b8:0a:de:44:00:bc:09:79:28:e7:28:4f:97:38:33:b3:32:6c:35:0d:4c:37:87:6d:31:f9:55:ff:e2:47:7f:a1:44:ed:9b:d3:fb:fd:6d:ee:19:f9:7f:cb:46:91:97:03:8b:83:a6:99:9a:e8:26:57:d7:91:32:3d:4b:2c:f8:19:04:cf:1c:9a:d2:cb:1f:1e:8c:6e:47:6e:28:1f:b9:d9:ea:a4:29:ca:85:8d:49:e1:43:37:73:61:46:2f:e5:9e:06:7d:cf:f4:71:6f:f2:40:14:dc:e9:fa:39:bb:8d:16:6e:4a:c7:9a:1c:6b:5e:9b:ad:a8:aa:06:2a:1b:03:6f:7b:e6:3d:88:ec:b6:d2:a4:75:ce:86:4e:e9:8f:4a:e7:1f:2f:78:72:01:a1:2a:c2:71:2c:b2:77:9e:a8:d3:c9:e0:2b:d2:f2:54:ce:90:a3:89:5a:11:5d:a1:5d:f5:31:e1:25:aa:df:ee:0b:17:c7:bc:a7:57:b2:a0:bf:37:77:2d:82:ad:fa:00:5c:e1:95:5f:ed:48:64:4e:36:2a"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:36:07:83:7d:6d:e4:ec:f1:28:0d:44:c7:3c:09:ab:24:f6:53:11:91:81:d1:b1:60:ca:90:34:cc:62:2b:fc:38:85:31:95:3f:81:4a:74:db:40:10:a0:60:3a:2f:0e:ac:eb:66:f6:65:bf:f7:77:a5:94:cb:ef:91:ec:4c:9e:54:e2:8f:89:29:f3:2d:38:04:bd:3a:8a:e8:b7:d7:bd:ff:a8:53:10:b9:20:c8:21:f5:bf:81:73:91:64:7a:bb:ce:90:3d:6c:2d:0d:e5:e6:c9:62:1a:eb:dc:e1:c8:8d:a6:1b:59:f8:f4:61:47:04:dd:4a:26:66:c2:1d:a0:da:b4:02:c4:0b:0c:e5:e8:af:3a:dd:85:6e:37:8c:53:83:47:9a:ab:86:43:88:db:a8:20:47:aa:c4:99:6a:24:93:3c:5f:a6:2b:db:3e:26:9d:4a:ac:f6:d1:d0:4d:30:10:f1:e3:bd:64:44:07:20:49:19:40:0c:02:06:e6:63:d6:21:70:36:e3:00:f0:2c:78:45:fa:af:76:23:2c:b6:94:d8:7c:6f:54:50:b7:a5:48:6b:65:65:db:8e:2e:e7:da:45:88:b0:36:42:f6:03:99:94:af:de:f6:0a:c0:ae:25:4d:0a:60:68:ce:9d:2f:1c:2c:45:db:a7:fd:bd:e1:f9:76:a1:3c:38:98:86:74:8e:7c:96:d2:c1:f6:b3:53:68:64:18:b7:ff:98:42:4a:9c:12:6a:88:72:de:7d:dd:c0:fe:e8:4c:fa:ad:e2:87:00:8a:54:46:b2:2a:7b:08:c0:cd:20:66:1e:ef:50:b7:58:e0:ef:4c:b4:f4:bc:2a:07:de:e0:c0:31:56:54:a8:3e:05:c0:e8:30:72:57:d3:8a:27:b3:7e:79:0f:02:4d:16:34:5e:e3:5f:40:c8:fe:a4:4d:bc:e3:0c:e7:85:ff:62:6d:27:78:fb:c1:79:ee:a9:b3:c8:89:de:df:3d:53:ed:0b:1d:88:cc:0b:04:4b:fe:d0:50:70:cb:3d:e3:47:80:8e:5f:bd:21:40:17:6a:4b:0d:d0:3e:09:19:77:60:7b:bc:88:80:bb:11:5a:22:c3:5e:85:75:d2:88:dd:cd:5c:f7:69:2d:3b:5c:90:8f:10:f7:7b:f2:fb:25:82:0b:ba:7e:d6:14:7e:2a:cd:b6:fd:5c:e5:c6:72:d1:12:b4:7b:8b:3b:1e:ec:23:ea:35:9e:c4:e5:1f:c8:d3:84:94:4e:b9:e2:26:48:38:70:c2:80:da:4f:e1:4d:3d:17:b1:10:de:78:96:35:e6:64:3e:34:85:05:c4:da:e2:be:a3:1e:4b:06:d9:7d:e5:81:ba:90:23:81:ce:a9:33:b5:de:b3:33:87:aa:ae:be:07:8a:e1:0b:90:5c:b9:2e:0e:03:c7:2b:3e:4d:eb:0f:0b:66:51:61:4b:5a:d0:9b:80:2c:bb:aa:87:03:80:29:55:27:7d:2d:ca:46:b8:b2:e0:b5:b0:41:03:ef:c9:d7:ea:20:b3:d8:36:9c:41:86:1f:bd:a8:c9:7b:55:44:5d:2d:c3:d4:f3:b3:1f:b3:ae:a6:9c:7d:ab:24:55:2e:8f:02:2d:15:f6:f4:1c:f6:7f:e6:7f:f7:45:a7:61:27:04:03:e5:99:6c:a5:ba:9c:5e:33:dd:ce:f4:6c:4d:db:9a:0f:92:dd:3e:ce:61:f7:bc:49:83:90:0f:02:86:4b:88:01:d0:35:6f:69:f7:92:52:1c:7b:95:ad:88:12:66:6f:ee:fa:c4:0c:60:53:1c:1c:8c:fa:6f:c5:2c:7c:21:33:7c:19:de:f7:09:c3:2f:9c:d0:0b:5a:8f:1b:9d:a8:77:64:cb:33:3c:fc:21:7c:6f:28:36:cc:d5:f6:68:d3:30:9a:7a:3e:19:14:9f:db:0b:14:93:a6:d3:3c:e7:f9:a2:7c:1e:90:ae:37:60:79:16:51:9a:e7:45:0f:ec:4f:51:52:e9:bb:d9:0a:ba:1e:50:4b:3e:d3:9a:22:05:f4:c8:d4:94:a5:ff:be:da:a4:85:af:94:fa:ac:ca:82:46:ad:43:1a:a2:d4:5b:21:a1:77:53:ae:6d:d5:f0:1e:f9:a8:84:cf:c8:19:6e:f4:1e:62:3f:17:8b:95:bc:83:3d:2c:d8:84:48:59:dd:7c:d7:58:c9:6a:83:0f:d6:91:2b:98:78:f8:a2:8c:bf:a2:0c:7c:f2:76:a5:10:08:b2:f0:6d:48:93:ef:ac:92:fa:62:14:e1:99:11:7b:ec:16:fc:ad:5a:38:df:63:37:57:51:df:65:88:39:ce:d0:cf:c3:ec:5f:67:d4:3b:4e:dc:9d:44:2b:2c:8c:42:d9:21:0d:54:04:b3:ea:e5:21:8b:61:80:02:5e:a2:d1:b7:d3:02:25:1d:09:53:e2:e1:f8:7a:5e:c9:6c:aa:b2:f3:bd:c2:0b:0d:f3:44:d0:67:86:35:cf:69:2d:2b:14:b1:c9:a7:60:e1:93:6c:4a:52:39:4d:14:19:aa:97:8d:b0:00:d8:6f:59:3c:63:61:29:15:e3:9c:36:42:3e:3e:bc:f7:1a:0e:7b:de:8f:14:a3:ac:e0:70:2e:50:99:d8:68:71:a9:95:a8:be:71:1c:03:93:84:aa:77:e3:96:62:2c:14:19:bf:14:b3:66:58:d5:dc:c3:2c:b3:1d:7c:4c:20:ba:f4:93:4b:08:d8:a6:d0:3b:91:63:c5:d1:d5:b6:f6:96:1f:6e:83:01:3d:6f:17:45:e4:a3:21:48:c8:71:ad:7d:c5:df:19:9e:28:a4:7d:5a:85:65:e1:b3:3d:03:51:cd:fd:1d:5f:64:4e:6d:af:d2:c4:d8:f3:b9:0e:52:ed:a5:98:05:57:68:da:93:9b:61:e1:02:65:32:1c:12:ac:c5:9e:5a:c3:b3:24:33:c3:2c:b7:2d:09:84:62:13:23:1a:b1:d0:89:54:77:c7:9e:7c:b8:0a:de:44:00:bc:09:79:28:e7:28:4f:97:38:33:b3:32:6c:35:0d:4c:37:87:6d:31:f9:55:ff:e2:47:7f:a1:44:ed:9b:d3:fb:fd:6d:ee:19:f9:7f:cb:46:91:97:03:8b:83:a6:99:9a:e8:26:57:d7:91:32:3d:4b:2c:f8:19:04:cf:1c:9a:d2:cb:1f:1e:8c:6e:47:6e:28:1f:b9:d9:ea:a4:29:ca:85:8d:49:e1:43:37:73:61:46:2f:e5:9e:06:7d:cf:f4:71:6f:f2:40:14:dc:e9:fa:39:bb:8d:16:6e:4a:c7:9a:1c:6b:5e:9b:ad:a8:aa:06:2a:1b:03:6f:7b:e6:3d:88:ec:b6:d2:a4:75:ce:86:4e:e9:8f:4a:e7:1f:2f:78:72:01:a1:2a:c2:71:2c:b2:77:9e:a8:d3:c9:e0:2b:d2:f2:54:ce:90:a3:89:5a:11:5d:a1:5d:f5:31:e1:25:aa:df:ee:0b:17:c7:bc:a7:57:b2:a0:bf:37:77:2d:82:ad:fa:00:5c:e1:95:5f:ed:48:64:4e:36:2a"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001a",
+            "quic.path_challenge.data": "13:75:5b:6d:36:19:e2:2a"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000000",
+            "quic.padding_length": "1303"
+          }
         }
       }
     }
@@ -1914,7 +2466,8 @@
           "ip.dst": "127.0.0.3",
           "ip.addr": "127.0.0.3",
           "ip.dst_host": "127.0.0.3",
-          "ip.host": "127.0.0.3"
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -1925,6 +2478,7 @@
           "udp.checksum": "0x038f",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "2",
           "Timestamps": {
             "udp.time_relative": "0.000655000",
             "udp.time_delta": "0.000655000"
@@ -1933,20 +2487,28 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "1393",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
-          },
-          "quic.remaining_payload": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94:5e:5b:43:9f:c6:03:99:b6:58:1f:f9:a6:fb:fe:8f:92:bc:48:f2:2e:e4:86:96:5c:a8:4d:a7:51:e2:bc:7f:5e:ac:06:94:2c:9b:dd:d7:6f:70:04:b9:94:37:c4:47:74:6e:98:36:32:8c:83:c4:b2:a4:d0:b0:38:62:1f:70:30:f1:af:4c:92:0b:71:d4:56:41:f6:4d:d2:3f:47:32:ff:6d:2b:81:b3:13:4b:49:10:e7:29:ce:b4:32:f9:06:db:66:be:2e:a1:0c:23:dd:f7:44:91:05:98:ca:cc:4b:99:af:3a:ff:25:c6:df:2b:74:79:27:87:6a:93:ed:c2:80:69:0b:e0:b6:f9:20:16:f7:39:ca:ed:6e:a3:d8:c2:25:63:c6:ef:32:d6:40:25:fa:86:13:e5:26:2b:47:a4:06:71:b2:93:db:ca:39:2e:d9:c9:e5:20:a0:bc:25:52:4b:cf:b4:af:5c:9a:cc:0d:de:47:24:26:c0:56:4f:10:d6:f2:95:d7:04:52:53:1c:2c:6e:97:59:b2:48:1e:b6:30:6f:c2:a2:2e:e1:ac:b9:dd:18:e9:87:32:0a:8f:24:b7:2a:f7:2b:33:43:8a:dd:2c:86:2c:6c:70:74:18:7b:9c:0a:e5:8a:50:5c:fc:fc:77:d1:e2:62:ae:d0:09:65:61:3c:15:11:b5:46:8f:33:6e:35:d6:3d:08:66:84:da:13:6c:57:07:9d:74:c3:c4:00:7c:d2:71:45:ef:6c:69:7a:d7:85:7c:bc:91:f5:f6:e0:b4:4a:9e:b8:b5:1e:8d:88:12:a6:47:1a:ce:d4:45:d4:6b:ff:73:77:32:f5:a3:17:b1:0d:97:d3:7c:1d:ce:ea:7c:6f:7c:0f:8a:51:5d:62:7d:4d:6a:b7:83:e9:9c:e5:bf:8f:0e:8a:ae:0a:a1:3c:46:f3:9d:0f:3f:92:26:87:b9:9f:fc:5e:c9:b5:91:51:9e:35:08:3f:f7:bf:e7:88:1b:c5:67:51:c1:05:26:e2:eb:46:78:fc:16:9c:30:fe:67:dd:0c:6a:38:aa:37:27:1b:4c:95:21:ab:7b:6d:c0:c6:25:14:06:90:d8:24:cb:1a:34:41:bd:51:5a:97:2f:c6:1e:41:9f:19:45:0f:d1:4c:93:ef:34:f2:06:c0:cf:33:b6:5a:fc:87:e9:4a:31:be:a4:42:72:a4:85:79:5f:87:14:22:63:c5:71:bb:2f:6a:2e:58:9d:88:36:69:2c:e0:10:d0:cc:42:a2:68:0d:61:68:10:c6:44:82:e7:ff:47:76:a4:03:bd:6e:99:b4:0b:f8:26:b6:09:a7:31:a9:5d:08:c4:d3:ba:44:37:e6:26:5b:a3:89:95:95:c9:b4:9b:46:99:af:c8:f5:c2:d8:18:d1:44:99:45:0e:ab:d3:33:62:a0:db:21:6c:5c:1a:4a:fd:96:70:c4:ec:d4:0b:de:a4:91:f6:87:3a:81:b3:3f:f5:80:54:01:44:74:36:38:6d:fb:98:d0:93:c4:27:48:44:b9:3a:7b:93:6f:a5:5c:f0:03:39:ce:7a:3e:8a:d2:9d:77:d0:38:cc:a2:53:a0:83:11:49:11:13:a6:97:8e:ef:af:8e:6b:70:e7:79:7a:0b:39:2b:ee:e0:8e:df:02:31:cd:99:99:a5:84:c6:86:22:c1:56:bb:1e:d1:eb:89:28:0d:29:04:b4:f9:e4:34:67:e6:eb:31:b6:9a:1d:5b:ed:62:09:0a:c8:a3:ac:ac:d5:a7:e1:2c:23:df:af:de:44:3e:15:f0:03:e4:fb:86:d3:83:0e:b4:a9:5f:95:4a:60:03:6d:b5:99:3b:33:08:df:89:51:b9:bf:eb:ca:5e:a8:a7:bc:d3:91:ba:c9:ff:c4:20:1d:44:f0:17:3f:d6:14:de:04:75:3d:2e:e2:2a:c4:df:fb:e8:2d:fd:4e:d8:3e:bf:a9:85:f6:a4:5b:c0:23:50:59:52:82:1e:2f:20:36:9b:88:52:1c:e6:82:fe:f0:da:da:f0:f4:7a:b1:d4:ca:29:44:9b:ac:92:bf:78:41:da:a7:b9:07:e4:ea:fc:27:a1:d8:90:88:7a:fb:7b:a2:84:d7:70:e7:2a:05:2a:22:a8:b6:84:60:db:78:07:0d:7e:ef:56:a8:80:26:32:3f:df:09:33:63:a4:81:ab:03:02:c5:6d:12:e5:99:0c:99:6c:e5:98:96:f5:62:fd:1a:11:36:a0:b8:a0:08:a1:c8:93:6c:52:22:17:e3:db:8d:c1:e0:33:c3:e9:14:8f:ff:5c:a3:57:9a:85:73:66:5f:12:84:84:98:1c:85:74:8c:b0:bf:49:63:6d:da:f4:7f:f2:b5:15:ef:84:12:5b:b4:ee:ef:53:4b:1e:e5:1c:11:ff:00:f4:5e:d9:3a:51:a2:21:2f:1a:fc:61:cc:fb:b2:0c:a3:a4:30:e6:18:ce:de:3b:58:ab:6d:cb:8d:4a:20:1a:ea:71:23:0b:2e:76:49:b7:f7:17:c8:de:3c:36:bd:c7:59:e4:1a:c2:7e:23:a6:23:73:79:c3:3b:d2:69:b9:a3:25:46:5c:7f:0f:da:3f:b6:be:13:da:59:f1:82:d8:e9:86:8c:29:b5:06:2f:0a:e9:60:1f:e8:2f:bf:63:74:72:16:5a:ee:52:97:84:9f:dc:5a:d0:4b:a2:68:44:7d:e4:c9:13:eb:09:4d:a7:db:39:c0:5f:47:02:51:6a:97:aa:e0:9b:0f:7f:ef:d8:30:5c:15:db:1a:af:d0:f2:58:cf:53:f2:58:42:e0:0f:e3:d1:4f:45:67:48:21:0d:7a:8a:9e:9c:0a:3c:94:e0:f7:31:1a:b7:41:a1:ea:c5:d7:7f:74:46:35:f9:56:ee:57:95:50:92:0a:93:8a:e9:ed:51:3f:b2:14:c2:82:c8:b4:84:b9:04:08:8c:bf:9f:1d:13:9e:eb:77:8a:e1:ab:4f:0d:ce:e5:e4:5c:7e:c8:0c:0f:22:d3:d7:7d:df:c9:31:b3:ca:83:78:1c:14:77:d5:38:e0:85:bd:8a:b1:74:5f:27:38:f5:1f:6a:e3:f0:ef:fd:1f:7d:29:e7:f7:5d:d1:91:76:99:27:1b:5b:d0:64:af:04:87:26:b1:e0:37:4e:5b:b9:ba:70:17:eb:fd:75:8f:9c:fd:1e:f6:87:32:25:74:c2:ce:ff:e9:0b:b1:70:5b:77:cf:ed:a6:b6:68:98:77:ea:85:dc:b8:ee:57:2a:0b:1c:94:4d:e2:7d:0c:6a:e4:e6:83:d8:32:4b:55:3e:0a:06:6b:47:c4:29:ed:1c:9e:8f:0a:49:e0:e6:86:ae:2c:dd:d7:a7:ee:4a:f4:8e:6d:0e:1c:55:72:cc:50:8f:ba:c2:76:24:a0:ea:91:d7:25:47:81:81:12:80:02:60:38:e1:25:ba:35:3e:b2:2a:e8:10:65:ab:bd:f5:9a:4b:0b:81:d5:9d:72:30:2d:81:48:4b:09:6b:2f:4b:81:e5:13:bb:3f:1b:2e:5e:ab:59:d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4:39:2f:96:2b:19:34:e8:1f:8a:80:8f:bf:c0:b4:2d:90:90:37:62:25:f5:86"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94",
+            "quic.packet_number": "7",
+            "quic.protected_payload": "5b:43:9f:c6:03:99:b6:58:1f:f9:a6:fb:fe:8f:92:bc:48:f2:2e:e4:86:96:5c:a8:4d:a7:51:e2:bc:7f:5e:ac:06:94:2c:9b:dd:d7:6f:70:04:b9:94:37:c4:47:74:6e:98:36:32:8c:83:c4:b2:a4:d0:b0:38:62:1f:70:30:f1:af:4c:92:0b:71:d4:56:41:f6:4d:d2:3f:47:32:ff:6d:2b:81:b3:13:4b:49:10:e7:29:ce:b4:32:f9:06:db:66:be:2e:a1:0c:23:dd:f7:44:91:05:98:ca:cc:4b:99:af:3a:ff:25:c6:df:2b:74:79:27:87:6a:93:ed:c2:80:69:0b:e0:b6:f9:20:16:f7:39:ca:ed:6e:a3:d8:c2:25:63:c6:ef:32:d6:40:25:fa:86:13:e5:26:2b:47:a4:06:71:b2:93:db:ca:39:2e:d9:c9:e5:20:a0:bc:25:52:4b:cf:b4:af:5c:9a:cc:0d:de:47:24:26:c0:56:4f:10:d6:f2:95:d7:04:52:53:1c:2c:6e:97:59:b2:48:1e:b6:30:6f:c2:a2:2e:e1:ac:b9:dd:18:e9:87:32:0a:8f:24:b7:2a:f7:2b:33:43:8a:dd:2c:86:2c:6c:70:74:18:7b:9c:0a:e5:8a:50:5c:fc:fc:77:d1:e2:62:ae:d0:09:65:61:3c:15:11:b5:46:8f:33:6e:35:d6:3d:08:66:84:da:13:6c:57:07:9d:74:c3:c4:00:7c:d2:71:45:ef:6c:69:7a:d7:85:7c:bc:91:f5:f6:e0:b4:4a:9e:b8:b5:1e:8d:88:12:a6:47:1a:ce:d4:45:d4:6b:ff:73:77:32:f5:a3:17:b1:0d:97:d3:7c:1d:ce:ea:7c:6f:7c:0f:8a:51:5d:62:7d:4d:6a:b7:83:e9:9c:e5:bf:8f:0e:8a:ae:0a:a1:3c:46:f3:9d:0f:3f:92:26:87:b9:9f:fc:5e:c9:b5:91:51:9e:35:08:3f:f7:bf:e7:88:1b:c5:67:51:c1:05:26:e2:eb:46:78:fc:16:9c:30:fe:67:dd:0c:6a:38:aa:37:27:1b:4c:95:21:ab:7b:6d:c0:c6:25:14:06:90:d8:24:cb:1a:34:41:bd:51:5a:97:2f:c6:1e:41:9f:19:45:0f:d1:4c:93:ef:34:f2:06:c0:cf:33:b6:5a:fc:87:e9:4a:31:be:a4:42:72:a4:85:79:5f:87:14:22:63:c5:71:bb:2f:6a:2e:58:9d:88:36:69:2c:e0:10:d0:cc:42:a2:68:0d:61:68:10:c6:44:82:e7:ff:47:76:a4:03:bd:6e:99:b4:0b:f8:26:b6:09:a7:31:a9:5d:08:c4:d3:ba:44:37:e6:26:5b:a3:89:95:95:c9:b4:9b:46:99:af:c8:f5:c2:d8:18:d1:44:99:45:0e:ab:d3:33:62:a0:db:21:6c:5c:1a:4a:fd:96:70:c4:ec:d4:0b:de:a4:91:f6:87:3a:81:b3:3f:f5:80:54:01:44:74:36:38:6d:fb:98:d0:93:c4:27:48:44:b9:3a:7b:93:6f:a5:5c:f0:03:39:ce:7a:3e:8a:d2:9d:77:d0:38:cc:a2:53:a0:83:11:49:11:13:a6:97:8e:ef:af:8e:6b:70:e7:79:7a:0b:39:2b:ee:e0:8e:df:02:31:cd:99:99:a5:84:c6:86:22:c1:56:bb:1e:d1:eb:89:28:0d:29:04:b4:f9:e4:34:67:e6:eb:31:b6:9a:1d:5b:ed:62:09:0a:c8:a3:ac:ac:d5:a7:e1:2c:23:df:af:de:44:3e:15:f0:03:e4:fb:86:d3:83:0e:b4:a9:5f:95:4a:60:03:6d:b5:99:3b:33:08:df:89:51:b9:bf:eb:ca:5e:a8:a7:bc:d3:91:ba:c9:ff:c4:20:1d:44:f0:17:3f:d6:14:de:04:75:3d:2e:e2:2a:c4:df:fb:e8:2d:fd:4e:d8:3e:bf:a9:85:f6:a4:5b:c0:23:50:59:52:82:1e:2f:20:36:9b:88:52:1c:e6:82:fe:f0:da:da:f0:f4:7a:b1:d4:ca:29:44:9b:ac:92:bf:78:41:da:a7:b9:07:e4:ea:fc:27:a1:d8:90:88:7a:fb:7b:a2:84:d7:70:e7:2a:05:2a:22:a8:b6:84:60:db:78:07:0d:7e:ef:56:a8:80:26:32:3f:df:09:33:63:a4:81:ab:03:02:c5:6d:12:e5:99:0c:99:6c:e5:98:96:f5:62:fd:1a:11:36:a0:b8:a0:08:a1:c8:93:6c:52:22:17:e3:db:8d:c1:e0:33:c3:e9:14:8f:ff:5c:a3:57:9a:85:73:66:5f:12:84:84:98:1c:85:74:8c:b0:bf:49:63:6d:da:f4:7f:f2:b5:15:ef:84:12:5b:b4:ee:ef:53:4b:1e:e5:1c:11:ff:00:f4:5e:d9:3a:51:a2:21:2f:1a:fc:61:cc:fb:b2:0c:a3:a4:30:e6:18:ce:de:3b:58:ab:6d:cb:8d:4a:20:1a:ea:71:23:0b:2e:76:49:b7:f7:17:c8:de:3c:36:bd:c7:59:e4:1a:c2:7e:23:a6:23:73:79:c3:3b:d2:69:b9:a3:25:46:5c:7f:0f:da:3f:b6:be:13:da:59:f1:82:d8:e9:86:8c:29:b5:06:2f:0a:e9:60:1f:e8:2f:bf:63:74:72:16:5a:ee:52:97:84:9f:dc:5a:d0:4b:a2:68:44:7d:e4:c9:13:eb:09:4d:a7:db:39:c0:5f:47:02:51:6a:97:aa:e0:9b:0f:7f:ef:d8:30:5c:15:db:1a:af:d0:f2:58:cf:53:f2:58:42:e0:0f:e3:d1:4f:45:67:48:21:0d:7a:8a:9e:9c:0a:3c:94:e0:f7:31:1a:b7:41:a1:ea:c5:d7:7f:74:46:35:f9:56:ee:57:95:50:92:0a:93:8a:e9:ed:51:3f:b2:14:c2:82:c8:b4:84:b9:04:08:8c:bf:9f:1d:13:9e:eb:77:8a:e1:ab:4f:0d:ce:e5:e4:5c:7e:c8:0c:0f:22:d3:d7:7d:df:c9:31:b3:ca:83:78:1c:14:77:d5:38:e0:85:bd:8a:b1:74:5f:27:38:f5:1f:6a:e3:f0:ef:fd:1f:7d:29:e7:f7:5d:d1:91:76:99:27:1b:5b:d0:64:af:04:87:26:b1:e0:37:4e:5b:b9:ba:70:17:eb:fd:75:8f:9c:fd:1e:f6:87:32:25:74:c2:ce:ff:e9:0b:b1:70:5b:77:cf:ed:a6:b6:68:98:77:ea:85:dc:b8:ee:57:2a:0b:1c:94:4d:e2:7d:0c:6a:e4:e6:83:d8:32:4b:55:3e:0a:06:6b:47:c4:29:ed:1c:9e:8f:0a:49:e0:e6:86:ae:2c:dd:d7:a7:ee:4a:f4:8e:6d:0e:1c:55:72:cc:50:8f:ba:c2:76:24:a0:ea:91:d7:25:47:81:81:12:80:02:60:38:e1:25:ba:35:3e:b2:2a:e8:10:65:ab:bd:f5:9a:4b:0b:81:d5:9d:72:30:2d:81:48:4b:09:6b:2f:4b:81:e5:13:bb:3f:1b:2e:5e:ab:59:d1:ef:7b:da:8a:e9:51:33:ff:f9:36:bb:59:2e:f0:3c:82:4f:de:f4:39:2f:96:2b:19:34:e8:1f:8a:80:8f:bf:c0:b4:2d:90:90:37:62:25:f5:86",
+            "quic.protected_payload_tree": {
+              "_ws.expert": {
+                "quic.decryption_failed": "",
+                "_ws.expert.message": "Decryption failed: Decryption (checktag) failed: Checksum error",
+                "_ws.expert.severity": "6291456",
+                "_ws.expert.group": "201326592"
+              }
+            }
+          }
         }
       }
     }
@@ -2010,7 +2572,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2021,6 +2584,7 @@
           "udp.checksum": "0xfe51",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "3",
           "Timestamps": {
             "udp.time_relative": "0.000959000",
             "udp.time_delta": "0.000304000"
@@ -2029,20 +2593,31 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "52",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "8",
+            "quic.protected_payload": "c9:69:54:6b:1e:4c:d6:b2:ee:ab:88:a0:be:65:7d:23:9f:a2:99:5c:fd:b8:ad:d9:01:06:23:06:cd:f1"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:d6:c9:69:54:6b:1e:4c:d6:b2:ee:ab:88:a0:be:65:7d:23:9f:a2:99:5c:fd:b8:ad:d9:01:06:23:06:cd:f1"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "8",
+            "quic.ack.ack_delay": "4",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "1"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001b",
+            "quic.path_response.data": "f4:2b:22:e1:b5:a9:9b:2a"
+          }
         }
       }
     }
@@ -2106,7 +2681,8 @@
           "ip.dst": "127.0.0.3",
           "ip.addr": "127.0.0.3",
           "ip.dst_host": "127.0.0.3",
-          "ip.host": "127.0.0.3"
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -2117,6 +2693,7 @@
           "udp.checksum": "0xfe48",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "4",
           "Timestamps": {
             "udp.time_relative": "0.001111000",
             "udp.time_delta": "0.000152000"
@@ -2125,20 +2702,27 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "43",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94",
+            "quic.packet_number": "9",
+            "quic.protected_payload": "1e:3a:f7:36:0e:62:18:3c:20:63:71:53:67:6f:4f:f3:fc:9e:fb:1d:6c"
           },
-          "quic.remaining_payload": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94:49:1e:3a:f7:36:0e:62:18:3c:20:63:71:53:67:6f:4f:f3:fc:9e:fb:1d:6c"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "8",
+            "quic.ack.ack_delay": "5",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
+          }
         }
       }
     }
@@ -2163,7 +2747,7 @@
           "frame.cap_len": "110",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -2202,7 +2786,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2213,6 +2798,7 @@
           "udp.checksum": "0xfe5b",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "5",
           "Timestamps": {
             "udp.time_relative": "0.001432000",
             "udp.time_delta": "0.000321000"
@@ -2221,20 +2807,50 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "62",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "9",
+            "quic.protected_payload": "ad:13:1b:a1:8d:c4:55:5d:bc:9b:03:aa:6b:78:b5:f4:41:3c:8a:15:fb:f0:fa:25:c0:43:35:60:5c:48:b8:eb:31:bb:e1:cc:a3:f6:72:bc"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:78:ad:13:1b:a1:8d:c4:55:5d:bc:9b:03:aa:6b:78:b5:f4:41:3c:8a:15:fb:f0:fa:25:c0:43:35:60:5c:48:b8:eb:31:bb:e1:cc:a3:f6:72:bc"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "2",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "19",
+            "quic.stream_data": "00:04:10:fb:6c:83:ed:98:b3:c4:d9:f5:6c:51:7d:a4:67:48:de"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000000",
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000004",
+              "http3.frame_length": "16",
+              "http3.frame_payload": "fb:6c:83:ed:98:b3:c4:d9:f5:6c:51:7d:a4:67:48:de",
+              "http3.settings": {
+                "http3.settings.id": "0x3b6c83ed98b3c4d9",
+                "http3.settings.value": "3849541381565925598"
+              }
+            }
+          }
         }
       }
     }
@@ -2259,7 +2875,7 @@
           "frame.cap_len": "92",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -2298,7 +2914,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2309,6 +2926,7 @@
           "udp.checksum": "0xfe49",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "6",
           "Timestamps": {
             "udp.time_relative": "0.001479000",
             "udp.time_delta": "0.000047000"
@@ -2317,20 +2935,42 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "44",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "10",
+            "quic.protected_payload": "ad:21:88:6c:e3:66:e7:7a:34:e5:64:32:4c:bb:50:37:4e:dc:33:b6:3e:4a"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:f6:ad:21:88:6c:e3:66:e7:7a:34:e5:64:32:4c:bb:50:37:4e:dc:33:b6:3e:4a"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "6",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "02"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000002",
+            "http3.qpack.encoder": ""
+          }
         }
       }
     }
@@ -2355,7 +2995,7 @@
           "frame.cap_len": "92",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -2394,7 +3034,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2405,6 +3046,7 @@
           "udp.checksum": "0xfe49",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "7",
           "Timestamps": {
             "udp.time_relative": "0.001493000",
             "udp.time_delta": "0.000014000"
@@ -2413,20 +3055,41 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "44",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "11",
+            "quic.protected_payload": "47:93:aa:49:07:17:47:42:78:15:9f:f7:7e:ce:2e:ed:bb:91:92:00:12:03"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:fc:47:93:aa:49:07:17:47:42:78:15:9f:f7:7e:ce:2e:ed:bb:91:92:00:12:03"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "10",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "03"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000003"
+          }
         }
       }
     }
@@ -2451,7 +3114,7 @@
           "frame.cap_len": "163",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -2490,7 +3153,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2501,6 +3165,7 @@
           "udp.checksum": "0xfe90",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "8",
           "Timestamps": {
             "udp.time_relative": "0.001507000",
             "udp.time_delta": "0.000014000"
@@ -2509,20 +3174,100 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "115",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "12",
+            "quic.protected_payload": "58:80:a8:07:f7:cd:fd:42:74:4d:e8:48:a9:8d:6d:b1:cb:db:fc:a4:ac:27:62:be:b1:17:e4:c9:2b:b5:28:1e:21:67:bb:e2:9c:8d:54:ed:aa:2d:e7:a9:e2:2f:30:fb:e8:b6:34:5e:2b:10:d6:8f:6d:2b:79:1e:30:5e:15:c0:24:f4:02:07:c6:3d:64:74:54:59:dc:11:2c:f0:a3:22:4a:5d:d9:62:58:39:ef:7a:ff:64:06:fc:f0"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:fc:58:80:a8:07:f7:cd:fd:42:74:4d:e8:48:a9:8d:6d:b1:cb:db:fc:a4:ac:27:62:be:b1:17:e4:c9:2b:b5:28:1e:21:67:bb:e2:9c:8d:54:ed:aa:2d:e7:a9:e2:2f:30:fb:e8:b6:34:5e:2b:10:d6:8f:6d:2b:79:1e:30:5e:15:c0:24:f4:02:07:c6:3d:64:74:54:59:dc:11:2c:f0:a3:22:4a:5d:d9:62:58:39:ef:7a:ff:64:06:fc:f0"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "0",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "0"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "72",
+            "quic.stream_data": "c0:6b:da:d5:23:f1:7e:38:00:d1:fb:32:d3:ea:6a:77:01:12:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64:01:22:00:00:d1:d7:50:8a:08:9d:5c:0b:81:70:dc:69:a6:59:51:88:60:d5:48:5f:2b:ce:9a:68:5f:50:85:ed:69:89:39:7f"
+          }
+        },
+        "http3": {
+          "http3.stream": {
+            "http3.frame": {
+              "http3.frame_type": "0x006bdad523f17e38",
+              "http3.frame_length": "0"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x11fb32d3ea6a7701",
+              "http3.frame_length": "18",
+              "http3.frame_payload": "47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000001",
+              "http3.frame_length": "34",
+              "http3.frame_payload": "00:00:d1:d7:50:8a:08:9d:5c:0b:81:70:dc:69:a6:59:51:88:60:d5:48:5f:2b:ce:9a:68:5f:50:85:ed:69:89:39:7f",
+              "HTTP3 encoded headers - bytes 0x590ebbef1c60 pos 0 len 34": {
+                "_ws.expert": {
+                  "http3.expert.header.encoded_state": "",
+                  "_ws.expert.message": "HTTP3 encoded headers - bytes 0x590ebbef1c60 pos 0 len 34",
+                  "_ws.expert.severity": "4194304",
+                  "_ws.expert.group": "134217728"
+                }
+              },
+              "http3.headers.header.length": "118",
+              "http3.headers.count": "5",
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "7",
+                "http3.header.header.name": ":method",
+                "http3.headers.header.value.length": "3",
+                "http3.headers.header.value": "GET",
+                "http3.headers.method": "GET"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "7",
+                "http3.header.header.name": ":scheme",
+                "http3.headers.header.value.length": "5",
+                "http3.headers.header.value": "https",
+                "http3.headers.scheme": "https"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "10",
+                "http3.header.header.name": ":authority",
+                "http3.headers.header.value.length": "14",
+                "http3.headers.header.value": "127.0.0.1:4433",
+                "http3.headers.authority": "127.0.0.1:4433"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "5",
+                "http3.header.header.name": ":path",
+                "http3.headers.header.value.length": "11",
+                "http3.headers.header.value": "/index.html",
+                "http3.headers.path": "/index.html"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "10",
+                "http3.header.header.name": "user-agent",
+                "http3.headers.header.value.length": "6",
+                "http3.headers.header.value": "quiche",
+                "http3.headers.user_agent": "quiche"
+              },
+              "http3.request.full_uri": "https://127.0.0.1:4433/index.html"
+            }
+          }
         }
       }
     }
@@ -2547,7 +3292,7 @@
           "frame.cap_len": "117",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -2586,7 +3331,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2597,6 +3343,7 @@
           "udp.checksum": "0xfe62",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "9",
           "Timestamps": {
             "udp.time_relative": "0.001523000",
             "udp.time_delta": "0.000016000"
@@ -2605,20 +3352,41 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "69",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "13",
+            "quic.protected_payload": "7f:b3:67:d4:14:ba:61:7a:af:ca:92:f1:10:6d:2a:14:38:f0:b3:68:1d:56:04:0f:3f:54:fa:48:39:49:5d:28:48:1f:41:7b:ad:73:14:15:0d:f6:81:f4:60:38:ed"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:b3:7f:b3:67:d4:14:ba:61:7a:af:ca:92:f1:10:6d:2a:14:38:f0:b3:68:1d:56:04:0f:3f:54:fa:48:39:49:5d:28:48:1f:41:7b:ad:73:14:15:0d:f6:81:f4:60:38:ed"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "14",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "26",
+            "quic.stream_data": "e1:76:f5:e8:4d:32:a5:7f:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x2176f5e84d32a57f"
+          }
         }
       }
     }
@@ -2643,7 +3411,7 @@
           "frame.cap_len": "211",
           "frame.marked": "0",
           "frame.ignored": "0",
-          "frame.protocols": "sll:ethertype:ip:udp:quic"
+          "frame.protocols": "sll:ethertype:ip:udp:quic:http3"
         },
         "sll": {
           "sll.etype": "0x0800",
@@ -2682,7 +3450,8 @@
           "ip.dst": "127.0.0.3",
           "ip.addr": "127.0.0.3",
           "ip.dst_host": "127.0.0.3",
-          "ip.host": "127.0.0.3"
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "4433",
@@ -2693,6 +3462,7 @@
           "udp.checksum": "0xfec0",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "10",
           "Timestamps": {
             "udp.time_relative": "0.001951000",
             "udp.time_delta": "0.000428000"
@@ -2701,20 +3471,98 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "163",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94",
+            "quic.packet_number": "10",
+            "quic.protected_payload": "67:a5:b7:b7:bb:7f:e2:d2:da:de:6d:02:31:e3:97:f9:9e:6f:5f:db:99:91:69:2a:09:d4:d0:6d:da:12:01:4c:3c:e0:57:8d:2b:d6:e7:fb:fb:ca:1d:ed:3f:d1:a2:f0:39:07:12:55:a9:93:14:74:84:07:ce:f5:d9:95:ee:4b:95:d9:f9:5b:65:c8:af:31:21:6d:9e:bf:6e:87:f6:5d:d4:45:80:7a:0c:8d:16:0d:59:b5:2a:f0:53:aa:0b:14:4c:a6:fb:38:19:7b:5d:db:19:2a:a7:a4:86:34:86:a5:b8:3b:7c:4b:13:00:52:27:22:4c:00:02:51:46:d5:af:89:e5:51:d3:ad:ab:10:3f:b8:65:f9:8d:7e"
           },
-          "quic.remaining_payload": "42:49:45:70:23:2e:c3:ca:91:d8:73:3f:f2:e5:28:71:f5:85:57:94:06:67:a5:b7:b7:bb:7f:e2:d2:da:de:6d:02:31:e3:97:f9:9e:6f:5f:db:99:91:69:2a:09:d4:d0:6d:da:12:01:4c:3c:e0:57:8d:2b:d6:e7:fb:fb:ca:1d:ed:3f:d1:a2:f0:39:07:12:55:a9:93:14:74:84:07:ce:f5:d9:95:ee:4b:95:d9:f9:5b:65:c8:af:31:21:6d:9e:bf:6e:87:f6:5d:d4:45:80:7a:0c:8d:16:0d:59:b5:2a:f0:53:aa:0b:14:4c:a6:fb:38:19:7b:5d:db:19:2a:a7:a4:86:34:86:a5:b8:3b:7c:4b:13:00:52:27:22:4c:00:02:51:46:d5:af:89:e5:51:d3:ad:ab:10:3f:b8:65:f9:8d:7e"
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "13",
+            "quic.ack.ack_delay": "4",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "5"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "0",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "0"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "115",
+            "quic.stream_data": "e6:c0:b3:54:83:0e:2e:7e:00:c2:0f:4d:61:60:21:11:7c:12:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64:01:0f:00:00:d9:5f:4d:85:ed:69:89:39:7f:54:82:70:1f:00:3c:3c:21:44:4f:43:54:59:50:45:20:68:74:6d:6c:3e:3c:68:74:6d:6c:3e:3c:62:6f:64:79:3e:3c:68:31:3e:51:55:49:43:20:54:65:73:74:3c:2f:68:31:3e:3c:2f:62:6f:64:79:3e:3c:2f:68:74:6d:6c:3e:0a"
+          }
+        },
+        "http3": {
+          "http3.stream": {
+            "http3.frame": {
+              "http3.frame_type": "0x26c0b354830e2e7e",
+              "http3.frame_length": "0"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x020f4d616021117c",
+              "http3.frame_length": "18",
+              "http3.frame_payload": "47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000001",
+              "http3.frame_length": "15",
+              "http3.frame_payload": "00:00:d9:5f:4d:85:ed:69:89:39:7f:54:82:70:1f",
+              "HTTP3 encoded headers - bytes 0x590ebbef2ae0 pos 0 len 15": {
+                "_ws.expert": {
+                  "http3.expert.header.encoded_state": "",
+                  "_ws.expert.message": "HTTP3 encoded headers - bytes 0x590ebbef2ae0 pos 0 len 15",
+                  "_ws.expert.severity": "4194304",
+                  "_ws.expert.group": "134217728"
+                }
+              },
+              "http3.headers.header.length": "62",
+              "http3.headers.count": "3",
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "7",
+                "http3.header.header.name": ":status",
+                "http3.headers.header.value.length": "3",
+                "http3.headers.header.value": "200",
+                "http3.headers.status": "200"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "6",
+                "http3.header.header.name": "server",
+                "http3.headers.header.value.length": "6",
+                "http3.headers.header.value": "quiche",
+                "http3.headers.server": "quiche"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "14",
+                "http3.header.header.name": "content-length",
+                "http3.headers.header.value.length": "2",
+                "http3.headers.header.value": "60",
+                "http3.headers.content_length": "60"
+              }
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000000",
+              "http3.frame_length": "60",
+              "http3.frame_payload": "3c:21:44:4f:43:54:59:50:45:20:68:74:6d:6c:3e:3c:68:74:6d:6c:3e:3c:62:6f:64:79:3e:3c:68:31:3e:51:55:49:43:20:54:65:73:74:3c:2f:68:31:3e:3c:2f:62:6f:64:79:3e:3c:2f:68:74:6d:6c:3e:0a",
+              "http3.data": "3c:21:44:4f:43:54:59:50:45:20:68:74:6d:6c:3e:3c:68:74:6d:6c:3e:3c:62:6f:64:79:3e:3c:68:31:3e:51:55:49:43:20:54:65:73:74:3c:2f:68:31:3e:3c:2f:62:6f:64:79:3e:3c:2f:68:74:6d:6c:3e:0a"
+            }
+          }
         }
       }
     }
@@ -2778,7 +3626,8 @@
           "ip.dst": "127.0.0.1",
           "ip.addr": "127.0.0.1",
           "ip.dst_host": "127.0.0.1",
-          "ip.host": "127.0.0.1"
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
         },
         "udp": {
           "udp.srcport": "34051",
@@ -2789,6 +3638,7 @@
           "udp.checksum": "0xfe4e",
           "udp.checksum.status": "2",
           "udp.stream": "1",
+          "udp.stream.pnum": "11",
           "Timestamps": {
             "udp.time_relative": "0.002228000",
             "udp.time_delta": "0.000277000"
@@ -2797,20 +3647,26 @@
         },
         "quic": {
           "QUIC Connection information": {
-            "_ws.expert": {
-              "quic.connection.unknown": "",
-              "_ws.expert.message": "Unknown QUIC connection. Missing Initial Packet or migrated connection?",
-              "_ws.expert.severity": "4194304",
-              "_ws.expert.group": "150994944"
-            }
+            "quic.connection.number": "0"
           },
           "quic.packet_length": "49",
           "quic.short": {
             "quic.header_form": "0",
             "quic.fixed_bit": "1",
-            "quic.spin_bit": "0"
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a",
+            "quic.packet_number": "14",
+            "quic.protected_payload": "b4:02:3e:62:93:3f:28:a3:d3:41:91:24:7e:d6:dd:85:64:95:53:d0:d4:db:be:5d:8c:45:9e"
           },
-          "quic.remaining_payload": "ee:ef:dc:24:64:dd:99:85:a4:8b:e4:37:e8:8c:41:45:83:a1:7f:8a:d9:b4:02:3e:62:93:3f:28:a3:d3:41:91:24:7e:d6:dd:85:64:95:53:d0:d4:db:be:5d:8c:45:9e"
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001d",
+            "quic.cc.error_code.app": "256",
+            "quic.cc.reason_phrase.length": "7",
+            "quic.cc.reason_phrase": "kthxbye"
+          }
         }
       }
     }
