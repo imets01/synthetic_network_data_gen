@@ -1,0 +1,3660 @@
+[
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.887562000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.887562000 UTC",
+          "frame.time_epoch": "1760521667.887562000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000000000",
+          "frame.time_delta_displayed": "0.000000000",
+          "frame.time_relative": "0.000000000",
+          "frame.number": "1",
+          "frame.len": "1232",
+          "frame.cap_len": "1232",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0xbc4b",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "63177",
+          "udp.dstport": "4433",
+          "udp.port": "63177",
+          "udp.port": "4433",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "1",
+          "Timestamps": {
+            "udp.time_relative": "0.000000000",
+            "udp.time_delta": "0.000000000"
+          },
+          "udp.payload": "c2:ba:ba:ba:ba:10:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:00:40:f6:02:10:c4:88:79:cc:8d:f4:ab:3d:e4:c0:df:c2:de:be:9d:5f:a1:ff:dc:2d:44:37:74:ce:91:1b:5a:b3:1d:e6:75:8d:fe:0e:9e:9d:96:0f:07:99:93:2c:6f:f6:7d:e0:cd:ad:95:ee:6d:cb:ad:43:59:09:2a:de:15:0d:d3:5a:9b:8b:3f:3e:47:82:53:36:77:d5:b7:0c:8f:b2:f5:3c:8c:f2:7b:1f:38:e9:dc:c6:75:a1:84:88:45:3e:0c:d3:80:25:16:b4:5b:56:ad:88:c0:c9:54:54:c6:4f:e3:5d:d5:22:bc:97:fb:69:98:f8:95:0e:64:6b:d6:12:9c:cb:8c:ba:cf:6a:3f:e2:84:14:f1:20:33:18:c3:df:ef:cc:16:ed:00:a7:f4:85:65:03:f3:22:cb:97:5b:04:1f:c3:6a:c4:42:d0:9b:4c:13:a7:bc:15:7b:45:b6:a9:34:fd:00:67:5f:7c:14:bc:47:31:ac:8d:34:3b:a6:f1:21:1f:c2:6f:db:96:c9:96:10:ba:a5:88:9a:ae:80:af:9d:55:8a:95:33:3d:56:7a:bd:15:fb:89:8d:24:4c:33:b2:d1:ca:28:d4:3a:7a:a6:c2:83:d8:39:42:21:7c:9d:e5:3c:c9:d2:47:57:49:e9:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "292",
+          "quic.header_form": "1",
+          "quic.vn.unused": "0x42",
+          "quic.version": "0xbabababa",
+          "quic.dcil": "16",
+          "quic.dcid": "ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+          "quic.scil": "20",
+          "quic.scid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "_ws.expert": {
+            "quic.data_after_forcing_vn": "",
+            "_ws.expert.message": "Data appended after a Forcing VN can't be decrypted",
+            "_ws.expert.severity": "4194304",
+            "_ws.expert.group": "150994944"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.887847000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.887847000 UTC",
+          "frame.time_epoch": "1760521667.887847000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000285000",
+          "frame.time_delta_displayed": "0.000285000",
+          "frame.time_relative": "0.000285000",
+          "frame.number": "2",
+          "frame.len": "79",
+          "frame.cap_len": "79",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "75",
+          "ip.id": "0x6c83",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "55",
+          "udp.checksum": "0xfe4b",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "2",
+          "Timestamps": {
+            "udp.time_relative": "0.000285000",
+            "udp.time_delta": "0.000285000"
+          },
+          "udp.payload": "99:00:00:00:00:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:10:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40:00:00:00:01"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "47",
+          "quic.header_form": "1",
+          "quic.vn.unused": "0x19",
+          "quic.version": "0x00000000",
+          "quic.dcil": "20",
+          "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.scil": "16",
+          "quic.scid": "ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+          "quic.supported_version": "0x00000001"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.888217000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.888217000 UTC",
+          "frame.time_epoch": "1760521667.888217000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000370000",
+          "frame.time_delta_displayed": "0.000370000",
+          "frame.time_relative": "0.000655000",
+          "frame.number": "3",
+          "frame.len": "1232",
+          "frame.cap_len": "1232",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:tls",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0xd121",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "63177",
+          "udp.dstport": "4433",
+          "udp.port": "63177",
+          "udp.port": "4433",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "3",
+          "Timestamps": {
+            "udp.time_relative": "0.000655000",
+            "udp.time_delta": "0.000370000"
+          },
+          "udp.payload": "c3:00:00:00:01:10:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:00:40:f6:ef:82:da:90:99:02:98:07:75:cc:b8:10:0a:e6:d0:e4:c1:a4:d0:1b:d0:71:25:37:22:1a:f5:84:f5:ee:79:dd:35:c3:8e:da:6d:2a:88:9d:32:a4:94:7c:6d:b2:bb:75:f4:f9:76:37:a2:32:28:97:22:a2:89:1b:a7:e2:9c:0c:2f:7c:fc:7e:95:e5:2c:07:28:93:d2:39:b3:54:e3:88:84:79:a2:8d:75:41:76:4f:41:76:3a:f8:59:95:da:ca:ab:84:4a:70:82:55:71:6f:a3:2e:f6:e0:cd:9a:09:47:e1:09:66:17:b2:a0:23:4d:b5:94:a4:a4:fc:32:d2:c2:f3:2c:ea:6a:74:00:26:e6:ad:b5:00:f7:d8:a2:30:45:37:82:d4:3e:73:73:50:7f:64:ed:f6:99:b1:3a:0d:ff:58:d3:2d:24:7a:e2:e0:6a:9d:d7:cb:d3:f9:f9:2c:1f:70:11:cd:c5:e5:8d:93:c5:13:85:a3:e3:11:ea:fe:b6:1a:6f:9e:f6:32:a8:77:7f:d5:fc:92:e0:53:21:99:13:5b:14:0c:74:5d:42:6e:41:3a:01:92:b5:0f:7e:e2:56:07:b0:8d:e8:ff:68:9b:2d:67:68:25:8f:ca:0a:99:8e:10:17:f0:93:d8:02:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "292",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "0",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "16",
+          "quic.dcid": "ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+          "quic.scil": "20",
+          "quic.scid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.token_length": "0",
+          "quic.length": "246",
+          "quic.packet_number": "1",
+          "quic.payload": "82:da:90:99:02:98:07:75:cc:b8:10:0a:e6:d0:e4:c1:a4:d0:1b:d0:71:25:37:22:1a:f5:84:f5:ee:79:dd:35:c3:8e:da:6d:2a:88:9d:32:a4:94:7c:6d:b2:bb:75:f4:f9:76:37:a2:32:28:97:22:a2:89:1b:a7:e2:9c:0c:2f:7c:fc:7e:95:e5:2c:07:28:93:d2:39:b3:54:e3:88:84:79:a2:8d:75:41:76:4f:41:76:3a:f8:59:95:da:ca:ab:84:4a:70:82:55:71:6f:a3:2e:f6:e0:cd:9a:09:47:e1:09:66:17:b2:a0:23:4d:b5:94:a4:a4:fc:32:d2:c2:f3:2c:ea:6a:74:00:26:e6:ad:b5:00:f7:d8:a2:30:45:37:82:d4:3e:73:73:50:7f:64:ed:f6:99:b1:3a:0d:ff:58:d3:2d:24:7a:e2:e0:6a:9d:d7:cb:d3:f9:f9:2c:1f:70:11:cd:c5:e5:8d:93:c5:13:85:a3:e3:11:ea:fe:b6:1a:6f:9e:f6:32:a8:77:7f:d5:fc:92:e0:53:21:99:13:5b:14:0c:74:5d:42:6e:41:3a:01:92:b5:0f:7e:e2:56:07:b0:8d:e8:ff:68:9b:2d:67:68:25:8f:ca:0a:99:8e:10:17:f0:93:d8:02",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "225",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "1",
+                "tls.handshake.length": "221",
+                "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
+                "tls.handshake.random": "60:c6:dc:4f:ab:68:a2:4a:9d:8a:ed:ce:8b:57:f5:c0:c3:9a:1e:48:bd:f6:7f:84:01:06:e9:12:70:72:7a:c5",
+                "tls.handshake.session_id_length": "0",
+                "tls.handshake.cipher_suites_length": "6",
+                "tls.handshake.ciphersuites": {
+                  "tls.handshake.ciphersuite": "0x1301",
+                  "tls.handshake.ciphersuite": "0x1302",
+                  "tls.handshake.ciphersuite": "0x1303"
+                },
+                "tls.handshake.comp_methods_length": "1",
+                "tls.handshake.comp_methods": {
+                  "tls.handshake.comp_method": "0"
+                },
+                "tls.handshake.extensions_length": "174",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "10",
+                  "tls.handshake.extension.len": "8",
+                  "tls.handshake.extensions_supported_groups_length": "6",
+                  "tls.handshake.extensions_supported_groups": {
+                    "tls.handshake.extensions_supported_group": "0x001d",
+                    "tls.handshake.extensions_supported_group": "0x0017",
+                    "tls.handshake.extensions_supported_group": "0x0018"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "16",
+                  "tls.handshake.extension.len": "5",
+                  "tls.handshake.extensions_alpn_len": "3",
+                  "tls.handshake.extensions_alpn_list": {
+                    "tls.handshake.extensions_alpn_str_len": "2",
+                    "tls.handshake.extensions_alpn_str": "h3"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "13",
+                  "tls.handshake.extension.len": "20",
+                  "tls.handshake.sig_hash_alg_len": "18",
+                  "tls.handshake.sig_hash_algs": {
+                    "tls.handshake.sig_hash_alg": "0x0403",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "4",
+                      "tls.handshake.sig_hash_sig": "3"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0804",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "4"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0401",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "4",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0503",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "5",
+                      "tls.handshake.sig_hash_sig": "3"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0805",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "5"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0501",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "5",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0806",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "6"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0601",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "6",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0201",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "2",
+                      "tls.handshake.sig_hash_sig": "1"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "51",
+                  "tls.handshake.extension.len": "38",
+                  "Key Share extension": {
+                    "tls.handshake.extensions_key_share_client_length": "36",
+                    "Key Share Entry: Group: x25519, Key Exchange length: 32": {
+                      "tls.handshake.extensions_key_share_group": "29",
+                      "tls.handshake.extensions_key_share_key_exchange_length": "32",
+                      "tls.handshake.extensions_key_share_key_exchange": "65:3b:83:be:0f:0e:b4:79:5c:ee:94:d6:8c:0c:b7:83:73:a4:6f:41:76:bc:be:87:29:b5:38:62:0a:ce:66:73"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "45",
+                  "tls.handshake.extension.len": "2",
+                  "tls.extension.psk_ke_modes_length": "1",
+                  "tls.extension.psk_ke_mode": "1"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "43",
+                  "tls.handshake.extension.len": "3",
+                  "tls.handshake.extensions.supported_versions_len": "2",
+                  "tls.handshake.extensions.supported_version": "0x0304"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "57",
+                  "tls.handshake.extension.len": "70",
+                  "Parameter: max_idle_timeout (len=4) 30000 ms": {
+                    "tls.quic.parameter.type": "1",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:75:30",
+                    "tls.quic.parameter.max_idle_timeout": "30000"
+                  },
+                  "Parameter: max_udp_payload_size (len=2) 1350": {
+                    "tls.quic.parameter.type": "3",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "45:46",
+                    "tls.quic.parameter.max_udp_payload_size": "1350"
+                  },
+                  "Parameter: initial_max_data (len=4) 10000000": {
+                    "tls.quic.parameter.type": "4",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:98:96:80",
+                    "tls.quic.parameter.initial_max_data": "10000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_local (len=4) 1000000": {
+                    "tls.quic.parameter.type": "5",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_local": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_remote (len=4) 1000000": {
+                    "tls.quic.parameter.type": "6",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_remote": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_uni (len=4) 1000000": {
+                    "tls.quic.parameter.type": "7",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_uni": "1000000"
+                  },
+                  "Parameter: initial_max_streams_bidi (len=2) 100": {
+                    "tls.quic.parameter.type": "8",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_bidi": "100"
+                  },
+                  "Parameter: initial_max_streams_uni (len=2) 100": {
+                    "tls.quic.parameter.type": "9",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_uni": "100"
+                  },
+                  "Parameter: ack_delay_exponent (len=1)": {
+                    "tls.quic.parameter.type": "10",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.ack_delay_exponent": "3"
+                  },
+                  "Parameter: max_ack_delay (len=1) 25": {
+                    "tls.quic.parameter.type": "11",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "19",
+                    "tls.quic.parameter.max_ack_delay": "25"
+                  },
+                  "Parameter: initial_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "15",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+                    "tls.quic.parameter.initial_source_connection_id": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59"
+                  }
+                },
+                "tls.handshake.ja4": "q13i0307h3_55b375c5d22e_f0736a66fa6b",
+                "tls.handshake.ja4_r": "q13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+                "tls.handshake.ja3_full": "771,4865-4866-4867,10-16-13-51-45-43-57,29-23-24,",
+                "tls.handshake.ja3": "86871fd0d48de0c82beec154cd3f1744"
+              }
+            }
+          }
+        },
+        "quic": {
+          "_ws.expert": {
+            "quic.coalesced_padding_data": "",
+            "_ws.expert.message": "(Random) padding data appended to the datagram",
+            "_ws.expert.severity": "4194304",
+            "_ws.expert.group": "150994944"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.888380000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.888380000 UTC",
+          "frame.time_epoch": "1760521667.888380000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000163000",
+          "frame.time_delta_displayed": "0.000163000",
+          "frame.time_relative": "0.000818000",
+          "frame.number": "4",
+          "frame.len": "121",
+          "frame.cap_len": "121",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "117",
+          "ip.id": "0xef33",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "97",
+          "udp.checksum": "0xfe75",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "4",
+          "Timestamps": {
+            "udp.time_relative": "0.000818000",
+            "udp.time_delta": "0.000163000"
+          },
+          "udp.payload": "f0:00:00:00:01:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:71:75:69:63:68:65:7f:00:00:02:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40:d3:e9:91:27:97:17:9a:18:95:e8:90:7a:62:5a:e2:0e"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "89",
+          "quic.header_form": "1",
+          "quic.long.packet_type": "3",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.scil": "20",
+          "quic.scid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.retry_token": "71:75:69:63:68:65:7f:00:00:02:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+          "quic.retry_integrity_tag": "d3:e9:91:27:97:17:9a:18:95:e8:90:7a:62:5a:e2:0e"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.888622000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.888622000 UTC",
+          "frame.time_epoch": "1760521667.888622000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000242000",
+          "frame.time_delta_displayed": "0.000242000",
+          "frame.time_relative": "0.001060000",
+          "frame.number": "5",
+          "frame.len": "1232",
+          "frame.cap_len": "1232",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:tls",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0x36f2",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "63177",
+          "udp.dstport": "4433",
+          "udp.port": "63177",
+          "udp.port": "4433",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "5",
+          "Timestamps": {
+            "udp.time_relative": "0.001060000",
+            "udp.time_delta": "0.000242000"
+          },
+          "udp.payload": "c5:00:00:00:01:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:1a:71:75:69:63:68:65:7f:00:00:02:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40:40:f6:38:e3:38:53:a0:0e:00:9b:00:58:cb:e2:d5:9c:97:9b:74:7a:a8:f0:6a:27:84:13:b0:66:42:c9:91:f3:ab:e0:f8:0f:b3:89:79:9d:64:22:c2:67:29:f8:ee:e5:e1:e1:99:34:3d:57:3c:1e:18:c7:9e:bb:b2:d4:20:1a:6f:38:c1:d3:98:de:4c:81:24:3a:2d:a1:9c:e2:fd:6a:5f:aa:46:c9:21:86:ce:b4:c2:05:47:45:d7:a4:05:ab:2a:06:2c:5f:fb:99:d2:88:a1:f1:f9:9e:13:ab:a2:7b:fa:73:6a:77:87:8d:6a:ab:5e:e2:2a:7f:14:bd:d6:a5:6c:52:75:37:ad:ce:c8:5f:43:92:7f:fd:74:12:72:c6:87:60:5c:9b:0b:01:a3:e6:d5:7f:91:a6:22:8b:45:e9:86:fd:25:f3:b0:a2:13:1f:28:64:8d:73:2a:26:9d:94:15:db:7c:e3:82:9d:9a:f6:37:75:9e:84:33:10:0e:60:2f:6d:32:3c:b2:a9:ed:74:a9:e4:62:14:9e:c1:eb:0d:36:d4:c2:fd:09:ba:99:21:cd:ba:bc:51:4e:6b:53:a8:7a:77:81:6b:ce:e9:53:e4:f8:d4:59:cb:7c:2a:7d:b9:7c:a5:da:96:3f:df:cb:a5:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "322",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "0",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.scil": "20",
+          "quic.scid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.token_length": "26",
+          "quic.token": "71:75:69:63:68:65:7f:00:00:02:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+          "quic.length": "246",
+          "quic.packet_number": "2",
+          "quic.payload": "e3:38:53:a0:0e:00:9b:00:58:cb:e2:d5:9c:97:9b:74:7a:a8:f0:6a:27:84:13:b0:66:42:c9:91:f3:ab:e0:f8:0f:b3:89:79:9d:64:22:c2:67:29:f8:ee:e5:e1:e1:99:34:3d:57:3c:1e:18:c7:9e:bb:b2:d4:20:1a:6f:38:c1:d3:98:de:4c:81:24:3a:2d:a1:9c:e2:fd:6a:5f:aa:46:c9:21:86:ce:b4:c2:05:47:45:d7:a4:05:ab:2a:06:2c:5f:fb:99:d2:88:a1:f1:f9:9e:13:ab:a2:7b:fa:73:6a:77:87:8d:6a:ab:5e:e2:2a:7f:14:bd:d6:a5:6c:52:75:37:ad:ce:c8:5f:43:92:7f:fd:74:12:72:c6:87:60:5c:9b:0b:01:a3:e6:d5:7f:91:a6:22:8b:45:e9:86:fd:25:f3:b0:a2:13:1f:28:64:8d:73:2a:26:9d:94:15:db:7c:e3:82:9d:9a:f6:37:75:9e:84:33:10:0e:60:2f:6d:32:3c:b2:a9:ed:74:a9:e4:62:14:9e:c1:eb:0d:36:d4:c2:fd:09:ba:99:21:cd:ba:bc:51:4e:6b:53:a8:7a:77:81:6b:ce:e9:53:e4:f8:d4:59:cb:7c:2a:7d:b9:7c:a5:da:96:3f:df:cb:a5",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "225",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "1",
+                "tls.handshake.length": "221",
+                "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
+                "tls.handshake.random": "fe:fd:ba:aa:89:ac:58:e0:8c:4a:5c:e6:f8:a7:b5:43:3b:b2:c7:e7:72:39:30:bd:ec:34:66:2d:06:a4:8a:86",
+                "tls.handshake.session_id_length": "0",
+                "tls.handshake.cipher_suites_length": "6",
+                "tls.handshake.ciphersuites": {
+                  "tls.handshake.ciphersuite": "0x1301",
+                  "tls.handshake.ciphersuite": "0x1302",
+                  "tls.handshake.ciphersuite": "0x1303"
+                },
+                "tls.handshake.comp_methods_length": "1",
+                "tls.handshake.comp_methods": {
+                  "tls.handshake.comp_method": "0"
+                },
+                "tls.handshake.extensions_length": "174",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "10",
+                  "tls.handshake.extension.len": "8",
+                  "tls.handshake.extensions_supported_groups_length": "6",
+                  "tls.handshake.extensions_supported_groups": {
+                    "tls.handshake.extensions_supported_group": "0x001d",
+                    "tls.handshake.extensions_supported_group": "0x0017",
+                    "tls.handshake.extensions_supported_group": "0x0018"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "16",
+                  "tls.handshake.extension.len": "5",
+                  "tls.handshake.extensions_alpn_len": "3",
+                  "tls.handshake.extensions_alpn_list": {
+                    "tls.handshake.extensions_alpn_str_len": "2",
+                    "tls.handshake.extensions_alpn_str": "h3"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "13",
+                  "tls.handshake.extension.len": "20",
+                  "tls.handshake.sig_hash_alg_len": "18",
+                  "tls.handshake.sig_hash_algs": {
+                    "tls.handshake.sig_hash_alg": "0x0403",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "4",
+                      "tls.handshake.sig_hash_sig": "3"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0804",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "4"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0401",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "4",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0503",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "5",
+                      "tls.handshake.sig_hash_sig": "3"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0805",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "5"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0501",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "5",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0806",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "6"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0601",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "6",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0201",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "2",
+                      "tls.handshake.sig_hash_sig": "1"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "51",
+                  "tls.handshake.extension.len": "38",
+                  "Key Share extension": {
+                    "tls.handshake.extensions_key_share_client_length": "36",
+                    "Key Share Entry: Group: x25519, Key Exchange length: 32": {
+                      "tls.handshake.extensions_key_share_group": "29",
+                      "tls.handshake.extensions_key_share_key_exchange_length": "32",
+                      "tls.handshake.extensions_key_share_key_exchange": "25:53:d3:a5:7b:10:5b:ad:6a:52:4e:8b:6f:b8:a5:8b:b8:57:41:50:49:0c:d0:a9:16:3d:c5:c0:bf:04:ce:71"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "45",
+                  "tls.handshake.extension.len": "2",
+                  "tls.extension.psk_ke_modes_length": "1",
+                  "tls.extension.psk_ke_mode": "1"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "43",
+                  "tls.handshake.extension.len": "3",
+                  "tls.handshake.extensions.supported_versions_len": "2",
+                  "tls.handshake.extensions.supported_version": "0x0304"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "57",
+                  "tls.handshake.extension.len": "70",
+                  "Parameter: max_idle_timeout (len=4) 30000 ms": {
+                    "tls.quic.parameter.type": "1",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:75:30",
+                    "tls.quic.parameter.max_idle_timeout": "30000"
+                  },
+                  "Parameter: max_udp_payload_size (len=2) 1350": {
+                    "tls.quic.parameter.type": "3",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "45:46",
+                    "tls.quic.parameter.max_udp_payload_size": "1350"
+                  },
+                  "Parameter: initial_max_data (len=4) 10000000": {
+                    "tls.quic.parameter.type": "4",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:98:96:80",
+                    "tls.quic.parameter.initial_max_data": "10000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_local (len=4) 1000000": {
+                    "tls.quic.parameter.type": "5",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_local": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_remote (len=4) 1000000": {
+                    "tls.quic.parameter.type": "6",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_remote": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_uni (len=4) 1000000": {
+                    "tls.quic.parameter.type": "7",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_uni": "1000000"
+                  },
+                  "Parameter: initial_max_streams_bidi (len=2) 100": {
+                    "tls.quic.parameter.type": "8",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_bidi": "100"
+                  },
+                  "Parameter: initial_max_streams_uni (len=2) 100": {
+                    "tls.quic.parameter.type": "9",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_uni": "100"
+                  },
+                  "Parameter: ack_delay_exponent (len=1)": {
+                    "tls.quic.parameter.type": "10",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.ack_delay_exponent": "3"
+                  },
+                  "Parameter: max_ack_delay (len=1) 25": {
+                    "tls.quic.parameter.type": "11",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "19",
+                    "tls.quic.parameter.max_ack_delay": "25"
+                  },
+                  "Parameter: initial_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "15",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+                    "tls.quic.parameter.initial_source_connection_id": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59"
+                  }
+                },
+                "tls.handshake.ja4": "q13i0307h3_55b375c5d22e_f0736a66fa6b",
+                "tls.handshake.ja4_r": "q13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+                "tls.handshake.ja3_full": "771,4865-4866-4867,10-16-13-51-45-43-57,29-23-24,",
+                "tls.handshake.ja3": "86871fd0d48de0c82beec154cd3f1744"
+              }
+            }
+          }
+        },
+        "quic": {
+          "_ws.expert": {
+            "quic.coalesced_padding_data": "",
+            "_ws.expert.message": "(Random) padding data appended to the datagram",
+            "_ws.expert.severity": "4194304",
+            "_ws.expert.group": "150994944"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.892558000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.892558000 UTC",
+          "frame.time_epoch": "1760521667.892558000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.003936000",
+          "frame.time_delta_displayed": "0.003936000",
+          "frame.time_relative": "0.004996000",
+          "frame.number": "6",
+          "frame.len": "1232",
+          "frame.cap_len": "1232",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:tls:tls",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0xf25e",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "6",
+          "Timestamps": {
+            "udp.time_relative": "0.004996000",
+            "udp.time_delta": "0.003936000"
+          },
+          "udp.payload": "c3:00:00:00:01:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:00:40:75:e4:e1:10:e6:4a:a1:b5:c8:e6:e9:91:d7:2f:ac:0d:5b:2d:b8:80:f4:79:7d:2a:03:bf:e3:a3:78:05:b1:00:0d:ee:ac:4c:96:77:c8:6b:a7:2f:56:6c:3f:9e:ff:1d:6e:ce:6d:9d:1c:cb:e8:6d:9a:a7:3c:e9:5a:06:95:63:b3:80:c2:c6:40:be:6c:20:88:61:50:4f:43:dd:20:33:13:2c:0d:ce:55:5d:05:cf:02:c6:55:ad:28:de:67:2c:95:73:5c:ca:05:11:a0:08:0b:51:45:79:78:69:28:24:51:36:41:41:e9:81:ea:00:00:00:01:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:43:d8:a0:27:22:cd:72:31:13:e4:da:4c:b5:27:48:47:3c:24:d0:8d:4f:5d:3e:91:c0:c9:ab:ac:fd:5a:85:cf:ca:af:05:59:38:81:2a:61:b4:72:dc:b0:63:49:db:4b:99:b9:2b:62:4d:88:ce:c7:25:e3:53:4a:4f:6a:3e:b1:08:73:72:0e:dd:63:00:d6:01:79:65:d5:04:b3:67:44:63:17:93:09:1c:79:f4:06:6e:2f:1c:84:21:50:e4:c7:96:46:12:58:b6:f0:e4:d9:da:16:74:5f:5a:20:52:fb:53:76:11:4b:10:d0:a1:04:fc:b2:80:1d:6d:22:bf:cb:c4:5b:4b:6a:f7:02:ad:7a:2b:2c:e9:f1:00:52:1e:8a:77:b5:2b:28:a7:0e:5d:16:14:72:04:49:29:1e:fc:dc:5e:41:11:36:be:b8:14:34:53:17:1c:ae:e2:7d:20:19:f2:9c:51:67:dc:f8:d0:e3:1e:08:40:83:99:74:2d:95:0a:b6:53:62:dd:9d:12:aa:c7:15:34:88:5e:da:ef:2b:63:6f:5e:ae:d6:60:34:e4:e9:1a:d0:3d:16:7b:50:0a:d8:f8:dd:cf:81:fd:de:c9:e8:e6:2e:ab:c1:56:5e:c7:14:08:7e:a9:aa:e5:af:73:88:86:c3:af:53:6d:c7:c3:19:cd:c9:dc:a0:ff:aa:2c:2f:07:ed:b2:ab:8a:b1:67:57:c2:66:6f:0a:d6:60:d5:84:cd:30:53:e5:a2:df:7d:55:17:05:f4:32:b8:33:4e:c7:fe:3a:5a:5e:67:fc:be:ca:22:b3:91:54:e8:d5:2d:e2:13:32:14:b5:a1:6f:1e:59:0b:05:7e:ec:8f:c8:3a:9d:12:3e:51:f0:97:2e:17:10:37:ca:89:24:4d:87:e8:9a:a4:15:7c:7c:49:78:39:1d:82:dd:de:a7:99:11:59:fc:0b:e0:87:a1:07:35:5b:f1:0e:e3:b4:86:e2:99:72:10:b9:8d:51:7a:20:83:98:73:de:36:0f:58:cf:20:ec:1a:89:6c:db:4f:00:25:bf:26:2a:40:b5:c6:14:fe:2d:64:9a:a6:2e:23:63:d5:18:89:9a:4a:a8:f7:88:b6:2b:c9:5a:94:a3:fd:b1:64:1d:eb:ad:b9:8e:2b:7a:58:a5:7d:18:c6:e9:14:23:76:c7:6d:cd:4e:22:04:f0:d0:03:83:7b:a6:46:44:ce:6b:72:74:7b:a6:17:36:ab:fc:f8:80:72:40:66:a3:e3:57:74:a8:1d:98:f3:d0:17:ef:f2:6c:9e:31:a0:af:2d:c2:b5:53:19:1a:7e:ee:1a:3c:4f:41:3b:aa:00:df:c1:3a:d3:44:de:69:48:c8:a8:07:e9:97:03:34:a9:31:01:f5:6a:0d:90:7b:3f:fb:66:f5:a6:fa:12:67:2c:b3:66:da:8c:a8:14:29:e7:90:3b:69:44:f6:b7:d6:22:13:1f:d8:41:64:dd:da:35:7e:c8:ac:31:7a:f7:a3:7b:c0:c5:d8:4b:b5:6b:15:af:4e:39:d8:4b:f1:65:71:41:d5:21:16:44:46:49:19:bd:1f:75:ba:00:30:2c:0b:c4:c6:1c:d4:d6:4e:49:c7:b2:bd:76:d3:20:a0:6a:06:8d:59:c3:15:37:5a:e9:ef:b5:04:f4:97:83:b7:1f:7c:84:c2:5a:22:40:a5:d9:76:1c:b1:38:60:c5:55:7a:5c:c7:f5:8d:2a:b5:44:db:ef:7d:11:1f:cb:2b:b1:4a:12:75:0f:f8:d6:70:f2:d5:95:ee:07:a5:8c:7e:f2:04:ca:69:d7:0b:75:36:b2:3e:b9:ea:bf:3e:d2:c9:09:de:ca:50:56:fa:71:4c:68:c8:6b:e0:bf:a6:ea:43:78:56:03:b3:ea:6b:5d:b0:34:8b:4a:88:fe:f7:1a:dd:c9:55:0f:1e:13:f6:3e:50:33:78:06:53:15:5d:9c:55:f3:0a:c9:e9:5a:fe:85:77:3e:cd:6e:96:fb:4d:aa:ee:4f:28:96:f8:76:32:20:22:55:b4:ad:3e:59:f3:52:a1:0c:5b:ed:95:fb:6c:e5:c7:ed:73:3c:6b:fb:ac:e3:ba:82:09:ea:d2:de:88:e9:50:08:6a:19:54:ea:46:d3:3a:b3:f0:26:b4:bb:a3:c0:5e:af:c0:ac:85:ea:14:de:9b:e2:f4:87:42:88:5c:a7:67:a7:09:a7:1c:6f:20:22:56:b1:5c:0e:b0:54:2c:e5:b3:a0:c7:90:2d:17:6c:0c:b6:73:e8:a4:f2:e5:71:0c:81:68:8b:37:26:91:6b:fc:7f:b6:54:2a:0f:83:6c:36:41:6d:71:da:5e:ba:0d:b7:c8:1d:d2:c3:82:47:e9:2b:a8:43:7e:9f:1f:0c:1c:9d:94:7f:d8:21:85:4a:9b:b0:ef:33:3b:5e:ba:15:1e:56:d9:37:64:d8:54:ba:81:47:11:a0:11:b5:a9:48:c4:97:f3:81:db:19:30:ea:b8:47:dd:d7:e4:30:41:da:99:d8:f2:e2:de:96:8e:da:0f:7c:76:7a:12:bc:9b:b5:0e:17:6e:54:2b:d5:6a:ac:21:4d:b7:ce:31:df:75:89:f7:82:27:04:69"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "167",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "0",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.scil": "20",
+          "quic.scid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.token_length": "0",
+          "quic.length": "117",
+          "quic.packet_number": "0",
+          "quic.payload": "e1:10:e6:4a:a1:b5:c8:e6:e9:91:d7:2f:ac:0d:5b:2d:b8:80:f4:79:7d:2a:03:bf:e3:a3:78:05:b1:00:0d:ee:ac:4c:96:77:c8:6b:a7:2f:56:6c:3f:9e:ff:1d:6e:ce:6d:9d:1c:cb:e8:6d:9a:a7:3c:e9:5a:06:95:63:b3:80:c2:c6:40:be:6c:20:88:61:50:4f:43:dd:20:33:13:2c:0d:ce:55:5d:05:cf:02:c6:55:ad:28:de:67:2c:95:73:5c:ca:05:11:a0:08:0b:51:45:79:78:69:28:24:51:36:41:41:e9:81",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "2",
+            "quic.ack.ack_delay": "409",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "90",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "2",
+                "tls.handshake.length": "86",
+                "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
+                "tls.handshake.random": "5a:bd:f9:16:82:fc:b3:57:c2:d0:e3:fa:b8:6b:34:db:96:f9:fa:39:3d:23:99:28:58:37:79:95:f9:05:3f:73",
+                "tls.handshake.session_id_length": "0",
+                "tls.handshake.ciphersuite": "0x1301",
+                "tls.handshake.comp_method": "0",
+                "tls.handshake.extensions_length": "46",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "51",
+                  "tls.handshake.extension.len": "36",
+                  "Key Share extension": {
+                    "Key Share Entry: Group: x25519, Key Exchange length: 32": {
+                      "tls.handshake.extensions_key_share_group": "29",
+                      "tls.handshake.extensions_key_share_key_exchange_length": "32",
+                      "tls.handshake.extensions_key_share_key_exchange": "4d:8b:8d:17:63:9a:d0:2f:18:c5:b0:20:ef:38:23:ae:31:49:2b:b1:0c:f6:27:4e:c1:dc:12:8c:34:86:bc:11"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "43",
+                  "tls.handshake.extension.len": "2",
+                  "tls.handshake.extensions.supported_version": "0x0304"
+                },
+                "tls.handshake.ja3s_full": "771,4865,51-43",
+                "tls.handshake.ja3s": "eb1d94daa7e0344597e756a1fb6e7054"
+              }
+            }
+          }
+        },
+        "quic": {
+          "quic.packet_length": "1033",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.scil": "20",
+          "quic.scid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.length": "984",
+          "quic.packet_number": "1",
+          "quic.payload": "27:22:cd:72:31:13:e4:da:4c:b5:27:48:47:3c:24:d0:8d:4f:5d:3e:91:c0:c9:ab:ac:fd:5a:85:cf:ca:af:05:59:38:81:2a:61:b4:72:dc:b0:63:49:db:4b:99:b9:2b:62:4d:88:ce:c7:25:e3:53:4a:4f:6a:3e:b1:08:73:72:0e:dd:63:00:d6:01:79:65:d5:04:b3:67:44:63:17:93:09:1c:79:f4:06:6e:2f:1c:84:21:50:e4:c7:96:46:12:58:b6:f0:e4:d9:da:16:74:5f:5a:20:52:fb:53:76:11:4b:10:d0:a1:04:fc:b2:80:1d:6d:22:bf:cb:c4:5b:4b:6a:f7:02:ad:7a:2b:2c:e9:f1:00:52:1e:8a:77:b5:2b:28:a7:0e:5d:16:14:72:04:49:29:1e:fc:dc:5e:41:11:36:be:b8:14:34:53:17:1c:ae:e2:7d:20:19:f2:9c:51:67:dc:f8:d0:e3:1e:08:40:83:99:74:2d:95:0a:b6:53:62:dd:9d:12:aa:c7:15:34:88:5e:da:ef:2b:63:6f:5e:ae:d6:60:34:e4:e9:1a:d0:3d:16:7b:50:0a:d8:f8:dd:cf:81:fd:de:c9:e8:e6:2e:ab:c1:56:5e:c7:14:08:7e:a9:aa:e5:af:73:88:86:c3:af:53:6d:c7:c3:19:cd:c9:dc:a0:ff:aa:2c:2f:07:ed:b2:ab:8a:b1:67:57:c2:66:6f:0a:d6:60:d5:84:cd:30:53:e5:a2:df:7d:55:17:05:f4:32:b8:33:4e:c7:fe:3a:5a:5e:67:fc:be:ca:22:b3:91:54:e8:d5:2d:e2:13:32:14:b5:a1:6f:1e:59:0b:05:7e:ec:8f:c8:3a:9d:12:3e:51:f0:97:2e:17:10:37:ca:89:24:4d:87:e8:9a:a4:15:7c:7c:49:78:39:1d:82:dd:de:a7:99:11:59:fc:0b:e0:87:a1:07:35:5b:f1:0e:e3:b4:86:e2:99:72:10:b9:8d:51:7a:20:83:98:73:de:36:0f:58:cf:20:ec:1a:89:6c:db:4f:00:25:bf:26:2a:40:b5:c6:14:fe:2d:64:9a:a6:2e:23:63:d5:18:89:9a:4a:a8:f7:88:b6:2b:c9:5a:94:a3:fd:b1:64:1d:eb:ad:b9:8e:2b:7a:58:a5:7d:18:c6:e9:14:23:76:c7:6d:cd:4e:22:04:f0:d0:03:83:7b:a6:46:44:ce:6b:72:74:7b:a6:17:36:ab:fc:f8:80:72:40:66:a3:e3:57:74:a8:1d:98:f3:d0:17:ef:f2:6c:9e:31:a0:af:2d:c2:b5:53:19:1a:7e:ee:1a:3c:4f:41:3b:aa:00:df:c1:3a:d3:44:de:69:48:c8:a8:07:e9:97:03:34:a9:31:01:f5:6a:0d:90:7b:3f:fb:66:f5:a6:fa:12:67:2c:b3:66:da:8c:a8:14:29:e7:90:3b:69:44:f6:b7:d6:22:13:1f:d8:41:64:dd:da:35:7e:c8:ac:31:7a:f7:a3:7b:c0:c5:d8:4b:b5:6b:15:af:4e:39:d8:4b:f1:65:71:41:d5:21:16:44:46:49:19:bd:1f:75:ba:00:30:2c:0b:c4:c6:1c:d4:d6:4e:49:c7:b2:bd:76:d3:20:a0:6a:06:8d:59:c3:15:37:5a:e9:ef:b5:04:f4:97:83:b7:1f:7c:84:c2:5a:22:40:a5:d9:76:1c:b1:38:60:c5:55:7a:5c:c7:f5:8d:2a:b5:44:db:ef:7d:11:1f:cb:2b:b1:4a:12:75:0f:f8:d6:70:f2:d5:95:ee:07:a5:8c:7e:f2:04:ca:69:d7:0b:75:36:b2:3e:b9:ea:bf:3e:d2:c9:09:de:ca:50:56:fa:71:4c:68:c8:6b:e0:bf:a6:ea:43:78:56:03:b3:ea:6b:5d:b0:34:8b:4a:88:fe:f7:1a:dd:c9:55:0f:1e:13:f6:3e:50:33:78:06:53:15:5d:9c:55:f3:0a:c9:e9:5a:fe:85:77:3e:cd:6e:96:fb:4d:aa:ee:4f:28:96:f8:76:32:20:22:55:b4:ad:3e:59:f3:52:a1:0c:5b:ed:95:fb:6c:e5:c7:ed:73:3c:6b:fb:ac:e3:ba:82:09:ea:d2:de:88:e9:50:08:6a:19:54:ea:46:d3:3a:b3:f0:26:b4:bb:a3:c0:5e:af:c0:ac:85:ea:14:de:9b:e2:f4:87:42:88:5c:a7:67:a7:09:a7:1c:6f:20:22:56:b1:5c:0e:b0:54:2c:e5:b3:a0:c7:90:2d:17:6c:0c:b6:73:e8:a4:f2:e5:71:0c:81:68:8b:37:26:91:6b:fc:7f:b6:54:2a:0f:83:6c:36:41:6d:71:da:5e:ba:0d:b7:c8:1d:d2:c3:82:47:e9:2b:a8:43:7e:9f:1f:0c:1c:9d:94:7f:d8:21:85:4a:9b:b0:ef:33:3b:5e:ba:15:1e:56:d9:37:64:d8:54:ba:81:47:11:a0:11:b5:a9:48:c4:97:f3:81:db:19:30:ea:b8:47:dd:d7:e4:30:41:da:99:d8:f2:e2:de:96:8e:da:0f:7c:76:7a:12:bc:9b:b5:0e:17:6e:54:2b:d5:6a:ac:21:4d:b7:ce:31:df:75:89:f7:82:27:04:69",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "963",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "8",
+                "tls.handshake.length": "125",
+                "tls.handshake.extensions_length": "123",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "16",
+                  "tls.handshake.extension.len": "5",
+                  "tls.handshake.extensions_alpn_len": "3",
+                  "tls.handshake.extensions_alpn_list": {
+                    "tls.handshake.extensions_alpn_str_len": "2",
+                    "tls.handshake.extensions_alpn_str": "h3"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "57",
+                  "tls.handshake.extension.len": "110",
+                  "Parameter: original_destination_connection_id (len=16)": {
+                    "tls.quic.parameter.type": "0",
+                    "tls.quic.parameter.length": "16",
+                    "tls.quic.parameter.value": "ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+                    "tls.quic.parameter.original_destination_connection_id": "ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40"
+                  },
+                  "Parameter: max_idle_timeout (len=4) 30000 ms": {
+                    "tls.quic.parameter.type": "1",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:75:30",
+                    "tls.quic.parameter.max_idle_timeout": "30000"
+                  },
+                  "Parameter: max_udp_payload_size (len=2) 1350": {
+                    "tls.quic.parameter.type": "3",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "45:46",
+                    "tls.quic.parameter.max_udp_payload_size": "1350"
+                  },
+                  "Parameter: initial_max_data (len=4) 10000000": {
+                    "tls.quic.parameter.type": "4",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:98:96:80",
+                    "tls.quic.parameter.initial_max_data": "10000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_local (len=4) 1000000": {
+                    "tls.quic.parameter.type": "5",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_local": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_remote (len=4) 1000000": {
+                    "tls.quic.parameter.type": "6",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_remote": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_uni (len=4) 1000000": {
+                    "tls.quic.parameter.type": "7",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_uni": "1000000"
+                  },
+                  "Parameter: initial_max_streams_bidi (len=2) 100": {
+                    "tls.quic.parameter.type": "8",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_bidi": "100"
+                  },
+                  "Parameter: initial_max_streams_uni (len=2) 100": {
+                    "tls.quic.parameter.type": "9",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_uni": "100"
+                  },
+                  "Parameter: ack_delay_exponent (len=1)": {
+                    "tls.quic.parameter.type": "10",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.ack_delay_exponent": "3"
+                  },
+                  "Parameter: max_ack_delay (len=1) 25": {
+                    "tls.quic.parameter.type": "11",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "19",
+                    "tls.quic.parameter.max_ack_delay": "25"
+                  },
+                  "Parameter: initial_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "15",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+                    "tls.quic.parameter.initial_source_connection_id": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0"
+                  },
+                  "Parameter: retry_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "16",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+                    "tls.quic.parameter.retry_source_connection_id": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0"
+                  }
+                }
+              },
+              "tls.handshake": "",
+              "tls.handshake.reassembled_in": "7"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.892624000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.892624000 UTC",
+          "frame.time_epoch": "1760521667.892624000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000066000",
+          "frame.time_delta_displayed": "0.000066000",
+          "frame.time_relative": "0.005062000",
+          "frame.number": "7",
+          "frame.len": "501",
+          "frame.cap_len": "501",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:tls:x509sat:x509sat:x509sat:x509sat:x509sat:x509sat:x509sat:x509sat:x509ce:x509ce:x509ce",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "497",
+          "ip.id": "0x15d7",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "477",
+          "udp.checksum": "0xfff1",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "7",
+          "Timestamps": {
+            "udp.time_relative": "0.005062000",
+            "udp.time_delta": "0.000066000"
+          },
+          "udp.payload": "ea:00:00:00:01:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:41:a4:62:5d:6e:db:97:8c:c3:9b:74:88:a5:ca:ad:9e:30:8a:2c:dc:f8:a1:c4:a0:d5:e6:c2:d9:ca:29:9c:bd:09:85:fa:01:1a:62:d9:a0:2e:e7:a3:69:ac:3b:47:ff:04:aa:81:84:b4:41:11:cf:91:4f:62:96:11:6c:ef:35:1a:79:fa:77:df:90:3c:28:f9:a5:bd:a1:ae:5b:c4:9f:e6:e5:94:0f:12:2a:1d:cb:b7:7b:e5:6a:bb:8e:b6:79:64:0c:a4:ef:ca:90:1e:11:ab:84:d4:b9:76:b2:7f:d7:6a:fa:49:2b:35:97:3f:b1:a5:f2:7f:0f:bf:6d:0d:2c:f2:06:d1:86:24:9d:41:6d:ac:01:56:32:13:94:0d:34:9a:6f:a0:d4:6e:30:8a:19:63:63:96:f8:40:94:58:e3:52:5c:95:2d:e2:ff:ce:12:e1:20:db:0a:86:8d:ae:59:41:b8:50:11:78:49:ce:dd:38:02:1f:6c:8c:23:95:47:98:6d:22:f3:08:28:2f:e4:f9:bb:e0:1a:f9:3f:6f:9a:d5:3b:8c:58:c3:9c:f7:f7:9f:aa:52:0c:24:8a:d6:f5:74:15:0a:1c:29:d3:6a:a7:55:41:0a:14:00:40:88:51:44:1f:b6:f7:a2:55:9b:7c:39:cf:d1:71:e5:e7:64:06:77:1d:1b:92:4e:6d:a6:89:be:75:79:3e:5f:d4:09:27:a3:9d:f9:18:42:75:08:8a:80:f1:b7:93:d6:23:ad:a0:b1:eb:f0:cb:dd:cc:59:c2:2a:84:27:47:a8:a7:77:71:7d:3b:1f:a6:36:21:e1:b1:21:1a:c4:15:d6:c8:20:3b:80:9e:50:30:53:ba:88:ae:28:56:7a:12:fd:c4:e0:75:c2:b2:f4:09:65:0a:19:66:32:4a:01:88:cd:b3:52:1a:08:02:a6:34:cc:9c:3e:68:8a:f7:36:e1:c8:a4:7e:ab:e9:d0:64:af:fe:7b:08:d9:7e:0b:b9:10:84:ca:26:7f:95:a4:45:40:cb:31:7a:08:05:14:b3:0c:22:7d:a5:63:b5:a9:d7:bc:b8:52:0c:21:9f:f1:b4:72:a1:06:c4:d7:39:3c:f6:f3:bd:6a"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "469",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.scil": "20",
+          "quic.scid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.length": "420",
+          "quic.packet_number": "2",
+          "quic.payload": "5d:6e:db:97:8c:c3:9b:74:88:a5:ca:ad:9e:30:8a:2c:dc:f8:a1:c4:a0:d5:e6:c2:d9:ca:29:9c:bd:09:85:fa:01:1a:62:d9:a0:2e:e7:a3:69:ac:3b:47:ff:04:aa:81:84:b4:41:11:cf:91:4f:62:96:11:6c:ef:35:1a:79:fa:77:df:90:3c:28:f9:a5:bd:a1:ae:5b:c4:9f:e6:e5:94:0f:12:2a:1d:cb:b7:7b:e5:6a:bb:8e:b6:79:64:0c:a4:ef:ca:90:1e:11:ab:84:d4:b9:76:b2:7f:d7:6a:fa:49:2b:35:97:3f:b1:a5:f2:7f:0f:bf:6d:0d:2c:f2:06:d1:86:24:9d:41:6d:ac:01:56:32:13:94:0d:34:9a:6f:a0:d4:6e:30:8a:19:63:63:96:f8:40:94:58:e3:52:5c:95:2d:e2:ff:ce:12:e1:20:db:0a:86:8d:ae:59:41:b8:50:11:78:49:ce:dd:38:02:1f:6c:8c:23:95:47:98:6d:22:f3:08:28:2f:e4:f9:bb:e0:1a:f9:3f:6f:9a:d5:3b:8c:58:c3:9c:f7:f7:9f:aa:52:0c:24:8a:d6:f5:74:15:0a:1c:29:d3:6a:a7:55:41:0a:14:00:40:88:51:44:1f:b6:f7:a2:55:9b:7c:39:cf:d1:71:e5:e7:64:06:77:1d:1b:92:4e:6d:a6:89:be:75:79:3e:5f:d4:09:27:a3:9d:f9:18:42:75:08:8a:80:f1:b7:93:d6:23:ad:a0:b1:eb:f0:cb:dd:cc:59:c2:2a:84:27:47:a8:a7:77:71:7d:3b:1f:a6:36:21:e1:b1:21:1a:c4:15:d6:c8:20:3b:80:9e:50:30:53:ba:88:ae:28:56:7a:12:fd:c4:e0:75:c2:b2:f4:09:65:0a:19:66:32:4a:01:88:cd:b3:52:1a:08:02:a6:34:cc:9c:3e:68:8a:f7:36:e1:c8:a4:7e:ab:e9:d0:64:af:fe:7b:08:d9:7e:0b:b9:10:84:ca:26:7f:95:a4:45:40:cb:31:7a:08:05:14:b3:0c:22:7d:a5:63:b5:a9:d7:bc:b8:52:0c:21:9f:f1:b4:72:a1:06:c4:d7:39:3c:f6:f3:bd:6a",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "963",
+            "quic.crypto.length": "398",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": "",
+              "tls.handshake.fragments": {
+                "tls.handshake.fragment": "6",
+                "tls.handshake.fragment": "7",
+                "tls.handshake.fragment.count": "2"
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "11",
+                "tls.handshake.length": "928",
+                "tls.handshake.certificate_request_context_length": "0",
+                "tls.handshake.certificates_length": "924",
+                "tls.handshake.certificates": {
+                  "tls.handshake.certificate_length": "919",
+                  "tls.handshake.certificate": "30:82:03:93:30:82:02:7b:a0:03:02:01:02:02:14:6a:3d:ba:0f:2c:eb:d9:6f:51:f2:3b:8a:9b:6a:4d:ca:bb:5a:b6:2d:30:0d:06:09:2a:86:48:86:f7:0d:01:01:0b:05:00:30:59:31:0b:30:09:06:03:55:04:06:13:02:41:55:31:13:30:11:06:03:55:04:08:0c:0a:53:6f:6d:65:2d:53:74:61:74:65:31:21:30:1f:06:03:55:04:0a:0c:18:49:6e:74:65:72:6e:65:74:20:57:69:64:67:69:74:73:20:50:74:79:20:4c:74:64:31:12:30:10:06:03:55:04:03:0c:09:71:75:69:63:2e:74:65:63:68:30:1e:17:0d:31:38:30:39:33:30:32:32:31:31:34:38:5a:17:0d:31:39:30:39:33:30:32:32:31:31:34:38:5a:30:59:31:0b:30:09:06:03:55:04:06:13:02:41:55:31:13:30:11:06:03:55:04:08:0c:0a:53:6f:6d:65:2d:53:74:61:74:65:31:21:30:1f:06:03:55:04:0a:0c:18:49:6e:74:65:72:6e:65:74:20:57:69:64:67:69:74:73:20:50:74:79:20:4c:74:64:31:12:30:10:06:03:55:04:03:0c:09:71:75:69:63:2e:74:65:63:68:30:82:01:22:30:0d:06:09:2a:86:48:86:f7:0d:01:01:01:05:00:03:82:01:0f:00:30:82:01:0a:02:82:01:01:00:aa:b4:b7:d1:f9:e4:23:a4:3e:e5:22:ac:05:79:08:c2:78:4e:eb:5c:7f:5a:0b:74:ce:8e:4f:fb:4c:93:01:90:d8:55:8b:44:85:19:5f:98:9d:de:b0:49:5e:3b:59:ea:e4:cb:4c:dd:df:ba:69:50:49:97:0b:53:8b:ca:41:3b:35:5f:26:49:67:c5:dd:3b:37:7a:ca:87:71:d9:6c:61:f2:6e:38:49:14:64:fd:53:8b:14:ad:c2:9c:0a:94:8a:25:a1:2e:ec:84:2c:41:0b:35:1e:1d:01:eb:b3:1e:a8:91:b7:17:b3:9c:60:21:77:39:70:b5:d5:62:b7:0a:d0:c3:29:c2:dc:b1:ad:b1:f9:62:26:ce:c3:df:6b:2c:c4:8d:0e:04:2d:35:43:3f:bd:e8:40:64:7a:0f:71:da:59:ab:8a:11:2e:09:8c:8f:42:32:7f:04:25:10:9c:c6:3c:1e:b7:e7:38:53:79:10:83:6c:f9:28:36:e8:a0:17:c2:7e:bc:e6:5f:7f:c4:a4:c7:ff:45:a0:12:69:4b:59:17:79:20:7c:34:fa:e3:c7:48:09:65:28:8a:96:ab:a3:55:7b:de:98:36:bc:37:b9:46:c0:29:e2:7d:40:ed:50:98:e3:c5:6f:18:4c:fd:42:07:29:f1:01:73:b6:91:49:9f:02:03:01:00:01:a3:53:30:51:30:1d:06:03:55:1d:0e:04:16:04:14:14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46:30:1f:06:03:55:1d:23:04:18:30:16:80:14:14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46:30:0f:06:03:55:1d:13:01:01:ff:04:05:30:03:01:01:ff:30:0d:06:09:2a:86:48:86:f7:0d:01:01:0b:05:00:03:82:01:01:00:65:ae:d7:2b:73:32:e0:9a:5e:48:bc:f4:04:08:f8:e1:0b:60:84:67:60:f7:c4:05:47:78:99:12:79:f4:5c:2d:3d:1e:b9:21:6e:36:91:f0:c6:b7:76:7d:10:c8:c0:d1:b8:f2:cb:36:5e:63:dd:55:ae:ac:3a:a7:80:43:5b:b8:92:41:3c:69:02:4f:3a:33:15:f3:14:e8:c6:73:18:b2:b5:96:32:22:1b:39:0c:5d:51:1a:6a:64:a3:ec:60:c9:d9:e4:76:8b:67:01:ba:08:8c:62:fe:cd:fd:ef:05:6d:23:11:05:7a:18:54:f8:ee:92:80:3c:43:00:c9:85:2f:e8:37:8e:ef:b7:4f:95:b1:38:b9:c1:a8:7d:77:7b:74:44:2a:ee:01:ef:f8:4c:44:e8:8c:fc:63:6c:41:93:43:bd:5d:99:4e:ba:c4:f6:4c:ae:7a:a5:18:23:5a:e2:43:76:6a:50:83:35:f4:a0:d7:24:69:e2:3d:74:cd:29:8a:d2:31:c4:1c:eb:a2:1e:58:96:fd:97:3e:68:b1:05:71:50:75:40:79:88:ca:f7:01:22:12:a2:b8:36:df:6e:45:ab:a9:28:9e:97:a9:cb:49:c2:2f:84:96:89:3a:b1:b3:41:80:5f:8d:e6:78:4c:ed:26:20:72:54:a2:37:20:64",
+                  "tls.handshake.certificate_tree": {
+                    "x509af.signedCertificate_element": {
+                      "x509af.version": "2",
+                      "x509af.serialNumber": "6a:3d:ba:0f:2c:eb:d9:6f:51:f2:3b:8a:9b:6a:4d:ca:bb:5a:b6:2d",
+                      "x509af.signature_element": {
+                        "x509af.algorithm.id": "1.2.840.113549.1.1.11"
+                      },
+                      "x509af.issuer": "0",
+                      "x509af.issuer_tree": {
+                        "x509if.rdnSequence": "4",
+                        "x509if.rdnSequence_tree": {
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.6",
+                              "x509sat.CountryName": "AU"
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.8",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Some-State"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.10",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Internet Widgits Pty Ltd"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.3",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "quic.tech"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "x509af.validity_element": {
+                        "x509af.notBefore": "0",
+                        "x509af.notBefore_tree": {
+                          "x509af.utcTime": "2018-09-30 22:11:48 (UTC)"
+                        },
+                        "x509af.notAfter": "0",
+                        "x509af.notAfter_tree": {
+                          "x509af.utcTime": "2019-09-30 22:11:48 (UTC)"
+                        }
+                      },
+                      "x509af.subject": "0",
+                      "x509af.subject_tree": {
+                        "x509af.rdnSequence": "4",
+                        "x509af.rdnSequence_tree": {
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.6",
+                              "x509sat.CountryName": "AU"
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.8",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Some-State"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.10",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "Internet Widgits Pty Ltd"
+                              }
+                            }
+                          },
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.3",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "quic.tech"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "x509af.subjectPublicKeyInfo_element": {
+                        "x509af.algorithm_element": {
+                          "x509af.algorithm.id": "1.2.840.113549.1.1.1"
+                        },
+                        "x509af.subjectPublicKey": "30:82:01:0a:02:82:01:01:00:aa:b4:b7:d1:f9:e4:23:a4:3e:e5:22:ac:05:79:08:c2:78:4e:eb:5c:7f:5a:0b:74:ce:8e:4f:fb:4c:93:01:90:d8:55:8b:44:85:19:5f:98:9d:de:b0:49:5e:3b:59:ea:e4:cb:4c:dd:df:ba:69:50:49:97:0b:53:8b:ca:41:3b:35:5f:26:49:67:c5:dd:3b:37:7a:ca:87:71:d9:6c:61:f2:6e:38:49:14:64:fd:53:8b:14:ad:c2:9c:0a:94:8a:25:a1:2e:ec:84:2c:41:0b:35:1e:1d:01:eb:b3:1e:a8:91:b7:17:b3:9c:60:21:77:39:70:b5:d5:62:b7:0a:d0:c3:29:c2:dc:b1:ad:b1:f9:62:26:ce:c3:df:6b:2c:c4:8d:0e:04:2d:35:43:3f:bd:e8:40:64:7a:0f:71:da:59:ab:8a:11:2e:09:8c:8f:42:32:7f:04:25:10:9c:c6:3c:1e:b7:e7:38:53:79:10:83:6c:f9:28:36:e8:a0:17:c2:7e:bc:e6:5f:7f:c4:a4:c7:ff:45:a0:12:69:4b:59:17:79:20:7c:34:fa:e3:c7:48:09:65:28:8a:96:ab:a3:55:7b:de:98:36:bc:37:b9:46:c0:29:e2:7d:40:ed:50:98:e3:c5:6f:18:4c:fd:42:07:29:f1:01:73:b6:91:49:9f:02:03:01:00:01",
+                        "x509af.subjectPublicKey_tree": {
+                          "pkcs1.modulus": "00:aa:b4:b7:d1:f9:e4:23:a4:3e:e5:22:ac:05:79:08:c2:78:4e:eb:5c:7f:5a:0b:74:ce:8e:4f:fb:4c:93:01:90:d8:55:8b:44:85:19:5f:98:9d:de:b0:49:5e:3b:59:ea:e4:cb:4c:dd:df:ba:69:50:49:97:0b:53:8b:ca:41:3b:35:5f:26:49:67:c5:dd:3b:37:7a:ca:87:71:d9:6c:61:f2:6e:38:49:14:64:fd:53:8b:14:ad:c2:9c:0a:94:8a:25:a1:2e:ec:84:2c:41:0b:35:1e:1d:01:eb:b3:1e:a8:91:b7:17:b3:9c:60:21:77:39:70:b5:d5:62:b7:0a:d0:c3:29:c2:dc:b1:ad:b1:f9:62:26:ce:c3:df:6b:2c:c4:8d:0e:04:2d:35:43:3f:bd:e8:40:64:7a:0f:71:da:59:ab:8a:11:2e:09:8c:8f:42:32:7f:04:25:10:9c:c6:3c:1e:b7:e7:38:53:79:10:83:6c:f9:28:36:e8:a0:17:c2:7e:bc:e6:5f:7f:c4:a4:c7:ff:45:a0:12:69:4b:59:17:79:20:7c:34:fa:e3:c7:48:09:65:28:8a:96:ab:a3:55:7b:de:98:36:bc:37:b9:46:c0:29:e2:7d:40:ed:50:98:e3:c5:6f:18:4c:fd:42:07:29:f1:01:73:b6:91:49:9f",
+                          "pkcs1.publicExponent": "65537"
+                        }
+                      },
+                      "x509af.extensions": "3",
+                      "x509af.extensions_tree": {
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.14",
+                          "x509ce.SubjectKeyIdentifier": "14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46"
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.35",
+                          "x509ce.AuthorityKeyIdentifier_element": {
+                            "x509ce.keyIdentifier": "14:e9:52:21:e6:07:ff:8d:42:37:90:4f:ff:cc:3c:17:77:bf:7e:46"
+                          }
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.19",
+                          "x509af.critical": "1",
+                          "x509ce.BasicConstraintsSyntax_element": {
+                            "x509ce.cA": "1"
+                          }
+                        }
+                      }
+                    },
+                    "x509af.algorithmIdentifier_element": {
+                      "x509af.algorithm.id": "1.2.840.113549.1.1.11"
+                    },
+                    "ber.bitstring.padding": "0",
+                    "x509af.encrypted": "65:ae:d7:2b:73:32:e0:9a:5e:48:bc:f4:04:08:f8:e1:0b:60:84:67:60:f7:c4:05:47:78:99:12:79:f4:5c:2d:3d:1e:b9:21:6e:36:91:f0:c6:b7:76:7d:10:c8:c0:d1:b8:f2:cb:36:5e:63:dd:55:ae:ac:3a:a7:80:43:5b:b8:92:41:3c:69:02:4f:3a:33:15:f3:14:e8:c6:73:18:b2:b5:96:32:22:1b:39:0c:5d:51:1a:6a:64:a3:ec:60:c9:d9:e4:76:8b:67:01:ba:08:8c:62:fe:cd:fd:ef:05:6d:23:11:05:7a:18:54:f8:ee:92:80:3c:43:00:c9:85:2f:e8:37:8e:ef:b7:4f:95:b1:38:b9:c1:a8:7d:77:7b:74:44:2a:ee:01:ef:f8:4c:44:e8:8c:fc:63:6c:41:93:43:bd:5d:99:4e:ba:c4:f6:4c:ae:7a:a5:18:23:5a:e2:43:76:6a:50:83:35:f4:a0:d7:24:69:e2:3d:74:cd:29:8a:d2:31:c4:1c:eb:a2:1e:58:96:fd:97:3e:68:b1:05:71:50:75:40:79:88:ca:f7:01:22:12:a2:b8:36:df:6e:45:ab:a9:28:9e:97:a9:cb:49:c2:2f:84:96:89:3a:b1:b3:41:80:5f:8d:e6:78:4c:ed:26:20:72:54:a2:37:20:64"
+                  },
+                  "tls.handshake.extensions_length": "0"
+                }
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "15",
+                "tls.handshake.length": "260",
+                "tls.handshake.sig_hash_alg": "0x0804",
+                "tls.handshake.sig_hash_alg_tree": {
+                  "tls.handshake.sig_hash_hash": "8",
+                  "tls.handshake.sig_hash_sig": "4"
+                },
+                "tls.handshake.client_cert_vrfy.sig_len": "256",
+                "tls.handshake.client_cert_vrfy.sig": "8b:2b:4c:c6:67:3a:54:5c:ad:35:fb:1e:55:5a:bc:cc:9c:3c:60:7d:36:59:d1:05:c6:7a:eb:66:9c:d1:83:79:56:c4:92:69:f2:74:ca:18:86:41:c2:16:71:ef:a2:a4:66:d7:82:dd:ce:90:e4:ec:8d:6c:24:80:ee:dc:db:f3:69:b5:4b:07:13:33:55:64:2e:f5:95:56:ce:1a:db:4d:44:81:29:7e:c7:61:68:56:48:62:52:e0:84:d6:a4:96:58:a7:42:f9:ec:8b:e3:d1:bc:ba:a5:5b:67:f2:83:3f:29:a3:54:70:0f:17:0d:88:60:21:ee:1f:2e:1a:3a:f9:34:56:dd:a7:83:00:9b:2d:98:fc:41:37:ae:48:ee:18:ce:75:66:0c:d4:d0:55:14:5c:7d:63:e8:9a:ca:da:3d:e9:9a:e1:c1:7e:e9:29:a7:bd:bc:6b:6f:1f:d8:be:86:46:f6:dc:b4:4a:70:02:e5:8f:73:f1:51:1f:ca:c3:dd:b9:58:54:33:20:62:00:0b:5a:48:99:5a:80:c2:5a:ec:32:ce:e0:25:ca:1f:64:4c:d9:d6:4a:2b:02:4e:5e:fd:38:f9:a3:70:aa:33:76:06:4b:37:e6:c5:cc:a6:56:0b:7b:f0:92:ef:ef:b4:63:59:77:7e:c4:3a:34:b5:f3:1f"
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "20",
+                "tls.handshake.length": "32",
+                "tls.handshake.verify_data": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.893612000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.893612000 UTC",
+          "frame.time_epoch": "1760521667.893612000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000988000",
+          "frame.time_delta_displayed": "0.000988000",
+          "frame.time_relative": "0.006050000",
+          "frame.number": "8",
+          "frame.len": "1382",
+          "frame.cap_len": "1382",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:tls",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1378",
+          "ip.id": "0x5d67",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "63177",
+          "udp.dstport": "4433",
+          "udp.port": "63177",
+          "udp.port": "4433",
+          "udp.length": "1358",
+          "udp.checksum": "0x0363",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "8",
+          "Timestamps": {
+            "udp.time_relative": "0.006050000",
+            "udp.time_delta": "0.000988000"
+          },
+          "udp.payload": "c2:00:00:00:01:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:1a:71:75:69:63:68:65:7f:00:00:02:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40:40:17:b4:6c:c1:3d:f6:31:49:a2:3b:a8:d9:a6:fe:60:f7:c0:8f:ca:49:64:f2:eb:f0:e8:00:00:00:01:14:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:14:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:40:3e:59:12:a0:fb:fa:ed:a6:f2:3b:3b:84:f5:9e:ad:aa:bb:ef:d6:7f:be:4f:ce:8c:27:93:55:6d:02:1d:ea:6e:ee:75:6b:78:c9:1d:48:a3:82:49:2e:05:f1:9c:34:1d:b6:3e:3b:7a:ff:e4:89:38:df:6d:7c:12:4f:38:a5:51:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:29:19:46:8a:94:40:b6:59:b8:16:48:a5:51:c5:47:20:f5:1d:5c:ce:61:80:e8:3d:02:f8:0d:02:6c:54:8d:fa:39:63:3d:b7:15:07:64:d0:aa:49:e0:15:76:5a:cc:0e:32:b0:ee:44:43:1e:32:4d:68:1f:2f:3b:94:e5:41:7c:92:e2:8a:fe:e2:3b:79:cc:fa:52:23:90:2e:80:2c:bb:5f:03:b8:ad:10:ee:82:ba:5c:94:80:91:e8:f8:13:a9:7d:fb:98:a8:31:e5:21:a6:4d:96:33:dc:02:fc:ee:a7:31:d1:99:f2:83:53:15:e8:d6:9c:63:c8:42:65:1e:37:11:c7:f0:f6:7a:c1:15:43:72:0b:cc:3c:4d:b4:2c:3a:d0:6e:cb:5c:a6:41:54:57:41:68:d7:88:43:0b:77:19:80:42:f6:bc:ab:d4:a6:17:96:9a:22:cd:b6:22:6e:85:0c:0f:35:7d:02:6c:5d:f4:d8:10:d8:a4:6f:4c:c9:3f:61:a2:f4:43:3b:68:c9:cf:0f:4e:74:99:21:ba:b7:63:1a:09:b9:94:59:6a:72:ed:ed:5b:32:4d:93:6d:e8:49:29:af:04:29:b3:24:73:eb:47:e1:8e:05:e3:52:b8:de:07:f0:dd:52:5a:13:f8:68:24:a2:34:0d:aa:f4:25:1a:fc:68:52:02:1d:09:89:68:2d:00:e9:9f:b6:8e:38:44:1a:73:a7:5e:b5:4d:3c:2e:0b:5f:42:a9:38:61:5b:89:04:56:79:f1:e5:43:47:22:0c:9f:d4:fe:33:7d:0d:d3:9b:d0:f6:8f:d0:c5:3d:72:b9:7a:33:95:51:38:83:9a:ca:a8:df:0c:a0:28:ea:0a:de:d6:5d:25:03:e1:85:6d:84:76:a1:ea:38:44:ba:0e:84:84:79:41:e7:b0:20:b2:62:6f:5e:6f:f0:72:e2:7e:76:13:29:04:2a:6a:90:e1:91:68:9c:56:4e:e5:b5:20:5d:b5:61:7a:9d:ce:09:4f:a7:8a:e0:dd:ed:2d:ee:97:eb:87:40:36:f8:65:40:fa:a8:0c:c8:85:bd:af:08:70:e0:82:9e:54:3a:ec:b8:c7:56:5f:37:ab:23:10:47:e9:b5:5f:1a:38:60:a2:c6:f4:91:22:24:1b:e6:26:da:7b:93:d7:42:3e:af:88:97:dc:ea:5d:bc:13:0e:d7:57:38:c6:c0:78:03:41:0c:33:c5:de:1e:be:85:72:ac:7b:a1:4d:bb:11:fa:13:82:f7:b9:fa:18:00:5a:ab:7f:55:19:dd:6e:44:9a:05:0f:42:5d:cd:55:61:ef:77:46:52:f4:5c:94:66:a6:19:d8:5e:94:3a:a4:79:88:85:3d:ee:bd:77:41:63:c5:2d:43:5f:f7:02:8f:47:40:2a:de:39:3e:f4:2c:e4:e4:d4:5a:ce:4b:77:82:79:ff:ab:be:5f:77:fc:4a:38:bb:a4:1a:d0:eb:67:c0:4d:2d:24:7c:c4:68:bc:2c:b3:fd:4f:c6:da:1d:5a:e5:3f:ff:a1:ab:16:f2:e3:aa:04:e1:2a:1b:e2:4a:ef:24:e9:ad:cb:27:e3:e9:4f:d0:82:fc:81:b4:12:4a:2d:44:f7:47:33:b9:33:29:da:d6:9a:9a:45:60:b3:a6:e5:1c:b7:5a:fa:61:d9:12:ba:a1:37:6c:1b:ab:32:7e:a5:57:da:2d:cf:5f:98:b0:ff:65:56:43:b3:67:96:c4:9a:1d:29:8a:83:9c:5c:4d:da:26:ab:65:36:b7:e1:7f:f3:a4:d4:21:01:2c:a8:0c:0d:6b:74:69:98:d2:86:3c:12:97:37:1d:fb:9e:63:6b:b4:38:d6:53:e2:16:cd:dd:a2:b3:83:ba:99:54:12:7f:2d:35:2f:d1:6c:2e:5c:84:c3:e8:e3:44:18:03:8e:39:90:1d:3b:9a:b6:3e:43:12:d1:20:35:4c:06:61:79:e3:dc:35:00:c8:e4:49:75:ab:0a:b7:0b:74:60:20:f1:5b:47:df:ca:7c:a2:d2:f4:1b:2b:a7:7d:2c:4c:b7:0f:6f:8f:f1:af:56:e2:18:3b:b4:dc:4b:20:97:13:9d:72:48:66:bb:a6:ea:52:01:9c:29:e2:c3:f5:8f:ec:ba:5b:25:3b:0a:8a:92:27:62:dc:13:7e:e9:f4:7e:12:d9:bd:c7:12:d1:1d:ee:1b:2c:b9:e2:3e:e2:48:d0:9e:97:ca:ca:b1:cc:e0:dc:64:c3:52:c9:00:23:71:45:a1:fc:c9:ff:81:1a:40:93:36:f6:02:53:a2:eb:a2:7e:6a:44:b2:99:b8:dc:42:46:eb:28:75:50:95:42:5a:98:e2:7a:c3:79:11:fd:c4:fe:68:29:f5:e5:0d:0c:4f:51:98:31:0a:49:22:8f:a9:96:50:d7:a2:b5:5f:52:ff:f9:47:3c:8f:ac:1d:18:ba:33:11:1c:fc:56:8e:a7:99:f5:cb:4f:2c:82:cc:35:4f:df:4d:d4:c3:f2:e0:1e:e4:82:c7:9a:0f:a3:6f:8a:8f:90:e8:df:7f:91:b4:0c:41:1d:cd:dd:cc:f2:e9:e2:e1:03:bb:52:f5:5f:f2:1c:e5:86:19:30:a0:cd:30:49:73:d4:e5:15:aa:75:54:0d:2e:30:db:86:e7:3e:d2:96:a5:70:a8:f3:72:18:69:ea:cf:c9:8e:ef:86:90:65:2d:a2:7e:ef:13:22:ec:cf:9e:bd:d8:46:90:0c:2c:d0:9d:cd:dd:42:25:5e:66:1a:f6:cc:88:ac:41:08:5b:a4:fc:4d:10:64:da:eb:dd:b8:18:6f:2a:ad:19:ae:6a:d7:07:46:a7:f9:d9:dd:91:d1:36:d3:f3:ae:23:33:a9:b6:93:56:8e:aa:c4:95:25:86:eb:05:0c:41:b3:28:79:d6:92:e2:5d:a4:1a:7e:a3:b1:82:04:84:af:ee:9c:c5:c7:73:5a:1a:e6:b4:3c"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "99",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "0",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.scil": "20",
+          "quic.scid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.token_length": "26",
+          "quic.token": "71:75:69:63:68:65:7f:00:00:02:ba:34:a6:18:4f:f0:54:c6:04:96:ec:ba:b7:0d:06:40",
+          "quic.length": "23",
+          "quic.packet_number": "3",
+          "quic.payload": "6c:c1:3d:f6:31:49:a2:3b:a8:d9:a6:fe:60:f7:c0:8f:ca:49:64:f2:eb:f0",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "0",
+            "quic.ack.ack_delay": "114",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
+          }
+        },
+        "quic": {
+          "quic.packet_length": "111",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+          "quic.scil": "20",
+          "quic.scid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+          "quic.length": "62",
+          "quic.packet_number": "4",
+          "quic.payload": "12:a0:fb:fa:ed:a6:f2:3b:3b:84:f5:9e:ad:aa:bb:ef:d6:7f:be:4f:ce:8c:27:93:55:6d:02:1d:ea:6e:ee:75:6b:78:c9:1d:48:a3:82:49:2e:05:f1:9c:34:1d:b6:3e:3b:7a:ff:e4:89:38:df:6d:7c:12:4f:38:a5",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "2",
+            "quic.ack.ack_delay": "44",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "1"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "36",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "20",
+                "tls.handshake.length": "32",
+                "tls.handshake.verify_data": ""
+              }
+            }
+          }
+        },
+        "quic": {
+          "quic.packet_length": "1140",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+            "quic.packet_number": "5",
+            "quic.protected_payload": "19:46:8a:94:40:b6:59:b8:16:48:a5:51:c5:47:20:f5:1d:5c:ce:61:80:e8:3d:02:f8:0d:02:6c:54:8d:fa:39:63:3d:b7:15:07:64:d0:aa:49:e0:15:76:5a:cc:0e:32:b0:ee:44:43:1e:32:4d:68:1f:2f:3b:94:e5:41:7c:92:e2:8a:fe:e2:3b:79:cc:fa:52:23:90:2e:80:2c:bb:5f:03:b8:ad:10:ee:82:ba:5c:94:80:91:e8:f8:13:a9:7d:fb:98:a8:31:e5:21:a6:4d:96:33:dc:02:fc:ee:a7:31:d1:99:f2:83:53:15:e8:d6:9c:63:c8:42:65:1e:37:11:c7:f0:f6:7a:c1:15:43:72:0b:cc:3c:4d:b4:2c:3a:d0:6e:cb:5c:a6:41:54:57:41:68:d7:88:43:0b:77:19:80:42:f6:bc:ab:d4:a6:17:96:9a:22:cd:b6:22:6e:85:0c:0f:35:7d:02:6c:5d:f4:d8:10:d8:a4:6f:4c:c9:3f:61:a2:f4:43:3b:68:c9:cf:0f:4e:74:99:21:ba:b7:63:1a:09:b9:94:59:6a:72:ed:ed:5b:32:4d:93:6d:e8:49:29:af:04:29:b3:24:73:eb:47:e1:8e:05:e3:52:b8:de:07:f0:dd:52:5a:13:f8:68:24:a2:34:0d:aa:f4:25:1a:fc:68:52:02:1d:09:89:68:2d:00:e9:9f:b6:8e:38:44:1a:73:a7:5e:b5:4d:3c:2e:0b:5f:42:a9:38:61:5b:89:04:56:79:f1:e5:43:47:22:0c:9f:d4:fe:33:7d:0d:d3:9b:d0:f6:8f:d0:c5:3d:72:b9:7a:33:95:51:38:83:9a:ca:a8:df:0c:a0:28:ea:0a:de:d6:5d:25:03:e1:85:6d:84:76:a1:ea:38:44:ba:0e:84:84:79:41:e7:b0:20:b2:62:6f:5e:6f:f0:72:e2:7e:76:13:29:04:2a:6a:90:e1:91:68:9c:56:4e:e5:b5:20:5d:b5:61:7a:9d:ce:09:4f:a7:8a:e0:dd:ed:2d:ee:97:eb:87:40:36:f8:65:40:fa:a8:0c:c8:85:bd:af:08:70:e0:82:9e:54:3a:ec:b8:c7:56:5f:37:ab:23:10:47:e9:b5:5f:1a:38:60:a2:c6:f4:91:22:24:1b:e6:26:da:7b:93:d7:42:3e:af:88:97:dc:ea:5d:bc:13:0e:d7:57:38:c6:c0:78:03:41:0c:33:c5:de:1e:be:85:72:ac:7b:a1:4d:bb:11:fa:13:82:f7:b9:fa:18:00:5a:ab:7f:55:19:dd:6e:44:9a:05:0f:42:5d:cd:55:61:ef:77:46:52:f4:5c:94:66:a6:19:d8:5e:94:3a:a4:79:88:85:3d:ee:bd:77:41:63:c5:2d:43:5f:f7:02:8f:47:40:2a:de:39:3e:f4:2c:e4:e4:d4:5a:ce:4b:77:82:79:ff:ab:be:5f:77:fc:4a:38:bb:a4:1a:d0:eb:67:c0:4d:2d:24:7c:c4:68:bc:2c:b3:fd:4f:c6:da:1d:5a:e5:3f:ff:a1:ab:16:f2:e3:aa:04:e1:2a:1b:e2:4a:ef:24:e9:ad:cb:27:e3:e9:4f:d0:82:fc:81:b4:12:4a:2d:44:f7:47:33:b9:33:29:da:d6:9a:9a:45:60:b3:a6:e5:1c:b7:5a:fa:61:d9:12:ba:a1:37:6c:1b:ab:32:7e:a5:57:da:2d:cf:5f:98:b0:ff:65:56:43:b3:67:96:c4:9a:1d:29:8a:83:9c:5c:4d:da:26:ab:65:36:b7:e1:7f:f3:a4:d4:21:01:2c:a8:0c:0d:6b:74:69:98:d2:86:3c:12:97:37:1d:fb:9e:63:6b:b4:38:d6:53:e2:16:cd:dd:a2:b3:83:ba:99:54:12:7f:2d:35:2f:d1:6c:2e:5c:84:c3:e8:e3:44:18:03:8e:39:90:1d:3b:9a:b6:3e:43:12:d1:20:35:4c:06:61:79:e3:dc:35:00:c8:e4:49:75:ab:0a:b7:0b:74:60:20:f1:5b:47:df:ca:7c:a2:d2:f4:1b:2b:a7:7d:2c:4c:b7:0f:6f:8f:f1:af:56:e2:18:3b:b4:dc:4b:20:97:13:9d:72:48:66:bb:a6:ea:52:01:9c:29:e2:c3:f5:8f:ec:ba:5b:25:3b:0a:8a:92:27:62:dc:13:7e:e9:f4:7e:12:d9:bd:c7:12:d1:1d:ee:1b:2c:b9:e2:3e:e2:48:d0:9e:97:ca:ca:b1:cc:e0:dc:64:c3:52:c9:00:23:71:45:a1:fc:c9:ff:81:1a:40:93:36:f6:02:53:a2:eb:a2:7e:6a:44:b2:99:b8:dc:42:46:eb:28:75:50:95:42:5a:98:e2:7a:c3:79:11:fd:c4:fe:68:29:f5:e5:0d:0c:4f:51:98:31:0a:49:22:8f:a9:96:50:d7:a2:b5:5f:52:ff:f9:47:3c:8f:ac:1d:18:ba:33:11:1c:fc:56:8e:a7:99:f5:cb:4f:2c:82:cc:35:4f:df:4d:d4:c3:f2:e0:1e:e4:82:c7:9a:0f:a3:6f:8a:8f:90:e8:df:7f:91:b4:0c:41:1d:cd:dd:cc:f2:e9:e2:e1:03:bb:52:f5:5f:f2:1c:e5:86:19:30:a0:cd:30:49:73:d4:e5:15:aa:75:54:0d:2e:30:db:86:e7:3e:d2:96:a5:70:a8:f3:72:18:69:ea:cf:c9:8e:ef:86:90:65:2d:a2:7e:ef:13:22:ec:cf:9e:bd:d8:46:90:0c:2c:d0:9d:cd:dd:42:25:5e:66:1a:f6:cc:88:ac:41:08:5b:a4:fc:4d:10:64:da:eb:dd:b8:18:6f:2a:ad:19:ae:6a:d7:07:46:a7:f9:d9:dd:91:d1:36:d3:f3:ae:23:33:a9:b6:93:56:8e:aa:c4:95:25:86:eb:05:0c:41:b3:28:79:d6:92:e2:5d:a4:1a:7e:a3:b1:82:04:84:af:ee:9c:c5:c7:73:5a:1a:e6:b4:3c"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000018",
+            "quic.nci.sequence": "1",
+            "quic.nci.retire_prior_to": "0",
+            "quic.nci.connection_id.length": "20",
+            "quic.nci.connection_id": "c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9",
+            "quic.nci.stateless_reset_token": "ee:1c:13:31:19:c9:25:f3:1a:5b:97:56:9c:db:4e:ac"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000000",
+            "quic.padding_length": "1062"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894014000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894014000 UTC",
+          "frame.time_epoch": "1760521667.894014000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000402000",
+          "frame.time_delta_displayed": "0.000402000",
+          "frame.time_relative": "0.006452000",
+          "frame.number": "9",
+          "frame.len": "540",
+          "frame.cap_len": "540",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:tls:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "536",
+          "ip.id": "0xb865",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "516",
+          "udp.checksum": "0x0019",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "9",
+          "Timestamps": {
+            "udp.time_relative": "0.006452000",
+            "udp.time_delta": "0.000402000"
+          },
+          "udp.payload": "51:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:f4:38:5b:9d:3d:6d:f9:50:42:96:f0:74:4c:72:90:6a:b8:5d:69:87:c7:50:ff:67:3e:25:0c:24:7b:47:28:68:6d:f0:59:a7:6d:49:31:57:a9:82:11:5b:26:24:49:4e:35:fb:41:82:8f:35:42:e1:30:67:82:c5:a0:5e:dd:41:7e:fa:cb:b9:9e:49:d4:f0:c2:6d:dc:af:29:2f:14:ec:99:b4:2e:0c:cc:1d:44:25:1d:aa:37:78:60:92:5d:c5:95:ee:71:84:9e:0c:21:5a:94:79:cf:f8:5f:df:3f:b4:63:9c:12:46:7b:48:d2:3f:3d:06:4d:52:c9:a7:7f:d0:7d:9a:0b:d0:66:6d:88:cd:5d:f1:c2:2e:9d:a8:f3:73:bd:39:90:4d:17:22:34:e3:f3:74:a5:cb:b4:0d:31:81:ef:53:d5:c7:73:ed:68:fc:2f:4d:8c:6b:a4:db:65:7b:29:14:88:e3:fe:a4:08:29:64:fa:fd:79:a2:d0:3a:22:e7:1d:75:44:93:7c:e3:0b:92:e3:52:f3:df:78:32:d9:c0:47:fa:ee:db:e1:1b:f7:d7:9f:de:b9:93:95:81:41:2b:af:ed:1f:27:bf:bb:bf:f5:f9:43:e1:1f:b6:8b:2b:39:c7:b1:a8:c8:ff:1e:ef:58:a5:bf:bf:4e:59:46:0c:0c:20:18:5a:94:a7:61:2b:ec:7c:50:f3:e6:eb:e5:fd:10:17:67:01:a6:75:98:ec:0e:f2:85:33:af:22:ef:2d:f6:c4:4c:75:a1:89:c9:42:92:cf:55:94:a2:be:10:c5:e2:90:bf:0c:08:82:c4:03:b2:b9:b4:58:ae:39:8a:cd:5a:e3:18:7e:c8:a7:05:79:c4:38:d6:a5:a5:c4:b0:a5:4a:ae:fe:f6:cc:b0:60:83:fd:47:79:01:54:ce:8f:1f:ec:f4:d6:9e:26:b9:22:4a:0f:e8:e4:73:2d:b0:f4:a2:57:3f:f2:de:d9:bf:72:3a:a3:6e:00:dd:b4:a5:05:fb:b2:4b:a7:1a:b0:61:36:21:cf:79:a3:3a:7c:07:6e:fb:68:44:5c:d1:76:44:5d:b7:ae:59:4e:76:90:8c:ef:97:a2:75:5d:4b:b1:98:52:7a:c7:f1:fc:63:d1:16:83:ab:a3:30:b2:ae:a1:7f:c6:d2:3b:bc:8a:46:2f:fb:86:a7:26:03:15:87:f6:6f:c8:9a:29:26:6e:d3:a6:93:54:6e:f0:b8:95:67:7a:d6:78:65:d8:12:50:20:0b:83:b3:bb:0b:f7:f4:b1:ba:47:d4"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "508",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+            "quic.packet_number": "3",
+            "quic.protected_payload": "38:5b:9d:3d:6d:f9:50:42:96:f0:74:4c:72:90:6a:b8:5d:69:87:c7:50:ff:67:3e:25:0c:24:7b:47:28:68:6d:f0:59:a7:6d:49:31:57:a9:82:11:5b:26:24:49:4e:35:fb:41:82:8f:35:42:e1:30:67:82:c5:a0:5e:dd:41:7e:fa:cb:b9:9e:49:d4:f0:c2:6d:dc:af:29:2f:14:ec:99:b4:2e:0c:cc:1d:44:25:1d:aa:37:78:60:92:5d:c5:95:ee:71:84:9e:0c:21:5a:94:79:cf:f8:5f:df:3f:b4:63:9c:12:46:7b:48:d2:3f:3d:06:4d:52:c9:a7:7f:d0:7d:9a:0b:d0:66:6d:88:cd:5d:f1:c2:2e:9d:a8:f3:73:bd:39:90:4d:17:22:34:e3:f3:74:a5:cb:b4:0d:31:81:ef:53:d5:c7:73:ed:68:fc:2f:4d:8c:6b:a4:db:65:7b:29:14:88:e3:fe:a4:08:29:64:fa:fd:79:a2:d0:3a:22:e7:1d:75:44:93:7c:e3:0b:92:e3:52:f3:df:78:32:d9:c0:47:fa:ee:db:e1:1b:f7:d7:9f:de:b9:93:95:81:41:2b:af:ed:1f:27:bf:bb:bf:f5:f9:43:e1:1f:b6:8b:2b:39:c7:b1:a8:c8:ff:1e:ef:58:a5:bf:bf:4e:59:46:0c:0c:20:18:5a:94:a7:61:2b:ec:7c:50:f3:e6:eb:e5:fd:10:17:67:01:a6:75:98:ec:0e:f2:85:33:af:22:ef:2d:f6:c4:4c:75:a1:89:c9:42:92:cf:55:94:a2:be:10:c5:e2:90:bf:0c:08:82:c4:03:b2:b9:b4:58:ae:39:8a:cd:5a:e3:18:7e:c8:a7:05:79:c4:38:d6:a5:a5:c4:b0:a5:4a:ae:fe:f6:cc:b0:60:83:fd:47:79:01:54:ce:8f:1f:ec:f4:d6:9e:26:b9:22:4a:0f:e8:e4:73:2d:b0:f4:a2:57:3f:f2:de:d9:bf:72:3a:a3:6e:00:dd:b4:a5:05:fb:b2:4b:a7:1a:b0:61:36:21:cf:79:a3:3a:7c:07:6e:fb:68:44:5c:d1:76:44:5d:b7:ae:59:4e:76:90:8c:ef:97:a2:75:5d:4b:b1:98:52:7a:c7:f1:fc:63:d1:16:83:ab:a3:30:b2:ae:a1:7f:c6:d2:3b:bc:8a:46:2f:fb:86:a7:26:03:15:87:f6:6f:c8:9a:29:26:6e:d3:a6:93:54:6e:f0:b8:95:67:7a:d6:78:65:d8:12:50:20:0b:83:b3:bb:0b:f7:f4:b1:ba:47:d4"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "5",
+            "quic.ack.ack_delay": "16",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000018",
+            "quic.nci.sequence": "1",
+            "quic.nci.retire_prior_to": "0",
+            "quic.nci.connection_id.length": "20",
+            "quic.nci.connection_id": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.nci.stateless_reset_token": "8f:a0:56:de:f3:78:d3:b1:c2:f2:a5:12:f3:e3:3e:c3"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001e"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "396",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "4",
+                "tls.handshake.length": "194",
+                "TLS Session Ticket": {
+                  "tls.handshake.session_ticket_lifetime_hint": "172800",
+                  "tls.handshake.session_ticket_age_add": "3677766003",
+                  "tls.handshake.session_ticket_nonce_length": "1",
+                  "tls.handshake.session_ticket_nonce": "00",
+                  "tls.handshake.session_ticket_length": "176",
+                  "tls.handshake.session_ticket": "1d:d7:69:bc:6f:b6:e4:ee:62:33:5f:9f:ec:05:fa:4e:a0:9d:ac:12:5f:f7:cd:82:df:ab:d1:3c:a7:06:43:3b:83:31:0d:96:19:3f:72:06:79:81:bf:a8:a0:f9:04:9e:b5:26:eb:ef:71:5f:87:f3:02:6c:15:d8:7b:04:d5:be:0b:84:70:5c:da:97:8c:ec:2b:8a:e5:ed:e3:3b:a1:81:97:56:c7:e3:e2:34:b8:91:db:62:88:9f:db:77:ac:1e:b8:2e:95:82:22:88:a1:11:17:c3:ce:ce:a6:eb:95:92:76:b2:ea:ce:b9:dd:1b:e4:75:b5:93:96:23:28:4c:86:4a:24:ec:1b:5c:76:c4:6a:01:e7:d9:ee:52:bb:d0:9e:f9:69:56:ba:38:12:52:02:99:c1:d8:8f:38:1a:40:2c:02:a4:e1:61:cc:6b:9b:8d:32:1b:b7:73:27:21:a2:3a",
+                  "tls.handshake.extensions_length": "4",
+                  "tls.handshake.extension": {
+                    "tls.handshake.extension.type": "39578",
+                    "tls.handshake.extension.len": "0",
+                    "tls.handshake.extension.data": ""
+                  }
+                }
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "4",
+                "tls.handshake.length": "194",
+                "TLS Session Ticket": {
+                  "tls.handshake.session_ticket_lifetime_hint": "172800",
+                  "tls.handshake.session_ticket_age_add": "1821454919",
+                  "tls.handshake.session_ticket_nonce_length": "1",
+                  "tls.handshake.session_ticket_nonce": "01",
+                  "tls.handshake.session_ticket_length": "176",
+                  "tls.handshake.session_ticket": "1d:d7:69:bc:6f:b6:e4:ee:62:33:5f:9f:ec:05:fa:4e:bf:4d:f4:76:18:bd:f2:ae:69:a6:24:29:4f:d4:a4:c4:62:95:43:c7:c1:61:53:56:2f:f2:26:41:df:9d:fb:fa:2d:e4:05:c3:7b:b0:d2:71:03:31:ce:72:af:74:4a:c7:1a:16:24:1c:21:74:79:65:fa:64:34:a8:9c:2f:3b:90:91:69:73:ef:50:b8:af:dd:ee:98:8d:95:21:14:55:95:5b:91:91:f3:f7:d1:45:c1:e8:2d:44:d3:ee:d9:37:27:6d:49:fc:93:9b:37:46:2c:5a:37:4a:0b:fb:4d:8d:53:a4:af:a7:25:8f:da:4b:98:ca:8f:59:44:cf:8d:89:f0:dd:fa:f8:20:12:cd:53:13:2d:15:c6:25:9c:00:9f:56:94:a7:47:a7:4f:b5:e6:91:14:31:d5:7a:56:66:15:83",
+                  "tls.handshake.extensions_length": "4",
+                  "tls.handshake.extension": {
+                    "tls.handshake.extension.type": "39578",
+                    "tls.handshake.extension.len": "0",
+                    "tls.handshake.extension.data": ""
+                  }
+                }
+              }
+            }
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "3",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "19",
+            "quic.stream_data": "00:04:10:d8:24:82:f0:b3:b9:0a:a0:de:84:26:bc:66:3b:58:c7"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000000",
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000004",
+              "http3.frame_length": "16",
+              "http3.frame_payload": "d8:24:82:f0:b3:b9:0a:a0:de:84:26:bc:66:3b:58:c7",
+              "http3.settings": {
+                "http3.settings.id": "0x182482f0b3b90aa0",
+                "http3.settings.value": "2198925108674517191"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894068000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894068000 UTC",
+          "frame.time_epoch": "1760521667.894068000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000054000",
+          "frame.time_delta_displayed": "0.000054000",
+          "frame.time_relative": "0.006506000",
+          "frame.number": "10",
+          "frame.len": "76",
+          "frame.cap_len": "76",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "72",
+          "ip.id": "0x7790",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "52",
+          "udp.checksum": "0xfe48",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "10",
+          "Timestamps": {
+            "udp.time_relative": "0.006506000",
+            "udp.time_delta": "0.000054000"
+          },
+          "udp.payload": "50:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:bc:40:5f:37:d9:5b:3f:6c:e8:c4:3a:55:26:7d:8d:79:14:74:be:e8:fe:b2:c6"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "44",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+            "quic.packet_number": "4",
+            "quic.protected_payload": "40:5f:37:d9:5b:3f:6c:e8:c4:3a:55:26:7d:8d:79:14:74:be:e8:fe:b2:c6"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "7",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "02"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000002",
+            "http3.qpack.encoder": ""
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894116000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894116000 UTC",
+          "frame.time_epoch": "1760521667.894116000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000048000",
+          "frame.time_delta_displayed": "0.000048000",
+          "frame.time_relative": "0.006554000",
+          "frame.number": "11",
+          "frame.len": "76",
+          "frame.cap_len": "76",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "72",
+          "ip.id": "0x59e0",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "52",
+          "udp.checksum": "0xfe48",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "11",
+          "Timestamps": {
+            "udp.time_relative": "0.006554000",
+            "udp.time_delta": "0.000048000"
+          },
+          "udp.payload": "42:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:e1:5e:57:48:49:11:4d:57:81:55:24:fa:b0:06:0f:19:19:b3:74:18:ab:9b:62"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "44",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+            "quic.packet_number": "5",
+            "quic.protected_payload": "5e:57:48:49:11:4d:57:81:55:24:fa:b0:06:0f:19:19:b3:74:18:ab:9b:62"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "11",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "03"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000003"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894147000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894147000 UTC",
+          "frame.time_epoch": "1760521667.894147000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000031000",
+          "frame.time_delta_displayed": "0.000031000",
+          "frame.time_relative": "0.006585000",
+          "frame.number": "12",
+          "frame.len": "101",
+          "frame.cap_len": "101",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "97",
+          "ip.id": "0xb24d",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "63177",
+          "udp.port": "4433",
+          "udp.port": "63177",
+          "udp.length": "77",
+          "udp.checksum": "0xfe61",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "12",
+          "Timestamps": {
+            "udp.time_relative": "0.006585000",
+            "udp.time_delta": "0.000031000"
+          },
+          "udp.payload": "56:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:15:75:8b:e0:a5:6e:1c:ab:53:50:f5:63:9f:54:ca:a7:90:25:44:23:fa:38:ab:cd:c8:a0:aa:35:6d:6a:f0:06:ce:75:5f:b2:60:d7:b8:b4:8b:15:6e:be:57:ab:f9:da"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "69",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+            "quic.packet_number": "6",
+            "quic.protected_payload": "75:8b:e0:a5:6e:1c:ab:53:50:f5:63:9f:54:ca:a7:90:25:44:23:fa:38:ab:cd:c8:a0:aa:35:6d:6a:f0:06:ce:75:5f:b2:60:d7:b8:b4:8b:15:6e:be:57:ab:f9:da"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "15",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "1",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "26",
+            "quic.stream_data": "d0:71:7a:69:91:5e:60:54:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x10717a69915e6054"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894216000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894216000 UTC",
+          "frame.time_epoch": "1760521667.894216000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000069000",
+          "frame.time_delta_displayed": "0.000069000",
+          "frame.time_relative": "0.006654000",
+          "frame.number": "13",
+          "frame.len": "75",
+          "frame.cap_len": "75",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "71",
+          "ip.id": "0xba35",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "63177",
+          "udp.dstport": "4433",
+          "udp.port": "63177",
+          "udp.port": "4433",
+          "udp.length": "51",
+          "udp.checksum": "0xfe47",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "13",
+          "Timestamps": {
+            "udp.time_relative": "0.006654000",
+            "udp.time_delta": "0.000069000"
+          },
+          "udp.payload": "48:93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0:ee:03:4a:c0:b9:66:52:16:7e:90:51:03:96:ca:3e:42:ee:3e:e8:6e:bf:77"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "43",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "93:24:c5:fa:33:56:c1:0a:d9:c6:5b:cd:89:0d:25:c6:c3:c5:1c:d0",
+            "quic.packet_number": "6",
+            "quic.protected_payload": "03:4a:c0:b9:66:52:16:7e:90:51:03:96:ca:3e:42:ee:3e:e8:6e:bf:77"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "6",
+            "quic.ack.ack_delay": "1",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "3"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894308000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894308000 UTC",
+          "frame.time_epoch": "1760521667.894308000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000092000",
+          "frame.time_delta_displayed": "0.000092000",
+          "frame.time_relative": "0.006746000",
+          "frame.number": "14",
+          "frame.len": "1382",
+          "frame.cap_len": "1382",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1378",
+          "ip.id": "0x4047",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "1358",
+          "udp.checksum": "0x0364",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "1",
+          "Timestamps": {
+            "udp.time_relative": "0.000000000",
+            "udp.time_delta": "0.000000000"
+          },
+          "udp.payload": "42:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:11:15:db:a6:52:2b:ba:86:df:d1:39:bf:25:54:5d:23:94:f7:61:2a:12:3f:ce:8f:4e:28:8b:17:3e:01:c6:f1:8a:e9:ee:d0:03:92:fb:36:f5:09:57:69:8b:76:92:6b:f1:62:a0:cb:e3:87:bd:6d:2c:8c:a5:e2:f4:d1:71:ef:02:b2:07:4a:f1:99:84:47:5b:21:47:59:6e:13:b3:54:13:0f:f0:72:4c:fe:c7:70:2d:8c:06:69:b4:dd:b4:56:a0:64:c4:5f:a7:ea:d4:3a:6e:19:a7:05:32:5c:db:79:00:c9:5a:d2:26:4f:7a:8d:7c:42:98:b0:ca:fa:56:0e:1d:2f:b8:1f:81:44:30:1a:5a:82:5d:ec:f7:ba:a7:57:ad:20:99:fc:2a:2f:59:77:60:ae:f6:bb:66:d1:62:6a:56:66:07:93:49:14:07:09:9f:32:8e:05:9b:19:08:08:14:17:25:df:b7:f8:e5:c2:02:0a:0b:a7:c5:ab:c9:71:28:3d:5b:4d:04:f3:e9:37:2a:7d:59:b2:2f:e0:8d:97:47:93:9e:6d:58:1d:de:53:21:fe:9e:bc:50:1c:8b:bb:31:81:74:b4:c2:00:32:4b:b9:ee:43:03:0e:19:48:4b:3c:5c:cf:e4:6c:ba:38:91:b4:c3:29:71:2f:0e:14:8f:49:4e:14:af:69:1c:6c:a4:76:bc:f6:88:d5:aa:e6:02:82:a6:f7:f5:35:38:04:ad:75:93:8c:de:82:35:69:ef:d9:75:fa:50:07:46:2b:92:0d:f9:a3:92:0b:99:57:23:e4:88:62:d3:c6:29:95:96:78:e2:cb:03:ae:c0:44:f3:ea:a6:88:5f:fc:d0:25:e0:e3:70:58:f4:ac:4d:7e:d8:9e:c7:90:a1:5b:68:2f:7a:41:d9:80:0a:22:1c:45:2d:3a:2f:c8:71:0a:ae:56:32:d4:7e:c0:6d:3e:13:43:4e:d4:0c:7e:aa:28:e2:bc:a8:a8:77:fe:b3:26:28:c3:d0:c1:60:12:7e:c0:69:3e:3d:e8:19:d8:b7:ca:74:3c:c4:84:09:f1:87:2b:f8:4c:1d:30:19:e4:11:32:7e:d6:6d:5c:6d:07:ce:4a:a0:af:dd:a8:b2:23:47:4b:54:18:97:7c:b8:fb:06:60:db:a2:ec:a8:c0:58:a0:71:e4:05:33:c6:bd:5b:93:5a:36:e8:d1:c0:a2:24:59:66:a1:15:64:1a:ac:cf:2f:b7:ff:ae:d3:ad:fc:66:f9:dd:23:c7:0a:db:16:41:84:9d:af:8e:a8:9f:3e:cc:e6:a4:53:5a:9b:48:b2:c4:4b:21:af:7f:19:89:40:5b:6f:97:41:4d:66:b5:0f:82:88:30:e2:50:33:a9:6c:e1:34:c4:47:d0:99:49:40:a6:d7:98:99:ce:ec:0b:19:00:92:09:ec:17:78:22:4e:b0:df:12:ab:dc:33:b9:fa:07:5d:40:9c:bc:a4:f8:11:0b:61:10:94:1b:2b:4e:f3:19:43:e9:63:fe:a0:aa:a6:60:5e:05:cc:6b:e6:98:6d:50:d1:05:53:a6:f4:d5:84:94:5a:0b:22:14:d0:09:61:99:53:f9:a6:ad:39:77:76:91:86:b5:95:0d:e1:ac:23:0f:06:45:59:67:ac:bb:e3:21:6f:00:35:74:e7:36:c3:12:7b:f8:ab:b7:0b:50:ea:fb:cf:09:a4:5b:ee:e0:39:ac:61:13:7f:1b:e9:29:98:a7:4a:c2:2c:fe:28:cd:01:41:c9:83:1b:bc:e8:da:90:5c:b1:e3:c7:22:3b:34:7d:20:c4:3d:b4:fb:2f:8b:f0:e6:58:7d:a9:1b:96:06:d5:b0:50:de:b5:90:97:53:a2:30:e2:49:ef:97:b1:82:e1:34:ee:00:d9:9b:e7:3e:4a:b0:22:48:66:ca:a7:cf:4f:dd:60:7f:b4:c1:2d:4e:29:fc:69:f6:ff:60:a5:2b:d4:b1:a4:96:d2:4e:29:fd:e5:0b:90:00:26:66:1a:11:9c:17:17:4d:82:2a:4e:23:53:9b:fb:84:a4:17:6b:bb:f9:37:0c:6c:2e:06:e3:27:ff:91:73:bd:17:94:65:b7:8f:a1:73:55:3e:8b:05:02:cb:e3:57:8c:18:7f:f8:65:58:d4:42:6a:32:0a:cf:b7:4c:ec:4a:87:60:cf:68:dc:17:cd:08:2a:38:62:b9:9f:ce:ef:07:9a:bd:30:c2:42:73:98:77:1f:0f:af:f0:75:0d:d4:01:ef:7f:f5:41:3a:b9:08:69:58:6a:ac:52:bc:a4:81:ed:a3:4d:5c:43:81:38:ef:b1:ca:74:c5:d6:c5:af:aa:6e:5e:f2:85:00:76:e8:86:38:23:79:be:b5:f0:3b:86:41:24:6d:8e:c6:89:46:61:1d:fd:d9:8b:34:7a:72:9b:2d:b1:f1:1a:a4:60:90:69:f0:e0:3e:ab:77:06:3f:fe:7e:d4:87:af:00:ea:c6:64:c2:a3:dd:f4:f0:f8:b1:eb:34:98:cb:b2:36:85:ed:4b:ee:ec:db:f1:0b:5e:53:d3:2f:4b:e0:eb:ad:b0:9b:4b:5c:8a:69:a2:77:f1:4f:78:25:d8:d0:f3:33:72:39:3d:68:e2:ab:9e:32:3f:53:63:1e:8a:59:19:63:41:5c:54:0b:a4:1b:f0:1d:ac:60:16:a0:ac:7a:2f:4f:5f:c2:3c:66:2b:52:8d:c5:9a:07:3c:a1:01:3b:f5:8c:27:1c:98:0b:6d:12:87:d5:13:a0:31:63:96:4c:7b:03:46:a3:3e:1a:4c:94:33:c0:c3:d7:77:bd:70:1a:3b:4d:5b:95:7e:33:91:6d:81:a7:99:b1:2e:34:d9:45:97:61:87:7a:64:98:64:74:91:3d:d5:bc:1e:fa:b3:ae:ec:a4:09:6b:e8:5b:9e:78:d5:ee:69:70:da:bc:2b:8d:4f:78:ff:7d:8b:e1:d7:1a:54:73:01:ac:32:b2:b8:00:83:db:0e:1a:c4:77:00:a1:90:ca:c5:19:6c:0b:97:6d:e9:33:14:13:35:cb:2e:95:ec:a4:ef:03:18:ac:2a:41:15:5e:44:20:8e:ae:ec:58:5a:42:cb:7a:d6:e9:21:cb:28:af:37:6d:8f:1f:d4:06:21:3c:c9:5d:78:b2:33:51:9b:1d:62:9c:c7:f9:ba:b6:19:14:6b:06:33:7d:65:bc:dc:ed:b6:93:7d:76:47:9d:e8:57:a0:e9:71:ed:8d:ab:b5:2f:c7:5c:ba:e0:b6:14:5d:90:fd:9e:e2:6f:db:7c:66:93:5a:33:ce:0d:fb:f9:87:2b:e7:01:b7:af:27:d0:26:26:2a:6b:24:1b:9d:02:90:3c:41:9d:b1:5c:ef:c3:69:7c:9d:53:6a:4a:8f:e4:57:9e:7e:70:f6:e2:86:b5:60:47:01:a9:62:05:b1:8f:3f:8a:49:0f:3e:07:2b:22:04:64:28:23:27:e6:2f:a9:93:93:7f:22:1e:d4:92:72:da:4b:aa:4f:9f:69:fa:9e:2f:e0:26"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "1350",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "7",
+            "quic.protected_payload": "15:db:a6:52:2b:ba:86:df:d1:39:bf:25:54:5d:23:94:f7:61:2a:12:3f:ce:8f:4e:28:8b:17:3e:01:c6:f1:8a:e9:ee:d0:03:92:fb:36:f5:09:57:69:8b:76:92:6b:f1:62:a0:cb:e3:87:bd:6d:2c:8c:a5:e2:f4:d1:71:ef:02:b2:07:4a:f1:99:84:47:5b:21:47:59:6e:13:b3:54:13:0f:f0:72:4c:fe:c7:70:2d:8c:06:69:b4:dd:b4:56:a0:64:c4:5f:a7:ea:d4:3a:6e:19:a7:05:32:5c:db:79:00:c9:5a:d2:26:4f:7a:8d:7c:42:98:b0:ca:fa:56:0e:1d:2f:b8:1f:81:44:30:1a:5a:82:5d:ec:f7:ba:a7:57:ad:20:99:fc:2a:2f:59:77:60:ae:f6:bb:66:d1:62:6a:56:66:07:93:49:14:07:09:9f:32:8e:05:9b:19:08:08:14:17:25:df:b7:f8:e5:c2:02:0a:0b:a7:c5:ab:c9:71:28:3d:5b:4d:04:f3:e9:37:2a:7d:59:b2:2f:e0:8d:97:47:93:9e:6d:58:1d:de:53:21:fe:9e:bc:50:1c:8b:bb:31:81:74:b4:c2:00:32:4b:b9:ee:43:03:0e:19:48:4b:3c:5c:cf:e4:6c:ba:38:91:b4:c3:29:71:2f:0e:14:8f:49:4e:14:af:69:1c:6c:a4:76:bc:f6:88:d5:aa:e6:02:82:a6:f7:f5:35:38:04:ad:75:93:8c:de:82:35:69:ef:d9:75:fa:50:07:46:2b:92:0d:f9:a3:92:0b:99:57:23:e4:88:62:d3:c6:29:95:96:78:e2:cb:03:ae:c0:44:f3:ea:a6:88:5f:fc:d0:25:e0:e3:70:58:f4:ac:4d:7e:d8:9e:c7:90:a1:5b:68:2f:7a:41:d9:80:0a:22:1c:45:2d:3a:2f:c8:71:0a:ae:56:32:d4:7e:c0:6d:3e:13:43:4e:d4:0c:7e:aa:28:e2:bc:a8:a8:77:fe:b3:26:28:c3:d0:c1:60:12:7e:c0:69:3e:3d:e8:19:d8:b7:ca:74:3c:c4:84:09:f1:87:2b:f8:4c:1d:30:19:e4:11:32:7e:d6:6d:5c:6d:07:ce:4a:a0:af:dd:a8:b2:23:47:4b:54:18:97:7c:b8:fb:06:60:db:a2:ec:a8:c0:58:a0:71:e4:05:33:c6:bd:5b:93:5a:36:e8:d1:c0:a2:24:59:66:a1:15:64:1a:ac:cf:2f:b7:ff:ae:d3:ad:fc:66:f9:dd:23:c7:0a:db:16:41:84:9d:af:8e:a8:9f:3e:cc:e6:a4:53:5a:9b:48:b2:c4:4b:21:af:7f:19:89:40:5b:6f:97:41:4d:66:b5:0f:82:88:30:e2:50:33:a9:6c:e1:34:c4:47:d0:99:49:40:a6:d7:98:99:ce:ec:0b:19:00:92:09:ec:17:78:22:4e:b0:df:12:ab:dc:33:b9:fa:07:5d:40:9c:bc:a4:f8:11:0b:61:10:94:1b:2b:4e:f3:19:43:e9:63:fe:a0:aa:a6:60:5e:05:cc:6b:e6:98:6d:50:d1:05:53:a6:f4:d5:84:94:5a:0b:22:14:d0:09:61:99:53:f9:a6:ad:39:77:76:91:86:b5:95:0d:e1:ac:23:0f:06:45:59:67:ac:bb:e3:21:6f:00:35:74:e7:36:c3:12:7b:f8:ab:b7:0b:50:ea:fb:cf:09:a4:5b:ee:e0:39:ac:61:13:7f:1b:e9:29:98:a7:4a:c2:2c:fe:28:cd:01:41:c9:83:1b:bc:e8:da:90:5c:b1:e3:c7:22:3b:34:7d:20:c4:3d:b4:fb:2f:8b:f0:e6:58:7d:a9:1b:96:06:d5:b0:50:de:b5:90:97:53:a2:30:e2:49:ef:97:b1:82:e1:34:ee:00:d9:9b:e7:3e:4a:b0:22:48:66:ca:a7:cf:4f:dd:60:7f:b4:c1:2d:4e:29:fc:69:f6:ff:60:a5:2b:d4:b1:a4:96:d2:4e:29:fd:e5:0b:90:00:26:66:1a:11:9c:17:17:4d:82:2a:4e:23:53:9b:fb:84:a4:17:6b:bb:f9:37:0c:6c:2e:06:e3:27:ff:91:73:bd:17:94:65:b7:8f:a1:73:55:3e:8b:05:02:cb:e3:57:8c:18:7f:f8:65:58:d4:42:6a:32:0a:cf:b7:4c:ec:4a:87:60:cf:68:dc:17:cd:08:2a:38:62:b9:9f:ce:ef:07:9a:bd:30:c2:42:73:98:77:1f:0f:af:f0:75:0d:d4:01:ef:7f:f5:41:3a:b9:08:69:58:6a:ac:52:bc:a4:81:ed:a3:4d:5c:43:81:38:ef:b1:ca:74:c5:d6:c5:af:aa:6e:5e:f2:85:00:76:e8:86:38:23:79:be:b5:f0:3b:86:41:24:6d:8e:c6:89:46:61:1d:fd:d9:8b:34:7a:72:9b:2d:b1:f1:1a:a4:60:90:69:f0:e0:3e:ab:77:06:3f:fe:7e:d4:87:af:00:ea:c6:64:c2:a3:dd:f4:f0:f8:b1:eb:34:98:cb:b2:36:85:ed:4b:ee:ec:db:f1:0b:5e:53:d3:2f:4b:e0:eb:ad:b0:9b:4b:5c:8a:69:a2:77:f1:4f:78:25:d8:d0:f3:33:72:39:3d:68:e2:ab:9e:32:3f:53:63:1e:8a:59:19:63:41:5c:54:0b:a4:1b:f0:1d:ac:60:16:a0:ac:7a:2f:4f:5f:c2:3c:66:2b:52:8d:c5:9a:07:3c:a1:01:3b:f5:8c:27:1c:98:0b:6d:12:87:d5:13:a0:31:63:96:4c:7b:03:46:a3:3e:1a:4c:94:33:c0:c3:d7:77:bd:70:1a:3b:4d:5b:95:7e:33:91:6d:81:a7:99:b1:2e:34:d9:45:97:61:87:7a:64:98:64:74:91:3d:d5:bc:1e:fa:b3:ae:ec:a4:09:6b:e8:5b:9e:78:d5:ee:69:70:da:bc:2b:8d:4f:78:ff:7d:8b:e1:d7:1a:54:73:01:ac:32:b2:b8:00:83:db:0e:1a:c4:77:00:a1:90:ca:c5:19:6c:0b:97:6d:e9:33:14:13:35:cb:2e:95:ec:a4:ef:03:18:ac:2a:41:15:5e:44:20:8e:ae:ec:58:5a:42:cb:7a:d6:e9:21:cb:28:af:37:6d:8f:1f:d4:06:21:3c:c9:5d:78:b2:33:51:9b:1d:62:9c:c7:f9:ba:b6:19:14:6b:06:33:7d:65:bc:dc:ed:b6:93:7d:76:47:9d:e8:57:a0:e9:71:ed:8d:ab:b5:2f:c7:5c:ba:e0:b6:14:5d:90:fd:9e:e2:6f:db:7c:66:93:5a:33:ce:0d:fb:f9:87:2b:e7:01:b7:af:27:d0:26:26:2a:6b:24:1b:9d:02:90:3c:41:9d:b1:5c:ef:c3:69:7c:9d:53:6a:4a:8f:e4:57:9e:7e:70:f6:e2:86:b5:60:47:01:a9:62:05:b1:8f:3f:8a:49:0f:3e:07:2b:22:04:64:28:23:27:e6:2f:a9:93:93:7f:22:1e:d4:92:72:da:4b:aa:4f:9f:69:fa:9e:2f:e0:26"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001a",
+            "quic.path_challenge.data": "23:87:5b:e3:29:48:57:fc"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000000",
+            "quic.padding_length": "1303"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894590000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894590000 UTC",
+          "frame.time_epoch": "1760521667.894590000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000282000",
+          "frame.time_delta_displayed": "0.000282000",
+          "frame.time_relative": "0.007028000",
+          "frame.number": "15",
+          "frame.len": "1382",
+          "frame.cap_len": "1382",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1378",
+          "ip.id": "0xd23f",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.dst_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "55520",
+          "udp.port": "4433",
+          "udp.port": "55520",
+          "udp.length": "1358",
+          "udp.checksum": "0x0364",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "2",
+          "Timestamps": {
+            "udp.time_relative": "0.000282000",
+            "udp.time_delta": "0.000282000"
+          },
+          "udp.payload": "57:c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9:76:7c:73:29:bc:c5:51:75:d9:02:22:52:0c:9b:c6:33:74:c7:6c:85:aa:cb:10:a5:9f:bd:d4:6e:fb:cc:ec:f5:ef:16:f1:23:b6:2a:0b:07:98:69:6c:ff:77:5c:02:65:ab:68:b7:29:c8:8e:9b:2e:06:e8:91:a6:aa:66:12:7d:dc:4d:e3:6c:b3:ec:00:08:e8:dd:56:75:ed:06:99:d3:d9:fb:61:f8:c7:86:33:a0:ca:aa:b2:a9:b3:76:38:fd:35:fc:e0:12:93:35:ed:0f:f8:4e:44:5b:5a:57:dd:d8:d8:bf:8d:5b:3f:32:cc:e7:76:aa:a3:51:d0:d2:be:fd:ae:6b:1d:80:5a:8a:e0:20:2d:e7:92:61:57:46:7f:c9:88:61:3a:61:3d:e6:b3:26:f0:cb:c1:e2:6f:b9:f9:fe:51:3c:55:af:e6:60:c4:62:07:b4:59:79:f7:e4:60:30:82:c7:ce:9e:30:b1:88:b4:54:bc:a8:8f:11:f9:03:ea:7d:17:79:6a:49:24:c7:37:79:f9:f8:88:23:0a:d9:ca:25:01:81:af:1c:66:c9:7a:14:1e:bc:09:7d:42:57:4d:ab:22:f0:37:16:ad:1d:e3:97:14:f5:61:cd:89:1e:f5:b5:0f:13:a2:83:dd:4b:25:68:e4:fe:df:72:c4:c9:03:32:34:9c:72:66:08:24:fb:96:07:f1:8f:a2:f7:88:56:8a:83:4b:70:d6:a3:47:ae:88:9b:30:4c:31:41:66:78:55:8c:93:f5:65:6a:30:80:6f:ea:f6:8f:61:9b:5a:b8:33:99:0f:d4:09:bb:d1:52:e7:f6:1a:8c:06:f7:13:01:b4:45:3a:6a:16:fe:c5:e4:68:4d:f5:04:64:c5:36:0a:b0:d4:ff:c3:df:8e:cb:6f:e6:6f:1c:ca:d6:7c:69:a8:86:73:50:1c:a2:cd:76:1d:8c:5f:e3:37:13:70:ce:36:0f:dc:72:13:55:b1:cc:2e:e4:17:f8:9f:95:46:4b:81:c5:50:f6:72:68:40:02:8d:43:28:e2:4f:6d:bc:b8:a4:9c:68:2e:f3:98:d4:70:84:60:a1:ad:6c:36:f5:5d:6c:76:3a:46:9f:0c:ae:a0:5a:67:33:e1:97:5d:03:2a:bb:24:f2:b4:f1:5a:e7:2b:41:06:ba:81:7b:56:70:b0:7b:ff:31:e7:e5:b5:e2:53:bc:58:1a:c6:e9:8f:ee:51:fa:25:b0:ef:f6:ce:9e:11:54:2c:6e:6e:62:d4:72:4b:2c:63:2c:3a:7e:15:14:fb:51:8b:86:7b:32:6a:d1:f0:e9:a6:c3:66:f9:26:a8:51:d6:fd:77:9e:b0:87:bb:c0:d8:ed:d3:8f:5a:5c:c1:0d:18:8f:c5:a5:6d:fc:c3:4f:bd:2f:e0:79:a2:4b:f4:01:64:e5:76:1a:90:f8:32:03:3e:8a:8f:f1:cf:42:bb:31:49:93:de:b8:73:64:05:9a:b2:ae:f0:cb:9f:a4:0c:95:76:3b:e0:24:e2:93:9b:53:4c:68:50:0e:a4:5c:ad:14:98:b3:c7:fa:39:fa:b9:2e:8d:5c:c1:cf:e1:45:71:cc:56:e4:b8:eb:08:9e:a2:9e:c4:09:fa:f1:fa:b7:1e:1d:7a:24:2e:3e:e9:e1:cd:68:d0:8d:4b:80:74:69:0a:ef:2a:b5:23:a4:0c:44:6c:6e:b6:30:db:5a:9b:54:cb:45:a7:cb:6b:b7:fc:4f:08:c8:82:e1:1c:e4:e3:af:5e:12:47:51:2d:cc:58:77:e0:e1:2e:9c:98:ac:62:cd:38:6f:b1:e2:38:69:59:23:51:2b:4a:2c:86:fb:4d:2d:4f:55:f8:ed:81:34:43:2a:0c:51:12:92:bc:fa:97:8d:3d:1d:81:ce:4f:4d:6f:4e:3c:7d:93:e4:7f:43:f5:35:47:0c:fd:00:26:1d:c8:21:74:38:95:5b:e3:a1:d8:a9:af:3a:86:87:ee:a7:fc:d6:2b:48:39:a9:64:02:b0:a5:81:52:05:65:a7:68:a0:b2:3c:fb:10:ee:35:51:07:a1:5b:8b:5b:91:73:eb:25:4e:90:fd:0d:0a:2d:4a:f9:8d:1f:91:d9:c7:25:66:de:e8:78:b7:35:4f:50:8b:0f:90:64:d9:84:06:8f:07:54:c9:ed:8d:d7:04:55:b6:e2:7d:1f:8a:d5:03:28:cc:bf:bd:94:6b:53:d4:3c:d6:27:3d:2d:d3:6f:38:28:ce:71:a3:4d:f8:c5:de:04:af:7b:29:25:27:5f:93:29:39:b6:a1:30:a0:84:3d:3f:00:c6:84:26:29:6d:bf:4b:85:56:e1:9e:ca:b0:f7:6e:f7:5d:49:78:7b:71:59:25:d1:7c:da:a1:9a:51:59:cd:16:5a:39:64:0e:1f:cb:4d:45:3f:a8:40:43:df:2d:9c:0b:33:16:13:d9:c2:1d:de:43:d9:11:cc:f0:75:cb:c4:9c:c4:53:5b:c7:fa:5f:19:2d:dd:30:f6:78:5a:01:66:18:d2:49:59:c6:fa:61:ae:fb:0a:2c:33:af:c1:54:8d:48:28:4a:07:56:bc:25:bb:9b:db:2a:d3:b3:da:5b:71:d5:77:0d:dc:09:29:ba:f7:0c:ba:99:c4:fe:db:fe:dd:a5:3c:98:68:b7:58:b5:a5:c6:77:45:86:3b:40:93:80:d6:c7:68:e2:26:49:fd:d2:6b:e7:c8:24:36:df:78:ea:85:59:b3:7a:11:f0:aa:1f:04:f4:89:d9:16:fd:39:f8:d6:b4:30:ae:b6:48:56:ca:c5:73:89:ff:81:c6:c9:88:2f:23:1c:61:c1:68:c8:08:aa:34:3d:8e:c5:0e:26:18:4c:df:4f:c8:3a:d9:0d:20:fb:ae:3d:7b:47:f5:4e:05:f5:99:27:70:e1:20:f4:aa:a3:6f:12:81:a0:5e:04:50:88:83:20:7b:94:84:8b:88:3c:6b:18:27:6b:eb:12:41:47:d1:bb:e8:25:a7:07:03:c7:34:73:bc:4b:be:e0:24:e9:28:48:4c:c1:b1:5f:d2:da:37:45:b5:4f:1e:ce:18:c1:d3:60:6d:a8:f2:1a:c7:2c:b7:78:a6:f4:d2:c7:a5:52:5f:12:04:b6:be:84:ed:02:b7:73:15:27:38:71:95:a8:d4:a7:07:9f:85:8a:00:f5:85:60:c8:8d:cc:5e:38:a8:ba:da:d0:c3:20:ca:5d:e6:8a:f1:00:dc:89:c1:e9:90:77:ae:ee:60:59:e7:c9:6d:21:b0:77:c2:c6:99:ba:a3:fe:bd:40:d4:0b:23:6b:b8:79:6d:b1:03:83:e4:a5:2c:c3:f3:06:4c:c5:d4:9e:1a:1c:6d:6c:eb:cf:b8:36:0e:8a:77:20:3f:12:98:40:b4:a5:8c:ba:7c:45:75:1b:7c:14:b7:b7:35:be:89:ef:34:c9:3c:e7:cf:56:80:3e:80:1a:0a:6a:a7:7d:f8:f1:61:fe:0c:36:b9:11:07:34:97:c5:3a:8c:3d:e2:a1:57:1e:e2:2f:ef:86:1f:c7"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "1350",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9",
+            "quic.packet_number": "7",
+            "quic.protected_payload": "7c:73:29:bc:c5:51:75:d9:02:22:52:0c:9b:c6:33:74:c7:6c:85:aa:cb:10:a5:9f:bd:d4:6e:fb:cc:ec:f5:ef:16:f1:23:b6:2a:0b:07:98:69:6c:ff:77:5c:02:65:ab:68:b7:29:c8:8e:9b:2e:06:e8:91:a6:aa:66:12:7d:dc:4d:e3:6c:b3:ec:00:08:e8:dd:56:75:ed:06:99:d3:d9:fb:61:f8:c7:86:33:a0:ca:aa:b2:a9:b3:76:38:fd:35:fc:e0:12:93:35:ed:0f:f8:4e:44:5b:5a:57:dd:d8:d8:bf:8d:5b:3f:32:cc:e7:76:aa:a3:51:d0:d2:be:fd:ae:6b:1d:80:5a:8a:e0:20:2d:e7:92:61:57:46:7f:c9:88:61:3a:61:3d:e6:b3:26:f0:cb:c1:e2:6f:b9:f9:fe:51:3c:55:af:e6:60:c4:62:07:b4:59:79:f7:e4:60:30:82:c7:ce:9e:30:b1:88:b4:54:bc:a8:8f:11:f9:03:ea:7d:17:79:6a:49:24:c7:37:79:f9:f8:88:23:0a:d9:ca:25:01:81:af:1c:66:c9:7a:14:1e:bc:09:7d:42:57:4d:ab:22:f0:37:16:ad:1d:e3:97:14:f5:61:cd:89:1e:f5:b5:0f:13:a2:83:dd:4b:25:68:e4:fe:df:72:c4:c9:03:32:34:9c:72:66:08:24:fb:96:07:f1:8f:a2:f7:88:56:8a:83:4b:70:d6:a3:47:ae:88:9b:30:4c:31:41:66:78:55:8c:93:f5:65:6a:30:80:6f:ea:f6:8f:61:9b:5a:b8:33:99:0f:d4:09:bb:d1:52:e7:f6:1a:8c:06:f7:13:01:b4:45:3a:6a:16:fe:c5:e4:68:4d:f5:04:64:c5:36:0a:b0:d4:ff:c3:df:8e:cb:6f:e6:6f:1c:ca:d6:7c:69:a8:86:73:50:1c:a2:cd:76:1d:8c:5f:e3:37:13:70:ce:36:0f:dc:72:13:55:b1:cc:2e:e4:17:f8:9f:95:46:4b:81:c5:50:f6:72:68:40:02:8d:43:28:e2:4f:6d:bc:b8:a4:9c:68:2e:f3:98:d4:70:84:60:a1:ad:6c:36:f5:5d:6c:76:3a:46:9f:0c:ae:a0:5a:67:33:e1:97:5d:03:2a:bb:24:f2:b4:f1:5a:e7:2b:41:06:ba:81:7b:56:70:b0:7b:ff:31:e7:e5:b5:e2:53:bc:58:1a:c6:e9:8f:ee:51:fa:25:b0:ef:f6:ce:9e:11:54:2c:6e:6e:62:d4:72:4b:2c:63:2c:3a:7e:15:14:fb:51:8b:86:7b:32:6a:d1:f0:e9:a6:c3:66:f9:26:a8:51:d6:fd:77:9e:b0:87:bb:c0:d8:ed:d3:8f:5a:5c:c1:0d:18:8f:c5:a5:6d:fc:c3:4f:bd:2f:e0:79:a2:4b:f4:01:64:e5:76:1a:90:f8:32:03:3e:8a:8f:f1:cf:42:bb:31:49:93:de:b8:73:64:05:9a:b2:ae:f0:cb:9f:a4:0c:95:76:3b:e0:24:e2:93:9b:53:4c:68:50:0e:a4:5c:ad:14:98:b3:c7:fa:39:fa:b9:2e:8d:5c:c1:cf:e1:45:71:cc:56:e4:b8:eb:08:9e:a2:9e:c4:09:fa:f1:fa:b7:1e:1d:7a:24:2e:3e:e9:e1:cd:68:d0:8d:4b:80:74:69:0a:ef:2a:b5:23:a4:0c:44:6c:6e:b6:30:db:5a:9b:54:cb:45:a7:cb:6b:b7:fc:4f:08:c8:82:e1:1c:e4:e3:af:5e:12:47:51:2d:cc:58:77:e0:e1:2e:9c:98:ac:62:cd:38:6f:b1:e2:38:69:59:23:51:2b:4a:2c:86:fb:4d:2d:4f:55:f8:ed:81:34:43:2a:0c:51:12:92:bc:fa:97:8d:3d:1d:81:ce:4f:4d:6f:4e:3c:7d:93:e4:7f:43:f5:35:47:0c:fd:00:26:1d:c8:21:74:38:95:5b:e3:a1:d8:a9:af:3a:86:87:ee:a7:fc:d6:2b:48:39:a9:64:02:b0:a5:81:52:05:65:a7:68:a0:b2:3c:fb:10:ee:35:51:07:a1:5b:8b:5b:91:73:eb:25:4e:90:fd:0d:0a:2d:4a:f9:8d:1f:91:d9:c7:25:66:de:e8:78:b7:35:4f:50:8b:0f:90:64:d9:84:06:8f:07:54:c9:ed:8d:d7:04:55:b6:e2:7d:1f:8a:d5:03:28:cc:bf:bd:94:6b:53:d4:3c:d6:27:3d:2d:d3:6f:38:28:ce:71:a3:4d:f8:c5:de:04:af:7b:29:25:27:5f:93:29:39:b6:a1:30:a0:84:3d:3f:00:c6:84:26:29:6d:bf:4b:85:56:e1:9e:ca:b0:f7:6e:f7:5d:49:78:7b:71:59:25:d1:7c:da:a1:9a:51:59:cd:16:5a:39:64:0e:1f:cb:4d:45:3f:a8:40:43:df:2d:9c:0b:33:16:13:d9:c2:1d:de:43:d9:11:cc:f0:75:cb:c4:9c:c4:53:5b:c7:fa:5f:19:2d:dd:30:f6:78:5a:01:66:18:d2:49:59:c6:fa:61:ae:fb:0a:2c:33:af:c1:54:8d:48:28:4a:07:56:bc:25:bb:9b:db:2a:d3:b3:da:5b:71:d5:77:0d:dc:09:29:ba:f7:0c:ba:99:c4:fe:db:fe:dd:a5:3c:98:68:b7:58:b5:a5:c6:77:45:86:3b:40:93:80:d6:c7:68:e2:26:49:fd:d2:6b:e7:c8:24:36:df:78:ea:85:59:b3:7a:11:f0:aa:1f:04:f4:89:d9:16:fd:39:f8:d6:b4:30:ae:b6:48:56:ca:c5:73:89:ff:81:c6:c9:88:2f:23:1c:61:c1:68:c8:08:aa:34:3d:8e:c5:0e:26:18:4c:df:4f:c8:3a:d9:0d:20:fb:ae:3d:7b:47:f5:4e:05:f5:99:27:70:e1:20:f4:aa:a3:6f:12:81:a0:5e:04:50:88:83:20:7b:94:84:8b:88:3c:6b:18:27:6b:eb:12:41:47:d1:bb:e8:25:a7:07:03:c7:34:73:bc:4b:be:e0:24:e9:28:48:4c:c1:b1:5f:d2:da:37:45:b5:4f:1e:ce:18:c1:d3:60:6d:a8:f2:1a:c7:2c:b7:78:a6:f4:d2:c7:a5:52:5f:12:04:b6:be:84:ed:02:b7:73:15:27:38:71:95:a8:d4:a7:07:9f:85:8a:00:f5:85:60:c8:8d:cc:5e:38:a8:ba:da:d0:c3:20:ca:5d:e6:8a:f1:00:dc:89:c1:e9:90:77:ae:ee:60:59:e7:c9:6d:21:b0:77:c2:c6:99:ba:a3:fe:bd:40:d4:0b:23:6b:b8:79:6d:b1:03:83:e4:a5:2c:c3:f3:06:4c:c5:d4:9e:1a:1c:6d:6c:eb:cf:b8:36:0e:8a:77:20:3f:12:98:40:b4:a5:8c:ba:7c:45:75:1b:7c:14:b7:b7:35:be:89:ef:34:c9:3c:e7:cf:56:80:3e:80:1a:0a:6a:a7:7d:f8:f1:61:fe:0c:36:b9:11:07:34:97:c5:3a:8c:3d:e2:a1:57:1e:e2:2f:ef:86:1f:c7"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001b",
+            "quic.path_response.data": "23:87:5b:e3:29:48:57:fc"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001a",
+            "quic.path_challenge.data": "c8:53:10:04:99:fc:94:47"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000000",
+            "quic.padding_length": "1294"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894603000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894603000 UTC",
+          "frame.time_epoch": "1760521667.894603000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000013000",
+          "frame.time_delta_displayed": "0.000013000",
+          "frame.time_relative": "0.007041000",
+          "frame.number": "16",
+          "frame.len": "75",
+          "frame.cap_len": "75",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "71",
+          "ip.id": "0x3b92",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.dst_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "55520",
+          "udp.port": "4433",
+          "udp.port": "55520",
+          "udp.length": "51",
+          "udp.checksum": "0xfe48",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "3",
+          "Timestamps": {
+            "udp.time_relative": "0.000295000",
+            "udp.time_delta": "0.000013000"
+          },
+          "udp.payload": "44:55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59:ce:d9:57:e1:89:80:04:38:ee:1f:84:33:b8:a0:1f:c9:68:e5:80:9f:98:3b"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "43",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "55:99:84:21:08:5d:2b:ec:32:da:b9:66:fb:85:1e:54:5d:38:7f:59",
+            "quic.packet_number": "8",
+            "quic.protected_payload": "d9:57:e1:89:80:04:38:ee:1f:84:33:b8:a0:1f:c9:68:e5:80:9f:98:3b"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "7",
+            "quic.ack.ack_delay": "19",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "1"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894794000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894794000 UTC",
+          "frame.time_epoch": "1760521667.894794000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000191000",
+          "frame.time_delta_displayed": "0.000191000",
+          "frame.time_relative": "0.007232000",
+          "frame.number": "17",
+          "frame.len": "84",
+          "frame.cap_len": "84",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "80",
+          "ip.id": "0x5b0b",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "60",
+          "udp.checksum": "0xfe51",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "4",
+          "Timestamps": {
+            "udp.time_relative": "0.000486000",
+            "udp.time_delta": "0.000191000"
+          },
+          "udp.payload": "49:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:6c:eb:4b:00:00:1f:f1:4e:81:4a:83:16:e6:84:31:f6:5f:fe:aa:cc:30:f4:67:d3:53:9d:d7:79:ed:aa:79"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "52",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "8",
+            "quic.protected_payload": "eb:4b:00:00:1f:f1:4e:81:4a:83:16:e6:84:31:f6:5f:fe:aa:cc:30:f4:67:d3:53:9d:d7:79:ed:aa:79"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "8",
+            "quic.ack.ack_delay": "2",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "1"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001b",
+            "quic.path_response.data": "c8:53:10:04:99:fc:94:47"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.894988000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.894988000 UTC",
+          "frame.time_epoch": "1760521667.894988000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000194000",
+          "frame.time_delta_displayed": "0.000194000",
+          "frame.time_relative": "0.007426000",
+          "frame.number": "18",
+          "frame.len": "75",
+          "frame.cap_len": "75",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "71",
+          "ip.id": "0xae70",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.dst_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "55520",
+          "udp.port": "4433",
+          "udp.port": "55520",
+          "udp.length": "51",
+          "udp.checksum": "0xfe48",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "5",
+          "Timestamps": {
+            "udp.time_relative": "0.000680000",
+            "udp.time_delta": "0.000194000"
+          },
+          "udp.payload": "5a:c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9:4b:90:96:1b:23:41:42:87:8c:c4:d5:79:38:03:05:d9:8d:ef:f5:d8:46:22"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "43",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9",
+            "quic.packet_number": "9",
+            "quic.protected_payload": "90:96:1b:23:41:42:87:8c:c4:d5:79:38:03:05:d9:8d:ef:f5:d8:46:22"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "8",
+            "quic.ack.ack_delay": "2",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.895255000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.895255000 UTC",
+          "frame.time_epoch": "1760521667.895255000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000267000",
+          "frame.time_delta_displayed": "0.000267000",
+          "frame.time_relative": "0.007693000",
+          "frame.number": "19",
+          "frame.len": "94",
+          "frame.cap_len": "94",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "90",
+          "ip.id": "0x3733",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "70",
+          "udp.checksum": "0xfe5b",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "6",
+          "Timestamps": {
+            "udp.time_relative": "0.000947000",
+            "udp.time_delta": "0.000267000"
+          },
+          "udp.payload": "56:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:c9:07:f6:14:e8:78:14:cf:46:25:ee:55:92:f6:f7:09:f5:16:7f:1b:2d:11:bd:36:e9:e7:98:9c:1a:9a:e6:f4:6f:12:b7:16:db:f3:7c:68:2e"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "62",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "9",
+            "quic.protected_payload": "07:f6:14:e8:78:14:cf:46:25:ee:55:92:f6:f7:09:f5:16:7f:1b:2d:11:bd:36:e9:e7:98:9c:1a:9a:e6:f4:6f:12:b7:16:db:f3:7c:68:2e"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "2",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "19",
+            "quic.stream_data": "00:04:10:f7:ad:99:a2:9a:13:a0:bb:cc:14:3d:7b:fb:ae:b0:7f"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000000",
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000004",
+              "http3.frame_length": "16",
+              "http3.frame_payload": "f7:ad:99:a2:9a:13:a0:bb:cc:14:3d:7b:fb:ae:b0:7f",
+              "http3.settings": {
+                "http3.settings.id": "0x37ad99a29a13a0bb",
+                "http3.settings.value": "870388230702149759"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.895289000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.895289000 UTC",
+          "frame.time_epoch": "1760521667.895289000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000034000",
+          "frame.time_delta_displayed": "0.000034000",
+          "frame.time_relative": "0.007727000",
+          "frame.number": "20",
+          "frame.len": "76",
+          "frame.cap_len": "76",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "72",
+          "ip.id": "0x27fd",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "52",
+          "udp.checksum": "0xfe49",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "7",
+          "Timestamps": {
+            "udp.time_relative": "0.000981000",
+            "udp.time_delta": "0.000034000"
+          },
+          "udp.payload": "4f:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:b8:61:b3:0e:be:47:81:b2:fc:74:f9:7f:dc:e2:2f:e5:7e:c7:b6:a0:b7:08:bb"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "44",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "10",
+            "quic.protected_payload": "61:b3:0e:be:47:81:b2:fc:74:f9:7f:dc:e2:2f:e5:7e:c7:b6:a0:b7:08:bb"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "6",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "02"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000002",
+            "http3.qpack.encoder": ""
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.895301000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.895301000 UTC",
+          "frame.time_epoch": "1760521667.895301000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000012000",
+          "frame.time_delta_displayed": "0.000012000",
+          "frame.time_relative": "0.007739000",
+          "frame.number": "21",
+          "frame.len": "76",
+          "frame.cap_len": "76",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "72",
+          "ip.id": "0x7779",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "52",
+          "udp.checksum": "0xfe49",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "8",
+          "Timestamps": {
+            "udp.time_relative": "0.000993000",
+            "udp.time_delta": "0.000012000"
+          },
+          "udp.payload": "54:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:f7:bc:33:b4:15:af:62:74:3a:0e:e0:a5:0d:ae:e3:f4:b2:92:f7:29:d0:07:8f"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "44",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "11",
+            "quic.protected_payload": "bc:33:b4:15:af:62:74:3a:0e:e0:a5:0d:ae:e3:f4:b2:92:f7:29:d0:07:8f"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000e",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "0",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "10",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "1",
+            "quic.stream_data": "03"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x0000000000000003"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.895312000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.895312000 UTC",
+          "frame.time_epoch": "1760521667.895312000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000011000",
+          "frame.time_delta_displayed": "0.000011000",
+          "frame.time_relative": "0.007750000",
+          "frame.number": "22",
+          "frame.len": "147",
+          "frame.cap_len": "147",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "143",
+          "ip.id": "0x5c85",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "123",
+          "udp.checksum": "0xfe90",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "9",
+          "Timestamps": {
+            "udp.time_relative": "0.001004000",
+            "udp.time_delta": "0.000011000"
+          },
+          "udp.payload": "4b:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:01:6e:de:16:20:c8:e9:d7:6f:6f:d2:40:62:89:6a:5b:3b:68:c0:cf:fc:90:48:91:c0:c6:fe:fe:fa:95:45:dd:28:25:7e:4a:16:c1:38:b3:ce:8b:13:80:cc:f5:bc:00:a1:c6:5a:a6:d2:e7:a6:fb:b7:42:19:6e:5c:ef:67:6b:69:52:f2:57:4d:9b:4f:3d:ae:0e:ed:d9:da:33:2e:53:d2:5b:84:4a:b7:83:3a:ee:1f:7f:41:b8:cc:6c"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "115",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "12",
+            "quic.protected_payload": "6e:de:16:20:c8:e9:d7:6f:6f:d2:40:62:89:6a:5b:3b:68:c0:cf:fc:90:48:91:c0:c6:fe:fe:fa:95:45:dd:28:25:7e:4a:16:c1:38:b3:ce:8b:13:80:cc:f5:bc:00:a1:c6:5a:a6:d2:e7:a6:fb:b7:42:19:6e:5c:ef:67:6b:69:52:f2:57:4d:9b:4f:3d:ae:0e:ed:d9:da:33:2e:53:d2:5b:84:4a:b7:83:3a:ee:1f:7f:41:b8:cc:6c"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "0",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "0"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "72",
+            "quic.stream_data": "de:33:9e:49:c8:6a:b6:e6:00:c2:cf:eb:d8:47:0b:9a:9a:12:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64:01:22:00:00:d1:d7:50:8a:08:9d:5c:0b:81:70:dc:69:a6:59:51:88:60:d5:48:5f:2b:ce:9a:68:5f:50:85:ed:69:89:39:7f"
+          }
+        },
+        "http3": {
+          "http3.stream": {
+            "http3.frame": {
+              "http3.frame_type": "0x1e339e49c86ab6e6",
+              "http3.frame_length": "0"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x02cfebd8470b9a9a",
+              "http3.frame_length": "18",
+              "http3.frame_payload": "47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000001",
+              "http3.frame_length": "34",
+              "http3.frame_payload": "00:00:d1:d7:50:8a:08:9d:5c:0b:81:70:dc:69:a6:59:51:88:60:d5:48:5f:2b:ce:9a:68:5f:50:85:ed:69:89:39:7f",
+              "http3.headers.header.length": "118",
+              "http3.headers.count": "5",
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "7",
+                "http3.header.header.name": ":method",
+                "http3.headers.header.value.length": "3",
+                "http3.headers.header.value": "GET",
+                "http3.headers.method": "GET"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "7",
+                "http3.header.header.name": ":scheme",
+                "http3.headers.header.value.length": "5",
+                "http3.headers.header.value": "https",
+                "http3.headers.scheme": "https"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "10",
+                "http3.header.header.name": ":authority",
+                "http3.headers.header.value.length": "14",
+                "http3.headers.header.value": "127.0.0.1:4433",
+                "http3.headers.authority": "127.0.0.1:4433"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "5",
+                "http3.header.header.name": ":path",
+                "http3.headers.header.value.length": "11",
+                "http3.headers.header.value": "/index.html",
+                "http3.headers.path": "/index.html"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "10",
+                "http3.header.header.name": "user-agent",
+                "http3.headers.header.value.length": "6",
+                "http3.headers.header.value": "quiche",
+                "http3.headers.user_agent": "quiche"
+              },
+              "http3.request.full_uri": "https://127.0.0.1:4433/index.html"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.895323000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.895323000 UTC",
+          "frame.time_epoch": "1760521667.895323000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000011000",
+          "frame.time_delta_displayed": "0.000011000",
+          "frame.time_relative": "0.007761000",
+          "frame.number": "23",
+          "frame.len": "101",
+          "frame.cap_len": "101",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "97",
+          "ip.id": "0x35a3",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "77",
+          "udp.checksum": "0xfe62",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "10",
+          "Timestamps": {
+            "udp.time_relative": "0.001015000",
+            "udp.time_delta": "0.000011000"
+          },
+          "udp.payload": "54:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:e8:05:93:3e:0d:2c:53:5b:2b:e9:46:ef:ff:7c:4b:05:de:9f:18:af:f8:4b:de:a5:cb:3b:88:27:8c:4a:e1:25:46:d3:f8:e9:05:9a:dc:1e:5b:17:d8:17:e6:1e:b6:50"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "69",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "13",
+            "quic.protected_payload": "05:93:3e:0d:2c:53:5b:2b:e9:46:ef:ff:7c:4b:05:de:9f:18:af:f8:4b:de:a5:cb:3b:88:27:8c:4a:e1:25:46:d3:f8:e9:05:9a:dc:1e:5b:17:d8:17:e6:1e:b6:50"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "14",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "1"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "26",
+            "quic.stream_data": "d9:05:fd:36:8f:18:ce:4e:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+          }
+        },
+        "http3": {
+          "http3.stream.uni": {
+            "http3.stream_uni_type": "0x1905fd368f18ce4e"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.895893000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.895893000 UTC",
+          "frame.time_epoch": "1760521667.895893000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000570000",
+          "frame.time_delta_displayed": "0.000570000",
+          "frame.time_relative": "0.008331000",
+          "frame.number": "24",
+          "frame.len": "153",
+          "frame.cap_len": "153",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic:http3",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "149",
+          "ip.id": "0xd048",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.dst_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "55520",
+          "udp.port": "4433",
+          "udp.port": "55520",
+          "udp.length": "129",
+          "udp.checksum": "0xfe96",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "11",
+          "Timestamps": {
+            "udp.time_relative": "0.001585000",
+            "udp.time_delta": "0.000570000"
+          },
+          "udp.payload": "4b:c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9:84:19:fa:19:e5:bb:a0:36:73:2d:5d:fd:c4:74:d9:85:82:bf:d2:a7:b7:7b:ca:77:d6:74:45:e7:c3:df:6d:dc:59:72:b4:2f:25:a0:46:aa:8f:f2:55:7b:55:93:a6:b0:c9:23:44:54:26:51:03:42:f8:5f:95:1f:95:c1:65:0d:51:7a:bd:3a:b9:1d:9a:3f:fb:92:f2:96:04:9f:49:25:73:3f:88:e8:06:92:46:36:e3:fb:65:45:fd:77:5b:83:12:0e:fa:a5"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "121",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "c7:ec:73:d8:27:6d:5d:06:32:a1:7c:41:14:45:03:45:d8:df:92:b9",
+            "quic.packet_number": "10",
+            "quic.protected_payload": "19:fa:19:e5:bb:a0:36:73:2d:5d:fd:c4:74:d9:85:82:bf:d2:a7:b7:7b:ca:77:d6:74:45:e7:c3:df:6d:dc:59:72:b4:2f:25:a0:46:aa:8f:f2:55:7b:55:93:a6:b0:c9:23:44:54:26:51:03:42:f8:5f:95:1f:95:c1:65:0d:51:7a:bd:3a:b9:1d:9a:3f:fb:92:f2:96:04:9f:49:25:73:3f:88:e8:06:92:46:36:e3:fb:65:45:fd:77:5b:83:12:0e:fa:a5"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "13",
+            "quic.ack.ack_delay": "2",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "5"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000000f",
+            "quic.frame_type_tree": {
+              "quic.stream.fin": "1",
+              "quic.stream.len": "1",
+              "quic.stream.off": "1"
+            },
+            "quic.stream.stream_id": "0",
+            "quic.stream.stream_id_tree": {
+              "quic.stream.initiator": "0",
+              "quic.stream.direction": "0"
+            },
+            "quic.stream.offset": "0",
+            "quic.stream.length": "73",
+            "quic.stream_data": "ce:f9:24:41:7a:75:b8:49:00:eb:dc:1d:5e:d1:41:f4:0d:12:47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64:01:0f:00:00:d9:5f:4d:85:ed:69:89:39:7f:54:82:0b:df:00:12:3c:68:31:3e:68:65:6c:6c:6f:20:68:33:3c:2f:68:31:3e:0a"
+          }
+        },
+        "http3": {
+          "http3.stream": {
+            "http3.frame": {
+              "http3.frame_type": "0x0ef924417a75b849",
+              "http3.frame_length": "0"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x2bdc1d5ed141f40d",
+              "http3.frame_length": "18",
+              "http3.frame_payload": "47:52:45:41:53:45:20:69:73:20:74:68:65:20:77:6f:72:64"
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000001",
+              "http3.frame_length": "15",
+              "http3.frame_payload": "00:00:d9:5f:4d:85:ed:69:89:39:7f:54:82:0b:df",
+              "http3.headers.header.length": "62",
+              "http3.headers.count": "3",
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "7",
+                "http3.header.header.name": ":status",
+                "http3.headers.header.value.length": "3",
+                "http3.headers.header.value": "200",
+                "http3.headers.status": "200"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "6",
+                "http3.header.header.name": "server",
+                "http3.headers.header.value.length": "6",
+                "http3.headers.header.value": "quiche",
+                "http3.headers.server": "quiche"
+              },
+              "http3.headers.header": {
+                "http3.headers.header.name.length": "14",
+                "http3.header.header.name": "content-length",
+                "http3.headers.header.value.length": "2",
+                "http3.headers.header.value": "18",
+                "http3.headers.content_length": "18"
+              }
+            },
+            "http3.frame": {
+              "http3.frame_type": "0x0000000000000000",
+              "http3.frame_length": "18",
+              "http3.frame_payload": "3c:68:31:3e:68:65:6c:6c:6f:20:68:33:3c:2f:68:31:3e:0a",
+              "http3.data": "3c:68:31:3e:68:65:6c:6c:6f:20:68:33:3c:2f:68:31:3e:0a"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-10-15",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "15",
+          "frame.time": "Oct 15, 2025 12:47:47.896075000 +03",
+          "frame.time_utc": "Oct 15, 2025 09:47:47.896075000 UTC",
+          "frame.time_epoch": "1760521667.896075000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000182000",
+          "frame.time_delta_displayed": "0.000182000",
+          "frame.time_relative": "0.008513000",
+          "frame.number": "25",
+          "frame.len": "81",
+          "frame.cap_len": "81",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "null:ip:udp:quic",
+          "frame.coloring_rule.name": "UDP",
+          "frame.coloring_rule.string": "udp"
+        },
+        "null": {
+          "null.family": "2"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "77",
+          "ip.id": "0x598f",
+          "ip.flags": "0x00",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "0",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x0000",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.3",
+          "ip.addr": "127.0.0.3",
+          "ip.src_host": "127.0.0.3",
+          "ip.host": "127.0.0.3",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "1"
+        },
+        "udp": {
+          "udp.srcport": "55520",
+          "udp.dstport": "4433",
+          "udp.port": "55520",
+          "udp.port": "4433",
+          "udp.length": "57",
+          "udp.checksum": "0xfe4e",
+          "udp.checksum.status": "2",
+          "udp.stream": "1",
+          "udp.stream.pnum": "12",
+          "Timestamps": {
+            "udp.time_relative": "0.001767000",
+            "udp.time_delta": "0.000182000"
+          },
+          "udp.payload": "56:b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67:3a:69:5f:6b:87:0b:7a:f4:d4:1b:50:db:fe:d7:c1:fa:bf:95:7d:7a:7e:a6:3d:b6:69:b4:e3:a8"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "49",
+          "quic.short": {
+            "quic.header_form": "0",
+            "quic.fixed_bit": "1",
+            "quic.spin_bit": "0",
+            "quic.short.reserved": "0",
+            "quic.key_phase": "0",
+            "quic.packet_number_length": "0",
+            "quic.dcid": "b7:7c:d6:89:43:75:fd:11:c9:cf:30:a1:26:d8:63:07:10:81:c7:67",
+            "quic.packet_number": "14",
+            "quic.protected_payload": "69:5f:6b:87:0b:7a:f4:d4:1b:50:db:fe:d7:c1:fa:bf:95:7d:7a:7e:a6:3d:b6:69:b4:e3:a8"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x000000000000001d",
+            "quic.cc.error_code.app": "256",
+            "quic.cc.reason_phrase.length": "7",
+            "quic.cc.reason_phrase": "kthxbye"
+          }
+        }
+      }
+    }
+  }
+]
