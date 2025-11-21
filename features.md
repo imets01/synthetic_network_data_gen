@@ -54,8 +54,8 @@ Here are our proposed features:
 |10|`bytes_sent_client`| Numeric| Number of transmitted bytes from client to server|X|X|
 |11|`packets_sent_server`| Numeric| 	Number of packets transmitted from server to client |X|X|
 |12|`packets_sent_client`| Numeric| Number of packets transmitted from client to server|X|X|
-|13|`quic_packets_sent_server`| Numeric| Number of packets transmitted from client to server|X|X|
-|14|`quic_packets_sent_client`| Numeric| Number of packets transmitted from client to server|X|X|
+|13|`quic_packets_sent_server`| Numeric| Number of QUIC packets transmitted from server to client.|X|X|
+|14|`quic_packets_sent_client`| Numeric| Number of QUIC packets transmitted from client to server|X|X|
 |15|`version_negotiation_occurred`| Binary   | A flag indicating if there was Version Negotiation at the start of the connection.| X|X|
 |16|`retry_occurred`| Binary   | A flag indicating if there was a Retry packet sent by the server after the first Initial packet of the client. |X|X|
 |17| `migration_type`        | Categorical     | An enumeration of what changed: `IP_ONLY`, `PORT_ONLY`, `IP_AND_PORT`, `NO_CHANGE` | X|X|
@@ -73,26 +73,26 @@ Here are our proposed features:
 |29| `new_connection_ids_issued_client`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the client sends after a successful migration to invalidate the CID associated with the old path. |X|
 |30| `retired_cid_count_client`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the client sends, maybe after a successful migration to invalidate the CID associated with the old path.|X|
 |31| `retired_cid_count_server`              | Numeric     | The number of *RETIRE_CONNECTION_ID* frames the server sends, maybe after a successful migration to invalidate the CID associated with the old path.|X|
-|32| `total_bidi_streams_client_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|33| `total_bidi_streams_server_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|34| `total_udi_streams_client_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|35| `total_udi_streams_server_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|36| `bytes_bidi_streams_client_init_client_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|37| `bytes_bidi_streams_client_init_server_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|38| `bytes_bidi_streams_server_init_client_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|39| `bytes_bidi_streams_server_init_server_sent`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|40| `bytes_udi_streams_client_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|41| `bytes_udi_streams_server_init`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|42| `ack_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|43| `ack_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|44| `crypto_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|45| `crypto_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|46| `handshake_done_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|47| `handshake_done_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|48| `path_challenge_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|49| `path_challenge_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|50| `path_response_sent_server`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
-|51| `path_response_sent_client`     | Numeric     | The total number of HTTP/3 streams initiated throughout the connection's lifetime |X|
+|32| `total_bidi_streams_client_init`     | Numeric     | The total number of HTTP/3 bidirectional streams initiated by the client |X|
+|33| `total_bidi_streams_server_init`     | Numeric     | The total number of HTTP/3 bidirectional streams initiated by the server.  |X|
+|34| `total_udi_streams_client_init`     | Numeric     | The total number of HTTP/3 unidirectional streams initiated by the client  |X|
+|35| `total_udi_streams_server_init`     | Numeric     | The total number of HTTP/3 unidirectional streams initiated by the server  |X|
+|36| `bytes_bidi_streams_client_init_client_sent`     | Numeric     | The total number of bytes sent by the client on the HTTP/3 bidirectional streams initiated by the client. |X|
+|37| `bytes_bidi_streams_client_init_server_sent`     | Numeric     | The total number of bytes sent by the server on the HTTP/3 bidirectional streams initiated by the client. |X|
+|38| `bytes_bidi_streams_server_init_client_sent`     | Numeric     | The total number of bytes sent by the client on the HTTP/3 bidirectional streams initiated by the server. |X|
+|39| `bytes_bidi_streams_server_init_server_sent`     | Numeric     | The total number of bytes sent by the server on the HTTP/3 bidirectional streams initiated by the server. |X|
+|40| `bytes_udi_streams_client_init`     | Numeric     | The total number of bytes sent by the client on the HTTP/3 unidirectional streams initiated by the client. |X|
+|41| `bytes_udi_streams_server_init`     | Numeric     | The total number of bytes sent by the server on the HTTP/3 unidirectional streams initiated by the server.  |X|
+|42| `ack_sent_client`     | Numeric     | The number of ACK QUIC packets sent by the client thorugh the whole connection. |X|
+|43| `ack_sent_server`     | Numeric     | The number of ACK QUIC packets sent by the server thorugh the whole connection. |X|
+|44| `crypto_sent_client`     | Numeric     | The number of CRYPTO QUIC packets sent by the client thorugh the whole connection. |X|
+|45| `crypto_sent_server`     | Numeric     | The number of CRYPTO QUIC packets sent by the server thorugh the whole connection. |X|
+|46| `handshake_done_client`     | Numeric     | The number of HANDSHAKE_DONE QUIC packets sent by the client thorugh the whole connection. |X|
+|47| `handshake_done_server`     | Numeric     | The number of HANDSHAKE_DONE QUIC packets sent by the server thorugh the whole connection. |X|
+|48| `path_challenge_sent_client`     | Numeric     | The number of PATH_CHALLENGE QUIC packets sent by the client thorugh the whole connection. |X|
+|49| `path_challenge_sent_server`     | Numeric     | The number of PATH_CHALLENGE QUIC packets sent by the server thorugh the whole connection. |X|
+|50| `path_response_sent_server`     | Numeric     | The number of PATH_RESPONSE QUIC packets sent by the server thorugh the whole connection. |X|
+|51| `path_response_sent_client`     | Numeric     | The number of PATH_RESPONSE QUIC packets sent by the client thorugh the whole connection. |X|
 |52| `connection_close_type`     | Categorical     | An enumeration of how the connection terminated: `CLIENT_CLOSE`, `SERVER_CLOSE`, `IDLE_TIMEOUT`. |X|
 
 These high-level features are fileld out after Stage 2, when we have the packets generated:
