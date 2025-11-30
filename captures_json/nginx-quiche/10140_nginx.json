@@ -1,0 +1,1172 @@
+[
+  {
+    "_index": "packets-2025-11-30",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "1",
+          "frame.time": "Nov 30, 2025 15:09:38.731187000 CET",
+          "frame.time_utc": "Nov 30, 2025 14:09:38.731187000 UTC",
+          "frame.time_epoch": "1764511778.731187000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000000000",
+          "frame.time_delta_displayed": "0.000000000",
+          "frame.time_relative": "0.000000000",
+          "frame.number": "1",
+          "frame.len": "1242",
+          "frame.cap_len": "1242",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:udp:quic"
+        },
+        "eth": {
+          "eth.dst": "00:00:00:00:00:00",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "00:00:00_00:00:00",
+            "eth.dst.oui": "0",
+            "eth.dst.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.dst.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "00:00:00:00:00:00",
+          "eth.src_tree": {
+            "eth.src_resolved": "00:00:00_00:00:00",
+            "eth.src.oui": "0",
+            "eth.src.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.src.lg": "0",
+            "eth.src.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x0800",
+          "eth.stream": "0"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0xdbed",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x5c30",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "40846",
+          "udp.dstport": "4433",
+          "udp.port": "40846",
+          "udp.port": "4433",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "1",
+          "Timestamps": {
+            "udp.time_relative": "0.000000000",
+            "udp.time_delta": "0.000000000"
+          },
+          "udp.payload": "cc:ba:ba:ba:ba:10:d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d:14:ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f:00:41:0a:73:fe:4c:51:4c:ce:63:6a:36:92:b6:c5:b8:db:bf:e9:e1:96:17:b2:54:f1:27:55:e6:37:11:19:0a:38:9a:fc:8d:38:e9:b6:47:40:eb:4a:55:c1:95:b8:a6:ba:a6:bb:de:ec:2e:21:48:9c:3f:df:bc:e9:ee:ae:88:5e:f0:4c:6e:87:50:54:dc:0c:c5:e1:45:a2:0a:12:1f:11:1c:d0:1d:05:23:9f:42:0a:c3:5b:05:77:56:df:38:98:67:d5:d5:a3:02:e0:e2:55:c2:14:2a:98:19:f2:9d:6e:b4:ee:19:46:76:41:6e:b2:3b:9f:42:29:16:f0:09:c1:28:b1:33:5c:ed:80:3b:41:2d:df:bd:43:72:85:d4:32:32:55:3e:6c:69:34:1b:04:87:c1:84:0c:88:4c:3d:0e:f1:ce:53:53:f0:11:31:ed:3d:05:81:d6:a1:01:06:4d:ed:6d:3e:ea:8c:b3:19:7a:19:2b:66:07:30:50:4f:4d:be:59:93:13:78:58:fb:0a:cd:34:a9:79:4e:07:1a:88:c8:a8:66:2f:fb:c6:b6:18:17:9c:ae:0b:cf:9e:65:06:b5:84:68:73:d3:c0:be:25:89:75:fd:88:84:b1:8e:20:f8:f7:9a:13:64:e4:be:ee:b8:b6:e9:f2:d6:7c:16:bb:27:8d:4c:36:7f:7e:c8:a0:88:c5:f3:3f:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "312",
+          "quic.header_form": "1",
+          "quic.vn.unused": "0x4c",
+          "quic.version": "0xbabababa",
+          "quic.dcil": "16",
+          "quic.dcid": "d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d",
+          "quic.scil": "20",
+          "quic.scid": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+          "_ws.expert": {
+            "quic.data_after_forcing_vn": "",
+            "_ws.expert.message": "Data appended after a Forcing VN can't be decrypted",
+            "_ws.expert.severity": "4194304",
+            "_ws.expert.group": "150994944"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-11-30",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "1",
+          "frame.time": "Nov 30, 2025 15:09:38.731268000 CET",
+          "frame.time_utc": "Nov 30, 2025 14:09:38.731268000 UTC",
+          "frame.time_epoch": "1764511778.731268000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000081000",
+          "frame.time_delta_displayed": "0.000081000",
+          "frame.time_relative": "0.000081000",
+          "frame.number": "2",
+          "frame.len": "89",
+          "frame.cap_len": "89",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:udp:quic"
+        },
+        "eth": {
+          "eth.dst": "00:00:00:00:00:00",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "00:00:00_00:00:00",
+            "eth.dst.oui": "0",
+            "eth.dst.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.dst.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "00:00:00:00:00:00",
+          "eth.src_tree": {
+            "eth.src_resolved": "00:00:00_00:00:00",
+            "eth.src.oui": "0",
+            "eth.src.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.src.lg": "0",
+            "eth.src.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x0800",
+          "eth.stream": "0"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "75",
+          "ip.id": "0x0000",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x3c9f",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "40846",
+          "udp.port": "4433",
+          "udp.port": "40846",
+          "udp.length": "55",
+          "udp.checksum": "0xfe4b",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "2",
+          "Timestamps": {
+            "udp.time_relative": "0.000081000",
+            "udp.time_delta": "0.000081000"
+          },
+          "udp.payload": "c0:00:00:00:00:14:ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f:10:d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d:00:00:00:01"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "47",
+          "quic.header_form": "1",
+          "quic.vn.unused": "0x40",
+          "quic.version": "0x00000000",
+          "quic.dcil": "20",
+          "quic.dcid": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+          "quic.scil": "16",
+          "quic.scid": "d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d",
+          "quic.supported_version": "0x00000001"
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-11-30",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "1",
+          "frame.time": "Nov 30, 2025 15:09:38.731779000 CET",
+          "frame.time_utc": "Nov 30, 2025 14:09:38.731779000 UTC",
+          "frame.time_epoch": "1764511778.731779000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000511000",
+          "frame.time_delta_displayed": "0.000511000",
+          "frame.time_relative": "0.000592000",
+          "frame.number": "3",
+          "frame.len": "1242",
+          "frame.cap_len": "1242",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:udp:quic:tls"
+        },
+        "eth": {
+          "eth.dst": "00:00:00:00:00:00",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "00:00:00_00:00:00",
+            "eth.dst.oui": "0",
+            "eth.dst.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.dst.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "00:00:00:00:00:00",
+          "eth.src_tree": {
+            "eth.src_resolved": "00:00:00_00:00:00",
+            "eth.src.oui": "0",
+            "eth.src.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.src.lg": "0",
+            "eth.src.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x0800",
+          "eth.stream": "0"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0xdbee",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x5c2f",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.src_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.dst": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.dst_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "40846",
+          "udp.dstport": "4433",
+          "udp.port": "40846",
+          "udp.port": "4433",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "3",
+          "Timestamps": {
+            "udp.time_relative": "0.000592000",
+            "udp.time_delta": "0.000511000"
+          },
+          "udp.payload": "c4:00:00:00:01:10:d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d:14:ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f:00:41:0a:f6:3f:71:26:2f:f1:19:af:61:b4:f9:d6:1e:c9:ee:cf:83:04:aa:ef:3e:b4:f9:25:71:5e:dd:4a:aa:5e:2b:b5:97:64:8c:5e:f0:56:cb:00:b2:8f:d9:3c:43:31:d3:4b:7e:92:fc:56:3f:15:57:3c:c2:72:67:26:19:77:4f:58:88:ea:6b:11:5a:c4:a3:51:f5:07:23:ed:8b:5c:81:52:11:34:68:8a:36:db:da:88:28:5a:62:b8:aa:ba:cb:3a:36:58:17:ab:ee:ed:76:1e:bc:e8:e3:5a:b6:1a:ba:6b:dc:de:01:2a:f9:b2:a0:3e:d3:52:db:a1:0d:2e:00:39:ba:c8:68:28:07:a0:36:db:ba:1e:1d:39:71:ab:d9:bf:61:d4:ba:41:c1:89:97:40:f0:a4:79:b9:b5:2a:8c:90:30:4d:4c:65:03:bc:75:0e:3f:b5:a1:48:85:72:6f:33:f3:1e:61:41:30:a5:d3:7c:b5:77:1c:ec:9d:d2:58:ac:d1:68:d8:ba:4e:d0:4d:c4:2f:c7:76:f4:2b:b3:37:31:29:46:e6:5d:8c:bc:49:a4:fc:87:54:06:95:fa:12:2e:05:07:a0:b8:09:aa:b3:29:7b:23:f3:af:34:63:9f:ba:6e:52:a5:26:b5:c7:f7:c1:2f:90:9b:ed:c6:e5:ba:ec:fa:ba:69:77:b2:50:83:fc:e9:58:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "312",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "0",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "16",
+          "quic.dcid": "d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d",
+          "quic.scil": "20",
+          "quic.scid": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+          "quic.token_length": "0",
+          "quic.length": "266",
+          "quic.packet_number": "1",
+          "quic.payload": "3f:71:26:2f:f1:19:af:61:b4:f9:d6:1e:c9:ee:cf:83:04:aa:ef:3e:b4:f9:25:71:5e:dd:4a:aa:5e:2b:b5:97:64:8c:5e:f0:56:cb:00:b2:8f:d9:3c:43:31:d3:4b:7e:92:fc:56:3f:15:57:3c:c2:72:67:26:19:77:4f:58:88:ea:6b:11:5a:c4:a3:51:f5:07:23:ed:8b:5c:81:52:11:34:68:8a:36:db:da:88:28:5a:62:b8:aa:ba:cb:3a:36:58:17:ab:ee:ed:76:1e:bc:e8:e3:5a:b6:1a:ba:6b:dc:de:01:2a:f9:b2:a0:3e:d3:52:db:a1:0d:2e:00:39:ba:c8:68:28:07:a0:36:db:ba:1e:1d:39:71:ab:d9:bf:61:d4:ba:41:c1:89:97:40:f0:a4:79:b9:b5:2a:8c:90:30:4d:4c:65:03:bc:75:0e:3f:b5:a1:48:85:72:6f:33:f3:1e:61:41:30:a5:d3:7c:b5:77:1c:ec:9d:d2:58:ac:d1:68:d8:ba:4e:d0:4d:c4:2f:c7:76:f4:2b:b3:37:31:29:46:e6:5d:8c:bc:49:a4:fc:87:54:06:95:fa:12:2e:05:07:a0:b8:09:aa:b3:29:7b:23:f3:af:34:63:9f:ba:6e:52:a5:26:b5:c7:f7:c1:2f:90:9b:ed:c6:e5:ba:ec:fa:ba:69:77:b2:50:83:fc:e9:58",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "245",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "1",
+                "tls.handshake.length": "241",
+                "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
+                "tls.handshake.random": "da:af:de:e7:d0:bb:95:2f:f4:cb:c4:7f:b5:e2:89:00:4b:14:cd:03:aa:41:7f:72:1e:71:c2:f2:54:6a:49:9c",
+                "tls.handshake.session_id_length": "0",
+                "tls.handshake.cipher_suites_length": "6",
+                "tls.handshake.ciphersuites": {
+                  "tls.handshake.ciphersuite": "0x1301",
+                  "tls.handshake.ciphersuite": "0x1302",
+                  "tls.handshake.ciphersuite": "0x1303"
+                },
+                "tls.handshake.comp_methods_length": "1",
+                "tls.handshake.comp_methods": {
+                  "tls.handshake.comp_method": "0"
+                },
+                "tls.handshake.extensions_length": "194",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "10",
+                  "tls.handshake.extension.len": "8",
+                  "tls.handshake.extensions_supported_groups_length": "6",
+                  "tls.handshake.extensions_supported_groups": {
+                    "tls.handshake.extensions_supported_group": "0x001d",
+                    "tls.handshake.extensions_supported_group": "0x0017",
+                    "tls.handshake.extensions_supported_group": "0x0018"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "16",
+                  "tls.handshake.extension.len": "25",
+                  "tls.handshake.extensions_alpn_len": "23",
+                  "tls.handshake.extensions_alpn_list": {
+                    "tls.handshake.extensions_alpn_str_len": "2",
+                    "tls.handshake.extensions_alpn_str": "h3",
+                    "tls.handshake.extensions_alpn_str_len": "10",
+                    "tls.handshake.extensions_alpn_str": "hq-interop",
+                    "tls.handshake.extensions_alpn_str_len": "8",
+                    "tls.handshake.extensions_alpn_str": "http/0.9"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "13",
+                  "tls.handshake.extension.len": "20",
+                  "tls.handshake.sig_hash_alg_len": "18",
+                  "tls.handshake.sig_hash_algs": {
+                    "tls.handshake.sig_hash_alg": "0x0403",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "4",
+                      "tls.handshake.sig_hash_sig": "3"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0804",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "4"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0401",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "4",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0503",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "5",
+                      "tls.handshake.sig_hash_sig": "3"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0805",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "5"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0501",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "5",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0806",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "8",
+                      "tls.handshake.sig_hash_sig": "6"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0601",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "6",
+                      "tls.handshake.sig_hash_sig": "1"
+                    },
+                    "tls.handshake.sig_hash_alg": "0x0201",
+                    "tls.handshake.sig_hash_alg_tree": {
+                      "tls.handshake.sig_hash_hash": "2",
+                      "tls.handshake.sig_hash_sig": "1"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "51",
+                  "tls.handshake.extension.len": "38",
+                  "Key Share extension": {
+                    "tls.handshake.extensions_key_share_client_length": "36",
+                    "Key Share Entry: Group: x25519, Key Exchange length: 32": {
+                      "tls.handshake.extensions_key_share_group": "29",
+                      "tls.handshake.extensions_key_share_key_exchange_length": "32",
+                      "tls.handshake.extensions_key_share_key_exchange": "fb:5c:46:3b:08:5e:01:70:da:b4:8b:0d:5b:1c:c1:de:e7:56:16:3d:8f:4f:38:fe:37:d3:1e:60:5a:08:b2:2a"
+                    }
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "45",
+                  "tls.handshake.extension.len": "2",
+                  "tls.extension.psk_ke_modes_length": "1",
+                  "tls.extension.psk_ke_mode": "1"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "43",
+                  "tls.handshake.extension.len": "3",
+                  "tls.handshake.extensions.supported_versions_len": "2",
+                  "tls.handshake.extensions.supported_version": "0x0304"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "57",
+                  "tls.handshake.extension.len": "70",
+                  "Parameter: max_idle_timeout (len=4) 30000 ms": {
+                    "tls.quic.parameter.type": "1",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:75:30",
+                    "tls.quic.parameter.max_idle_timeout": "30000"
+                  },
+                  "Parameter: max_udp_payload_size (len=2) 1350": {
+                    "tls.quic.parameter.type": "3",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "45:46",
+                    "tls.quic.parameter.max_udp_payload_size": "1350"
+                  },
+                  "Parameter: initial_max_data (len=4) 10000000": {
+                    "tls.quic.parameter.type": "4",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:98:96:80",
+                    "tls.quic.parameter.initial_max_data": "10000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_local (len=4) 1000000": {
+                    "tls.quic.parameter.type": "5",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_local": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_remote (len=4) 1000000": {
+                    "tls.quic.parameter.type": "6",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_remote": "1000000"
+                  },
+                  "Parameter: initial_max_stream_data_uni (len=4) 1000000": {
+                    "tls.quic.parameter.type": "7",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:0f:42:40",
+                    "tls.quic.parameter.initial_max_stream_data_uni": "1000000"
+                  },
+                  "Parameter: initial_max_streams_bidi (len=2) 100": {
+                    "tls.quic.parameter.type": "8",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_bidi": "100"
+                  },
+                  "Parameter: initial_max_streams_uni (len=2) 100": {
+                    "tls.quic.parameter.type": "9",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:64",
+                    "tls.quic.parameter.initial_max_streams_uni": "100"
+                  },
+                  "Parameter: ack_delay_exponent (len=1)": {
+                    "tls.quic.parameter.type": "10",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.ack_delay_exponent": "3"
+                  },
+                  "Parameter: max_ack_delay (len=1) 25": {
+                    "tls.quic.parameter.type": "11",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "19",
+                    "tls.quic.parameter.max_ack_delay": "25"
+                  },
+                  "Parameter: initial_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "15",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+                    "tls.quic.parameter.initial_source_connection_id": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f"
+                  }
+                },
+                "tls.handshake.ja4": "q13i0307h3_55b375c5d22e_f0736a66fa6b",
+                "tls.handshake.ja4_r": "q13i0307h3_1301,1302,1303_000a,000d,002b,002d,0033,0039_0403,0804,0401,0503,0805,0501,0806,0601,0201",
+                "tls.handshake.ja3_full": "771,4865-4866-4867,10-16-13-51-45-43-57,29-23-24,",
+                "tls.handshake.ja3": "86871fd0d48de0c82beec154cd3f1744"
+              }
+            }
+          }
+        },
+        "quic": {
+          "_ws.expert": {
+            "quic.coalesced_padding_data": "",
+            "_ws.expert.message": "(Random) padding data appended to the datagram",
+            "_ws.expert.severity": "4194304",
+            "_ws.expert.group": "150994944"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-11-30",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "1",
+          "frame.time": "Nov 30, 2025 15:09:38.732723000 CET",
+          "frame.time_utc": "Nov 30, 2025 14:09:38.732723000 UTC",
+          "frame.time_epoch": "1764511778.732723000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000944000",
+          "frame.time_delta_displayed": "0.000944000",
+          "frame.time_relative": "0.001536000",
+          "frame.number": "4",
+          "frame.len": "1242",
+          "frame.cap_len": "1242",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:udp:quic:tls:tls:tls:x509sat:x509sat:x509ce:x509ce:x509ce:x509ce:tls"
+        },
+        "eth": {
+          "eth.dst": "00:00:00:00:00:00",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "00:00:00_00:00:00",
+            "eth.dst.oui": "0",
+            "eth.dst.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.dst.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "00:00:00:00:00:00",
+          "eth.src_tree": {
+            "eth.src_resolved": "00:00:00_00:00:00",
+            "eth.src.oui": "0",
+            "eth.src.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.src.lg": "0",
+            "eth.src.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x0800",
+          "eth.stream": "0"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "1228",
+          "ip.id": "0x0000",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x381e",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "40846",
+          "udp.port": "4433",
+          "udp.port": "40846",
+          "udp.length": "1208",
+          "udp.checksum": "0x02cd",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "4",
+          "Timestamps": {
+            "udp.time_relative": "0.001536000",
+            "udp.time_delta": "0.000944000"
+          },
+          "udp.payload": "c7:00:00:00:01:14:ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f:14:00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06:00:40:74:b7:32:87:ac:9b:ad:ba:46:02:b2:1f:ec:90:1e:96:eb:14:7a:d6:9a:2b:25:36:4a:9a:1f:73:d0:a1:ef:20:6a:c0:aa:5f:7e:d7:24:59:0a:4f:86:38:43:48:b2:ee:e1:6d:77:86:eb:8e:dc:73:af:f1:8b:23:59:b3:c9:5a:aa:ec:f4:30:c3:b3:8d:ec:25:5e:14:b7:a0:23:80:53:21:27:8f:28:da:f5:c5:f6:6b:57:df:f0:15:00:15:aa:66:a7:1f:d9:92:e9:a4:2f:77:b6:3e:f6:91:85:ac:f1:60:71:9b:43:22:e1:00:00:00:01:14:ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f:14:00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06:43:d9:6a:a8:77:2a:d7:fc:aa:42:5a:13:ba:80:20:40:70:a4:af:6e:9b:e4:cb:39:f7:f6:51:cb:5d:bd:4b:df:dd:70:49:41:d4:9f:64:06:16:b7:79:51:3d:5f:7d:a7:4f:97:52:15:33:a2:80:55:4c:bb:42:d9:c4:0c:3a:9c:13:ac:ed:05:88:1d:f1:4b:e2:a8:98:46:a3:2f:7f:c4:a1:c9:d4:5a:cd:10:ec:30:e5:e5:7e:5c:61:ee:f8:46:e4:57:2e:d3:d2:b5:76:e0:fa:8d:ef:15:75:48:5b:1a:70:7a:7b:39:ff:8c:fd:2a:d9:2a:39:15:ac:87:d9:e6:4e:82:fa:9c:2e:86:e3:af:98:06:8e:09:17:bb:38:06:95:65:fd:5a:0f:f8:b4:d8:42:3c:0c:49:bc:b8:3d:0a:88:28:fa:9b:76:98:02:cc:72:cc:4c:3b:35:6d:38:99:c4:08:e9:58:ad:5a:a0:a4:c4:66:95:0f:db:c4:31:82:c4:26:a1:b0:1f:34:dc:27:fd:3c:c4:55:1a:08:a1:f8:ad:a6:1e:e0:f6:28:84:26:8f:2a:f9:2e:d4:e1:61:ca:a9:1a:22:00:8f:b8:e7:6d:bc:25:a2:99:1f:df:06:0a:98:47:f6:a6:e7:56:c0:a8:94:d6:83:a5:db:51:d3:87:b6:b7:66:1d:91:a2:16:8f:22:73:48:0e:bf:87:ab:4d:f4:0a:bd:e3:81:79:8f:6a:2a:78:94:0e:da:4b:50:f3:4a:13:8c:7e:1d:8b:36:ba:bf:63:59:1e:ef:82:34:05:f5:b4:ab:42:61:e1:12:7f:d3:d4:49:f9:a8:01:e0:11:ae:dd:ba:31:e4:3d:8c:4c:ea:f9:09:c5:8a:1a:d1:88:62:91:2d:68:6e:9c:96:d0:21:0a:3d:3f:aa:5e:95:6f:e4:e0:65:aa:6a:4a:41:21:fe:91:eb:15:9e:bf:2d:22:73:14:15:51:c6:a9:e6:05:9a:d6:d6:11:5a:95:76:3d:05:a3:07:fb:33:6b:1c:51:63:91:9a:6d:e3:17:4e:6a:97:00:61:6e:03:6e:e9:35:74:80:e7:a7:bb:a8:6a:cd:99:64:8d:b1:2f:1b:34:b9:21:77:7e:7f:c3:95:aa:43:f4:9a:b8:36:41:13:b2:e1:29:55:17:93:07:a3:cd:e7:47:2e:29:3b:aa:28:3c:8a:93:ad:06:ac:70:26:d5:a0:ce:ec:59:74:d5:d3:ad:31:33:40:fa:b3:71:29:1b:c9:48:0b:39:1c:3f:ac:fe:ef:24:90:33:12:b8:5d:1b:11:5f:e9:32:b0:20:bb:52:ba:14:f5:32:eb:f0:92:e8:14:e8:ec:ae:d5:4d:bd:60:49:78:ec:8e:6b:3a:b3:68:2b:fb:51:a9:b2:be:fe:8e:b9:a5:8b:85:d7:77:5c:65:ee:51:28:28:4f:df:49:84:e0:6c:61:19:1d:c8:9e:3f:f4:57:08:87:6e:6e:f8:cb:d3:76:25:da:c0:83:b1:3b:f8:28:9a:82:87:6d:67:21:8b:72:f2:f9:3b:29:37:4c:ad:12:dd:21:ad:f7:6f:f6:8f:6b:17:f3:4e:2a:b3:d1:c2:f6:28:30:f8:fa:39:d5:ed:7a:64:0d:cf:12:dc:a7:47:a5:b9:fd:0b:4a:33:0b:d5:b7:8f:68:51:97:f4:60:d2:94:4c:96:bc:ad:fd:2c:3e:af:0f:83:74:bf:df:76:f1:af:da:70:19:47:2d:0b:3b:07:90:7e:26:aa:3e:be:39:52:93:20:9e:6f:16:4d:9d:ae:b0:ee:b2:ad:0e:73:76:81:7b:f8:9a:fa:58:39:96:6e:b2:96:5f:8b:06:4a:c4:3d:cf:13:7c:df:c1:6d:84:c3:04:e7:a6:4c:ad:ed:88:b2:b5:39:cf:c0:0a:fa:e6:42:a0:2e:97:8a:74:d0:21:8e:3d:36:09:1f:57:fe:bc:a4:3d:37:72:8a:38:18:83:f2:a6:1e:49:54:f5:ba:d4:d0:b6:64:ea:84:be:50:32:b9:8d:2b:5a:8c:86:9d:12:15:a2:95:20:ba:8e:3d:10:02:b2:41:91:a2:32:1c:d2:55:f0:11:34:e4:95:5f:22:4d:f0:5d:5e:13:e3:35:27:88:e3:3f:bc:c6:2e:3e:ce:31:8b:ad:db:89:0e:e6:f5:5f:a9:ba:5b:2c:4b:71:6d:ae:f3:ad:76:6b:58:42:e2:f8:4e:e5:d8:f9:09:1f:db:8c:6b:7e:7f:65:67:9f:f1:27:94:44:51:1f:ba:fa:80:3e:3e:5a:1e:03:20:98:4f:74:6d:c4:fa:17:66:4a:6c:36:95:1e:e2:23:b2:67:5e:1c:fb:26:ed:3f:ee:e0:a2:3d:59:a9:bb:4d:71:38:9a:0a:32:fd:28:c0:86:ee:43:e9:0e:ec:f9:dc:cd:16:a1:23:d5:df:bb:b4:be:4d:8d:2d:1e:84:f3:c3:9b:ed:f2:1c:dc:ed:f7:ad:04:c8:e8:0f:e5:24:31:0b:3b:a2:94:f9:90:e0:8d:22:47:64:32:89:d1:bf:78:32:6e:bf:bd:fa:37:e3:61:42:42:4b:0d:1d:4c:07:ca:4b:13:76:11:67:d1:20"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "166",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "0",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+          "quic.scil": "20",
+          "quic.scid": "00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06",
+          "quic.token_length": "0",
+          "quic.length": "116",
+          "quic.packet_number": "0",
+          "quic.payload": "32:87:ac:9b:ad:ba:46:02:b2:1f:ec:90:1e:96:eb:14:7a:d6:9a:2b:25:36:4a:9a:1f:73:d0:a1:ef:20:6a:c0:aa:5f:7e:d7:24:59:0a:4f:86:38:43:48:b2:ee:e1:6d:77:86:eb:8e:dc:73:af:f1:8b:23:59:b3:c9:5a:aa:ec:f4:30:c3:b3:8d:ec:25:5e:14:b7:a0:23:80:53:21:27:8f:28:da:f5:c5:f6:6b:57:df:f0:15:00:15:aa:66:a7:1f:d9:92:e9:a4:2f:77:b6:3e:f6:91:85:ac:f1:60:71:9b:43:22",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000002",
+            "quic.ack.largest_acknowledged": "1",
+            "quic.ack.ack_delay": "0",
+            "quic.ack.ack_range_count": "0",
+            "quic.ack.first_ack_range": "0"
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "90",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "2",
+                "tls.handshake.length": "86",
+                "tls.handshake.version": "0x0303",
+                "tls.handshake.version_tree": {
+                  "_ws.expert": {
+                    "tls.handshake.legacy_version": "",
+                    "_ws.expert.message": "This legacy_version field MUST be ignored. The supported_versions extension is present and MUST be used instead.",
+                    "_ws.expert.severity": "2097152",
+                    "_ws.expert.group": "234881024"
+                  }
+                },
+                "tls.handshake.random": "98:b3:79:18:af:0f:d4:b5:2f:1f:d9:ff:7e:8c:99:89:35:3a:e1:6f:a8:6a:af:fb:9a:97:fd:0e:66:96:8a:84",
+                "tls.handshake.session_id_length": "0",
+                "tls.handshake.ciphersuite": "0x1301",
+                "tls.handshake.comp_method": "0",
+                "tls.handshake.extensions_length": "46",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "43",
+                  "tls.handshake.extension.len": "2",
+                  "tls.handshake.extensions.supported_version": "0x0304"
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "51",
+                  "tls.handshake.extension.len": "36",
+                  "Key Share extension": {
+                    "Key Share Entry: Group: x25519, Key Exchange length: 32": {
+                      "tls.handshake.extensions_key_share_group": "29",
+                      "tls.handshake.extensions_key_share_key_exchange_length": "32",
+                      "tls.handshake.extensions_key_share_key_exchange": "9e:53:35:d0:56:7f:6a:18:36:89:0a:50:f6:5f:49:e9:a4:92:5e:3e:b4:de:d3:dd:bd:b2:43:9b:ec:e0:97:2d"
+                    }
+                  }
+                },
+                "tls.handshake.ja3s_full": "771,4865,43-51",
+                "tls.handshake.ja3s": "f4febc55ea12b31ae17cfb7e614afda8"
+              }
+            }
+          }
+        },
+        "quic": {
+          "quic.packet_length": "1034",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+          "quic.scil": "20",
+          "quic.scid": "00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06",
+          "quic.length": "985",
+          "quic.packet_number": "0",
+          "quic.payload": "a8:77:2a:d7:fc:aa:42:5a:13:ba:80:20:40:70:a4:af:6e:9b:e4:cb:39:f7:f6:51:cb:5d:bd:4b:df:dd:70:49:41:d4:9f:64:06:16:b7:79:51:3d:5f:7d:a7:4f:97:52:15:33:a2:80:55:4c:bb:42:d9:c4:0c:3a:9c:13:ac:ed:05:88:1d:f1:4b:e2:a8:98:46:a3:2f:7f:c4:a1:c9:d4:5a:cd:10:ec:30:e5:e5:7e:5c:61:ee:f8:46:e4:57:2e:d3:d2:b5:76:e0:fa:8d:ef:15:75:48:5b:1a:70:7a:7b:39:ff:8c:fd:2a:d9:2a:39:15:ac:87:d9:e6:4e:82:fa:9c:2e:86:e3:af:98:06:8e:09:17:bb:38:06:95:65:fd:5a:0f:f8:b4:d8:42:3c:0c:49:bc:b8:3d:0a:88:28:fa:9b:76:98:02:cc:72:cc:4c:3b:35:6d:38:99:c4:08:e9:58:ad:5a:a0:a4:c4:66:95:0f:db:c4:31:82:c4:26:a1:b0:1f:34:dc:27:fd:3c:c4:55:1a:08:a1:f8:ad:a6:1e:e0:f6:28:84:26:8f:2a:f9:2e:d4:e1:61:ca:a9:1a:22:00:8f:b8:e7:6d:bc:25:a2:99:1f:df:06:0a:98:47:f6:a6:e7:56:c0:a8:94:d6:83:a5:db:51:d3:87:b6:b7:66:1d:91:a2:16:8f:22:73:48:0e:bf:87:ab:4d:f4:0a:bd:e3:81:79:8f:6a:2a:78:94:0e:da:4b:50:f3:4a:13:8c:7e:1d:8b:36:ba:bf:63:59:1e:ef:82:34:05:f5:b4:ab:42:61:e1:12:7f:d3:d4:49:f9:a8:01:e0:11:ae:dd:ba:31:e4:3d:8c:4c:ea:f9:09:c5:8a:1a:d1:88:62:91:2d:68:6e:9c:96:d0:21:0a:3d:3f:aa:5e:95:6f:e4:e0:65:aa:6a:4a:41:21:fe:91:eb:15:9e:bf:2d:22:73:14:15:51:c6:a9:e6:05:9a:d6:d6:11:5a:95:76:3d:05:a3:07:fb:33:6b:1c:51:63:91:9a:6d:e3:17:4e:6a:97:00:61:6e:03:6e:e9:35:74:80:e7:a7:bb:a8:6a:cd:99:64:8d:b1:2f:1b:34:b9:21:77:7e:7f:c3:95:aa:43:f4:9a:b8:36:41:13:b2:e1:29:55:17:93:07:a3:cd:e7:47:2e:29:3b:aa:28:3c:8a:93:ad:06:ac:70:26:d5:a0:ce:ec:59:74:d5:d3:ad:31:33:40:fa:b3:71:29:1b:c9:48:0b:39:1c:3f:ac:fe:ef:24:90:33:12:b8:5d:1b:11:5f:e9:32:b0:20:bb:52:ba:14:f5:32:eb:f0:92:e8:14:e8:ec:ae:d5:4d:bd:60:49:78:ec:8e:6b:3a:b3:68:2b:fb:51:a9:b2:be:fe:8e:b9:a5:8b:85:d7:77:5c:65:ee:51:28:28:4f:df:49:84:e0:6c:61:19:1d:c8:9e:3f:f4:57:08:87:6e:6e:f8:cb:d3:76:25:da:c0:83:b1:3b:f8:28:9a:82:87:6d:67:21:8b:72:f2:f9:3b:29:37:4c:ad:12:dd:21:ad:f7:6f:f6:8f:6b:17:f3:4e:2a:b3:d1:c2:f6:28:30:f8:fa:39:d5:ed:7a:64:0d:cf:12:dc:a7:47:a5:b9:fd:0b:4a:33:0b:d5:b7:8f:68:51:97:f4:60:d2:94:4c:96:bc:ad:fd:2c:3e:af:0f:83:74:bf:df:76:f1:af:da:70:19:47:2d:0b:3b:07:90:7e:26:aa:3e:be:39:52:93:20:9e:6f:16:4d:9d:ae:b0:ee:b2:ad:0e:73:76:81:7b:f8:9a:fa:58:39:96:6e:b2:96:5f:8b:06:4a:c4:3d:cf:13:7c:df:c1:6d:84:c3:04:e7:a6:4c:ad:ed:88:b2:b5:39:cf:c0:0a:fa:e6:42:a0:2e:97:8a:74:d0:21:8e:3d:36:09:1f:57:fe:bc:a4:3d:37:72:8a:38:18:83:f2:a6:1e:49:54:f5:ba:d4:d0:b6:64:ea:84:be:50:32:b9:8d:2b:5a:8c:86:9d:12:15:a2:95:20:ba:8e:3d:10:02:b2:41:91:a2:32:1c:d2:55:f0:11:34:e4:95:5f:22:4d:f0:5d:5e:13:e3:35:27:88:e3:3f:bc:c6:2e:3e:ce:31:8b:ad:db:89:0e:e6:f5:5f:a9:ba:5b:2c:4b:71:6d:ae:f3:ad:76:6b:58:42:e2:f8:4e:e5:d8:f9:09:1f:db:8c:6b:7e:7f:65:67:9f:f1:27:94:44:51:1f:ba:fa:80:3e:3e:5a:1e:03:20:98:4f:74:6d:c4:fa:17:66:4a:6c:36:95:1e:e2:23:b2:67:5e:1c:fb:26:ed:3f:ee:e0:a2:3d:59:a9:bb:4d:71:38:9a:0a:32:fd:28:c0:86:ee:43:e9:0e:ec:f9:dc:cd:16:a1:23:d5:df:bb:b4:be:4d:8d:2d:1e:84:f3:c3:9b:ed:f2:1c:dc:ed:f7:ad:04:c8:e8:0f:e5:24:31:0b:3b:a2:94:f9:90:e0:8d:22:47:64:32:89:d1:bf:78:32:6e:bf:bd:fa:37:e3:61:42:42:4b:0d:1d:4c:07:ca:4b:13:76:11:67:d1:20",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "0",
+            "quic.crypto.length": "129",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "8",
+                "tls.handshake.length": "125",
+                "tls.handshake.extensions_length": "123",
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "57",
+                  "tls.handshake.extension.len": "110",
+                  "Parameter: initial_max_data (len=4) 8585216": {
+                    "tls.quic.parameter.type": "4",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:83:00:00",
+                    "tls.quic.parameter.initial_max_data": "8585216"
+                  },
+                  "Parameter: initial_max_streams_uni (len=1) 3": {
+                    "tls.quic.parameter.type": "9",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.initial_max_streams_uni": "3"
+                  },
+                  "Parameter: initial_max_streams_bidi (len=2) 128": {
+                    "tls.quic.parameter.type": "8",
+                    "tls.quic.parameter.length": "2",
+                    "tls.quic.parameter.value": "40:80",
+                    "tls.quic.parameter.initial_max_streams_bidi": "128"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_local (len=4) 65536": {
+                    "tls.quic.parameter.type": "5",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:01:00:00",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_local": "65536"
+                  },
+                  "Parameter: initial_max_stream_data_bidi_remote (len=4) 65536": {
+                    "tls.quic.parameter.type": "6",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:01:00:00",
+                    "tls.quic.parameter.initial_max_stream_data_bidi_remote": "65536"
+                  },
+                  "Parameter: initial_max_stream_data_uni (len=4) 65536": {
+                    "tls.quic.parameter.type": "7",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:01:00:00",
+                    "tls.quic.parameter.initial_max_stream_data_uni": "65536"
+                  },
+                  "Parameter: max_idle_timeout (len=4) 65000 ms": {
+                    "tls.quic.parameter.type": "1",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:fd:e8",
+                    "tls.quic.parameter.max_idle_timeout": "65000"
+                  },
+                  "Parameter: max_udp_payload_size (len=4) 65527": {
+                    "tls.quic.parameter.type": "3",
+                    "tls.quic.parameter.length": "4",
+                    "tls.quic.parameter.value": "80:00:ff:f7",
+                    "tls.quic.parameter.max_udp_payload_size": "65527"
+                  },
+                  "Parameter: active_connection_id_limit (len=1) 2": {
+                    "tls.quic.parameter.type": "14",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "02",
+                    "tls.quic.parameter.active_connection_id_limit": "2"
+                  },
+                  "Parameter: max_ack_delay (len=1) 25": {
+                    "tls.quic.parameter.type": "11",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "19",
+                    "tls.quic.parameter.max_ack_delay": "25"
+                  },
+                  "Parameter: ack_delay_exponent (len=1)": {
+                    "tls.quic.parameter.type": "10",
+                    "tls.quic.parameter.length": "1",
+                    "tls.quic.parameter.value": "03",
+                    "tls.quic.parameter.ack_delay_exponent": "3"
+                  },
+                  "Parameter: original_destination_connection_id (len=16)": {
+                    "tls.quic.parameter.type": "0",
+                    "tls.quic.parameter.length": "16",
+                    "tls.quic.parameter.value": "d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d",
+                    "tls.quic.parameter.original_destination_connection_id": "d6:cd:ff:d2:5a:ac:aa:96:81:f6:65:07:64:ce:87:1d"
+                  },
+                  "Parameter: initial_source_connection_id (len=20)": {
+                    "tls.quic.parameter.type": "15",
+                    "tls.quic.parameter.length": "20",
+                    "tls.quic.parameter.value": "00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06",
+                    "tls.quic.parameter.initial_source_connection_id": "00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06"
+                  },
+                  "Parameter: stateless_reset_token (len=16)": {
+                    "tls.quic.parameter.type": "2",
+                    "tls.quic.parameter.length": "16",
+                    "tls.quic.parameter.value": "fa:f0:66:55:18:2d:24:b4:5a:19:5f:3a:1c:e4:01:53",
+                    "tls.quic.parameter.stateless_reset_token": "fa:f0:66:55:18:2d:24:b4:5a:19:5f:3a:1c:e4:01:53"
+                  }
+                },
+                "tls.handshake.extension": {
+                  "tls.handshake.extension.type": "16",
+                  "tls.handshake.extension.len": "5",
+                  "tls.handshake.extensions_alpn_len": "3",
+                  "tls.handshake.extensions_alpn_list": {
+                    "tls.handshake.extensions_alpn_str_len": "2",
+                    "tls.handshake.extensions_alpn_str": "h3"
+                  }
+                }
+              }
+            }
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "129",
+            "quic.crypto.length": "811",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "11",
+                "tls.handshake.length": "807",
+                "tls.handshake.certificate_request_context_length": "0",
+                "tls.handshake.certificates_length": "803",
+                "tls.handshake.certificates": {
+                  "tls.handshake.certificate_length": "798",
+                  "tls.handshake.certificate": "30:82:03:1a:30:82:02:02:a0:03:02:01:02:02:14:69:23:02:11:ad:80:a9:e7:96:75:8e:a1:0a:b0:be:16:64:76:e9:7d:30:0d:06:09:2a:86:48:86:f7:0d:01:01:0b:05:00:30:14:31:12:30:10:06:03:55:04:03:0c:09:6c:6f:63:61:6c:68:6f:73:74:30:1e:17:0d:32:35:31:30:32:39:32:31:34:38:33:33:5a:17:0d:32:36:31:30:32:39:32:31:34:38:33:33:5a:30:14:31:12:30:10:06:03:55:04:03:0c:09:6c:6f:63:61:6c:68:6f:73:74:30:82:01:22:30:0d:06:09:2a:86:48:86:f7:0d:01:01:01:05:00:03:82:01:0f:00:30:82:01:0a:02:82:01:01:00:c7:50:69:bc:9e:78:10:12:20:8a:f3:13:72:56:35:3b:af:67:8d:7d:20:7e:a4:e3:e2:e7:89:28:88:b9:02:26:c6:c2:cf:3a:1f:07:ec:ba:36:4b:47:1f:17:bc:5b:7a:a4:2b:16:1b:b1:e2:e3:f8:81:cf:22:2b:dd:75:48:44:b9:b3:ea:c4:42:8f:38:3b:b7:51:e4:af:8d:e6:c4:35:8d:c1:01:78:f0:7c:a3:f5:2f:c9:8e:87:91:72:70:21:7f:e6:b8:b6:03:a0:14:16:42:a9:f2:ed:00:77:09:21:1c:46:77:be:36:8d:92:bb:e6:21:57:4c:a8:b6:65:aa:b2:25:75:e4:cd:19:84:53:58:d5:de:f8:c7:42:eb:5e:20:2c:a5:83:ee:5a:ef:1a:a9:e2:e5:70:9a:a0:01:77:69:ab:3d:95:d9:a0:3e:30:13:6c:1e:71:f8:8a:92:24:e4:4e:e4:bb:3a:cc:4b:09:c7:41:82:42:11:04:d5:37:8b:2e:b0:c6:21:4a:24:82:dd:06:71:10:53:4f:8c:e0:01:f1:15:d4:23:2d:19:eb:ee:5a:fb:5b:3f:be:09:7d:c0:eb:44:f3:97:53:33:54:a9:6c:7d:02:a4:df:41:e1:4d:44:b2:cc:fe:1d:62:05:69:54:07:eb:89:05:16:4f:02:03:01:00:01:a3:64:30:62:30:1d:06:03:55:1d:0e:04:16:04:14:ae:ab:ed:8d:22:06:ec:ed:db:10:05:ea:37:ae:36:82:4a:dd:81:f5:30:1f:06:03:55:1d:23:04:18:30:16:80:14:ae:ab:ed:8d:22:06:ec:ed:db:10:05:ea:37:ae:36:82:4a:dd:81:f5:30:0f:06:03:55:1d:13:01:01:ff:04:05:30:03:01:01:ff:30:0f:06:03:55:1d:11:04:08:30:06:87:04:7f:00:00:01:30:0d:06:09:2a:86:48:86:f7:0d:01:01:0b:05:00:03:82:01:01:00:13:1d:d2:fd:46:a5:b7:bd:d6:d1:f8:f9:17:e8:9c:52:ff:a6:22:09:d1:b3:18:2d:3a:74:5b:3d:40:73:b9:82:51:43:7e:2b:17:93:db:36:24:61:d3:0e:d9:00:46:d4:f4:88:a0:0e:46:cd:00:93:c2:6c:d8:61:dc:dc:7b:57:d9:c7:0c:46:5b:90:0c:35:90:7a:59:88:59:48:3b:18:41:8e:74:82:03:2c:db:a1:e9:88:17:9e:f3:8b:b6:80:11:13:53:5e:84:04:63:05:cf:a0:77:f0:36:9a:0b:56:65:e6:4b:72:0e:6a:9a:98:27:ae:a7:b8:4b:96:5c:55:4f:ad:bd:82:b0:0f:65:91:d4:61:12:37:c3:4a:30:cc:5b:5d:22:5a:38:38:71:1e:d2:bf:0b:cd:aa:b4:c9:36:50:79:ff:7f:1e:d0:40:22:52:da:99:06:39:bd:5c:80:a8:0a:b6:aa:cc:50:05:fa:6f:e1:d6:49:28:77:04:d8:c6:64:55:de:a3:5f:38:1f:a5:ab:f0:f7:78:ce:56:5d:39:36:aa:ce:eb:2a:d1:f3:2c:16:4d:cf:f9:11:14:a1:6c:88:c3:c0:84:92:bc:3f:3d:8e:1b:33:3a:6e:64:35:ca:57:c7:a6:e1:b5:33:db:9d:9a:8f:f0:d2:a6:56:3c",
+                  "tls.handshake.certificate_tree": {
+                    "x509af.signedCertificate_element": {
+                      "x509af.version": "2",
+                      "x509af.serialNumber": "69:23:02:11:ad:80:a9:e7:96:75:8e:a1:0a:b0:be:16:64:76:e9:7d",
+                      "x509af.signature_element": {
+                        "x509af.algorithm.id": "1.2.840.113549.1.1.11"
+                      },
+                      "x509af.issuer": "0",
+                      "x509af.issuer_tree": {
+                        "x509if.rdnSequence": "1",
+                        "x509if.rdnSequence_tree": {
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.3",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "localhost"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "x509af.validity_element": {
+                        "x509af.notBefore": "0",
+                        "x509af.notBefore_tree": {
+                          "x509af.utcTime": "2025-10-29 21:48:33 (UTC)"
+                        },
+                        "x509af.notAfter": "0",
+                        "x509af.notAfter_tree": {
+                          "x509af.utcTime": "2026-10-29 21:48:33 (UTC)"
+                        }
+                      },
+                      "x509af.subject": "0",
+                      "x509af.subject_tree": {
+                        "x509af.rdnSequence": "1",
+                        "x509af.rdnSequence_tree": {
+                          "x509if.RDNSequence_item": "1",
+                          "x509if.RDNSequence_item_tree": {
+                            "x509if.RelativeDistinguishedName_item_element": {
+                              "x509if.oid": "2.5.4.3",
+                              "x509sat.DirectoryString": "4",
+                              "x509sat.DirectoryString_tree": {
+                                "x509sat.uTF8String": "localhost"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "x509af.subjectPublicKeyInfo_element": {
+                        "x509af.algorithm_element": {
+                          "x509af.algorithm.id": "1.2.840.113549.1.1.1"
+                        },
+                        "x509af.subjectPublicKey": "30:82:01:0a:02:82:01:01:00:c7:50:69:bc:9e:78:10:12:20:8a:f3:13:72:56:35:3b:af:67:8d:7d:20:7e:a4:e3:e2:e7:89:28:88:b9:02:26:c6:c2:cf:3a:1f:07:ec:ba:36:4b:47:1f:17:bc:5b:7a:a4:2b:16:1b:b1:e2:e3:f8:81:cf:22:2b:dd:75:48:44:b9:b3:ea:c4:42:8f:38:3b:b7:51:e4:af:8d:e6:c4:35:8d:c1:01:78:f0:7c:a3:f5:2f:c9:8e:87:91:72:70:21:7f:e6:b8:b6:03:a0:14:16:42:a9:f2:ed:00:77:09:21:1c:46:77:be:36:8d:92:bb:e6:21:57:4c:a8:b6:65:aa:b2:25:75:e4:cd:19:84:53:58:d5:de:f8:c7:42:eb:5e:20:2c:a5:83:ee:5a:ef:1a:a9:e2:e5:70:9a:a0:01:77:69:ab:3d:95:d9:a0:3e:30:13:6c:1e:71:f8:8a:92:24:e4:4e:e4:bb:3a:cc:4b:09:c7:41:82:42:11:04:d5:37:8b:2e:b0:c6:21:4a:24:82:dd:06:71:10:53:4f:8c:e0:01:f1:15:d4:23:2d:19:eb:ee:5a:fb:5b:3f:be:09:7d:c0:eb:44:f3:97:53:33:54:a9:6c:7d:02:a4:df:41:e1:4d:44:b2:cc:fe:1d:62:05:69:54:07:eb:89:05:16:4f:02:03:01:00:01",
+                        "x509af.subjectPublicKey_tree": {
+                          "pkcs1.modulus": "00:c7:50:69:bc:9e:78:10:12:20:8a:f3:13:72:56:35:3b:af:67:8d:7d:20:7e:a4:e3:e2:e7:89:28:88:b9:02:26:c6:c2:cf:3a:1f:07:ec:ba:36:4b:47:1f:17:bc:5b:7a:a4:2b:16:1b:b1:e2:e3:f8:81:cf:22:2b:dd:75:48:44:b9:b3:ea:c4:42:8f:38:3b:b7:51:e4:af:8d:e6:c4:35:8d:c1:01:78:f0:7c:a3:f5:2f:c9:8e:87:91:72:70:21:7f:e6:b8:b6:03:a0:14:16:42:a9:f2:ed:00:77:09:21:1c:46:77:be:36:8d:92:bb:e6:21:57:4c:a8:b6:65:aa:b2:25:75:e4:cd:19:84:53:58:d5:de:f8:c7:42:eb:5e:20:2c:a5:83:ee:5a:ef:1a:a9:e2:e5:70:9a:a0:01:77:69:ab:3d:95:d9:a0:3e:30:13:6c:1e:71:f8:8a:92:24:e4:4e:e4:bb:3a:cc:4b:09:c7:41:82:42:11:04:d5:37:8b:2e:b0:c6:21:4a:24:82:dd:06:71:10:53:4f:8c:e0:01:f1:15:d4:23:2d:19:eb:ee:5a:fb:5b:3f:be:09:7d:c0:eb:44:f3:97:53:33:54:a9:6c:7d:02:a4:df:41:e1:4d:44:b2:cc:fe:1d:62:05:69:54:07:eb:89:05:16:4f",
+                          "pkcs1.publicExponent": "65537"
+                        }
+                      },
+                      "x509af.extensions": "4",
+                      "x509af.extensions_tree": {
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.14",
+                          "x509ce.SubjectKeyIdentifier": "ae:ab:ed:8d:22:06:ec:ed:db:10:05:ea:37:ae:36:82:4a:dd:81:f5"
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.35",
+                          "x509ce.AuthorityKeyIdentifier_element": {
+                            "x509ce.keyIdentifier": "ae:ab:ed:8d:22:06:ec:ed:db:10:05:ea:37:ae:36:82:4a:dd:81:f5"
+                          }
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.19",
+                          "x509af.critical": "1",
+                          "x509ce.BasicConstraintsSyntax_element": {
+                            "x509ce.cA": "1"
+                          }
+                        },
+                        "x509af.Extension_element": {
+                          "x509af.extension.id": "2.5.29.17",
+                          "x509ce.GeneralNames": "1",
+                          "x509ce.GeneralNames_tree": {
+                            "x509ce.GeneralName": "7",
+                            "x509ce.GeneralName_tree": {
+                              "x509ce.IPAddress.ipv4": "127.0.0.1"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "x509af.algorithmIdentifier_element": {
+                      "x509af.algorithm.id": "1.2.840.113549.1.1.11"
+                    },
+                    "ber.bitstring.padding": "0",
+                    "x509af.encrypted": "13:1d:d2:fd:46:a5:b7:bd:d6:d1:f8:f9:17:e8:9c:52:ff:a6:22:09:d1:b3:18:2d:3a:74:5b:3d:40:73:b9:82:51:43:7e:2b:17:93:db:36:24:61:d3:0e:d9:00:46:d4:f4:88:a0:0e:46:cd:00:93:c2:6c:d8:61:dc:dc:7b:57:d9:c7:0c:46:5b:90:0c:35:90:7a:59:88:59:48:3b:18:41:8e:74:82:03:2c:db:a1:e9:88:17:9e:f3:8b:b6:80:11:13:53:5e:84:04:63:05:cf:a0:77:f0:36:9a:0b:56:65:e6:4b:72:0e:6a:9a:98:27:ae:a7:b8:4b:96:5c:55:4f:ad:bd:82:b0:0f:65:91:d4:61:12:37:c3:4a:30:cc:5b:5d:22:5a:38:38:71:1e:d2:bf:0b:cd:aa:b4:c9:36:50:79:ff:7f:1e:d0:40:22:52:da:99:06:39:bd:5c:80:a8:0a:b6:aa:cc:50:05:fa:6f:e1:d6:49:28:77:04:d8:c6:64:55:de:a3:5f:38:1f:a5:ab:f0:f7:78:ce:56:5d:39:36:aa:ce:eb:2a:d1:f3:2c:16:4d:cf:f9:11:14:a1:6c:88:c3:c0:84:92:bc:3f:3d:8e:1b:33:3a:6e:64:35:ca:57:c7:a6:e1:b5:33:db:9d:9a:8f:f0:d2:a6:56:3c"
+                  },
+                  "tls.handshake.extensions_length": "0"
+                }
+              }
+            }
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "940",
+            "quic.crypto.length": "14",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": ""
+            }
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000000",
+            "quic.padding_length": "1"
+          }
+        }
+      }
+    }
+  },
+  {
+    "_index": "packets-2025-11-30",
+    "_type": "doc",
+    "_score": null,
+    "_source": {
+      "layers": {
+        "frame": {
+          "frame.encap_type": "1",
+          "frame.time": "Nov 30, 2025 15:09:38.732746000 CET",
+          "frame.time_utc": "Nov 30, 2025 14:09:38.732746000 UTC",
+          "frame.time_epoch": "1764511778.732746000",
+          "frame.offset_shift": "0.000000000",
+          "frame.time_delta": "0.000023000",
+          "frame.time_delta_displayed": "0.000023000",
+          "frame.time_relative": "0.001559000",
+          "frame.number": "5",
+          "frame.len": "403",
+          "frame.cap_len": "403",
+          "frame.marked": "0",
+          "frame.ignored": "0",
+          "frame.protocols": "eth:ethertype:ip:udp:quic:tls:tls"
+        },
+        "eth": {
+          "eth.dst": "00:00:00:00:00:00",
+          "eth.dst_tree": {
+            "eth.dst_resolved": "00:00:00_00:00:00",
+            "eth.dst.oui": "0",
+            "eth.dst.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.dst.lg": "0",
+            "eth.dst.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.src": "00:00:00:00:00:00",
+          "eth.src_tree": {
+            "eth.src_resolved": "00:00:00_00:00:00",
+            "eth.src.oui": "0",
+            "eth.src.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.src.lg": "0",
+            "eth.src.ig": "0",
+            "eth.addr": "00:00:00:00:00:00",
+            "eth.addr_resolved": "00:00:00_00:00:00",
+            "eth.addr.oui": "0",
+            "eth.addr.oui_resolved": "Officially Xerox, but 0:0:0:0:0:0 is more common",
+            "eth.lg": "0",
+            "eth.ig": "0"
+          },
+          "eth.type": "0x0800",
+          "eth.stream": "0"
+        },
+        "ip": {
+          "ip.version": "4",
+          "ip.hdr_len": "20",
+          "ip.dsfield": "0x00",
+          "ip.dsfield_tree": {
+            "ip.dsfield.dscp": "0",
+            "ip.dsfield.ecn": "0"
+          },
+          "ip.len": "389",
+          "ip.id": "0x0000",
+          "ip.flags": "0x02",
+          "ip.flags_tree": {
+            "ip.flags.rb": "0",
+            "ip.flags.df": "1",
+            "ip.flags.mf": "0"
+          },
+          "ip.frag_offset": "0",
+          "ip.ttl": "64",
+          "ip.proto": "17",
+          "ip.checksum": "0x3b65",
+          "ip.checksum.status": "2",
+          "ip.src": "127.0.0.1",
+          "ip.addr": "127.0.0.1",
+          "ip.src_host": "127.0.0.1",
+          "ip.host": "127.0.0.1",
+          "ip.dst": "127.0.0.2",
+          "ip.addr": "127.0.0.2",
+          "ip.dst_host": "127.0.0.2",
+          "ip.host": "127.0.0.2",
+          "ip.stream": "0"
+        },
+        "udp": {
+          "udp.srcport": "4433",
+          "udp.dstport": "40846",
+          "udp.port": "4433",
+          "udp.port": "40846",
+          "udp.length": "369",
+          "udp.checksum": "0xff85",
+          "udp.checksum.status": "2",
+          "udp.stream": "0",
+          "udp.stream.pnum": "5",
+          "Timestamps": {
+            "udp.time_relative": "0.001559000",
+            "udp.time_delta": "0.000023000"
+          },
+          "udp.payload": "e8:00:00:00:01:14:ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f:14:00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06:41:38:66:32:df:9b:ee:56:6a:06:66:a1:28:c1:91:56:80:fd:99:e3:75:90:32:a3:61:d8:45:18:92:c6:5d:d5:b9:4e:28:3a:07:0e:cf:e7:72:91:fe:84:69:19:f1:27:66:d4:1d:78:4c:87:10:21:2f:fa:15:e1:45:c3:de:86:50:9c:69:e3:19:e7:b4:08:68:3b:fc:5a:74:20:91:ea:e4:bb:12:7f:07:8c:39:0e:2e:e4:74:15:e7:36:a0:b3:9e:d5:d3:fa:b4:15:d5:42:88:f7:ad:9e:8e:4b:3a:5d:94:41:ea:52:eb:4e:7b:d4:d2:fb:a3:1f:e9:07:fd:ed:fe:38:3e:df:c3:6c:4d:dc:6c:86:a4:09:16:4f:bc:85:e1:9c:e0:1b:25:a3:b1:06:c1:55:55:33:98:11:41:4f:23:69:b6:a5:1d:dc:7b:0b:48:91:fa:5a:1c:3a:74:18:d6:99:6d:ab:5e:6c:ca:7f:44:ec:ee:58:a3:28:05:49:9d:fb:12:78:7e:6a:37:ef:38:70:29:43:01:aa:78:b8:f4:78:d3:2e:0b:5a:3f:bd:7d:e5:8e:61:d4:02:e2:c2:d2:41:e0:dc:76:da:71:08:75:9f:5a:13:cd:b1:a9:e2:2a:0a:0c:d7:f6:59:bf:8a:30:83:34:01:6b:cd:f8:69:ef:d3:51:25:c3:56:5e:33:23:50:c6:be:16:f0:58:84:34:a2:25:ff:49:db:6d:a6:8e:f2:e3:66:49:31:7c:bd:89:98:b9:a0:ba:6d:8d:86:f2:1a:4e:3b:b9:d0:b9:c2:c9:38:9b:88:b8:fc:78:4c:dc:1a"
+        },
+        "quic": {
+          "QUIC Connection information": {
+            "quic.connection.number": "0"
+          },
+          "quic.packet_length": "361",
+          "quic.header_form": "1",
+          "quic.fixed_bit": "1",
+          "quic.long.packet_type": "2",
+          "quic.long.reserved": "0",
+          "quic.packet_number_length": "0",
+          "quic.version": "0x00000001",
+          "quic.dcil": "20",
+          "quic.dcid": "ae:32:6a:96:b0:26:cf:fd:7f:3f:5c:7b:3a:db:34:65:1d:12:a1:3f",
+          "quic.scil": "20",
+          "quic.scid": "00:00:00:00:00:00:00:01:59:2d:07:79:41:57:0c:87:18:f7:48:06",
+          "quic.length": "312",
+          "quic.packet_number": "1",
+          "quic.payload": "32:df:9b:ee:56:6a:06:66:a1:28:c1:91:56:80:fd:99:e3:75:90:32:a3:61:d8:45:18:92:c6:5d:d5:b9:4e:28:3a:07:0e:cf:e7:72:91:fe:84:69:19:f1:27:66:d4:1d:78:4c:87:10:21:2f:fa:15:e1:45:c3:de:86:50:9c:69:e3:19:e7:b4:08:68:3b:fc:5a:74:20:91:ea:e4:bb:12:7f:07:8c:39:0e:2e:e4:74:15:e7:36:a0:b3:9e:d5:d3:fa:b4:15:d5:42:88:f7:ad:9e:8e:4b:3a:5d:94:41:ea:52:eb:4e:7b:d4:d2:fb:a3:1f:e9:07:fd:ed:fe:38:3e:df:c3:6c:4d:dc:6c:86:a4:09:16:4f:bc:85:e1:9c:e0:1b:25:a3:b1:06:c1:55:55:33:98:11:41:4f:23:69:b6:a5:1d:dc:7b:0b:48:91:fa:5a:1c:3a:74:18:d6:99:6d:ab:5e:6c:ca:7f:44:ec:ee:58:a3:28:05:49:9d:fb:12:78:7e:6a:37:ef:38:70:29:43:01:aa:78:b8:f4:78:d3:2e:0b:5a:3f:bd:7d:e5:8e:61:d4:02:e2:c2:d2:41:e0:dc:76:da:71:08:75:9f:5a:13:cd:b1:a9:e2:2a:0a:0c:d7:f6:59:bf:8a:30:83:34:01:6b:cd:f8:69:ef:d3:51:25:c3:56:5e:33:23:50:c6:be:16:f0:58:84:34:a2:25:ff:49:db:6d:a6:8e:f2:e3:66:49:31:7c:bd:89:98:b9:a0:ba:6d:8d:86:f2:1a:4e:3b:b9:d0:b9:c2:c9:38:9b:88:b8:fc:78:4c:dc:1a",
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "954",
+            "quic.crypto.length": "250",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": "",
+              "tls.handshake.fragments": {
+                "tls.handshake.fragment": "4",
+                "tls.handshake.fragment": "5",
+                "tls.handshake.fragment.count": "2"
+              },
+              "tls.handshake": {
+                "tls.handshake.type": "15",
+                "tls.handshake.length": "260",
+                "tls.handshake.sig_hash_alg": "0x0804",
+                "tls.handshake.sig_hash_alg_tree": {
+                  "tls.handshake.sig_hash_hash": "8",
+                  "tls.handshake.sig_hash_sig": "4"
+                },
+                "tls.handshake.client_cert_vrfy.sig_len": "256",
+                "tls.handshake.client_cert_vrfy.sig": "ac:45:e1:84:b6:c0:4b:e5:03:9f:48:65:37:54:0a:06:60:3b:44:f3:ed:ee:0e:56:02:88:99:d1:1f:68:d5:8f:f5:8f:85:02:30:70:f5:48:83:de:46:f2:53:62:1e:07:2b:af:8b:6b:62:ff:f9:dd:d8:34:3f:10:9c:a7:5c:bd:b1:b1:65:ed:39:bc:c8:af:66:b0:ba:cb:09:83:b7:29:12:18:d1:3e:08:28:ab:7d:d4:eb:1c:2d:99:35:3e:db:e6:bd:7c:6c:6e:9c:29:7b:6d:15:65:60:7d:fc:f6:4f:65:ea:7f:62:86:0c:5a:77:2b:22:b5:8e:ef:6e:37:ae:1e:cb:d5:d2:10:08:af:6c:a9:20:52:cc:8f:b2:82:62:3c:39:d7:c2:e0:5d:e1:11:9c:19:d5:21:df:fe:29:3c:1b:19:c7:33:78:36:83:63:c1:02:5a:a1:5c:a7:b4:2f:26:59:bc:ef:9e:09:c3:6d:fe:f3:5a:31:a1:84:8f:14:ec:9b:85:f3:a3:a3:70:4e:de:af:3e:2b:f7:f5:79:9e:31:65:fe:48:c0:e1:98:1f:fb:b0:15:59:df:8b:34:99:15:c3:8b:e4:d4:ea:f0:e5:1c:b9:d2:fe:0e:7d:58:2b:8c:5d:39:ed:a3:65:e0:cb:9f:5b:cc:ef:3e:80:ec:d4"
+              }
+            }
+          },
+          "quic.frame": {
+            "quic.frame_type": "0x0000000000000006",
+            "quic.crypto.offset": "1204",
+            "quic.crypto.length": "36",
+            "quic.crypto.crypto_data": "",
+            "tls": {
+              "tls.handshake": {
+                "tls.handshake.type": "20",
+                "tls.handshake.length": "32",
+                "tls.handshake.verify_data": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]
