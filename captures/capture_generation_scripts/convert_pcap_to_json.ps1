@@ -2,10 +2,10 @@ $ErrorActionPreference = 'Stop'
 
 $BaseDir = "C:\Users\vassa\Desktop\UZH\Masters Project\synthetic_network_data_gen\captures"
 
-$PcapDir = Join-Path -Path $BaseDir -ChildPath "pcap_files\quicgo second half\quicgo second half"
+$PcapDir = Join-Path -Path $BaseDir -ChildPath "pcap_files\quicgo\quicgo"
 $JsonDir = Join-Path -Path $BaseDir -ChildPath "captures_json\quicgo"
 
-$KeylogFile = Join-Path -Path $BaseDir -ChildPath "keylog_files\all_quicgo_keys_5922_7421.log"
+$KeylogFile = Join-Path -Path $BaseDir -ChildPath "keylog_files\merged.log"
 
 
 if (-not (Test-Path -Path $PcapDir)) {
