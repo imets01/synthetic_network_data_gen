@@ -11,9 +11,9 @@ st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator")
 
 st.title("Synthetic Network Data Generator")
 
-# Define paths to demo datasets
-DEMO_ORIGINAL_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval', 'synprivutil', 'datasets', 'original', 'insurance.csv'))
-DEMO_SYNTHETIC_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval', 'synprivutil', 'datasets', 'synthetic', 'insurance_datasets', 'gmm_sample.csv'))
+# Define paths to real datasets
+ORIGINAL_DATA_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval', 'synprivutil', 'datasets', 'original', 'original_data.csv'))
+SYNTHETIC_DATA_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval', 'synprivutil', 'datasets', 'synthetic', 'synthetic_data.csv'))
 
 # Initialize session state
 if 'uploaded' not in st.session_state:
@@ -28,32 +28,12 @@ if 'evaluated' not in st.session_state:
     st.session_state.evaluated = False
 if 'eval_results' not in st.session_state:
     st.session_state.eval_results = None
-if 'demo_mode' not in st.session_state:
-    st.session_state.demo_mode = False
 
 # Create two columns for layout
 col_left, col_right = st.columns([1, 1])
 
 with col_left:
     st.write("## 1. Upload Real Network Data")
-    
-    # Demo mode toggle
-    col_demo, col_upload = st.columns([1, 2])
-    with col_demo:
-        if st.button("Use Demo Data"):
-            try:
-                st.session_state.original_df = pd.read_csv(DEMO_ORIGINAL_PATH)
-                st.session_state.synthetic_df = pd.read_csv(DEMO_SYNTHETIC_PATH)
-                st.session_state.uploaded = True
-                st.session_state.generated = True
-                st.session_state.evaluated = False
-                st.session_state.demo_mode = True
-                st.success("Demo data loaded!")
-            except Exception as e:
-                st.error(f"Failed to load demo data: {str(e)}")
-    
-    with col_upload:
-        st.write("")  # Spacing
     
     uploaded_file = st.file_uploader("Choose a CSV file", type=['csv'])
     
@@ -67,7 +47,6 @@ with col_left:
             st.session_state.uploaded = True
             st.session_state.generated = False
             st.session_state.evaluated = False
-            st.session_state.demo_mode = False
         else:
             st.warning("Please select a file first")
     
@@ -75,42 +54,26 @@ with col_left:
     if st.session_state.uploaded:
         st.write("### Uploaded Data Summary")
         if st.session_state.original_df is not None:
-            dataset_name = "insurance.csv (Demo)" if st.session_state.demo_mode else (uploaded_file.name if uploaded_file else 'data.csv')
+            dataset_name = uploaded_file.name if uploaded_file else 'data.csv'
             st.info(f"Dataset: {dataset_name} | Rows: {len(st.session_state.original_df):,} | Columns: {len(st.session_state.original_df.columns)}")
-        else:
-            st.info("Dataset: network_capture.csv | Rows: 1,000 | Columns: 8")
         
-        if not st.session_state.demo_mode:
-            st.write("## 2. Generate Synthetic Data")
+        st.write("## 2. Generate Synthetic Data")
+        
+        if st.button("Generate Synthetic Data"):
+            with st.spinner("Training model and generating synthetic data..."):
+                progress_bar = st.progress(0)
+                for i in range(100):
+                    time.sleep(0.02)
+                    progress_bar.progress(i + 1)
             
-            num_samples = st.slider("Number of synthetic samples to generate", 100, 5000, 1000, step=100)
-            
-            if st.button("Generate Synthetic Data"):
-                with st.spinner("Training model and generating synthetic data..."):
-                    progress_bar = st.progress(0)
-                    for i in range(100):
-                        time.sleep(0.02)
-                        progress_bar.progress(i + 1)
-                
+            # Load the pre-generated synthetic data
+            try:
+                st.session_state.synthetic_df = pd.read_csv(SYNTHETIC_DATA_PATH)
                 st.success("Synthetic data generated successfully!")
                 st.session_state.generated = True
                 st.session_state.evaluated = False
-                
-                # Create fake synthetic network data
-                np.random.seed(42)
-                st.session_state.synthetic_df = pd.DataFrame({
-                    'Timestamp': pd.date_range(start='2025-01-01', periods=num_samples, freq='s'),
-                    'Protocol': np.random.choice(['QUIC', 'TCP', 'UDP'], num_samples),
-                    'Source_IP': [f"192.168.1.{np.random.randint(1, 255)}" for _ in range(num_samples)],
-                    'Dest_IP': [f"10.0.0.{np.random.randint(1, 255)}" for _ in range(num_samples)],
-                    'Packet_Size': np.random.randint(64, 1500, num_samples),
-                    'Duration_ms': np.round(np.random.exponential(50, num_samples), 2),
-                    'Flags': np.random.choice(['SYN', 'ACK', 'FIN', 'PSH'], num_samples),
-                    'Encrypted': np.random.choice([True, False], num_samples, p=[0.7, 0.3])
-                })
-        else:
-            st.write("## 2. Synthetic Data (Demo)")
-            st.info("Using pre-generated GMM synthetic data from FEST framework")
+            except Exception as e:
+                st.error(f"Failed to load synthetic data: {str(e)}")
     
     # Show generated synthetic data
     if st.session_state.generated and st.session_state.synthetic_df is not None:
