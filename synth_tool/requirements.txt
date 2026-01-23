@@ -18,6 +18,9 @@ torch>=1.10.0
 tomli>=1.2.2
 tomli-w>=0.4.0
 
+# CTGAN dependencies
+sdv>=0.6.0
+
 # Optional: Install these if you want to run full TabDDPM training
 # (see tab-ddpm/tab-ddpm-main/requirements.txt for the complete list)
 # catboost==1.0.3

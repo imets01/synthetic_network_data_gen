@@ -1,449 +1,357 @@
+"""
+Synthetic Network Data Generator - Streamlit App
+
+A streamlined application for generating synthetic network data using CTGAN or TabDDPM.
+"""
 import streamlit as st
 import pandas as pd
-import numpy as np
-import time
-import plotly.express as px
-import plotly.graph_objects as go
-import os
-import sys
+import toml
+import traceback
 
-# Add src to path for imports
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# Local imports
+from ui_components import (
+    init_session_state,
+    render_file_upload,
+    render_data_preview,
+    render_model_selection,
+    render_training_mode_selection,
+    render_ctgan_column_config,
+    render_tabddpm_column_config,
+    render_metadata_summary,
+    render_download_buttons,
+    render_training_log,
+)
+from training import (
+    train_ctgan,
+    train_tabddpm,
+    generate_from_loaded_ctgan,
+    generate_from_pretrained_tabddpm,
+    configure_ctgan_handler,
+    configure_tabddpm_handler,
+)
+from visualizations import render_all_comparisons
 
-# Set page config to wide mode
+# Page config
 st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator")
-
 st.title("Synthetic Network Data Generator")
 
 # Initialize session state
-if 'uploaded' not in st.session_state:
-    st.session_state.uploaded = False
-if 'configured' not in st.session_state:
-    st.session_state.configured = False
-if 'generated' not in st.session_state:
-    st.session_state.generated = False
-if 'synthetic_df' not in st.session_state:
-    st.session_state.synthetic_df = None
-if 'original_df' not in st.session_state:
-    st.session_state.original_df = None
-if 'handler' not in st.session_state:
-    st.session_state.handler = None
-if 'training_log' not in st.session_state:
-    st.session_state.training_log = []
+init_session_state()
 
-# Create two columns for layout
-col_left, col_right = st.columns([1, 1])
 
-with col_left:
-    st.write("## 1. Upload Real Network Data")
+# =========================================================================
+# Section 1: File Upload
+# =========================================================================
+if not render_file_upload():
+    st.stop()
+
+render_data_preview()
+df = st.session_state.original_df
+
+
+# =========================================================================
+# Section 2: Model Selection
+# =========================================================================
+is_ctgan = render_model_selection()
+
+
+# =========================================================================
+# Section 3: Training Mode
+# =========================================================================
+training_mode = render_training_mode_selection(is_ctgan)
+
+
+# =========================================================================
+# Section 3b: Pre-trained Model Upload (CTGAN)
+# =========================================================================
+if training_mode == "Upload pre-trained CTGAN model (.pkl)" and is_ctgan:
+    uploaded_model = st.file_uploader("Upload trained CTGAN model file", type=['pkl'])
     
-    uploaded_file = st.file_uploader("Choose a CSV file", type=['csv'])
+    if uploaded_model is not None:
+        try:
+            import pickle
+            synthesizer = pickle.load(uploaded_model)
+            st.session_state.loaded_synthesizer = synthesizer
+            st.session_state.model_loaded = True
+            st.session_state.selected_model = "ctgan"
+            st.success("CTGAN model loaded successfully!")
+            st.info(f"Model type: {type(synthesizer).__name__}")
+        except Exception as e:
+            st.error(f"Failed to load model: {str(e)}")
+            st.code(traceback.format_exc())
     
-    if uploaded_file is not None and not st.session_state.uploaded:
-        st.session_state.original_df = pd.read_csv(uploaded_file)
-        st.session_state.uploaded = True
-        st.session_state.configured = False
-        st.session_state.generated = False
-    
-    # Show uploaded data info
-    if st.session_state.uploaded and st.session_state.original_df is not None:
-        df = st.session_state.original_df
-        st.success(f"Loaded: {len(df):,} rows, {len(df.columns)} columns")
-        
-        with st.expander("Preview Data", expanded=False):
-            st.dataframe(df.head(10), use_container_width=True)
-        
-        st.write("## 2. Configure Columns")
-        
-        all_columns = list(df.columns)
-        
-        # Default settings from notebook
-        DEFAULT_TARGET = 'connection_duration'
-        DEFAULT_FEATURES = [
-            'implementation', 'retry_occurred', 'version_negotiation_occurred', 'migration_type',
-            'handshake_duration', 'time_to_migration', 'migration_duration',
-            'packets_before_migration', 'total_bidi_streams_client_init',
-            'total_udi_streams_client_init',
-            'path_validation_initiated',
-            'connection_close_type',
-            'bytes_sent_client', 'bytes_sent_server',
-        ]
-        DEFAULT_CATEGORICAL = [
-            'implementation', 'version_negotiation_occurred', 'retry_occurred', 'migration_type',
-            'path_validation_initiated', 'connection_close_type',
-        ]
-        
-        # Target column selection - default to connection_duration if available
-        default_idx = all_columns.index(DEFAULT_TARGET) if DEFAULT_TARGET in all_columns else (len(all_columns)-1 if all_columns else 0)
-        
-        target_col = st.selectbox(
-            "Target Column (what to predict)",
-            options=all_columns,
-            index=default_idx
+    # Generation from loaded model
+    if st.session_state.model_loaded and st.session_state.loaded_synthesizer is not None:
+        st.write("## 4. Generate Synthetic Data")
+        num_samples = st.number_input(
+            "Number of samples to generate", 
+            min_value=100, max_value=100000, value=len(df)
         )
         
-        # Feature columns selection - default to notebook features if available
-        available_features = [c for c in all_columns if c != target_col]
-        default_feature_selection = [c for c in DEFAULT_FEATURES if c in available_features]
-        if not default_feature_selection:
-            default_feature_selection = available_features[:10]  # Fallback to first 10
-        
-        feature_cols = st.multiselect(
-            "Feature Columns to Keep",
-            options=available_features,
-            default=default_feature_selection
-        )
-        
-        # Categorical columns selection - default to notebook categorical if available
-        default_cat_selection = [c for c in DEFAULT_CATEGORICAL if c in feature_cols]
-        if not default_cat_selection:
-            default_cat_selection = [c for c in feature_cols if df[c].dtype == 'object' or df[c].nunique() <= 10][:5]
-        
-        cat_cols = st.multiselect(
-            "Categorical Columns (from features)",
-            options=feature_cols,
-            default=default_cat_selection
-        )
-        
-        if st.button("Configure & Preprocess"):
-            if not feature_cols:
-                st.error("Please select at least one feature column")
-            else:
-                with st.spinner("Initializing TabDDPM and preprocessing..."):
-                    try:
-                        from src.tabddpm_wrapper import TabDDPMHandler
-                        
-                        handler = TabDDPMHandler()
-                        st.session_state.handler = handler
-                        
-                        # Preprocess
-                        result = handler.preprocess(
-                            df,
-                            target_col=target_col,
-                            cat_cols=cat_cols if cat_cols else None,
-                            columns_to_keep=feature_cols
-                        )
-                        
-                        # Create config with quick settings
-                        handler.create_config(
-                            steps=200,          # Quick test
-                            num_timesteps=50,   # Quick test
-                            d_layers=[128, 128],
-                            batch_size=256,
-                            num_samples=min(result['train'], 500)
-                        )
-                        
-                        st.session_state.configured = True
-                        st.success(f"Preprocessed! Train: {result['train']}, Val: {result['val']}, Test: {result['test']}")
-                        
-                    except Exception as e:
-                        st.error(f"Configuration failed: {str(e)}")
-                        import traceback
-                        st.code(traceback.format_exc())
-        
-        # Show configuration status
-        if st.session_state.configured:
-            st.write("## 3. Generate Synthetic Data")
+        if st.button("Generate from Loaded Model"):
+            with st.spinner(f"Generating {num_samples} synthetic samples..."):
+                try:
+                    synthetic_df = generate_from_loaded_ctgan(
+                        st.session_state.loaded_synthesizer, num_samples
+                    )
+                    st.session_state.synthetic_df = synthetic_df
+                    st.session_state.generated = True
+                    st.success(f"Generated {len(synthetic_df):,} synthetic samples!")
+                except Exception as e:
+                    st.error(f"Generation failed: {str(e)}")
+                    st.code(traceback.format_exc())
+
+
+# =========================================================================
+# Section 3c: Pre-trained Model Upload (TabDDPM)
+# =========================================================================
+elif "Upload pre-trained model" in training_mode and not is_ctgan:
+    st.info("""
+**Upload config.toml, model.pt, and training data files to generate immediately (no training)**
+
+You need to upload all files from a previous training run.
+    """)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        uploaded_config = st.file_uploader("Upload config.toml (required)", type=['toml'], key='config_upload')
+    with col2:
+        uploaded_model = st.file_uploader("Upload model.pt (required)", type=['pt'], key='model_upload')
+    
+    # Data file uploaders
+    st.write("**Training Data Files** (from `data/custom/` folder)")
+    st.caption("These ensure the model's feature dimensions match.")
+    
+    data_col1, data_col2, data_col3 = st.columns(3)
+    with data_col1:
+        uploaded_info = st.file_uploader("info.json", type=['json'], key='info_upload')
+        uploaded_X_num_train = st.file_uploader("X_num_train.npy", type=['npy'], key='xnum_train_upload')
+    with data_col2:
+        uploaded_X_cat_train = st.file_uploader("X_cat_train.npy", type=['npy'], key='xcat_train_upload')
+        uploaded_y_train = st.file_uploader("y_train.npy", type=['npy'], key='y_train_upload')
+    with data_col3:
+        uploaded_column_config = st.file_uploader("column_config.json (optional)", type=['json'], key='colconfig_upload')
+    
+    # Store uploaded files
+    if uploaded_info is not None:
+        st.session_state.uploaded_data_files['info.json'] = uploaded_info.getvalue()
+    if uploaded_X_num_train is not None:
+        st.session_state.uploaded_data_files['X_num_train.npy'] = uploaded_X_num_train.getvalue()
+    if uploaded_X_cat_train is not None:
+        st.session_state.uploaded_data_files['X_cat_train.npy'] = uploaded_X_cat_train.getvalue()
+    if uploaded_y_train is not None:
+        st.session_state.uploaded_data_files['y_train.npy'] = uploaded_y_train.getvalue()
+    if uploaded_column_config is not None:
+        st.session_state.uploaded_data_files['column_config.json'] = uploaded_column_config.getvalue()
+    
+    # Status indicators
+    required_files = ['info.json', 'X_num_train.npy', 'X_cat_train.npy', 'y_train.npy']
+    uploaded_count = sum(1 for f in required_files if f in st.session_state.uploaded_data_files)
+    
+    if uploaded_count == len(required_files):
+        st.success(f"✓ All {len(required_files)} required data files uploaded")
+    else:
+        st.warning(f"⚠ Data files: {uploaded_count}/{len(required_files)} required files uploaded")
+    
+    if uploaded_model is not None:
+        st.session_state.tabddpm_model_uploaded = uploaded_model
+        st.success("✓ Model uploaded")
+    else:
+        st.warning("⚠ Model.pt required")
+    
+    if uploaded_config is not None:
+        try:
+            config_content = uploaded_config.read().decode('utf-8')
+            config = toml.loads(config_content)
+            st.session_state.tabddpm_config = config
+            st.session_state.tabddpm_config_content = config_content
+            st.success("✓ Config loaded successfully!")
             
-            handler = st.session_state.handler
-            st.info(f"Ready to train | Num features: {len(handler.num_features)} | Cat features: {len(handler.cat_features)}")
+            with st.expander("View Config", expanded=False):
+                st.json(config)
+        except Exception as e:
+            st.error(f"Failed to load config: {str(e)}")
+            st.code(traceback.format_exc())
+    else:
+        st.warning("⚠ Config.toml required")
+    
+    # Generation section
+    data_ready = all(f in st.session_state.uploaded_data_files for f in required_files)
+    
+    if st.session_state.tabddpm_model_uploaded and st.session_state.tabddpm_config:
+        if not data_ready:
+            st.error("⚠ Please upload all required training data files")
+        else:
+            st.write("## 4. Generate Synthetic Data")
+            st.info("✓ Ready to generate - using uploaded model, config, and data files")
             
-            generation_mode = st.radio(
-                "Generation Mode",
-                ["Quick Test (2 trials, ~5 min)", "Full Tuning (50 trials, ~hours)"],
-                index=0
+            num_samples = st.number_input(
+                "Number of samples to generate", 
+                min_value=100, max_value=100000, value=5000,
+                key="tabddpm_pretrained_samples"
             )
             
-            if st.button("Start Generation"):
+            if st.button("Generate Synthetic Data", key="generate_pretrained"):
                 st.session_state.training_log = []
                 log_placeholder = st.empty()
                 
-                with st.spinner("Training TabDDPM model..."):
+                with st.spinner("Generating synthetic data..."):
                     try:
-                        import subprocess
-                        
-                        # Use the .conda environment
-                        conda_env = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.conda'))
-                        
-                        if "Quick" in generation_mode:
-                            # Quick tune
-                            tune_script = os.path.join(handler.lib_path, 'scripts', 'tune_ddpm_quick.py')
-                            cmd = [
-                                'conda', 'run', '-p', conda_env, '--no-capture-output',
-                                'python',
-                                tune_script,
-                                'custom',
-                                str(handler.train_size),
-                                'synthetic',
-                                'catboost',
-                                'ddpm_tune',
-                                '--n_trials', '2'
-                            ]
-                        else:
-                            # Full tune
-                            tune_script = os.path.join(handler.lib_path, 'scripts', 'tune_ddpm.py')
-                            cmd = [
-                                'conda', 'run', '-p', conda_env, '--no-capture-output',
-                                'python',
-                                tune_script,
-                                'custom',
-                                str(handler.train_size),
-                                'synthetic',
-                                'catboost',
-                                'ddpm_tune',
-                                '--eval_seeds'
-                            ]
-                        
-                        # Set up environment
-                        env = os.environ.copy()
-                        env['PYTHONPATH'] = handler.lib_path
-                        
-                        st.write(f"Running: `{' '.join(cmd)}`")
-                        
-                        # Run the tuning process
-                        process = subprocess.Popen(
-                            cmd,
-                            cwd=handler.lib_path,
-                            env=env,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT,
-                            text=True,
-                            bufsize=1,
-                            encoding='utf-8',
-                            errors='replace'
-                        )
-                        
-                        # Stream output
-                        for line in iter(process.stdout.readline, ''):
-                            st.session_state.training_log.append(line.strip())
-                            # Show last 10 lines
-                            log_placeholder.code('\n'.join(st.session_state.training_log[-10:]))
-                        
-                        process.wait()
-                        
-                        if process.returncode == 0:
-                            # Load synthetic data
-                            best_dir = os.path.join(handler.lib_path, 'exp', 'custom', 'ddpm_tune_best')
-                            
-                            X_num = np.load(os.path.join(best_dir, 'X_num_train.npy'))
-                            X_cat = np.load(os.path.join(best_dir, 'X_cat_train.npy'), allow_pickle=True)
-                            y = np.load(os.path.join(best_dir, 'y_train.npy'))
-                            
-                            X = np.concatenate([X_num, X_cat], axis=1)
-                            feature_names = handler.num_features + handler.cat_features
-                            
-                            synthetic_df = pd.DataFrame(X, columns=feature_names)
-                            synthetic_df[handler.target_col] = y.flatten()
-                            
+                        synthetic_df = generate_from_pretrained_tabddpm(num_samples, log_placeholder)
+                        if synthetic_df is not None:
                             st.session_state.synthetic_df = synthetic_df
                             st.session_state.generated = True
-                            st.success(f"Generated {len(synthetic_df)} synthetic samples!")
-                        else:
-                            st.error(f"Training failed with code {process.returncode}")
-                            st.code('\n'.join(st.session_state.training_log[-20:]))
-                            
+                            st.success(f"Generated {len(synthetic_df):,} synthetic samples!")
                     except Exception as e:
                         st.error(f"Generation failed: {str(e)}")
-                        import traceback
                         st.code(traceback.format_exc())
-    
-    # Show generated synthetic data
-    if st.session_state.generated and st.session_state.synthetic_df is not None:
-        st.write("### Generated Synthetic Data")
-        
-        synthetic_df = st.session_state.synthetic_df
-        st.dataframe(synthetic_df.head(20), use_container_width=True)
-        st.write(f"**Total rows generated:** {len(synthetic_df)}")
-        
-        # Download button
-        csv = synthetic_df.to_csv(index=False).encode('utf-8')
-        st.download_button(
-            label="Download Synthetic Data as CSV",
-            data=csv,
-            file_name='synthetic_network_data.csv',
-            mime='text/csv',
-        )
 
-with col_right:
-    st.write("## Data Visualizations")
+
+# =========================================================================
+# Section 3d: Pre-tuned Config Upload (TabDDPM)
+# =========================================================================
+elif "Use pre-tuned config (.toml)" in training_mode and not is_ctgan:
+    st.info("""
+**Upload config.toml to train with tuned hyperparameters**
+
+This skips hyperparameter search and trains using known-good parameters.
+    """)
     
-    if st.session_state.generated and st.session_state.synthetic_df is not None:
-        synthetic_df = st.session_state.synthetic_df
-        original_df = st.session_state.original_df
-        
-        # Statistics comparison
-        st.write("### 📊 Statistics Comparison")
-        
-        numeric_cols = synthetic_df.select_dtypes(include=[np.number]).columns.tolist()
-        
-        # Create stats comparison table
-        stats_data = []
-        for col in numeric_cols:
-            if col in original_df.columns:
-                orig_col = pd.to_numeric(original_df[col], errors='coerce').dropna()
-                synth_col = pd.to_numeric(synthetic_df[col], errors='coerce').dropna()
-                
-                stats_data.append({
-                    'Column': col,
-                    'Orig Mean': f"{orig_col.mean():.2f}",
-                    'Synth Mean': f"{synth_col.mean():.2f}",
-                    'Orig Std': f"{orig_col.std():.2f}",
-                    'Synth Std': f"{synth_col.std():.2f}",
-                    'Orig Min': f"{orig_col.min():.2f}",
-                    'Synth Min': f"{synth_col.min():.2f}",
-                    'Orig Max': f"{orig_col.max():.2f}",
-                    'Synth Max': f"{synth_col.max():.2f}",
-                })
-        
-        if stats_data:
-            stats_df = pd.DataFrame(stats_data)
-            st.dataframe(stats_df, use_container_width=True, hide_index=True)
-        
-        # Categorical columns comparison
-        cat_cols = synthetic_df.select_dtypes(include=['object', 'category']).columns.tolist()
-        if cat_cols:
-            st.write("### 📋 Categorical Distribution")
-            for col in cat_cols[:3]:  # Show first 3 categorical columns
-                if col in original_df.columns:
-                    col1, col2 = st.columns(2)
-                    with col1:
-                        st.write(f"**{col} (Original)**")
-                        orig_counts = original_df[col].value_counts().head(10)
-                        st.bar_chart(orig_counts)
-                    with col2:
-                        st.write(f"**{col} (Synthetic)**")
-                        synth_counts = synthetic_df[col].value_counts().head(10)
-                        st.bar_chart(synth_counts)
-        
-        # Distribution histograms
-        st.write("### 📈 Distribution Comparison")
-        
-        # Let user select which column to view
-        selected_col = st.selectbox("Select column to visualize", options=numeric_cols)
-        
-        if selected_col and selected_col in original_df.columns:
-            fig = go.Figure()
+    uploaded_config = st.file_uploader("Upload config.toml", type=['toml'], key='config_upload')
+    
+    if uploaded_config is not None:
+        try:
+            config_content = uploaded_config.read().decode('utf-8')
+            config = toml.loads(config_content)
+            st.session_state.tabddpm_config = config
+            st.session_state.tabddpm_config_content = config_content
+            st.success("✓ Config loaded successfully!")
             
-            orig_data = pd.to_numeric(original_df[selected_col], errors='coerce').dropna()
-            synth_data = pd.to_numeric(synthetic_df[selected_col], errors='coerce').dropna()
-            
-            fig.add_trace(go.Histogram(
-                x=orig_data,
-                name='Original',
-                opacity=0.6,
-                nbinsx=50,
-                marker_color='blue'
-            ))
-            
-            fig.add_trace(go.Histogram(
-                x=synth_data,
-                name='Synthetic',
-                opacity=0.6,
-                nbinsx=50,
-                marker_color='orange'
-            ))
-            
-            fig.update_layout(
-                barmode='overlay',
-                height=400,
-                title=f"Distribution: {selected_col}",
-                xaxis_title=selected_col,
-                yaxis_title="Count",
-                legend=dict(yanchor="top", y=0.99, xanchor="right", x=0.99)
-            )
-            st.plotly_chart(fig, use_container_width=True)
-            
-            # Box plot comparison
-            fig_box = go.Figure()
-            fig_box.add_trace(go.Box(y=orig_data, name='Original', marker_color='blue'))
-            fig_box.add_trace(go.Box(y=synth_data, name='Synthetic', marker_color='orange'))
-            fig_box.update_layout(
-                height=300,
-                title=f"Box Plot: {selected_col}",
-                yaxis_title=selected_col
-            )
-            st.plotly_chart(fig_box, use_container_width=True)
-        
-        # Correlation heatmap comparison
-        st.write("### 🔗 Correlation Comparison")
-        
-        corr_cols = numeric_cols[:8]  # Limit to 8 columns for readability
-        if len(corr_cols) >= 2:
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                st.write("**Original Data**")
-                orig_numeric = original_df[corr_cols].apply(pd.to_numeric, errors='coerce').dropna()
-                if len(orig_numeric) > 0:
-                    orig_corr = orig_numeric.corr()
-                    fig_corr_orig = px.imshow(
-                        orig_corr,
-                        labels=dict(color="Correlation"),
-                        color_continuous_scale='RdBu_r',
-                        zmin=-1, zmax=1,
-                        aspect='auto'
-                    )
-                    fig_corr_orig.update_layout(height=350, margin=dict(l=10, r=10, t=10, b=10))
-                    st.plotly_chart(fig_corr_orig, use_container_width=True)
-            
-            with col2:
-                st.write("**Synthetic Data**")
-                synth_numeric = synthetic_df[corr_cols].apply(pd.to_numeric, errors='coerce').dropna()
-                if len(synth_numeric) > 0:
-                    synth_corr = synth_numeric.corr()
-                    fig_corr_synth = px.imshow(
-                        synth_corr,
-                        labels=dict(color="Correlation"),
-                        color_continuous_scale='RdBu_r',
-                        zmin=-1, zmax=1,
-                        aspect='auto'
-                    )
-                    fig_corr_synth.update_layout(height=350, margin=dict(l=10, r=10, t=10, b=10))
-                    st.plotly_chart(fig_corr_synth, use_container_width=True)
-        
-        # Scatter plot for relationship exploration
-        st.write("### 🔍 Relationship Explorer")
-        scatter_col1, scatter_col2 = st.columns(2)
-        with scatter_col1:
-            x_col = st.selectbox("X-axis", options=numeric_cols, index=0, key="scatter_x")
-        with scatter_col2:
-            y_col = st.selectbox("Y-axis", options=numeric_cols, index=min(1, len(numeric_cols)-1), key="scatter_y")
-        
-        if x_col and y_col and x_col in original_df.columns and y_col in original_df.columns:
-            fig_scatter = go.Figure()
-            
-            # Sample if too many points
-            max_points = 1000
-            orig_sample = original_df[[x_col, y_col]].dropna().sample(n=min(max_points, len(original_df)), random_state=42)
-            synth_sample = synthetic_df[[x_col, y_col]].apply(pd.to_numeric, errors='coerce').dropna()
-            if len(synth_sample) > max_points:
-                synth_sample = synth_sample.sample(n=max_points, random_state=42)
-            
-            fig_scatter.add_trace(go.Scatter(
-                x=orig_sample[x_col], y=orig_sample[y_col],
-                mode='markers', name='Original',
-                marker=dict(color='blue', opacity=0.5, size=5)
-            ))
-            fig_scatter.add_trace(go.Scatter(
-                x=synth_sample[x_col], y=synth_sample[y_col],
-                mode='markers', name='Synthetic',
-                marker=dict(color='orange', opacity=0.5, size=5)
-            ))
-            
-            fig_scatter.update_layout(
-                height=400,
-                title=f"{x_col} vs {y_col}",
-                xaxis_title=x_col,
-                yaxis_title=y_col
-            )
-            st.plotly_chart(fig_scatter, use_container_width=True)
-        
-    elif st.session_state.uploaded:
-        st.info("Configure and generate synthetic data to view comparisons")
+            with st.expander("View Config", expanded=False):
+                st.json(config)
+        except Exception as e:
+            st.error(f"Failed to load config: {str(e)}")
+            st.code(traceback.format_exc())
+
+
+# =========================================================================
+# Section 4: Column Configuration (for training modes)
+# =========================================================================
+show_column_config = (
+    training_mode == "Train new model" or 
+    "Quick tune" in training_mode or 
+    "Full tune" in training_mode or 
+    "Use pre-tuned config (.toml)" in training_mode
+)
+
+if show_column_config:
+    st.write("## 4. Configure Columns")
+    
+    if is_ctgan:
+        config = render_ctgan_column_config(df)
     else:
-        st.info("Upload data to get started")
+        config = render_tabddpm_column_config(df)
+    
+    if st.button("Configure & Preprocess"):
+        if not config['feature_cols']:
+            st.error("Please select at least one feature column")
+        else:
+            st.session_state.selected_model = "ctgan" if is_ctgan else "tabddpm"
+            
+            with st.spinner("Initializing and preprocessing..."):
+                try:
+                    if is_ctgan:
+                        handler = configure_ctgan_handler(df, config)
+                        st.session_state.handler = handler
+                        st.session_state.configured = True
+                        st.success(f"Configured! {len(config['include_cols'])} columns ready for CTGAN training")
+                        render_metadata_summary(handler.get_metadata_summary())
+                    else:
+                        handler, result = configure_tabddpm_handler(df, config)
+                        st.session_state.handler = handler
+                        st.session_state.configured = True
+                        st.success(f"Preprocessed! Train: {result['train']}, Val: {result['val']}, Test: {result['test']}")
+                except Exception as e:
+                    st.error(f"Configuration failed: {str(e)}")
+                    st.code(traceback.format_exc())
 
-# Training log section
-if st.session_state.training_log:
-    with st.expander("Training Log", expanded=False):
-        st.code('\n'.join(st.session_state.training_log))
+
+# =========================================================================
+# Section 5: Generate Synthetic Data (after configuration)
+# =========================================================================
+if st.session_state.configured:
+    st.write("## 5. Generate Synthetic Data")
+    
+    handler = st.session_state.handler
+    is_ctgan_model = st.session_state.selected_model == "ctgan"
+    
+    if is_ctgan_model:
+        st.info(f"Ready to train CTGAN | Columns: {len(handler.included_cols)}")
+        
+        with st.expander("CTGAN Parameters", expanded=False):
+            epochs = st.slider("Epochs", min_value=100, max_value=3000, value=700, step=100)
+            batch_size = st.selectbox("Batch Size", [250, 500, 1000], index=0)
+            num_samples = st.number_input("Number of samples to generate", 
+                                         min_value=100, max_value=100000, value=len(df))
+    else:
+        st.info(f"Ready to train TabDDPM | Num features: {len(handler.num_features)} | Cat features: {len(handler.cat_features)}")
+        
+        if "Quick" in training_mode:
+            st.write("**Mode:** Quick tune (2 trials)")
+        elif "Full" in training_mode:
+            st.write("**Mode:** Full tune (50 trials)")
+        elif "pre-tuned" in training_mode:
+            st.write("**Mode:** Using pre-tuned config")
+        
+        num_samples = st.number_input("Number of samples to generate", 
+                                     min_value=100, max_value=100000, value=len(df),
+                                     key="tabddpm_num_samples")
+    
+    if st.button("Start Generation"):
+        st.session_state.training_log = []
+        log_placeholder = st.empty()
+        
+        with st.spinner("Training model..."):
+            try:
+                if is_ctgan_model:
+                    synthetic_df = train_ctgan(handler, epochs, batch_size, num_samples)
+                else:
+                    synthetic_df = train_tabddpm(handler, training_mode, num_samples, log_placeholder)
+                
+                if synthetic_df is not None:
+                    st.session_state.synthetic_df = synthetic_df
+                    st.session_state.generated = True
+                    st.success(f"Generated {len(synthetic_df):,} synthetic samples!")
+            except Exception as e:
+                st.error(f"Generation failed: {str(e)}")
+                st.code(traceback.format_exc())
+
+
+# =========================================================================
+# Section 6: Results & Downloads
+# =========================================================================
+if st.session_state.generated and st.session_state.synthetic_df is not None:
+    st.write("### Generated Synthetic Data")
+    
+    synthetic_df = st.session_state.synthetic_df
+    st.dataframe(synthetic_df.head(20), use_container_width=True)
+    st.write(f"**Total rows generated:** {len(synthetic_df)}")
+    
+    render_download_buttons(synthetic_df)
+
+
+# =========================================================================
+# Section 7: Visualizations
+# =========================================================================
+st.write("## Data Visualizations")
+
+if st.session_state.generated and st.session_state.synthetic_df is not None:
+    render_all_comparisons(st.session_state.original_df, st.session_state.synthetic_df)
+elif st.session_state.uploaded:
+    st.info("Configure and generate synthetic data to view comparisons")
+else:
+    st.info("Upload data to get started")
+
+
+# Training log
+render_training_log()
