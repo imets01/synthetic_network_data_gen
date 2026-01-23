@@ -569,7 +569,7 @@ You'll still need to select columns and the model will train before generating.
                     # CTGAN configuration
                     with st.spinner("Initializing CTGAN and preprocessing..."):
                         try:
-                            from src.ctgan_wrapper import CTGANHandler
+                            from wrappers.ctgan_wrapper import CTGANHandler
                             
                             handler = CTGANHandler()
                             st.session_state.handler = handler
@@ -623,7 +623,7 @@ You'll still need to select columns and the model will train before generating.
                     # TabDDPM configuration
                     with st.spinner("Initializing TabDDPM and preprocessing..."):
                         try:
-                            from src.tabddpm_wrapper import TabDDPMHandler
+                            from wrappers.tabddpm_wrapper import TabDDPMHandler
                             
                             handler = TabDDPMHandler()
                             st.session_state.handler = handler

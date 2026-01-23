@@ -32,7 +32,7 @@ from training import (
 from visualizations import render_all_comparisons
 
 # Page config
-st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator")
+st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator", page_icon="📊",)
 st.title("Synthetic Network Data Generator")
 
 # Initialize session state

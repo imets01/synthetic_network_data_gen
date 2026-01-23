@@ -374,7 +374,7 @@ def configure_ctgan_handler(df: pd.DataFrame, config: dict):
     Returns:
         Configured CTGANHandler or None on failure
     """
-    from src.ctgan_wrapper import CTGANHandler
+    from wrappers.ctgan_wrapper import CTGANHandler
     
     handler = CTGANHandler()
     
@@ -406,7 +406,7 @@ def configure_tabddpm_handler(df: pd.DataFrame, config: dict):
     Returns:
         Tuple of (configured TabDDPMHandler, preprocessing result) or (None, None) on failure
     """
-    from src.tabddpm_wrapper import TabDDPMHandler
+    from wrappers.tabddpm_wrapper import TabDDPMHandler
     
     handler = TabDDPMHandler()
     

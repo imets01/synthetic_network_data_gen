@@ -1,27 +1,9 @@
-"""
-Evaluation module for synthetic data quality assessment using FEST framework.
-"""
 import sys
 import os
 import pandas as pd
 
-# Add the synprivutil directory to the path
-synprivutil_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval', 'synprivutil'))
-if synprivutil_path not in sys.path:
-    sys.path.append(synprivutil_path)
-
 
 def prepare_data_for_evaluation(original_df, synthetic_df):
-    """
-    Prepare data for evaluation by encoding categorical columns consistently.
-    
-    Args:
-        original_df: Original/real data DataFrame
-        synthetic_df: Synthetic data DataFrame
-        
-    Returns:
-        tuple: (original_encoded, synthetic_encoded) DataFrames ready for evaluation
-    """
     original_data = original_df.copy()
     synthetic_data = synthetic_df.copy()
     
@@ -51,16 +33,11 @@ def prepare_data_for_evaluation(original_df, synthetic_df):
 
 
 def run_privacy_evaluation(original_encoded, synthetic_encoded):
-    """
-    Run privacy metrics evaluation.
-    
-    Args:
-        original_encoded: Encoded original data
-        synthetic_encoded: Encoded synthetic data
-        
-    Returns:
-        dict: Privacy evaluation results
-    """
+    # Add the FEST_eval directory to the path so synprivutil can be imported
+    fest_eval_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval'))
+    if fest_eval_path not in sys.path:
+        sys.path.insert(0, fest_eval_path)
+
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.privacy_metrics.privacy_metric_manager import PrivacyMetricManager
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.privacy_metrics.distance.adversarial_accuracy_class import AdversarialAccuracyCalculator
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.privacy_metrics.distance.dcr_class import DCRCalculator
@@ -78,16 +55,11 @@ def run_privacy_evaluation(original_encoded, synthetic_encoded):
 
 
 def run_utility_evaluation(original_encoded, synthetic_encoded):
-    """
-    Run utility metrics evaluation.
-    
-    Args:
-        original_encoded: Encoded original data
-        synthetic_encoded: Encoded synthetic data
-        
-    Returns:
-        dict: Utility evaluation results
-    """
+    # Add the FEST_eval directory to the path so synprivutil can be imported
+    fest_eval_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'FEST_eval'))
+    if fest_eval_path not in sys.path:
+        sys.path.insert(0, fest_eval_path)
+
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.utility_metrics.utility_metric_manager import UtilityMetricManager
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.utility_metrics.statistical.basic_stats import BasicStatsCalculator
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.utility_metrics.statistical.correlation import CorrelationCalculator
@@ -111,17 +83,6 @@ def run_utility_evaluation(original_encoded, synthetic_encoded):
 
 
 def evaluate_synthetic_data(original_df, synthetic_df, progress_callback=None):
-    """
-    Complete evaluation pipeline for synthetic data.
-    
-    Args:
-        original_df: Original/real data DataFrame
-        synthetic_df: Synthetic data DataFrame
-        progress_callback: Optional callback function to report progress (0-100)
-        
-    Returns:
-        dict: Combined results with 'privacy' and 'utility' keys
-    """
     # Prepare data
     original_encoded, synthetic_encoded = prepare_data_for_evaluation(original_df, synthetic_df)
     
