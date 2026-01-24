@@ -4,8 +4,57 @@ import pandas as pd
 
 
 def prepare_data_for_evaluation(original_df, synthetic_df):
-    original_data = original_df.copy()
+    # Remove file_id column if present (not needed for evaluation)
+    columns_to_remove = ['file_id']
+    
+    for col in columns_to_remove:
+        if col in original_df.columns:
+            original_df = original_df.drop(columns=[col])
+            print(f"Removed '{col}' column from original data")
+        if col in synthetic_df.columns:
+            synthetic_df = synthetic_df.drop(columns=[col])
+            print(f"Removed '{col}' column from synthetic data")
+    
+    # Ensure both dataframes have the same columns
+    # Use only the columns present in synthetic data
+    common_columns = list(synthetic_df.columns)
+    
+    # Check if all synthetic columns exist in original
+    missing_in_original = set(common_columns) - set(original_df.columns)
+    if missing_in_original:
+        raise ValueError(f"Synthetic data contains columns not present in original data: {missing_in_original}")
+    
+    # Filter original data to have only the columns in synthetic data
+    original_data = original_df[common_columns].copy()
     synthetic_data = synthetic_df.copy()
+    
+    # Handle missing values by dropping rows
+    original_missing = original_data.isnull().sum()
+    synthetic_missing = synthetic_data.isnull().sum()
+    
+    original_rows_before = len(original_data)
+    synthetic_rows_before = len(synthetic_data)
+    
+    if original_missing.any() or synthetic_missing.any():
+        print(f"Warning: Missing values detected. Removing rows with missing data...")
+        if original_missing.any():
+            print(f"   Original data: {original_missing[original_missing > 0].to_dict()}")
+        if synthetic_missing.any():
+            print(f"   Synthetic data: {synthetic_missing[synthetic_missing > 0].to_dict()}")
+        
+        # Drop rows with any missing values
+        original_data = original_data.dropna()
+        synthetic_data = synthetic_data.dropna()
+        
+        original_rows_after = len(original_data)
+        synthetic_rows_after = len(synthetic_data)
+        
+        if original_rows_before != original_rows_after:
+            print(f"   Original: Removed {original_rows_before - original_rows_after} rows ({(original_rows_before - original_rows_after)/original_rows_before*100:.1f}%)")
+        if synthetic_rows_before != synthetic_rows_after:
+            print(f"   Synthetic: Removed {synthetic_rows_before - synthetic_rows_after} rows ({(synthetic_rows_before - synthetic_rows_after)/synthetic_rows_before*100:.1f}%)")
+        
+        print(f"✓ Missing values removed successfully.")
     
     # Add source identifier
     original_data['source'] = 'real'
