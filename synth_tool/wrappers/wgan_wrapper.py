@@ -43,6 +43,10 @@ class Generator(nn.Module):
         )
         self.fc_init_h = nn.Linear(latent_dim + condition_dim, hidden_dim * num_layers)
         self.fc_init_c = nn.Linear(latent_dim + condition_dim, hidden_dim * num_layers)
+        
+        # LayerNorm to stabilize training
+        self.layer_norm = nn.LayerNorm(hidden_dim)
+        
         self.fc_out = nn.Linear(hidden_dim, sequence_feature_dim)
         self.num_layers = num_layers
         self.hidden_dim = hidden_dim
@@ -55,6 +59,10 @@ class Generator(nn.Module):
         initial_state = (h0, c0)
         condition_expanded = condition.unsqueeze(1).repeat(1, seq_len, 1)
         rnn_out, _ = self.rnn(condition_expanded, initial_state)
+        
+        # Apply LayerNorm to stabilize the LSTM output before final projection
+        rnn_out = self.layer_norm(rnn_out)
+        
         output = torch.tanh(self.fc_out(rnn_out))
         return output
 
@@ -68,6 +76,10 @@ class Critic(nn.Module):
             num_layers=num_layers, 
             batch_first=True
         )
+        
+        # LayerNorm to stabilize the hidden state before the final layer
+        self.layer_norm = nn.LayerNorm(hidden_dim)
+        
         self.fc_out = nn.Linear(hidden_dim, 1)
 
     def forward(self, sequence, condition):
@@ -75,7 +87,10 @@ class Critic(nn.Module):
         condition_expanded = condition.unsqueeze(1).repeat(1, seq_len, 1)
         combined_input = torch.cat([sequence, condition_expanded], dim=2)
         _, (hn, cn) = self.rnn(combined_input)
-        out = self.fc_out(hn[-1])
+        
+        # Apply LayerNorm to the last hidden state
+        last_hidden = hn[-1]
+        out = self.fc_out(self.layer_norm(last_hidden))
         return out
 
 
@@ -599,7 +614,9 @@ class WGANHandler:
         num_samples: int,
         conditions: Optional[torch.Tensor] = None,
         seq_len: Optional[int] = None,
-        return_numpy: bool = True
+        return_numpy: bool = True,
+        post_process: bool = True,
+        return_sampled_indices: bool = False
     ) -> np.ndarray:
 
         if self.generator is None:
@@ -612,12 +629,13 @@ class WGANHandler:
         
         print(f"Generating {num_samples} synthetic samples...")
         
+        sampled_indices = None
         with torch.no_grad():
             # Get conditions
             if conditions is None:
                 # Randomly sample conditions from dataset
-                indices = np.random.choice(len(self.dataset), num_samples, replace=True)
-                conditions = self.dataset.scaled_conditions[indices].to(self.device)
+                sampled_indices = np.random.choice(len(self.dataset), num_samples, replace=True)
+                conditions = self.dataset.scaled_conditions[sampled_indices].to(self.device)
             else:
                 conditions = conditions.to(self.device)
             
@@ -646,10 +664,128 @@ class WGANHandler:
         
         print(f"  Generated sequences with shape: {generated_unscaled.shape}")
         
+        # Apply post-processing if requested
+        if post_process:
+            generated_unscaled = self._post_process_sequences(generated_unscaled)
+        
         if return_numpy:
-            return generated_unscaled
+            result = generated_unscaled
         else:
-            return torch.tensor(generated_unscaled)
+            result = torch.tensor(generated_unscaled)
+        
+        if return_sampled_indices:
+            return result, sampled_indices
+        return result
+    
+    def get_file_ids_from_indices(self, indices: np.ndarray) -> List[int]:
+        """
+        Get the file_ids corresponding to sampled dataset indices.
+        
+        Args:
+            indices: Array of indices that were sampled from the dataset
+            
+        Returns:
+            List of file_ids corresponding to those indices
+        """
+        if self.dataset is None:
+            raise ValueError("No dataset loaded.")
+        
+        # flow_ids is a pandas Series with the valid file IDs after loading
+        return [int(self.dataset.flow_ids.iloc[idx]) for idx in indices]
+    
+    def _post_process_sequences(self, sequences: np.ndarray) -> np.ndarray:
+        """
+        Post-process generated sequences to make them realistic:
+        1. Round all columns to integers except delta_time
+        2. Cut sequences after the first connection close frame
+        """
+        sequence_columns = self.dataset.sequence_columns
+        
+        # Find column indices
+        delta_time_idx = None
+        connection_close_idx = None
+        
+        for i, col in enumerate(sequence_columns):
+            if col == 'delta_time':
+                delta_time_idx = i
+            elif col == 'count_connection_close':
+                connection_close_idx = i
+        
+        processed_sequences = []
+        
+        for seq in sequences:
+            # Create a copy to avoid modifying original
+            processed_seq = seq.copy()
+            
+            # Ensure non-negative values first
+            processed_seq = np.maximum(processed_seq, 0)
+            
+            # Cut after first connection close frame if applicable
+            if connection_close_idx is not None:
+                connection_close_values = np.round(processed_seq[:, connection_close_idx])
+                connection_close_frames = np.where(connection_close_values > 0)[0]
+                if len(connection_close_frames) > 0:
+                    first_close_idx = connection_close_frames[0]
+                    # Keep up to and including the first connection close frame
+                    processed_seq = processed_seq[:first_close_idx + 1]
+            
+            # Round all columns to integers except delta_time
+            # Create a new array with proper dtypes
+            num_rows, num_cols = processed_seq.shape
+            final_seq = np.zeros((num_rows, num_cols), dtype=np.float64)
+            
+            for col_idx in range(num_cols):
+                if col_idx == delta_time_idx:
+                    # Keep delta_time as float
+                    final_seq[:, col_idx] = processed_seq[:, col_idx]
+                else:
+                    # Round to integer and store
+                    final_seq[:, col_idx] = np.round(processed_seq[:, col_idx]).astype(np.int64)
+            
+            processed_sequences.append(final_seq)
+        
+        # Convert back to numpy array (may have variable lengths now)
+        # If all sequences are the same length, return as 3D array
+        # Otherwise, return as list of 2D arrays
+        lengths = [len(seq) for seq in processed_sequences]
+        if len(set(lengths)) == 1:
+            return np.array(processed_sequences)
+        else:
+            return np.array(processed_sequences, dtype=object)
+    
+    def sequences_to_dataframes(
+        self, 
+        sequences: np.ndarray, 
+        add_frame_number: bool = True
+    ) -> List[pd.DataFrame]:
+        """
+        Convert generated sequences to DataFrames with proper dtypes.
+        
+        Args:
+            sequences: Generated sequences (either 3D array or list of 2D arrays)
+            add_frame_number: Whether to add a frame_number column
+        
+        Returns:
+            List of DataFrames, one per sequence
+        """
+        sequence_columns = self.dataset.sequence_columns
+        dataframes = []
+        
+        for seq in sequences:
+            df = pd.DataFrame(seq, columns=sequence_columns)
+            
+            # Convert all columns to int except delta_time
+            for col in df.columns:
+                if col != 'delta_time':
+                    df[col] = df[col].round().astype(int)
+            
+            # Add frame_number if requested
+            if add_frame_number:
+                df.insert(0, 'frame_number', np.arange(1, len(df) + 1))
+            
+            dataframes.append(df)
+        
+        return dataframes
     
     def save_model(
         self,

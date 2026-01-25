@@ -60,6 +60,7 @@ def init_session_state():
         'sequence_columns': None,
         'device': None,
         'latent_dim': None,
+        'wgan_capture_ids': None,  # Store capture_ids for generated sequences
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -130,31 +131,50 @@ def prepare_conditions(high_level_df: pd.DataFrame) -> np.ndarray:
     return condition_df.values.astype(np.float32)
 
 
-def sequences_to_dataframe(sequences: list, sequence_columns: list) -> pd.DataFrame:
+def sequences_to_dataframe(sequences: list, sequence_columns: list, capture_ids: list = None) -> pd.DataFrame:
     """
     Convert list of sequences to a flat DataFrame.
     
     Args:
         sequences: List of sequence arrays
         sequence_columns: Column names for features
+        capture_ids: Optional list of capture_ids (one per sequence) to use instead of sequence_id
     
     Returns:
-        DataFrame with sequence_id, frame_id, and feature columns
+        DataFrame with capture_id (or sequence_id), frame_number, and feature columns
     """
     rows = []
-    for seq_id, seq in enumerate(sequences):
-        for frame_id, frame in enumerate(seq):
-            row = {'sequence_id': seq_id, 'frame_id': frame_id}
+    for seq_idx, seq in enumerate(sequences):
+        # Use provided capture_id if available, otherwise use sequence index
+        if capture_ids is not None and seq_idx < len(capture_ids):
+            cid = capture_ids[seq_idx]
+        else:
+            cid = seq_idx
+        
+        for frame_idx, frame in enumerate(seq):
+            row = {'capture_id': cid, 'frame_number': frame_idx + 1}
             for k, col in enumerate(sequence_columns):
-                row[col] = frame[k]
+                value = frame[k]
+                # Round to integer for all columns except delta_time
+                if col != 'delta_time':
+                    value = int(round(value))
+                row[col] = value
             rows.append(row)
-    return pd.DataFrame(rows)
+    
+    df = pd.DataFrame(rows)
+    
+    # Ensure proper dtypes - integers for all except delta_time
+    for col in sequence_columns:
+        if col in df.columns and col != 'delta_time':
+            df[col] = df[col].astype(int)
+    
+    return df
 
 
-def render_download_button(sequences: list, sequence_columns: list, key: str):
+def render_download_button(sequences: list, sequence_columns: list, key: str, capture_ids: list = None):
     """Render download button for generated sequences."""
     try:
-        df = sequences_to_dataframe(sequences, sequence_columns)
+        df = sequences_to_dataframe(sequences, sequence_columns, capture_ids=capture_ids)
         st.download_button(
             label="📥 Download CSV",
             data=df.to_csv(index=False),
@@ -319,6 +339,7 @@ if mode == "Load Pre-trained Model":
         st.header("3. Generate Synthetic Sequences")
         
         st.markdown("**One sequence will be generated for each row in the high-level CSV** (using each row as a condition).")
+        st.markdown("Each generated sequence will have the same `capture_id` as the `file_id` from the high-level row used as condition.")
         
         # Show high-level data preview
         with st.expander("Preview High-Level Data"):
@@ -330,6 +351,14 @@ if mode == "Load Pre-trained Model":
         if st.button("Generate Samples", type="primary", key="gen_samples_btn"):
             with st.spinner(f"Generating {num_samples} synthetic sequences..."):
                 try:
+                    # Get capture_ids from high-level data (file_id column)
+                    if 'file_id' in st.session_state.high_level_df.columns:
+                        capture_ids = st.session_state.high_level_df['file_id'].tolist()
+                    else:
+                        # Fallback to index if no file_id column
+                        capture_ids = list(range(num_samples))
+                        st.warning("No 'file_id' column found. Using sequential IDs.")
+                    
                     # Prepare conditions using helper function
                     all_conditions = prepare_conditions(st.session_state.high_level_df)
                     
@@ -356,6 +385,7 @@ if mode == "Load Pre-trained Model":
                     )
                     
                     st.session_state.wgan_generated_data = truncated_sequences
+                    st.session_state.wgan_capture_ids = capture_ids  # Store capture_ids
                     
                     # Display results
                     seq_lengths = [len(s) for s in truncated_sequences]
@@ -381,13 +411,15 @@ if mode == "Load Pre-trained Model":
             with st.expander("Preview Generated Data"):
                 preview_df = sequences_to_dataframe(
                     st.session_state.wgan_generated_data[:5],  # First 5 sequences
-                    st.session_state.sequence_columns
+                    st.session_state.sequence_columns,
+                    capture_ids=st.session_state.wgan_capture_ids[:5] if st.session_state.wgan_capture_ids else None
                 )
                 st.dataframe(preview_df.head(50), use_container_width=True)
             
             render_download_button(
                 st.session_state.wgan_generated_data,
                 st.session_state.sequence_columns,
+                capture_ids=st.session_state.wgan_capture_ids,
                 key="download_csv_load"
             )
 
@@ -697,16 +729,25 @@ elif mode == "Train New Model":
         )
         
         st.info("Sequences will be cut at first connection close packet")
+        st.markdown("Each generated sequence will have the same `capture_id` as the `file_id` from the condition vector sampled from training data.")
         
         if st.button("Generate Samples", type="primary", key="train_gen_samples"):
             with st.spinner(f"Generating {num_samples} synthetic sequences..."):
                 try:
-                    # Generate sequences
-                    generated = st.session_state.wgan_handler.generate_samples(
+                    # Generate sequences with sampled indices to track capture_ids
+                    generated, sampled_indices = st.session_state.wgan_handler.generate_samples(
                         num_samples=num_samples,
                         seq_len=DEFAULT_SEQ_LENGTH,
-                        return_numpy=True
+                        return_numpy=True,
+                        return_sampled_indices=True
                     )
+                    
+                    # Get capture_ids from the sampled indices
+                    if sampled_indices is not None:
+                        capture_ids = st.session_state.wgan_handler.get_file_ids_from_indices(sampled_indices)
+                    else:
+                        capture_ids = list(range(num_samples))
+                        st.warning("Could not track condition indices. Using sequential IDs.")
                     
                     # Get sequence columns from dataset
                     seq_cols = []
@@ -716,6 +757,7 @@ elif mode == "Train New Model":
                     # Truncate at connection close using helper function
                     truncated_sequences = truncate_at_connection_close(generated, seq_cols)
                     st.session_state.wgan_generated_data = truncated_sequences
+                    st.session_state.wgan_capture_ids = capture_ids  # Store capture_ids
                     
                     # Display results
                     seq_lengths = [len(s) for s in truncated_sequences]
@@ -798,13 +840,15 @@ elif mode == "Train New Model":
                 with st.expander("Preview Generated Data"):
                     preview_df = sequences_to_dataframe(
                         st.session_state.wgan_generated_data[:5],
-                        seq_cols
+                        seq_cols,
+                        capture_ids=st.session_state.wgan_capture_ids[:5] if st.session_state.wgan_capture_ids else None
                     )
                     st.dataframe(preview_df.head(50), use_container_width=True)
                 
                 render_download_button(
                     st.session_state.wgan_generated_data,
                     seq_cols,
+                    capture_ids=st.session_state.wgan_capture_ids,
                     key="download_csv_train"
                 )
             else:
