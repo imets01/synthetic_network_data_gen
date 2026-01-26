@@ -30,12 +30,13 @@ DEFAULT_SEQ_LENGTH = 40
 CONNECTION_CLOSE_COL = 'count_connection_close'
 
 CONDITION_COLUMNS = [
-    'implementation', 'connection_duration', 'version_negotiation_occurred', 
-    'retry_occurred', 'migration_type', 'first_path_validation_response_latency', 
-    'path_validation_initiated', 'packets_sent_client', 'packets_sent_server', 
-    'handshake_duration', 'time_to_migration', 'migration_duration',
-    'packets_before_migration', 'total_bidi_streams_client_init',
-    'total_udi_streams_client_init'
+            'implementation', 'connection_duration',  'version_negotiation_occurred', 'retry_occurred', 'migration_type',
+            #'first_path_validation_response_latency', #'path_validation_initiated',
+              'packets_sent_client', 
+            'packets_sent_server', 'handshake_duration', 'time_to_migration', 'migration_duration', # Corrected
+            'packets_before_migration', #'total_bidi_streams_client_init',
+            #'total_udi_streams_client_init',
+            # 'connection_close_type'
 ]
 
 CATEGORICAL_COLUMNS = ['migration_type', 'implementation']

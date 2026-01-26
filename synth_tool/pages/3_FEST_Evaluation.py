@@ -54,7 +54,7 @@ else:
         st.info("Note: `capture_id` column is required for sequence grouping but excluded from features.")
 
 # Show excluded columns info
-st.info(f"ℹ️ The following columns are always excluded from evaluation: `{', '.join(EXCLUDED_COLUMNS)}`")
+st.info(f"The following columns are always excluded from evaluation: `{', '.join(EXCLUDED_COLUMNS)}`")
 
 # =========================================================================
 # Section 2: Data Upload
@@ -237,9 +237,9 @@ if evaluation_type == "low_level":
         
         if len(orig_matched) < len(orig_low_captures):
             unmatched = len(orig_low_captures) - len(orig_matched)
-            st.warning(f"⚠️ {unmatched} captures without implementation label")
+            st.warning(f"{unmatched} captures without implementation label")
         else:
-            st.success("✅ All captures have implementation labels")
+            st.success("All captures have implementation labels")
         
         # Show implementation distribution
         if target_column in original_high_level_df.columns:
@@ -256,9 +256,9 @@ if evaluation_type == "low_level":
         
         if len(synth_matched) < len(synth_low_captures):
             unmatched = len(synth_low_captures) - len(synth_matched)
-            st.warning(f"⚠️ {unmatched} captures without implementation label")
+            st.warning(f"{unmatched} captures without implementation label")
         else:
-            st.success("✅ All captures have implementation labels")
+            st.success("All captures have implementation labels")
         
         # Show implementation distribution
         if target_column in synthetic_high_level_df.columns:
@@ -278,31 +278,30 @@ only_in_synthetic = synthetic_cols_clean - original_cols_clean
 
 # Check if columns match
 if only_in_original or only_in_synthetic:
-    st.warning("⚠️ Column differences detected between original and synthetic data.")
     
-    with st.expander("View Column Details", expanded=True):
+    with st.expander("View Column Details", expanded=False):
         col1_cols, col2_cols = st.columns(2)
         
         with col1_cols:
             st.write(f"**Common columns ({len(common_columns)}):**")
             if common_columns:
                 for col in sorted(common_columns):
-                    st.write(f"  ✅ `{col}`")
+                    st.write(f"  `{col}`")
         
         with col2_cols:
             if only_in_original:
                 st.write(f"**Only in original data ({len(only_in_original)}):**")
                 for col in sorted(only_in_original):
-                    st.write(f"  ⚠️ `{col}`")
+                    st.write(f"  `{col}`")
             
             if only_in_synthetic:
                 st.write(f"**Only in synthetic data ({len(only_in_synthetic)}):**")
                 for col in sorted(only_in_synthetic):
-                    st.write(f"  ⚠️ `{col}`")
+                    st.write(f"  `{col}`")
     
-    st.success(f"✅ Evaluation will use **{len(common_columns)} common columns** (excluding ID columns).")
+    st.success(f"Evaluation will use **{len(common_columns)} common columns** (excluding ID columns).")
 else:
-    st.success(f"✅ Column names match between datasets ({len(common_columns)} columns, excluding IDs).")
+    st.success(f"Column names match between datasets ({len(common_columns)} columns, excluding IDs).")
 
 # Check data types consistency (only for common columns)
 common_cols_list = list(common_columns)
@@ -316,19 +315,19 @@ if common_cols_list:
             dtype_mismatches.append((col, original_dtypes[col], synthetic_dtypes[col]))
 
     if dtype_mismatches:
-        st.warning("⚠️ Data type mismatches detected:")
+        st.warning("Data type mismatches detected:")
         for col, orig_dtype, synth_dtype in dtype_mismatches:
             st.write(f"- **{col}**: Original ({orig_dtype}) vs Synthetic ({synth_dtype})")
         st.info("The evaluation will attempt to handle type conversions automatically.")
     else:
-        st.success("✅ Data types are consistent between datasets.")
+        st.success("Data types are consistent between datasets.")
 
 # Check for missing values
 original_missing = original_df.isnull().sum()
 synthetic_missing = synthetic_df.isnull().sum()
 
 if original_missing.any() or synthetic_missing.any():
-    st.warning("⚠️ Missing values detected in the data:")
+    st.warning("Missing values detected in the data:")
     col1_missing, col2_missing = st.columns(2)
     
     with col1_missing:
@@ -345,9 +344,9 @@ if original_missing.any() or synthetic_missing.any():
             for col, count in missing_cols.items():
                 st.write(f"- {col}: {count} ({count/len(synthetic_df)*100:.1f}%)")
     
-    st.info("ℹ️ Rows with missing values will be automatically removed during evaluation.")
+    st.info("Rows with missing values will be automatically removed during evaluation.")
 else:
-    st.success("✅ No missing values detected.")
+    st.success("No missing values detected.")
 
 # =========================================================================
 # Section 4: Run Evaluation
@@ -364,7 +363,7 @@ if st.button("Run Privacy & Utility Evaluation", type="primary"):
             if evaluation_type == "low_level":
                 # For low-level data, run sequence-level privacy evaluation
                 # (aggregates sequences, then computes privacy metrics)
-                st.info("ℹ️ For low-level packet data, privacy is evaluated at the **sequence level** "
+                st.info("For low-level packet data, privacy is evaluated at the **sequence level** "
                        "(each capture is aggregated into statistical features).")
                 
                 progress_bar.progress(5)
@@ -384,7 +383,7 @@ if st.button("Run Privacy & Utility Evaluation", type="primary"):
                     # Extract metadata and remove from results display
                     metadata = privacy_results.pop('_metadata', {})
                     results = {'privacy': privacy_results, 'utility': {}}
-                    st.caption(f"📊 Evaluated {metadata.get('num_original_sequences', 'N/A')} original and "
+                    st.caption(f"Evaluated {metadata.get('num_original_sequences', 'N/A')} original and "
                               f"{metadata.get('num_synthetic_sequences', 'N/A')} synthetic sequences")
                 
                 progress_bar.progress(30)
@@ -525,7 +524,7 @@ if 'evaluation_results' in st.session_state:
             with col_b:
                 if info:
                     st.caption(f"**Goal:** {info['ideal']}")
-                    st.info(f"{info['desc']}", icon="ℹ️")
+                    st.info(f"{info['desc']}")
                 else:
                     st.caption("No specific guide available.")
         else:
@@ -537,7 +536,7 @@ if 'evaluation_results' in st.session_state:
     tab1, tab2, tab3 = st.tabs(["Privacy Metrics", "Statistical Utility", "ML Utility"])
 
     with tab1:
-        st.subheader("🛡️ Privacy Evaluation")
+        st.subheader("Privacy Evaluation")
         if 'privacy' in results and results['privacy']:
             for metric_name, metric_data in results['privacy'].items():
                 display_name = get_metric_display_name(metric_name)
@@ -552,7 +551,7 @@ if 'evaluation_results' in st.session_state:
             st.info("No privacy results available.")
 
     with tab2:
-        st.subheader("📈 Statistical Utility Evaluation")
+        st.subheader("Statistical Utility Evaluation")
         if 'utility' in results and results['utility']:
             for metric_name, metric_data in results['utility'].items():
                 display_name = get_metric_display_name(metric_name)
@@ -567,7 +566,7 @@ if 'evaluation_results' in st.session_state:
             st.info("No utility results available.")
 
     with tab3:
-        st.subheader("🤖 ML Utility Evaluation")
+        st.subheader("ML Utility Evaluation")
         
         if 'ml_utility_results' in st.session_state:
             ml_results = st.session_state.ml_utility_results
@@ -632,14 +631,14 @@ if 'evaluation_results' in st.session_state:
                 
                 # Show device info for LSTM
                 if is_lstm:
-                    st.caption(f"🖥️ Device: {ml_results.get('device', 'N/A')}")
+                    st.caption(f"Device: {ml_results.get('device', 'N/A')}")
                 
                 # Training history plot for LSTM
                 if is_lstm and 'training_history' in ml_results:
                     with st.expander("Training History", expanded=True):
                         history = ml_results['training_history']
                         
-                        fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+                        fig, axes = plt.subplots(1, 2, figsize=(8, 3))
                         
                         # Loss plot
                         axes[0].plot(history['train_loss'], label='Train Loss', marker='o', markersize=4)
@@ -688,7 +687,7 @@ if 'evaluation_results' in st.session_state:
                     class_labels = ml_results['class_labels']
                     
                     # Create confusion matrix plot
-                    fig, ax = plt.subplots(figsize=(6, 5))
+                    fig, ax = plt.subplots(figsize=(5, 4))
                     im = ax.imshow(cm, interpolation='nearest', cmap='Blues')
                     ax.figure.colorbar(im, ax=ax)
                     
@@ -724,7 +723,7 @@ if 'evaluation_results' in st.session_state:
                         sorted_importance = sorted(importance_dict.items(), key=lambda x: x[1], reverse=True)
                         
                         # Create bar chart
-                        fig, ax = plt.subplots(figsize=(7, 4))
+                        fig, ax = plt.subplots(figsize=(5, 3))
                         features = [item[0] for item in sorted_importance]
                         importances = [item[1] for item in sorted_importance]
                         
@@ -747,7 +746,7 @@ if 'evaluation_results' in st.session_state:
                         st.dataframe(importance_df, use_container_width=True)
                     else:
                         # LSTM doesn't have direct feature importance
-                        st.info("ℹ️ Feature importance is not available for LSTM-based evaluation. "
+                        st.info("Feature importance is not available for LSTM-based evaluation. "
                                "LSTM models learn complex sequential patterns that don't translate to individual feature importance scores.")
                         st.write("**Features used for sequence classification:**")
                         for f in ml_results.get('features_used', []):
@@ -776,34 +775,19 @@ if 'evaluation_results' in st.session_state:
     # =========================================================================
     st.header("6. Export Results")
 
-    col_export1, col_export2 = st.columns(2)
-    
-    with col_export1:
-        if st.button("Export All Results as JSON"):
-            import json
-            # Combine all results
-            all_results = {
-                'privacy': results.get('privacy', {}),
-                'statistical_utility': results.get('utility', {}),
-                'ml_utility': st.session_state.get('ml_utility_results', {})
-            }
-            results_json = json.dumps(all_results, indent=2, default=str)
-            st.download_button(
-                label="Download JSON",
-                data=results_json,
-                file_name="evaluation_results.json",
-                mime="application/json"
-            )
-    
-    with col_export2:
-        if 'ml_utility_results' in st.session_state and 'error' not in st.session_state.ml_utility_results:
-            if st.button("Export ML Utility Results Only"):
-                import json
-                ml_results_json = json.dumps(st.session_state.ml_utility_results, indent=2, default=str)
-                st.download_button(
-                    label="Download ML Results JSON",
-                    data=ml_results_json,
-                    file_name="ml_utility_results.json",
-                    mime="application/json"
-                )
+    if st.button("Export All Results as JSON"):
+        import json
+        # Combine all results
+        all_results = {
+            'privacy': results.get('privacy', {}),
+            'statistical_utility': results.get('utility', {}),
+            'ml_utility': st.session_state.get('ml_utility_results', {})
+        }
+        results_json = json.dumps(all_results, indent=2, default=str)
+        st.download_button(
+            label="Download JSON",
+            data=results_json,
+            file_name="evaluation_results.json",
+            mime="application/json"
+        )
 
