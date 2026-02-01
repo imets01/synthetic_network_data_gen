@@ -6,10 +6,14 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
+from sklearn.manifold import TSNE
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
+import matplotlib.pyplot as plt
+import io
+import base64
 
 
 # High-level feature definitions for ML utility evaluation
@@ -278,15 +282,38 @@ def run_utility_evaluation(original_encoded, synthetic_encoded):
     from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.utility_metrics.statistical.mutual_information import MICalculator
     # from synprivutil.privacy_utility_framework.privacy_utility_framework.metrics.utility_metrics.statistical.wasserstein import WassersteinCalculator
     
+    # Remove constant columns (zero variance) that cause NaN in correlation
+    # Check variance in both datasets
+    orig_variance = original_encoded.var()
+    synth_variance = synthetic_encoded.var()
+    constant_cols = list(orig_variance[orig_variance == 0].index) + list(synth_variance[synth_variance == 0].index)
+    constant_cols = list(set(constant_cols))  # Remove duplicates
+    
+    if constant_cols:
+        print(f"Removing {len(constant_cols)} constant columns for correlation calculation: {constant_cols[:5]}{'...' if len(constant_cols) > 5 else ''}")
+        original_for_corr = original_encoded.drop(columns=constant_cols, errors='ignore')
+        synthetic_for_corr = synthetic_encoded.drop(columns=constant_cols, errors='ignore')
+    else:
+        original_for_corr = original_encoded
+        synthetic_for_corr = synthetic_encoded
+    
     utman = UtilityMetricManager()
     utility_metrics = [
         BasicStatsCalculator(original_encoded, synthetic_encoded, original_name="Real", synthetic_name="Synthetic"),
-        CorrelationCalculator(original_encoded, synthetic_encoded, original_name="Real", synthetic_name="Synthetic"),
         JSCalculator(original_encoded, synthetic_encoded, original_name="Real", synthetic_name="Synthetic"),
         KSCalculator(original_encoded, synthetic_encoded, original_name="Real", synthetic_name="Synthetic"),
         MICalculator(original_encoded, synthetic_encoded, original_name="Real", synthetic_name="Synthetic"),
         # WassersteinCalculator(original_encoded, synthetic_encoded, original_name="Real", synthetic_name="
     ]
+    
+    # Only add correlation calculator if we have enough non-constant columns
+    if len(original_for_corr.columns) >= 2:
+        utility_metrics.append(
+            CorrelationCalculator(original_for_corr, synthetic_for_corr, original_name="Real", synthetic_name="Synthetic")
+        )
+    else:
+        print("Warning: Not enough non-constant columns for correlation calculation")
+    
     utman.add_metric(utility_metrics)
     
     return utman.evaluate_all()
@@ -906,3 +933,212 @@ def _balanced_sample_capture_ids(capture_ids, impl_map, all_implementations, max
             sampled_ids.extend(sampled)
     
     return sampled_ids
+
+
+# =========================================================================
+# Low-Level Statistical and Structural Similarity Evaluation
+# =========================================================================
+
+def compute_cdf_data(real_data, synthetic_data):
+    """
+    Compute CDF data for a single feature.
+    
+    Args:
+        real_data: Array of real data values
+        synthetic_data: Array of synthetic data values
+    
+    Returns:
+        Dictionary with sorted values and CDF values for both datasets
+    """
+    # Remove NaN values
+    real_clean = real_data[~np.isnan(real_data)]
+    synth_clean = synthetic_data[~np.isnan(synthetic_data)]
+    
+    # Sort values
+    real_sorted = np.sort(real_clean)
+    synth_sorted = np.sort(synth_clean)
+    
+    # Compute CDF (cumulative probability)
+    real_cdf = np.arange(1, len(real_sorted) + 1) / len(real_sorted)
+    synth_cdf = np.arange(1, len(synth_sorted) + 1) / len(synth_sorted)
+    
+    return {
+        'real_values': real_sorted,
+        'real_cdf': real_cdf,
+        'synthetic_values': synth_sorted,
+        'synthetic_cdf': synth_cdf
+    }
+
+
+def run_low_level_statistical_similarity(real_df, synthetic_df, feature_columns=None):
+    """
+    Compute statistical similarity metrics (CDF data) for low-level features.
+    
+    Args:
+        real_df: DataFrame with real low-level data
+        synthetic_df: DataFrame with synthetic low-level data
+        feature_columns: List of feature columns to analyze (defaults to LOW_LEVEL_FEATURE_COLUMNS)
+    
+    Returns:
+        Dictionary with CDF data for each feature
+    """
+    if feature_columns is None:
+        feature_columns = LOW_LEVEL_FEATURE_COLUMNS
+    
+    # Get available features in both datasets
+    available_features = [col for col in feature_columns 
+                         if col in real_df.columns and col in synthetic_df.columns]
+    
+    if not available_features:
+        return {'error': 'No common feature columns found between real and synthetic data'}
+    
+    results = {
+        'cdf_data': {},
+        'ks_statistics': {},
+        'features_analyzed': available_features
+    }
+    
+    # Compute CDF data and KS statistic for each feature
+    from scipy import stats
+    
+    for feature in available_features:
+        real_values = real_df[feature].values.astype(float)
+        synth_values = synthetic_df[feature].values.astype(float)
+        
+        # Compute CDF data
+        results['cdf_data'][feature] = compute_cdf_data(real_values, synth_values)
+        
+        # Compute KS statistic
+        try:
+            ks_stat, ks_pvalue = stats.ks_2samp(real_values[~np.isnan(real_values)], 
+                                                 synth_values[~np.isnan(synth_values)])
+            results['ks_statistics'][feature] = {
+                'statistic': ks_stat,
+                'p_value': ks_pvalue,
+                'similarity': 1 - ks_stat  # Convert to similarity score
+            }
+        except Exception as e:
+            results['ks_statistics'][feature] = {'error': str(e)}
+    
+    return results
+
+
+def prepare_sequences_for_tsne(df, feature_columns, capture_id_col='capture_id', max_len=20, max_sequences=1000):
+    """
+    Transform packet-level DataFrame into fixed-length sequences for t-SNE.
+    
+    Args:
+        df: DataFrame with packet-level data
+        feature_columns: List of feature columns to use
+        capture_id_col: Column identifying sequences
+        max_len: Maximum sequence length (truncate/pad to this)
+        max_sequences: Maximum number of sequences to include
+    
+    Returns:
+        3D numpy array of shape (num_sequences, max_len, num_features)
+    """
+    # Get available features
+    available_features = [col for col in feature_columns if col in df.columns]
+    
+    if not available_features:
+        raise ValueError("No feature columns found in data")
+    
+    # Remove sequences with negative values
+    df_clean = df.copy()
+    
+    # Group by capture_id
+    grouped = df_clean.groupby(capture_id_col)
+    
+    sequences = []
+    capture_ids = list(grouped.groups.keys())
+    
+    # Limit number of sequences
+    if len(capture_ids) > max_sequences:
+        import random
+        capture_ids = random.sample(capture_ids, max_sequences)
+    
+    for capture_id in capture_ids:
+        group = grouped.get_group(capture_id)
+        seq = group[available_features].values
+        
+        # Truncate if too long
+        if len(seq) > max_len:
+            seq = seq[:max_len, :]
+        # Pad if too short
+        elif len(seq) < max_len:
+            pad_len = max_len - len(seq)
+            padding = np.zeros((pad_len, len(available_features)))
+            seq = np.vstack([seq, padding])
+        
+        sequences.append(seq)
+    
+    return np.array(sequences)
+
+
+def run_low_level_structural_similarity(real_df, synthetic_df, feature_columns=None, 
+                                         max_len=20, max_sequences=None, perplexity=30):
+    """
+    Compute structural similarity using t-SNE visualization.
+    
+    Args:
+        real_df: DataFrame with real low-level data
+        synthetic_df: DataFrame with synthetic low-level data
+        feature_columns: List of feature columns to use
+        max_len: Maximum sequence length for padding/truncating
+        max_sequences: Maximum sequences per dataset for t-SNE (None = use all)
+        perplexity: t-SNE perplexity parameter
+    
+    Returns:
+        Dictionary with t-SNE embedding coordinates and metadata
+    """
+    if feature_columns is None:
+        feature_columns = LOW_LEVEL_FEATURE_COLUMNS
+    
+    # Get available features
+    available_features = [col for col in feature_columns 
+                         if col in real_df.columns and col in synthetic_df.columns]
+    
+    if not available_features:
+        return {'error': 'No common feature columns found'}
+    
+    print(f"Preparing sequences for t-SNE...")
+    
+    try:
+        # Prepare sequences (use all if max_sequences is None)
+        real_seqs = prepare_sequences_for_tsne(real_df, available_features, 
+                                                max_len=max_len, max_sequences=max_sequences or 999999)
+        synth_seqs = prepare_sequences_for_tsne(synthetic_df, available_features, 
+                                                 max_len=max_len, max_sequences=max_sequences or 999999)
+        
+        print(f"  Real sequences shape: {real_seqs.shape}")
+        print(f"  Synthetic sequences shape: {synth_seqs.shape}")
+        
+        # Flatten sequences for t-SNE
+        real_flat = real_seqs.reshape(real_seqs.shape[0], -1)
+        synth_flat = synth_seqs.reshape(synth_seqs.shape[0], -1)
+        
+        # Combine data
+        combined_data = np.concatenate([real_flat, synth_flat], axis=0)
+        labels = np.array([0] * len(real_flat) + [1] * len(synth_flat))
+        
+        print(f"Running t-SNE on {len(combined_data)} samples...")
+        
+        # Run t-SNE
+        tsne = TSNE(n_components=2, random_state=42, perplexity=min(perplexity, len(combined_data) - 1))
+        embedded = tsne.fit_transform(combined_data)
+        
+        # Split back
+        real_embedded = embedded[labels == 0]
+        synth_embedded = embedded[labels == 1]
+        
+        return {
+            'real_tsne': real_embedded.tolist(),
+            'synthetic_tsne': synth_embedded.tolist(),
+            'num_real_sequences': len(real_embedded),
+            'num_synthetic_sequences': len(synth_embedded),
+            'features_used': available_features,
+            'max_seq_len': max_len
+        }
+        
+    except Exception as e:
+        return {'error': f't-SNE computation failed: {str(e)}'}

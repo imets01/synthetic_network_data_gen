@@ -10,6 +10,8 @@ from evaluation import (
     run_ml_utility_evaluation,
     run_low_level_ml_utility_lstm,
     run_sequence_level_privacy_evaluation,
+    run_low_level_statistical_similarity,
+    run_low_level_structural_similarity,
     IDEAL_HIGH_LEVEL_FEATURES,
     LOW_LEVEL_FEATURE_COLUMNS,
     EXCLUDED_COLUMNS
@@ -48,7 +50,7 @@ if evaluation_type == "high_level":
             st.write(f"{i}. `{feature}`")
 else:
     with st.expander("Expected Low-Level Features", expanded=False):
-        st.write("The following features are used for low-level ML utility evaluation (LSTM-based):")
+        st.write("The following features are used for low-level statistical and structural similarity evaluation:")
         for i, feature in enumerate(LOW_LEVEL_FEATURE_COLUMNS, 1):
             st.write(f"{i}. `{feature}`")
         st.info("Note: `capture_id` column is required for sequence grouping but excluded from features.")
@@ -63,18 +65,19 @@ st.header("2. Upload Data for Evaluation")
 
 original_df = None
 synthetic_df = None
-original_high_level_df = None
-synthetic_high_level_df = None
 
 if evaluation_type == "low_level":
     st.markdown("""
-    **For low-level evaluation, you need to upload:**
-    1. Low-level packet data (sequences with `capture_id`)
-    2. High-level data (to get `implementation` labels for each `capture_id`)
+    **For low-level evaluation, upload:**
+    - Low-level packet data (sequences with `capture_id`)
+    
+    The evaluation includes:
+    - **Privacy**: Sequence-level privacy metrics (DCR, NNDR, etc.)
+    - **Statistical Similarity**: CDF plots comparing distributions of each feature
+    - **Structural Similarity**: t-SNE visualization of real vs synthetic sequences
     """)
     
     # Low-level data upload
-    st.subheader("Low-Level Data (Packet Sequences)")
     col1, col2 = st.columns(2)
     
     with col1:
@@ -98,30 +101,6 @@ if evaluation_type == "low_level":
             if 'capture_id' in synthetic_df.columns:
                 st.write(f"Unique captures: {synthetic_df['capture_id'].nunique()}")
             st.dataframe(synthetic_df.head(), use_container_width=True)
-    
-    # High-level data upload for implementation labels
-    st.subheader("High-Level Data (Implementation Labels)")
-    col3, col4 = st.columns(2)
-    
-    with col3:
-        st.markdown("**Original High-Level Data**")
-        original_high_file = st.file_uploader("Upload original high-level CSV", type=['csv'], key="original_high_upload")
-        if original_high_file is not None:
-            original_high_level_df = pd.read_csv(original_high_file)
-            st.success(f"Uploaded {len(original_high_level_df):,} samples.")
-            if 'implementation' in original_high_level_df.columns:
-                st.write(f"Implementations: {original_high_level_df['implementation'].value_counts().to_dict()}")
-            st.dataframe(original_high_level_df.head(), use_container_width=True)
-    
-    with col4:
-        st.markdown("**Synthetic High-Level Data**")
-        synthetic_high_file = st.file_uploader("Upload synthetic high-level CSV", type=['csv'], key="synthetic_high_upload")
-        if synthetic_high_file is not None:
-            synthetic_high_level_df = pd.read_csv(synthetic_high_file)
-            st.success(f"Uploaded {len(synthetic_high_level_df):,} samples.")
-            if 'implementation' in synthetic_high_level_df.columns:
-                st.write(f"Implementations: {synthetic_high_level_df['implementation'].value_counts().to_dict()}")
-            st.dataframe(synthetic_high_level_df.head(), use_container_width=True)
 
 else:
     # High-level evaluation - original upload flow
@@ -150,37 +129,15 @@ if evaluation_type == "low_level":
     if original_df is None or synthetic_df is None:
         st.info("Please upload both original and synthetic low-level data files to continue.")
         st.stop()
-    if original_high_level_df is None or synthetic_high_level_df is None:
-        st.info("Please upload both original and synthetic high-level data files (for implementation labels) to continue.")
-        st.stop()
 else:
     if original_df is None or synthetic_df is None:
         st.info("Please upload both original and synthetic data files to continue.")
         st.stop()
 
-# Target column selection for ML utility
-st.subheader("ML Utility Configuration")
-
-if evaluation_type == "low_level":
-    # For low-level, target comes from high-level data
-    possible_targets = original_high_level_df.select_dtypes(include=['object']).columns.tolist()
-    if 'implementation' in possible_targets:
-        default_idx = possible_targets.index('implementation')
-    else:
-        default_idx = 0
+# Target column selection for ML utility (only for high-level)
+if evaluation_type == "high_level":
+    st.subheader("ML Utility Configuration")
     
-    if possible_targets:
-        target_column = st.selectbox(
-            "Select Target Column (from High-Level Data)",
-            options=possible_targets,
-            index=default_idx,
-            help="The column containing implementation labels. Must be present in high-level data."
-        )
-    else:
-        target_column = "implementation"
-        st.info("Using 'implementation' as target column.")
-
-else:
     # For high-level, target is in the main data
     possible_targets = original_df.select_dtypes(include=['object']).columns.tolist()
     if 'implementation' in possible_targets:
@@ -201,71 +158,13 @@ else:
             value="implementation",
             help="The column to predict for ML utility evaluation."
         )
+else:
+    target_column = None  # Not needed for low-level visual evaluation
 
 # =========================================================================
 # Section 3: Data Validation
 # =========================================================================
 st.header("3. Data Validation")
-
-# For low-level, show implementation mapping info
-if evaluation_type == "low_level":
-    st.subheader("Implementation Mapping")
-    
-    # Get file_id column name from high-level data
-    orig_id_col = 'file_id' if 'file_id' in original_high_level_df.columns else 'capture_id'
-    synth_id_col = 'file_id' if 'file_id' in synthetic_high_level_df.columns else 'capture_id'
-    
-    # Get capture_ids from low-level data
-    orig_low_captures = set(original_df['capture_id'].unique())
-    synth_low_captures = set(synthetic_df['capture_id'].unique())
-    
-    # Get capture_ids from high-level data
-    orig_high_captures = set(original_high_level_df[orig_id_col].unique())
-    synth_high_captures = set(synthetic_high_level_df[synth_id_col].unique())
-    
-    # Find matching captures
-    orig_matched = orig_low_captures & orig_high_captures
-    synth_matched = synth_low_captures & synth_high_captures
-    
-    col1_map, col2_map = st.columns(2)
-    
-    with col1_map:
-        st.markdown("**Original Data Mapping**")
-        st.write(f"Low-level captures: {len(orig_low_captures)}")
-        st.write(f"High-level entries: {len(orig_high_captures)}")
-        st.write(f"Matched: {len(orig_matched)}")
-        
-        if len(orig_matched) < len(orig_low_captures):
-            unmatched = len(orig_low_captures) - len(orig_matched)
-            st.warning(f"{unmatched} captures without implementation label")
-        else:
-            st.success("All captures have implementation labels")
-        
-        # Show implementation distribution
-        if target_column in original_high_level_df.columns:
-            matched_impls = original_high_level_df[original_high_level_df[orig_id_col].isin(orig_matched)][target_column].value_counts()
-            st.write("Implementation distribution:")
-            for impl, count in matched_impls.items():
-                st.write(f"  - {impl}: {count}")
-    
-    with col2_map:
-        st.markdown("**Synthetic Data Mapping**")
-        st.write(f"Low-level captures: {len(synth_low_captures)}")
-        st.write(f"High-level entries: {len(synth_high_captures)}")
-        st.write(f"Matched: {len(synth_matched)}")
-        
-        if len(synth_matched) < len(synth_low_captures):
-            unmatched = len(synth_low_captures) - len(synth_matched)
-            st.warning(f"{unmatched} captures without implementation label")
-        else:
-            st.success("All captures have implementation labels")
-        
-        # Show implementation distribution
-        if target_column in synthetic_high_level_df.columns:
-            matched_impls = synthetic_high_level_df[synthetic_high_level_df[synth_id_col].isin(synth_matched)][target_column].value_counts()
-            st.write("Implementation distribution:")
-            for impl, count in matched_impls.items():
-                st.write(f"  - {impl}: {count}")
 
 # Remove excluded columns for validation display
 original_cols_clean = set(original_df.columns) - set(EXCLUDED_COLUMNS)
@@ -387,26 +286,29 @@ if st.button("Run Privacy & Utility Evaluation", type="primary"):
                               f"{metadata.get('num_synthetic_sequences', 'N/A')} synthetic sequences")
                 
                 progress_bar.progress(30)
-                status_text.text("Running LSTM ML Utility evaluation...")
+                status_text.text("Computing statistical similarity (CDF)...")
                 
-                def lstm_progress_callback(epoch, total_epochs, train_loss, train_acc, val_loss, val_acc):
-                    if total_epochs > 0:
-                        percent = 30 + int((epoch / total_epochs) * 70)
-                    else:
-                        percent = 30
-                    progress_bar.progress(min(percent, 100))
-                    status_text.text(f"LSTM Training: Epoch {epoch}/{total_epochs} - Val Acc: {val_acc:.4f}")
-                
-                ml_results = run_low_level_ml_utility_lstm(
-                    synthetic_low_df=synthetic_df, 
-                    real_low_df=original_df,
-                    synthetic_high_df=synthetic_high_level_df,
-                    real_high_df=original_high_level_df,
-                    target_column=target_column,
-                    epochs=5,
-                    batch_size=32,
-                    progress_callback=lstm_progress_callback
+                # Run statistical similarity (CDF)
+                stat_results = run_low_level_statistical_similarity(
+                    original_df, 
+                    synthetic_df, 
+                    feature_columns=LOW_LEVEL_FEATURE_COLUMNS
                 )
+                
+                progress_bar.progress(60)
+                status_text.text("Computing structural similarity (t-SNE)...")
+                
+                # Store data for t-SNE (will be computed on-demand with user-selected sample size)
+                # Store results
+                ml_results = {
+                    'statistical_similarity': stat_results,
+                    'structural_similarity': {},  # Will be computed on-demand
+                    'evaluation_type': 'low_level_visual'
+                }
+                
+                # Store dataframes for on-demand t-SNE computation
+                st.session_state.original_low_df = original_df
+                st.session_state.synthetic_low_df = synthetic_df
             else:
                 # High-level evaluation - run full privacy/statistical + ML utility
                 def progress_callback(percent):
@@ -532,8 +434,11 @@ if 'evaluation_results' in st.session_state:
             if info:
                  st.caption(f"*{info['desc']}*")
 
-    # Create tabs including ML Utility
-    tab1, tab2, tab3 = st.tabs(["Privacy Metrics", "Statistical Utility", "ML Utility"])
+    # Create tabs based on evaluation type
+    if evaluation_type == "low_level":
+        tab1, tab2, tab3 = st.tabs(["Privacy Metrics", "Statistical Similarity (CDF)", "Structural Similarity (t-SNE)"])
+    else:
+        tab1, tab2, tab3 = st.tabs(["Privacy Metrics", "Statistical Utility", "ML Utility"])
 
     with tab1:
         st.subheader("Privacy Evaluation")
@@ -552,7 +457,82 @@ if 'evaluation_results' in st.session_state:
 
     with tab2:
         st.subheader("Statistical Utility Evaluation")
-        if 'utility' in results and results['utility']:
+        
+        # Check if this is low-level visual evaluation
+        if 'ml_utility_results' in st.session_state and st.session_state.ml_utility_results.get('evaluation_type') == 'low_level_visual':
+            # Show CDF plots for low-level
+            ml_results = st.session_state.ml_utility_results
+            stat_results = ml_results.get('statistical_similarity', {})
+            
+            if 'error' in stat_results:
+                st.error(f"Statistical Similarity Error: {stat_results['error']}")
+            else:
+                st.markdown("""
+                **Cumulative Distribution Functions (CDF)** compare the distribution of each feature between 
+                real and synthetic data. Similar CDF curves indicate that the synthetic data preserves the 
+                statistical properties of the original data.
+                """)
+                
+                cdf_data = stat_results.get('cdf_data', {})
+                ks_stats = stat_results.get('ks_statistics', {})
+                features = stat_results.get('features_analyzed', [])
+                
+                if cdf_data:
+                    # Show KS statistics summary
+                    with st.expander("KS Test Summary", expanded=True):
+                        ks_summary = []
+                        for feat in features:
+                            if feat in ks_stats and 'statistic' in ks_stats[feat]:
+                                ks_summary.append({
+                                    'Feature': feat,
+                                    'KS Statistic': f"{ks_stats[feat]['statistic']:.4f}",
+                                    'Similarity': f"{ks_stats[feat]['similarity']:.4f}",
+                                    'p-value': f"{ks_stats[feat]['p_value']:.4f}"
+                                })
+                        if ks_summary:
+                            ks_df = pd.DataFrame(ks_summary)
+                            st.dataframe(ks_df, use_container_width=True)
+                            
+                            # Average similarity score
+                            avg_similarity = np.mean([ks_stats[f]['similarity'] for f in features if f in ks_stats and 'similarity' in ks_stats[f]])
+                            st.metric("Average KS Similarity", f"{avg_similarity:.4f}", 
+                                     help="1.0 = identical distributions, 0.0 = completely different")
+                    
+                    # CDF Plots
+                    st.subheader("CDF Plots by Feature")
+                    
+                    # Create grid of CDF plots
+                    num_features = len(features)
+                    cols_per_row = 3
+                    
+                    for i in range(0, num_features, cols_per_row):
+                        cols = st.columns(cols_per_row)
+                        for j, col in enumerate(cols):
+                            feat_idx = i + j
+                            if feat_idx < num_features:
+                                feat = features[feat_idx]
+                                if feat in cdf_data:
+                                    with col:
+                                        fig, ax = plt.subplots(figsize=(4, 3))
+                                        
+                                        data = cdf_data[feat]
+                                        ax.plot(data['real_values'], data['real_cdf'], 
+                                               label='Real', color='blue', alpha=0.7)
+                                        ax.plot(data['synthetic_values'], data['synthetic_cdf'], 
+                                               label='Synthetic', color='red', alpha=0.7)
+                                        
+                                        ax.set_xlabel('Value')
+                                        ax.set_ylabel('CDF')
+                                        ax.set_title(feat, fontsize=10)
+                                        ax.legend(fontsize=8)
+                                        ax.grid(True, alpha=0.3)
+                                        
+                                        plt.tight_layout()
+                                        st.pyplot(fig)
+                                        plt.close()
+                else:
+                    st.info("No CDF data available.")
+        elif 'utility' in results and results['utility']:
             for metric_name, metric_data in results['utility'].items():
                 display_name = get_metric_display_name(metric_name)
                 with st.expander(display_name, expanded=True):
@@ -566,209 +546,229 @@ if 'evaluation_results' in st.session_state:
             st.info("No utility results available.")
 
     with tab3:
-        st.subheader("ML Utility Evaluation")
-        
-        if 'ml_utility_results' in st.session_state:
-            ml_results = st.session_state.ml_utility_results
+        # Check if this is low-level visual evaluation (t-SNE)
+        if 'ml_utility_results' in st.session_state and st.session_state.ml_utility_results.get('evaluation_type') == 'low_level_visual':
+            st.subheader("Structural Similarity (t-SNE)")
             
-            if 'error' in ml_results:
-                st.error(f"Evaluation Error: {ml_results['error']}")
-                if 'available_columns' in ml_results:
-                    st.write("Available columns:", ml_results['available_columns'])
-            else:
-                # Check if this is LSTM-based evaluation
-                is_lstm = ml_results.get('evaluation_type') == 'low_level_lstm'
+            st.markdown("""
+            **t-SNE (t-Distributed Stochastic Neighbor Embedding)** projects high-dimensional sequence data 
+            into 2D for visualization. If synthetic data overlaps well with real data, it indicates 
+            that the model has learned the underlying structure of the sequences.
+            """)
+            
+            # Check if we have the dataframes stored
+            if 'original_low_df' in st.session_state and 'synthetic_low_df' in st.session_state:
+                orig_df = st.session_state.original_low_df
+                synth_df = st.session_state.synthetic_low_df
                 
-                if is_lstm:
-                    st.markdown("""
-                    This evaluates ML utility using a **Bidirectional LSTM with Attention** trained on synthetic 
-                    sequence data and tested on real data (TSTR - Train Synthetic Test Real).
-                    High accuracy indicates synthetic data preserves sequential patterns needed for ML tasks.
-                    """)
+                # Get total sequence counts
+                total_real = orig_df['capture_id'].nunique() if 'capture_id' in orig_df.columns else len(orig_df)
+                total_synth = synth_df['capture_id'].nunique() if 'capture_id' in synth_df.columns else len(synth_df)
+                
+                # Compute t-SNE if not already cached
+                if 'tsne_results_all' not in st.session_state:
+                    with st.spinner(f"Computing t-SNE on all {total_real + total_synth:,} sequences..."):
+                        struct_results = run_low_level_structural_similarity(
+                            orig_df, 
+                            synth_df, 
+                            feature_columns=LOW_LEVEL_FEATURE_COLUMNS,
+                            max_sequences=None,  # Use all sequences
+                            perplexity=30
+                        )
+                        st.session_state.tsne_results_all = struct_results
+                
+                struct_results = st.session_state.tsne_results_all
+                
+                if 'error' in struct_results:
+                    st.error(f"t-SNE Error: {struct_results['error']}")
+                else:
+                    real_tsne = struct_results.get('real_tsne', [])
+                    synth_tsne = struct_results.get('synthetic_tsne', [])
+                    
+                    if real_tsne and synth_tsne:
+                        # Info metrics
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.metric("Real Sequences", struct_results.get('num_real_sequences', 0))
+                        with col2:
+                            st.metric("Synthetic Sequences", struct_results.get('num_synthetic_sequences', 0))
+                        with col3:
+                            st.metric("Max Sequence Length", struct_results.get('max_seq_len', 0))
+                        
+                        # t-SNE Plot (smaller size)
+                        real_arr = np.array(real_tsne)
+                        synth_arr = np.array(synth_tsne)
+                        
+                        fig, ax = plt.subplots(figsize=(5, 4))
+                        
+                        ax.scatter(real_arr[:, 0], real_arr[:, 1], 
+                                  c='blue', alpha=0.5, label='Real', s=15)
+                        ax.scatter(synth_arr[:, 0], synth_arr[:, 1], 
+                                  c='red', alpha=0.5, label='Synthetic', s=15)
+                        
+                        ax.set_xlabel('t-SNE Dimension 1')
+                        ax.set_ylabel('t-SNE Dimension 2')
+                        ax.set_title('t-SNE: Real vs Synthetic Sequences')
+                        ax.legend(fontsize=8)
+                        ax.grid(True, alpha=0.3)
+                        
+                        plt.tight_layout()
+                        st.pyplot(fig)
+                        plt.close()
+                        
+                        # Features used
+                        with st.expander("Features Used", expanded=False):
+                            features_used = struct_results.get('features_used', [])
+                            st.write(f"**{len(features_used)} features used:**")
+                            for f in features_used:
+                                st.write(f"- `{f}`")
+                    else:
+                        st.info("No t-SNE data available.")
+            else:
+                st.warning("No data available. Please run the evaluation first.")
+        else:
+            # Original ML Utility display for high-level
+            st.subheader("ML Utility Evaluation")
+        
+            if 'ml_utility_results' in st.session_state:
+                ml_results = st.session_state.ml_utility_results
+                
+                if 'error' in ml_results:
+                    st.error(f"Evaluation Error: {ml_results['error']}")
+                    if 'available_columns' in ml_results:
+                        st.write("Available columns:", ml_results['available_columns'])
                 else:
                     st.markdown("""
                     This evaluates Machine Learning utility by training a Random Forest classifier on synthetic data 
                     and testing on real data. High accuracy indicates synthetic data preserves patterns needed for ML tasks.
                     """)
-                
-                # Summary metrics
-                col1, col2, col3 = st.columns(3)
-                
-                with col1:
-                    st.metric(
-                        label="Accuracy",
-                        value=f"{ml_results['accuracy']:.4f}",
-                        help="Classification accuracy on real data using model trained on synthetic data"
-                    )
-                
-                with col2:
-                    if is_lstm:
+                    
+                    # Summary metrics
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
                         st.metric(
-                            label="Training Sequences",
-                            value=f"{ml_results.get('num_training_sequences', 'N/A'):,}",
-                            help="Number of synthetic sequences used for training"
+                            label="Accuracy",
+                            value=f"{ml_results['accuracy']:.4f}",
+                            help="Classification accuracy on real data using model trained on synthetic data"
                         )
-                    else:
+                    
+                    with col2:
                         st.metric(
                             label="Training Samples",
                             value=f"{ml_results['num_training_samples']:,}",
                             help="Number of synthetic samples used for training"
                         )
-                
-                with col3:
-                    if is_lstm:
-                        st.metric(
-                            label="Test Sequences",
-                            value=f"{ml_results.get('num_test_sequences', 'N/A'):,}",
-                            help="Number of real sequences used for testing"
-                        )
-                    else:
+                    
+                    with col3:
                         st.metric(
                             label="Test Samples",
                             value=f"{ml_results['num_test_samples']:,}",
                             help="Number of real samples used for testing"
                         )
-                
-                # Show device info for LSTM
-                if is_lstm:
-                    st.caption(f"Device: {ml_results.get('device', 'N/A')}")
-                
-                # Training history plot for LSTM
-                if is_lstm and 'training_history' in ml_results:
-                    with st.expander("Training History", expanded=True):
-                        history = ml_results['training_history']
-                        
-                        fig, axes = plt.subplots(1, 2, figsize=(8, 3))
-                        
-                        # Loss plot
-                        axes[0].plot(history['train_loss'], label='Train Loss', marker='o', markersize=4)
-                        axes[0].plot(history['val_loss'], label='Val Loss', marker='o', markersize=4)
-                        axes[0].set_xlabel('Epoch')
-                        axes[0].set_ylabel('Loss')
-                        axes[0].set_title('Training and Validation Loss')
-                        axes[0].legend()
-                        axes[0].grid(True, alpha=0.3)
-                        
-                        # Accuracy plot
-                        axes[1].plot(history['train_acc'], label='Train Accuracy', marker='o', markersize=4)
-                        axes[1].plot(history['val_acc'], label='Val Accuracy', marker='o', markersize=4)
-                        axes[1].set_xlabel('Epoch')
-                        axes[1].set_ylabel('Accuracy')
-                        axes[1].set_title('Training and Validation Accuracy')
-                        axes[1].legend()
-                        axes[1].grid(True, alpha=0.3)
-                        
-                        plt.tight_layout()
-                        st.pyplot(fig)
-                        plt.close()
-                
-                # Detailed results in expanders
-                with st.expander("Classification Report", expanded=True):
-                    report = ml_results['classification_report']
                     
-                    # Convert to DataFrame for display
-                    report_df_data = []
-                    for class_name, metrics in report.items():
-                        if isinstance(metrics, dict):
-                            report_df_data.append({
-                                'Class': class_name,
-                                'Precision': metrics.get('precision', 0),
-                                'Recall': metrics.get('recall', 0),
-                                'F1-Score': metrics.get('f1-score', 0),
-                                'Support': metrics.get('support', 0)
-                            })
-                    
-                    if report_df_data:
-                        report_df = pd.DataFrame(report_df_data)
-                        st.dataframe(report_df, use_container_width=True)
-                
-                with st.expander("Confusion Matrix", expanded=True):
-                    cm = np.array(ml_results['confusion_matrix'])
-                    class_labels = ml_results['class_labels']
-                    
-                    # Create confusion matrix plot
-                    fig, ax = plt.subplots(figsize=(5, 4))
-                    im = ax.imshow(cm, interpolation='nearest', cmap='Blues')
-                    ax.figure.colorbar(im, ax=ax)
-                    
-                    # Set ticks and labels
-                    ax.set(xticks=np.arange(cm.shape[1]),
-                           yticks=np.arange(cm.shape[0]),
-                           xticklabels=class_labels,
-                           yticklabels=class_labels,
-                           ylabel='True label',
-                           xlabel='Predicted label')
-                    
-                    # Rotate x labels for better readability
-                    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
-                    
-                    # Add text annotations
-                    thresh = cm.max() / 2.
-                    for i in range(cm.shape[0]):
-                        for j in range(cm.shape[1]):
-                            ax.text(j, i, format(cm[i, j], 'd'),
-                                    ha="center", va="center",
-                                    color="white" if cm[i, j] > thresh else "black")
-                    
-                    fig.tight_layout()
-                    st.pyplot(fig)
-                    plt.close()
-                
-                with st.expander("Feature Importance", expanded=True):
-                    if 'feature_importance' in ml_results:
-                        st.markdown("Features most important for identifying different implementations:")
+                    # Detailed results in expanders
+                    with st.expander("Classification Report", expanded=True):
+                        report = ml_results['classification_report']
                         
-                        # Sort features by importance
-                        importance_dict = ml_results['feature_importance']
-                        sorted_importance = sorted(importance_dict.items(), key=lambda x: x[1], reverse=True)
+                        # Convert to DataFrame for display
+                        report_df_data = []
+                        for class_name, metrics in report.items():
+                            if isinstance(metrics, dict):
+                                report_df_data.append({
+                                    'Class': class_name,
+                                    'Precision': metrics.get('precision', 0),
+                                    'Recall': metrics.get('recall', 0),
+                                    'F1-Score': metrics.get('f1-score', 0),
+                                    'Support': metrics.get('support', 0)
+                                })
                         
-                        # Create bar chart
-                        fig, ax = plt.subplots(figsize=(5, 3))
-                        features = [item[0] for item in sorted_importance]
-                        importances = [item[1] for item in sorted_importance]
+                        if report_df_data:
+                            report_df = pd.DataFrame(report_df_data)
+                            st.dataframe(report_df, use_container_width=True)
+                    
+                    with st.expander("Confusion Matrix", expanded=True):
+                        cm = np.array(ml_results['confusion_matrix'])
+                        class_labels = ml_results['class_labels']
                         
-                        y_pos = np.arange(len(features))
-                        ax.barh(y_pos, importances, color='skyblue', align='center')
-                        ax.set_yticks(y_pos)
-                        ax.set_yticklabels(features)
-                        ax.invert_yaxis()  # Top feature at top
-                        ax.set_xlabel('Importance Score')
-                        ax.set_title('Feature Importance for Classification')
-                        ax.grid(axis='x', linestyle='--', alpha=0.6)
+                        # Create confusion matrix plot
+                        fig, ax = plt.subplots(figsize=(5, 4))
+                        im = ax.imshow(cm, interpolation='nearest', cmap='Blues')
+                        ax.figure.colorbar(im, ax=ax)
+                        
+                        # Set ticks and labels
+                        ax.set(xticks=np.arange(cm.shape[1]),
+                               yticks=np.arange(cm.shape[0]),
+                               xticklabels=class_labels,
+                               yticklabels=class_labels,
+                               ylabel='True label',
+                               xlabel='Predicted label')
+                        
+                        # Rotate x labels for better readability
+                        plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
+                        
+                        # Add text annotations
+                        thresh = cm.max() / 2.
+                        for i in range(cm.shape[0]):
+                            for j in range(cm.shape[1]):
+                                ax.text(j, i, format(cm[i, j], 'd'),
+                                        ha="center", va="center",
+                                        color="white" if cm[i, j] > thresh else "black")
                         
                         fig.tight_layout()
                         st.pyplot(fig)
                         plt.close()
+                    
+                    with st.expander("Feature Importance", expanded=True):
+                        if 'feature_importance' in ml_results:
+                            st.markdown("Features most important for identifying different implementations:")
+                            
+                            # Sort features by importance
+                            importance_dict = ml_results['feature_importance']
+                            sorted_importance = sorted(importance_dict.items(), key=lambda x: x[1], reverse=True)
+                            
+                            # Create bar chart
+                            fig, ax = plt.subplots(figsize=(5, 3))
+                            features = [item[0] for item in sorted_importance]
+                            importances = [item[1] for item in sorted_importance]
+                            
+                            y_pos = np.arange(len(features))
+                            ax.barh(y_pos, importances, color='skyblue', align='center')
+                            ax.set_yticks(y_pos)
+                            ax.set_yticklabels(features)
+                            ax.invert_yaxis()  # Top feature at top
+                            ax.set_xlabel('Importance Score')
+                            ax.set_title('Feature Importance for Classification')
+                            ax.grid(axis='x', linestyle='--', alpha=0.6)
+                            
+                            fig.tight_layout()
+                            st.pyplot(fig)
+                            plt.close()
+                            
+                            # Also show as table
+                            importance_df = pd.DataFrame(sorted_importance, columns=['Feature', 'Importance'])
+                            importance_df['Importance'] = importance_df['Importance'].apply(lambda x: f"{x:.4f}")
+                            st.dataframe(importance_df, use_container_width=True)
+                        else:
+                            st.info("Feature importance is not available.")
+                    
+                    # Show features info
+                    with st.expander("Features Information", expanded=False):
+                        eval_type_display = ml_results.get('evaluation_type', 'unknown').replace('_', ' ').title()
+                        st.write(f"**Evaluation Type:** {eval_type_display}")
                         
-                        # Also show as table
-                        importance_df = pd.DataFrame(sorted_importance, columns=['Feature', 'Importance'])
-                        importance_df['Importance'] = importance_df['Importance'].apply(lambda x: f"{x:.4f}")
-                        st.dataframe(importance_df, use_container_width=True)
-                    else:
-                        # LSTM doesn't have direct feature importance
-                        st.info("Feature importance is not available for LSTM-based evaluation. "
-                               "LSTM models learn complex sequential patterns that don't translate to individual feature importance scores.")
-                        st.write("**Features used for sequence classification:**")
-                        for f in ml_results.get('features_used', []):
+                        features_used = ml_results.get('features_used', [])
+                        st.write(f"**Features Used ({len(features_used)}):**")
+                        for f in features_used:
                             st.write(f"- `{f}`")
-                
-                # Show features info
-                with st.expander("Features Information", expanded=False):
-                    eval_type_display = ml_results.get('evaluation_type', 'unknown').replace('_', ' ').title()
-                    st.write(f"**Evaluation Type:** {eval_type_display}")
-                    
-                    features_used = ml_results.get('features_used', [])
-                    st.write(f"**Features Used ({len(features_used)}):**")
-                    for f in features_used:
-                        st.write(f"- `{f}`")
-                    
-                    missing_features = ml_results.get('missing_features', [])
-                    if missing_features:
-                        st.write(f"\n**Missing Features ({len(missing_features)}):**")
-                        for f in missing_features:
-                            st.write(f"- `{f}`")
-        else:
-            st.info("No ML utility results available.")
+                        
+                        missing_features = ml_results.get('missing_features', [])
+                        if missing_features:
+                            st.write(f"\n**Missing Features ({len(missing_features)}):**")
+                            for f in missing_features:
+                                st.write(f"- `{f}`")
+            else:
+                st.info("No ML utility results available.")
 
     # =========================================================================
     # Section 6: Export Results
