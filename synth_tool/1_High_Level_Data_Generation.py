@@ -20,6 +20,9 @@ from ui_components import (
     render_metadata_summary,
     render_download_buttons,
     render_training_log,
+    render_post_processing_config,
+    render_violation_analysis,
+    render_post_processing_log,
 )
 from training import (
     train_ctgan,
@@ -30,6 +33,7 @@ from training import (
     configure_tabddpm_handler,
 )
 from visualizations import render_all_comparisons
+from post_processing import apply_post_processing, analyze_violations
 
 # Page config
 st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator", page_icon="📊",)
@@ -70,7 +74,20 @@ if training_mode == "Upload pre-trained CTGAN model (.pkl)" and is_ctgan:
     if uploaded_model is not None:
         try:
             import pickle
-            synthesizer = pickle.load(uploaded_model)
+            import torch
+            import io
+            
+            # Read the uploaded file into bytes
+            model_bytes = uploaded_model.read()
+            
+            # Custom unpickler to handle CUDA tensors on CPU-only machines
+            class CPUUnpickler(pickle.Unpickler):
+                def find_class(self, module, name):
+                    if module == 'torch.storage' and name == '_load_from_bytes':
+                        return lambda b: torch.load(io.BytesIO(b), map_location='cpu', weights_only=False)
+                    return super().find_class(module, name)
+            
+            synthesizer = CPUUnpickler(io.BytesIO(model_bytes)).load()
             st.session_state.loaded_synthesizer = synthesizer
             st.session_state.model_loaded = True
             st.session_state.selected_model = "ctgan"
@@ -328,22 +345,68 @@ if st.session_state.configured:
 
 
 # =========================================================================
-# Section 6: Results & Downloads
+# Section 6: Results & Post-Processing
 # =========================================================================
 if st.session_state.generated and st.session_state.synthetic_df is not None:
-    st.write("### Generated Synthetic Data")
+    st.write("## 6. Results & Post-Processing")
     
     synthetic_df = st.session_state.synthetic_df
-    st.dataframe(synthetic_df.head(20), use_container_width=True)
-    st.write(f"**Total rows generated:** {len(synthetic_df)}")
     
-    render_download_buttons(synthetic_df)
+    if 'connection_duration' in synthetic_df.columns:
+        conn_dur_col = 'connection_duration'
+    elif 'Target' in synthetic_df.columns:
+        conn_dur_col = 'Target'
+    else:
+        conn_dur_col = 'connection_duration'
+    
+    st.write("### Constraint Violation Analysis (Before Post-Processing)")
+    violations_before = analyze_violations(synthetic_df, conn_dur_col)
+    render_violation_analysis(violations_before)
+    
+    st.write("---")
+    pp_config = render_post_processing_config()
+    st.session_state.post_processing_config = pp_config
+    
+    if pp_config.get('enabled', False):
+        if st.button("Apply Post-Processing"):
+            with st.spinner("Applying post-processing rules..."):
+                processed_df, pp_log = apply_post_processing(
+                    synthetic_df,
+                    connection_duration_col=conn_dur_col,
+                    duration_method=pp_config.get('duration_method', 'clip'),
+                    combined_duration_method=pp_config.get('combined_method', 'scale'),
+                    fix_integers=pp_config.get('fix_integers', True),
+                    fix_logical=pp_config.get('fix_logical', True)
+                )
+                
+                st.session_state.synthetic_df_raw = synthetic_df.copy()
+                st.session_state.synthetic_df = processed_df
+                st.session_state.post_processing_log = pp_log
+                
+                violations_after = analyze_violations(processed_df, conn_dur_col)
+                st.session_state.violations_after = violations_after
+                
+                st.success("Post-processing complete!")
+                st.rerun()
+    
+    if st.session_state.post_processing_log:
+        render_post_processing_log(st.session_state.post_processing_log)
+        
+        if st.session_state.violations_after:
+            st.write("### Constraint Violation Analysis (After Post-Processing)")
+            render_violation_analysis(st.session_state.violations_after)
+    
+    st.write("### Generated Synthetic Data")
+    st.dataframe(st.session_state.synthetic_df.head(20), use_container_width=True)
+    st.write(f"**Total rows:** {len(st.session_state.synthetic_df):,}")
+    
+    render_download_buttons(st.session_state.synthetic_df)
 
 
 # =========================================================================
 # Section 7: Visualizations
 # =========================================================================
-st.write("## Data Visualizations")
+st.write("## 7. Data Visualizations")
 
 if st.session_state.generated and st.session_state.synthetic_df is not None:
     render_all_comparisons(st.session_state.original_df, st.session_state.synthetic_df)
@@ -352,6 +415,4 @@ elif st.session_state.uploaded:
 else:
     st.info("Upload data to get started")
 
-
-# Training log
 render_training_log()

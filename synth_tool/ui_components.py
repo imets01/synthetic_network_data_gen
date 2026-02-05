@@ -39,6 +39,7 @@ def init_session_state():
         'configured': False,
         'generated': False,
         'synthetic_df': None,
+        'synthetic_df_raw': None, 
         'original_df': None,
         'handler': None,
         'training_log': [],
@@ -50,6 +51,10 @@ def init_session_state():
         'tabddpm_config_content': None,
         'tabddpm_model_uploaded': None,
         'uploaded_data_files': {},
+        'post_processing_config': {'enabled': True},
+        'post_processing_log': [],
+        'violations_before': None,
+        'violations_after': None,
     }
     for key, default_value in defaults.items():
         if key not in st.session_state:
@@ -253,16 +258,34 @@ def render_download_buttons(synthetic_df: pd.DataFrame):
     import pickle
     import io
     
-    dl_col1, dl_col2 = st.columns(2)
+    # Check if we have both raw and processed versions
+    has_raw = st.session_state.get('synthetic_df_raw') is not None
+    
+    if has_raw:
+        dl_col1, dl_col2, dl_col3 = st.columns(3)
+    else:
+        dl_col1, dl_col2 = st.columns(2)
+        dl_col3 = None
     
     with dl_col1:
         csv = synthetic_df.to_csv(index=False).encode('utf-8')
+        label = "📥 Download Synthetic Data (CSV)" if not has_raw else "📥 Download Post-Processed Data (CSV)"
         st.download_button(
-            label="📥 Download Synthetic Data (CSV)",
+            label=label,
             data=csv,
-            file_name='synthetic_network_data.csv',
+            file_name='synthetic_network_data.csv' if not has_raw else 'synthetic_network_data_postprocessed.csv',
             mime='text/csv',
         )
+    
+    if has_raw and dl_col3:
+        with dl_col3:
+            raw_csv = st.session_state.synthetic_df_raw.to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label="📥 Download Raw Data (CSV)",
+                data=raw_csv,
+                file_name='synthetic_network_data_raw.csv',
+                mime='text/csv',
+            )
     
     with dl_col2:
         handler = st.session_state.handler
@@ -299,3 +322,116 @@ def render_training_log():
     if st.session_state.training_log:
         with st.expander("Training Log", expanded=False):
             st.code('\n'.join(st.session_state.training_log))
+
+
+def render_post_processing_config():
+    st.write("### Post-Processing Options")
+    st.info("""
+Post-processing applies domain-specific constraints to ensure generated data is valid:
+- **Non-negativity**: Clips negative values to 0
+- **Duration constraints**: Ensures sub-durations ≤ connection_duration  
+- **Combined duration**: Ensures handshake + migration ≤ connection_duration
+- **Integer columns**: Rounds count/byte columns to integers
+- **Logical constraints**: Ensures temporal ordering (e.g., migration after handshake)
+    """)
+    
+    enable_postprocessing = st.checkbox(
+        "Enable post-processing",
+        value=True,
+        help="Apply domain-specific constraints to the generated data"
+    )
+    
+    if not enable_postprocessing:
+        return {'enabled': False}
+    
+    with st.expander("Advanced Post-Processing Settings", expanded=False):
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            duration_method = st.selectbox(
+                "Duration Constraint Method",
+                options=['clip', 'scale', 'drop'],
+                index=0,
+                help=(
+                    "**clip**: Cap values at connection_duration\n"
+                    "**scale**: Scale values proportionally\n"
+                    "**drop**: Remove violating rows"
+                )
+            )
+            
+            fix_integers = st.checkbox(
+                "Round integer columns",
+                value=True,
+                help="Round count/byte columns to nearest integer"
+            )
+        
+        with col2:
+            combined_method = st.selectbox(
+                "Combined Duration Method",
+                options=['scale', 'prioritize_handshake', 'drop'],
+                index=0,
+                help=(
+                    "**scale**: Scale both handshake and migration proportionally\n"
+                    "**prioritize_handshake**: Keep handshake, reduce migration\n"
+                    "**drop**: Remove violating rows"
+                )
+            )
+            
+            fix_logical = st.checkbox(
+                "Apply logical constraints",
+                value=True,
+                help="Ensure temporal ordering (e.g., migration after handshake)"
+            )
+    
+    return {
+        'enabled': True,
+        'duration_method': duration_method,
+        'combined_method': combined_method,
+        'fix_integers': fix_integers,
+        'fix_logical': fix_logical
+    }
+
+
+def render_violation_analysis(violations: dict):
+    from post_processing import format_violations_report
+    
+    summary = violations.get('summary', {})
+    has_violations = summary.get('has_violations', False)
+    
+    if has_violations:
+        st.warning(f"Found {summary.get('total_violation_types', 0)} types of constraint violations")
+        
+        with st.expander("View Violation Details", expanded=True):
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                st.write("**Non-Negativity**")
+                if violations.get('non_negative'):
+                    for col, info in violations['non_negative'].items():
+                        st.write(f"• {col}: {info['count']} ({info['percentage']:.1f}%)")
+                else:
+                    st.write("✓ No violations")
+            
+            with col2:
+                st.write("**Duration Constraints**")
+                if violations.get('duration_constraints'):
+                    for col, info in violations['duration_constraints'].items():
+                        st.write(f"• {col}: {info['count']} ({info['percentage']:.1f}%)")
+                else:
+                    st.write("✓ No violations")
+            
+            with col3:
+                st.write("**Combined Duration**")
+                if violations.get('combined_duration'):
+                    for constraint, info in violations['combined_duration'].items():
+                        st.write(f"• {info['count']} rows ({info['percentage']:.1f}%)")
+                else:
+                    st.write("✓ No violations")
+    else:
+        st.success("✓ No constraint violations found")
+
+
+def render_post_processing_log(log: list):
+    if log:
+        with st.expander("Post-Processing Log", expanded=False):
+            st.code('\n'.join(log))
