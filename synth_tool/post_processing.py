@@ -1,22 +1,7 @@
-"""
-Post-processing rules for high-level synthetic network data.
-
-Applies domain-specific constraints to ensure generated data is valid:
-- Non-negativity constraints
-- Duration constraints (sub-durations <= connection_duration)
-- Integer column rounding
-- Logical temporal constraints
-"""
 import pandas as pd
 import numpy as np
 from typing import Dict, List, Tuple, Optional
 
-
-# =========================================================================
-# Column Definitions
-# =========================================================================
-
-# Duration columns that should be <= connection_duration
 DURATION_COLS = [
     'handshake_duration', 'time_to_migration', 'migration_duration',
     'first_path_validation_response_latency'
@@ -44,10 +29,6 @@ INTEGER_COLS = [
     'total_client_app_bytes', 'total_server_app_bytes'
 ]
 
-
-# =========================================================================
-# Violation Analysis
-# =========================================================================
 
 def analyze_violations(df: pd.DataFrame, connection_duration_col: str = 'connection_duration') -> Dict:
     violations = {
@@ -146,10 +127,6 @@ def format_violations_report(violations: Dict) -> str:
     
     return "\n".join(lines)
 
-
-# =========================================================================
-# Post-Processing Functions
-# =========================================================================
 
 def clip_to_non_negative(df: pd.DataFrame, columns: Optional[List[str]] = None) -> Tuple[pd.DataFrame, List[str]]:
     """
@@ -332,14 +309,6 @@ def fix_logical_constraints(
     
     log.append("Applying additional logical constraints...")
     
-    # time_to_migration should be >= handshake_duration (migration starts after handshake)
-    # if 'time_to_migration' in df.columns and 'handshake_duration' in df.columns:
-    #     violations = df['time_to_migration'] < df['handshake_duration']
-    #     if violations.sum() > 0:
-    #         df.loc[violations, 'time_to_migration'] = df.loc[violations, 'handshake_duration']
-    #         log.append(f"  Adjusted {violations.sum()} rows where time_to_migration < handshake_duration")
-    
-    # Ensure time_to_migration + migration_duration <= connection_duration
     if all(c in df.columns for c in ['time_to_migration', 'migration_duration', connection_duration_col]):
         combined = df['time_to_migration'] + df['migration_duration']
         violations = combined > df[connection_duration_col]
@@ -351,10 +320,6 @@ def fix_logical_constraints(
     
     return df, log
 
-
-# =========================================================================
-# Main Post-Processing Function
-# =========================================================================
 
 def apply_post_processing(
     df: pd.DataFrame,

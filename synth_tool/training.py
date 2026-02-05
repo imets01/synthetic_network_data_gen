@@ -1,6 +1,3 @@
-"""
-Training and generation logic for CTGAN and TabDDPM models.
-"""
 import os
 import subprocess
 import numpy as np
@@ -10,7 +7,6 @@ import streamlit as st
 
 
 def get_conda_env_path():
-    """Get the path to the .conda environment."""
     return os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.conda'))
 
 
@@ -20,11 +16,6 @@ def get_tabddpm_lib_path():
 
 
 def run_subprocess_with_logging(cmd: list, cwd: str, env: dict, log_placeholder) -> int:
-    """
-    Run a subprocess and stream output to Streamlit.
-    
-    Returns the process return code.
-    """
     import time
     
     st.write(f"Running: `{' '.join(cmd)}`")
@@ -54,18 +45,6 @@ def run_subprocess_with_logging(cmd: list, cwd: str, env: dict, log_placeholder)
 
 
 def load_tabddpm_output(output_dir: str, data_dir: str, handler=None, uploaded_data_files: dict = None):
-    """
-    Load TabDDPM generated output and reconstruct DataFrame.
-    
-    Args:
-        output_dir: Directory containing generated .npy files
-        data_dir: Directory containing data info files
-        handler: Optional TabDDPMHandler with column info
-        uploaded_data_files: Optional dict of uploaded data file contents
-    
-    Returns:
-        DataFrame with synthetic data
-    """
     import json
     
     # Load generated data
@@ -150,12 +129,6 @@ def save_tabddpm_data_files(data_dir: str, uploaded_data_files: dict):
 
 
 def train_ctgan(handler, epochs: int, batch_size: int, num_samples: int) -> pd.DataFrame:
-    """
-    Train CTGAN model and generate synthetic data.
-    
-    Returns:
-        DataFrame with synthetic data
-    """
     progress_bar = st.progress(0)
     status_text = st.empty()
     
@@ -181,18 +154,6 @@ def generate_from_loaded_ctgan(synthesizer, num_samples: int) -> pd.DataFrame:
 
 
 def train_tabddpm(handler, training_mode: str, num_samples: int, log_placeholder) -> pd.DataFrame:
-    """
-    Train TabDDPM model and generate synthetic data.
-    
-    Args:
-        handler: TabDDPMHandler instance
-        training_mode: One of "Quick tune", "Full tune", or "Use pre-tuned config"
-        num_samples: Number of samples to generate
-        log_placeholder: Streamlit placeholder for log output
-    
-    Returns:
-        DataFrame with synthetic data or None on failure
-    """
     import torch
     
     conda_env = get_conda_env_path()
@@ -300,14 +261,6 @@ def train_tabddpm(handler, training_mode: str, num_samples: int, log_placeholder
 
 
 def generate_from_pretrained_tabddpm(num_samples: int, log_placeholder) -> pd.DataFrame:
-    """
-    Generate synthetic data from pre-trained TabDDPM model.
-    
-    Requires uploaded config, model, and data files in session state.
-    
-    Returns:
-        DataFrame with synthetic data or None on failure
-    """
     import torch
     
     conda_env = get_conda_env_path()
@@ -368,12 +321,6 @@ def generate_from_pretrained_tabddpm(num_samples: int, log_placeholder) -> pd.Da
 
 
 def configure_ctgan_handler(df: pd.DataFrame, config: dict):
-    """
-    Configure CTGAN handler with the provided column configuration.
-    
-    Returns:
-        Configured CTGANHandler or None on failure
-    """
     from wrappers.ctgan_wrapper import CTGANHandler
     
     handler = CTGANHandler()
@@ -400,12 +347,6 @@ def configure_ctgan_handler(df: pd.DataFrame, config: dict):
 
 
 def configure_tabddpm_handler(df: pd.DataFrame, config: dict):
-    """
-    Configure TabDDPM handler with the provided column configuration.
-    
-    Returns:
-        Tuple of (configured TabDDPMHandler, preprocessing result) or (None, None) on failure
-    """
     from wrappers.tabddpm_wrapper import TabDDPMHandler
     
     handler = TabDDPMHandler()

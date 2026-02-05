@@ -1,16 +1,9 @@
-"""
-Visualization module for synthetic data analysis.
-"""
 import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-
-# =========================================================================
-# Helper Functions
-# =========================================================================
 
 def get_numeric_columns(df: pd.DataFrame) -> list:
     """
@@ -45,10 +38,6 @@ def get_categorical_columns(df: pd.DataFrame, numeric_cols: list = None) -> list
         numeric_cols = get_numeric_columns(df)
     return [col for col in df.columns if col not in numeric_cols]
 
-
-# =========================================================================
-# Comparison Visualizations (Original vs Synthetic)
-# =========================================================================
 
 def render_statistics_comparison(original_df: pd.DataFrame, synthetic_df: pd.DataFrame):
     """Render statistics comparison table between original and synthetic data."""

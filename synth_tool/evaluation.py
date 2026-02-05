@@ -16,7 +16,6 @@ import io
 import base64
 
 
-# High-level feature definitions for ML utility evaluation
 IDEAL_HIGH_LEVEL_FEATURES = [
     'handshake_duration', 'time_to_migration', 'migration_duration', 
     'packets_before_migration', 'total_bidi_streams_client_init', 
@@ -30,10 +29,8 @@ HIGH_LEVEL_CATEGORICAL_FEATURES = [
     'version_negotiation_occurred', 'connection_close_type'
 ]
 
-# Columns to always exclude from evaluation (they are IDs, not meaningful features)
 EXCLUDED_COLUMNS = ['frame_number', 'capture_id', 'file_id']
 
-# Low-level feature columns for ML utility evaluation
 LOW_LEVEL_FEATURE_COLUMNS = [
     'delta_time', 'packet_length', 'packet_direction', 'header_form',
     'count_initial', 'count_0rtt', 'count_handshake', 'count_1rtt',
@@ -474,15 +471,8 @@ def run_ml_utility_evaluation(synthetic_df, real_df, evaluation_type='high_level
     return results
 
 
-# =========================================================================
-# Low-Level LSTM-based ML Utility Evaluation
-# =========================================================================
-
 class LowLevelSequenceDataset(Dataset):
-    """
-    Dataset class for loading low-level packet sequences.
-    Each sequence represents a QUIC connection capture.
-    """
+    """Dataset class for loading low-level packet sequences."""
     def __init__(self, low_level_df, id_to_implementation, capture_ids, scaler=None, feature_columns=None):
         """
         Args:
@@ -935,22 +925,8 @@ def _balanced_sample_capture_ids(capture_ids, impl_map, all_implementations, max
     return sampled_ids
 
 
-# =========================================================================
-# Low-Level Statistical and Structural Similarity Evaluation
-# =========================================================================
-
 def compute_cdf_data(real_data, synthetic_data):
-    """
-    Compute CDF data for a single feature.
-    
-    Args:
-        real_data: Array of real data values
-        synthetic_data: Array of synthetic data values
-    
-    Returns:
-        Dictionary with sorted values and CDF values for both datasets
-    """
-    # Remove NaN values
+    """Compute CDF data for a single feature."""
     real_clean = real_data[~np.isnan(real_data)]
     synth_clean = synthetic_data[~np.isnan(synthetic_data)]
     

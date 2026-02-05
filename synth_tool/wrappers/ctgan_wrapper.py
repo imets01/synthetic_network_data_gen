@@ -296,10 +296,6 @@ class CTGANHandler:
                 constraint_info['columns'] = c._column_names
             summary.append(constraint_info)
         return summary
-
-    # =========================================================================
-    # Training Methods
-    # =========================================================================
     
     def create_synthesizer(
         self,
@@ -404,21 +400,8 @@ class CTGANHandler:
         self.synthesizer = CTGANSynthesizer.load(filepath)
         print(f"Model loaded from: {filepath}")
         return self
-
-    # =========================================================================
-    # Sampling Methods
-    # =========================================================================
     
     def sample(self, num_rows: int) -> pd.DataFrame:
-        """
-        Generate synthetic data samples.
-        
-        Args:
-            num_rows: Number of synthetic rows to generate
-            
-        Returns:
-            DataFrame with synthetic data
-        """
         if self.synthesizer is None:
             raise ValueError("No trained synthesizer. Train the model first.")
         
@@ -440,10 +423,6 @@ class CTGANHandler:
         
         self.synthetic_data.to_csv(filepath, index=False)
         print(f"Synthetic data saved to: {filepath}")
-
-    # =========================================================================
-    # Evaluation Methods
-    # =========================================================================
     
     def run_diagnostic(
         self,

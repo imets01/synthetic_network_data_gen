@@ -1,14 +1,13 @@
 """
-Synthetic Network Data Generator - Streamlit App
+Synthetic Network Data Generator
 
-A streamlined application for generating synthetic network data using CTGAN or TabDDPM.
+Streamlit application for generating synthetic network data using CTGAN or TabDDPM.
 """
 import streamlit as st
 import pandas as pd
 import toml
 import traceback
 
-# Local imports
 from ui_components import (
     init_session_state,
     render_file_upload,
@@ -35,39 +34,22 @@ from training import (
 from visualizations import render_all_comparisons
 from post_processing import apply_post_processing, analyze_violations
 
-# Page config
-st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator", page_icon="📊",)
+st.set_page_config(layout="wide", page_title="Synthetic Network Data Generator", page_icon="📊")
 st.title("Synthetic Network Data Generator")
 
-# Initialize session state
 init_session_state()
 
-
-# =========================================================================
-# Section 1: File Upload
-# =========================================================================
 if not render_file_upload():
     st.stop()
 
 render_data_preview()
 df = st.session_state.original_df
 
-
-# =========================================================================
-# Section 2: Model Selection
-# =========================================================================
 is_ctgan = render_model_selection()
 
-
-# =========================================================================
-# Section 3: Training Mode
-# =========================================================================
 training_mode = render_training_mode_selection(is_ctgan)
 
 
-# =========================================================================
-# Section 3b: Pre-trained Model Upload (CTGAN)
-# =========================================================================
 if training_mode == "Upload pre-trained CTGAN model (.pkl)" and is_ctgan:
     uploaded_model = st.file_uploader("Upload trained CTGAN model file", type=['pkl'])
     
@@ -119,9 +101,6 @@ if training_mode == "Upload pre-trained CTGAN model (.pkl)" and is_ctgan:
                     st.code(traceback.format_exc())
 
 
-# =========================================================================
-# Section 3c: Pre-trained Model Upload (TabDDPM)
-# =========================================================================
 elif "Upload pre-trained model" in training_mode and not is_ctgan:
     st.info("""
 **Upload config.toml, model.pt, and training data files to generate immediately (no training)**
@@ -224,9 +203,6 @@ You need to upload all files from a previous training run.
                         st.code(traceback.format_exc())
 
 
-# =========================================================================
-# Section 3d: Pre-tuned Config Upload (TabDDPM)
-# =========================================================================
 elif "Use pre-tuned config (.toml)" in training_mode and not is_ctgan:
     st.info("""
 **Upload config.toml to train with tuned hyperparameters**
@@ -251,9 +227,6 @@ This skips hyperparameter search and trains using known-good parameters.
             st.code(traceback.format_exc())
 
 
-# =========================================================================
-# Section 4: Column Configuration (for training modes)
-# =========================================================================
 show_column_config = (
     training_mode == "Train new model" or 
     "Quick tune" in training_mode or 
@@ -293,9 +266,6 @@ if show_column_config:
                     st.code(traceback.format_exc())
 
 
-# =========================================================================
-# Section 5: Generate Synthetic Data (after configuration)
-# =========================================================================
 if st.session_state.configured:
     st.write("## 5. Generate Synthetic Data")
     
@@ -344,9 +314,6 @@ if st.session_state.configured:
                 st.code(traceback.format_exc())
 
 
-# =========================================================================
-# Section 6: Results & Post-Processing
-# =========================================================================
 if st.session_state.generated and st.session_state.synthetic_df is not None:
     st.write("## 6. Results & Post-Processing")
     
@@ -403,9 +370,6 @@ if st.session_state.generated and st.session_state.synthetic_df is not None:
     render_download_buttons(st.session_state.synthetic_df)
 
 
-# =========================================================================
-# Section 7: Visualizations
-# =========================================================================
 st.write("## 7. Data Visualizations")
 
 if st.session_state.generated and st.session_state.synthetic_df is not None:

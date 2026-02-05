@@ -1,13 +1,7 @@
-"""
-UI components and utilities for the Streamlit app.
-"""
 import streamlit as st
 import pandas as pd
 
 
-# =========================================================================
-# Default Column Configuration
-# =========================================================================
 DEFAULT_TARGET = 'connection_duration'
 DEFAULT_FEATURES = [
     'implementation', 'retry_occurred', 'version_negotiation_occurred', 'migration_type',

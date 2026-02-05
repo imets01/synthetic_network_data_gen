@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pydeck as pdk
-from urllib.error import URLError
 import matplotlib.pyplot as plt
 
 from evaluation import (
@@ -17,13 +15,9 @@ from evaluation import (
     EXCLUDED_COLUMNS
 )
 
-# Page config
 st.set_page_config(layout="wide", page_title="Synthetic Data Evaluation")
 st.title("Synthetic Data Evaluation")
 
-# =========================================================================
-# Section 1: Evaluation Configuration
-# =========================================================================
 st.header("1. Evaluation Configuration")
 
 st.markdown("""
@@ -58,9 +52,6 @@ else:
 # Show excluded columns info
 st.info(f"The following columns are always excluded from evaluation: `{', '.join(EXCLUDED_COLUMNS)}`")
 
-# =========================================================================
-# Section 2: Data Upload
-# =========================================================================
 st.header("2. Upload Data for Evaluation")
 
 original_df = None
@@ -159,11 +150,8 @@ if evaluation_type == "high_level":
             help="The column to predict for ML utility evaluation."
         )
 else:
-    target_column = None  # Not needed for low-level visual evaluation
+    target_column = None
 
-# =========================================================================
-# Section 3: Data Validation
-# =========================================================================
 st.header("3. Data Validation")
 
 # Remove excluded columns for validation display
@@ -247,9 +235,6 @@ if original_missing.any() or synthetic_missing.any():
 else:
     st.success("No missing values detected.")
 
-# =========================================================================
-# Section 4: Run Evaluation
-# =========================================================================
 st.header("4. Run Evaluation")
 
 if st.button("Run Privacy & Utility Evaluation", type="primary"):
@@ -346,19 +331,12 @@ if st.button("Run Privacy & Utility Evaluation", type="primary"):
             st.error(f"Evaluation failed: {str(e)}")
             st.exception(e)
 
-
-
-# =========================================================================
-# Section 5: Display Results
-# =========================================================================
 if 'evaluation_results' in st.session_state:
     results = st.session_state.evaluation_results
 
     st.header("5. Evaluation Results")
 
-    # Define interpretation logic based on the FEST Framework
     METRIC_GUIDE = {
-        # --- Privacy Metrics ---
         "DCR": {
             "full_name": "Distance to Closest Record",
             "ideal": "Range 0.0 to infinity (Avoid 0)",
@@ -374,8 +352,6 @@ if 'evaluation_results' in st.session_state:
             "ideal": "Range 0.0 - 1.0",
             "desc": "Evaluates relative distances. Lower values indicate isolated points; higher values indicate dense areas."
         },
-
-        # --- Statistical Utility Metrics ---
         "Wasserstein": {
             "full_name": "Wasserstein Distance",
             "ideal": "Lower is Better (Target: 0.0)",
@@ -770,14 +746,10 @@ if 'evaluation_results' in st.session_state:
             else:
                 st.info("No ML utility results available.")
 
-    # =========================================================================
-    # Section 6: Export Results
-    # =========================================================================
     st.header("6. Export Results")
 
     if st.button("Export All Results as JSON"):
         import json
-        # Combine all results
         all_results = {
             'privacy': results.get('privacy', {}),
             'statistical_utility': results.get('utility', {}),
@@ -790,4 +762,3 @@ if 'evaluation_results' in st.session_state:
             file_name="evaluation_results.json",
             mime="application/json"
         )
-

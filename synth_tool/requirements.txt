@@ -1,33 +1,28 @@
-# Synth Tool Requirements
-# =======================
-# Core dependencies for the Streamlit app and TabDDPM wrapper
-
-# Streamlit for the web UI
+# Core dependencies
 streamlit>=1.20.0
-
-# Data processing
 pandas>=1.3.4
 numpy>=1.21.4
 scikit-learn>=1.0.2
 
-# Plotting
+# Visualization
 plotly>=5.0.0
 matplotlib>=3.5.0
 
-# TabDDPM dependencies
+# Deep learning
 torch>=1.10.0
+
+# Configuration parsing
 tomli>=1.2.2
 tomli-w>=0.4.0
+toml>=0.10.0
 tqdm>=4.60.0
 
-# CTGAN dependencies
+# Synthetic data generation
 sdv>=0.6.0
 
-#FEST evaluation dependencies
+# Evaluation
 rdt>=1.0.0
-
-# Optional: Install these if you want to run full TabDDPM training
-# (see tab-ddpm/tab-ddpm-main/requirements.txt for the complete list)
+joblib>=1.0.0
 # catboost==1.0.3
 # rtdl==0.0.9
 # libzero==0.0.8

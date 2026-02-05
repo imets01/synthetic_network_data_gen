@@ -1,9 +1,4 @@
-"""
-Low-Level Synthetic Data Generation with WGAN-GP
 
-Generates synthetic packet-level network data using a Wasserstein GAN with Gradient Penalty.
-Supports both loading pre-trained models and training new models from scratch.
-"""
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -17,34 +12,23 @@ import joblib
 import json
 from pathlib import Path
 
-# Add parent directory to path for imports
 parent_dir = Path(__file__).parent.parent
 sys.path.insert(0, str(parent_dir))
 
 from wrappers.wgan_wrapper import WGANHandler, Generator
 
-# =============================================================================
-# Constants
-# =============================================================================
 DEFAULT_SEQ_LENGTH = 40
 CONNECTION_CLOSE_COL = 'count_connection_close'
 
 CONDITION_COLUMNS = [
-            'implementation', 'connection_duration',  'version_negotiation_occurred', 'retry_occurred', 'migration_type',
-            #'first_path_validation_response_latency', #'path_validation_initiated',
-              'packets_sent_client', 
-            'packets_sent_server', 'handshake_duration', 'time_to_migration', 'migration_duration', # Corrected
-            'packets_before_migration', #'total_bidi_streams_client_init',
-            #'total_udi_streams_client_init',
-            # 'connection_close_type'
+    'implementation', 'connection_duration', 'version_negotiation_occurred', 'retry_occurred', 'migration_type',
+    'packets_sent_client', 'packets_sent_server', 'handshake_duration', 'time_to_migration', 'migration_duration',
+    'packets_before_migration',
 ]
 
 CATEGORICAL_COLUMNS = ['migration_type', 'implementation']
 
 
-# =============================================================================
-# Helper Functions
-# =============================================================================
 def init_session_state():
     """Initialize all session state variables with defaults."""
     defaults = {
@@ -187,17 +171,11 @@ def render_download_button(sequences: list, sequence_columns: list, key: str, ca
         st.error(f"Error preparing data for download: {str(e)}")
 
 
-# =============================================================================
-# Page Setup
-# =============================================================================
 st.set_page_config(layout="wide", page_title="Low-Level Synthetic Data Generation")
 st.title("Low-Level Synthetic Data Generation with WGAN-GP")
 
 init_session_state()
 
-# ============================================================================
-# Step 1: Choose Mode
-# ============================================================================
 st.header("1. Choose Mode")
 
 mode = st.radio(
@@ -209,9 +187,6 @@ mode = st.radio(
 
 st.session_state.wgan_mode = mode
 
-# ============================================================================
-# Mode A: Load Pre-trained Model
-# ============================================================================
 if mode == "Load Pre-trained Model":
     st.header("2. Upload Required Files")
     
@@ -333,9 +308,6 @@ if mode == "Load Pre-trained Model":
                 st.error(f"Error loading model: {str(e)}")
                 st.exception(e)
     
-    # ============================================================================
-    # Generate Synthetic Data (Load Mode)
-    # ============================================================================
     if st.session_state.model_loaded:
         st.header("3. Generate Synthetic Sequences")
         
@@ -424,9 +396,6 @@ if mode == "Load Pre-trained Model":
                 key="download_csv_load"
             )
 
-# ============================================================================
-# Mode B: Train New Model
-# ============================================================================
 elif mode == "Train New Model":
     st.header("2. Upload Training Data")
     
@@ -542,9 +511,6 @@ elif mode == "Train New Model":
                 st.error(f"Error loading data: {str(e)}")
                 st.exception(e)
     
-    # ============================================================================
-    # Model Configuration and Training
-    # ============================================================================
     if st.session_state.wgan_data_loaded:
         st.header("3. Configure and Train WGAN-GP")
         
@@ -714,9 +680,6 @@ elif mode == "Train New Model":
         else:
             st.warning("⚠️ Please create models first")
     
-    # ============================================================================
-    # Generate and Save (Train Mode)
-    # ============================================================================
     if st.session_state.wgan_model_trained:
         st.header("4. Generate Synthetic Sequences")
         
