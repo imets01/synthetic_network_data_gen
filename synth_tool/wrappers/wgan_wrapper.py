@@ -13,10 +13,9 @@ from sklearn.preprocessing import MinMaxScaler
 from tqdm import tqdm
 
 
-# --- WGAN-GP Specific Hyperparameters ---
 DEFAULT_WGAN_PARAMS = {
-    'critic_iterations': 5,  # Train the critic 5 times for every 1 generator training
-    'lambda_gp': 10,         # The gradient penalty lambda
+    'critic_iterations': 5,
+    'lambda_gp': 10,
     'latent_dim': 20,
     'hidden_dim': 256,
     'num_layers_generator': 2,
