@@ -2,10 +2,15 @@
 
 A tool for generating synthetic QUIC network traffic data using state-of-the-art generative models. This project implements a hierarchical approach for creating realistic network traffic fingerprints with support for QUIC connection migration features.
 
+> **Note:** This project was developed with the assistance of [GitHub Copilot](https://github.com/features/copilot).
+
 ## Table of Contents
 
 - [Overview](#overview)
 - [Project Structure](#project-structure)
+- [Quick Start with Example Data](#quick-start-with-example-data)
+- [Important: FEST Evaluation Framework](#important-fest-evaluation-framework)
+- [Experiment Notebooks](#experiment-notebooks)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
@@ -15,6 +20,7 @@ A tool for generating synthetic QUIC network traffic data using state-of-the-art
 - [Evaluation Framework](#evaluation-framework)
 - [Capture Generation](#capture-generation)
 - [Features Reference](#features-reference)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -39,39 +45,100 @@ The toolkit includes:
 ```
 synthetic_network_data_gen/
 ├── synth_tool/                     # Main Streamlit application
-│   ├── 1_High_Level_Data_Generation.py   # Main app entry point
-│   ├── pages/
-│   │   ├── 2_Low_Level_Data_Generation.py  # WGAN-GP for packet sequences
-│   │   └── 3_FEST_Evaluation.py            # Evaluation dashboard
-│   ├── wrappers/                   # Model wrapper classes
-│   │   ├── ctgan_wrapper.py        # CTGAN handler
-│   │   ├── tabddpm_wrapper.py      # TabDDPM handler
-│   │   └── wgan_wrapper.py         # WGAN-GP handler
-│   ├── training.py                 # Training logic
-│   ├── evaluation.py               # Evaluation metrics
-│   ├── visualizations.py           # Plotting utilities
-│   ├── ui_components.py            # Streamlit UI components
-│   └── requirements.txt            # Python dependencies
+│   ├── 1_High_Level_Data_Generation.py
+│   ├── pages/                      # Additional app pages
+│   ├── wrappers/                   # Model wrapper classes (CTGAN, TabDDPM, WGAN)
+│   ├── example_data/               # Pre-trained models & sample datasets
+│   ├── tab-ddpm/                   # TabDDPM implementation
+│   ├── evaluation.py, training.py, post_processing.py, ...
+│   └── requirements.txt
 │
-├── captures/                       # Network capture utilities
-│   ├── capture_generation_scripts/ # Scripts for generating QUIC captures
+├── captures/                       # Network capture utilities & scripts
+│   ├── capture_generation_scripts/ # QUIC capture generation scripts
 │   ├── captures_json/              # Parsed JSON captures
-│   ├── keylog_files/               # TLS keylog files for decryption
+│   ├── keylog_files/               # TLS keylog files
 │   └── pcap_files/                 # Raw PCAP files
 │
-├── high_level_features/            # High-level feature datasets & notebooks
+├── high_level_features/            # High-level feature experiments
 │   ├── dataset/                    # Training datasets
-│   ├── CTGAN/                      # CTGAN experiments
+│   ├── CTGAN/                      # CTGAN experiments (includes archiv/)
 │   └── tabddpm/                    # TabDDPM experiments
 │
-├── low_level_features/             # Low-level packet feature datasets
+├── low_level_features/             # Low-level packet feature experiments
 │   ├── dataset/                    # Packet-level datasets
-│   ├── WGAN/                       # WGAN training notebooks
-│   └── RGAN/                       # RGAN experiments
+│   ├── WGAN/                       # WGAN-GP experiments (includes archiv/)
+│   ├── RGAN/                       # RGAN experiments
+│   ├── PARSynthesizer/             # PAR model experiments
+│   └── baseline_model/             # Baseline comparisons
 │
-├── features.md                     # Detailed feature documentation
-└── README.md                       # This file
+├── FEST_eval/                      # Evaluation framework (not in repo)
+│   └── synprivutil/                # Required for evaluation page
+│
+├── test_gan_data/                  # Legacy test data from experimentations
+├── features.md                     # Feature documentation
+└── README.md
 ```
+
+> **Note:** Model folders (e.g., `CTGAN/`, `WGAN/`) contain an `archiv/` subfolder with initial experimentations and exploratory notebooks. The `test_gan_data/` folder contains previous versions of datasets used during development.
+
+---
+
+## Quick Start with Example Data
+
+To quickly try out the application without preparing your own data, use the pre-trained models and sample datasets in `synth_tool/example_data/`:
+
+| Folder | Contents | Usage |
+|--------|----------|-------|
+| `ctgan/` | Pre-trained CTGAN model (`ctgan_model.pkl`) | Load in High-Level page for instant generation |
+| `tabddpm/` | Pre-trained TabDDPM model (`model.pt` + `config.toml`) | Load in High-Level page |
+| `wgan/` | Pre-trained WGAN-GP model (`wgan_model.zip`) + sample low-level data | Load in Low-Level page |
+| `all_captures_dataset.csv` | Sample high-level dataset | Use as original data for training or evaluation |
+
+**Quick Start Steps:**
+1. Run `streamlit run 1_High_Level_Data_Generation.py`
+2. Select "Load Pre-trained Model"
+3. Upload `example_data/ctgan/ctgan_model.pkl`
+4. Generate synthetic samples
+
+---
+
+## Important: FEST Evaluation Framework
+
+The **FEST Evaluation** page requires the `synprivutil` library, which is **not included in the GitHub repository** 
+
+To enable the evaluation functionality:
+
+1. Obtain the `synprivutil` package (privacy-utility evaluation framework)
+2. Place it in `FEST_eval/synprivutil/`
+3. The directory structure should be:
+   ```
+   FEST_eval/
+   └── synprivutil/
+       └── privacy_utility_framework/
+           └── privacy_utility_framework/
+               └── metrics/
+   ```
+
+Without `synprivutil`, the evaluation page will not function. All other features (training, generation, post-processing) work independently.
+
+---
+
+## Experiment Notebooks
+
+Model experiments are organized in separate folders within `high_level_features/` and `low_level_features/`:
+
+- **High-Level Features** (`high_level_features/`)
+  - `CTGAN/` - CTGAN training notebooks and generated data
+  - `tabddpm/` - TabDDPM experiments
+  - Dataset generation and post-processing notebooks
+
+- **Low-Level Features** (`low_level_features/`)
+  - `WGAN/` - WGAN-GP training and post-processing notebooks
+  - `RGAN/` - RGAN alternative experiments
+  - `PARSynthesizer/` - PAR model experiments
+  - `baseline_model/` - Baseline comparisons
+
+Each model folder includes an `archiv/` subfolder containing initial exploratory notebooks and early experiments.
 
 ---
 
@@ -430,3 +497,10 @@ After generation, apply protocol-specific rules:
 5. **Sequence Truncation**: Cut at connection close events
 
 See notebooks in `high_level_features/` and `low_level_features/` for detailed post-processing examples.
+
+---
+
+## Acknowledgments
+
+- **GitHub Copilot**: This project was developed with the assistance of [GitHub Copilot](https://github.com/features/copilot), an AI pair programmer that helped accelerate development and implementation of the codebase.
+- **FEST Framework**: The evaluation module uses the privacy-utility evaluation framework for computing privacy and utility metrics on synthetic data.
