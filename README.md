@@ -85,7 +85,7 @@ synthetic_network_data_gen/
 
 ## Quick Start with Example Data
 
-To quickly try out the application without preparing your own data, use the pre-trained models and sample datasets in `synth_tool/example_data/`:
+After completing the [Installation](#installation), try the app with pre-trained models in `synth_tool/example_data/`:
 
 | Folder | Contents | Usage |
 |--------|----------|-------|
@@ -94,9 +94,9 @@ To quickly try out the application without preparing your own data, use the pre-
 | `wgan/` | Pre-trained WGAN-GP model (`wgan_model.zip`) + sample low-level data | Load in Low-Level page |
 | `all_captures_dataset.csv` | Sample high-level dataset | Use as original data for training or evaluation |
 
-**Quick Start Steps:**
-1. Run `streamlit run 1_High_Level_Data_Generation.py`
-2. Select "Load Pre-trained Model"
+**Try It:**
+1. Complete installation steps 1-5
+2. In the app, select "Load Pre-trained Model"
 3. Upload `example_data/ctgan/ctgan_model.pkl`
 4. Generate synthetic samples
 
@@ -179,7 +179,15 @@ git clone <repository-url>
 cd synthetic_network_data_gen
 ```
 
-### 2. Create a Virtual Environment (Recommended)
+### 2. Verify Python Version
+
+Ensure you have Python 3.8 or higher:
+
+```bash
+python --version
+```
+
+### 3. Create a Virtual Environment (Recommended)
 
 ```bash
 python -m venv venv
@@ -191,19 +199,27 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install Dependencies
+### 4. Install Dependencies
 
 ```bash
 cd synth_tool
 pip install -r requirements.txt
 ```
 
-### 4. (Optional) Install TabDDPM
-
-For TabDDPM support, additional setup is required:
+### 5. Run the Application
 
 ```bash
-cd synth_tool/tab-ddpm/tab-ddpm-main
+streamlit run 1_High_Level_Data_Generation.py
+```
+
+This launches the web interface at `http://localhost:8501`.
+
+### 6. (Optional) Install TabDDPM
+
+For TabDDPM model support, install additional dependencies:
+
+```bash
+cd tab-ddpm/tab-ddpm-main
 pip install -r requirements.txt
 ```
 
@@ -211,14 +227,7 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-### Running the Streamlit Application
-
-```bash
-cd synth_tool
-streamlit run 1_High_Level_Data_Generation.py
-```
-
-This launches the web interface at `http://localhost:8501` with three main pages:
+After installation, the app runs at `http://localhost:8501` with three pages:
 1. **High-Level Data Generation** - Train/use CTGAN or TabDDPM models
 2. **Low-Level Data Generation** - Train/use WGAN-GP for packet sequences
 3. **FEST Evaluation** - Evaluate synthetic data quality
