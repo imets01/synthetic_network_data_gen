@@ -104,20 +104,23 @@ After completing the [Installation](#installation), try the app with pre-trained
 
 ## Important: FEST Evaluation Framework
 
-The **FEST Evaluation** page requires the `synprivutil` library, which is **not included in the GitHub repository** 
+The **FEST Evaluation** page requires the `synprivutil` library, which is **not included in this repository**.
 
-To enable the evaluation functionality:
+To enable the evaluation functionality, clone the synprivutil repository:
 
-1. Obtain the `synprivutil` package (privacy-utility evaluation framework)
-2. Place it in `FEST_eval/synprivutil/`
-3. The directory structure should be:
-   ```
-   FEST_eval/
-   └── synprivutil/
-       └── privacy_utility_framework/
-           └── privacy_utility_framework/
-               └── metrics/
-   ```
+```bash
+cd FEST_eval
+git clone https://github.com/Karo2222/synprivutil.git
+```
+
+After cloning, the directory structure should be:
+```
+FEST_eval/
+└── synprivutil/
+    └── privacy_utility_framework/
+        └── privacy_utility_framework/
+            └── metrics/
+```
 
 Without `synprivutil`, the evaluation page will not function. All other features (training, generation, post-processing) work independently.
 
