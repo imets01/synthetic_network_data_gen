@@ -89,10 +89,11 @@ After completing the [Installation](#installation), try the app with pre-trained
 
 | Folder | Contents | Usage |
 |--------|----------|-------|
-| `ctgan/` | Pre-trained CTGAN model (`ctgan_model.pkl`) | Load in High-Level page for instant generation |
-| `tabddpm/` | Pre-trained TabDDPM model (`model.pt` + `config.toml`) | Load in High-Level page |
-| `wgan/` | Pre-trained WGAN-GP model (`wgan_model.zip`) + sample low-level data | Load in Low-Level page |
-| `all_captures_dataset.csv` | Sample high-level dataset | Use as original data for training or evaluation |
+| `ctgan/` | Pre-trained CTGAN model (`ctgan_model.pkl`) and synthetic data that was generated using the model. | Load in High-Level page for instant generation |
+| `tabddpm/` | Pre-trained TabDDPM model (`model.pt` + `config.toml`) and synthetic data that was generated using the model. | Load in High-Level page |
+| `wgan/` | Pre-trained WGAN-GP model (`wgan_model.zip`) + sample synthetic low-level data | Load in Low-Level page |
+| `high_level_all_captures_dataset.csv` | The high-level dataset for training | Use as original data for training or evaluation |
+| `low_level_features_merged.csv` | The low-level dataset for training | Use as original data for training or evaluation |
 
 **Try It:**
 1. Complete installation steps 1-5
