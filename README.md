@@ -136,7 +136,7 @@ Model experiments are organized in separate folders within `high_level_features/
   - `WGAN/` - WGAN-GP training and post-processing notebooks
   - `RGAN/` - RGAN alternative experiments
   - `PARSynthesizer/` - PAR model experiments
-  - `baseline_model/` - Baseline comparisons
+  - `baseline_model/` - Baseline script
 
 Each model folder includes an `archiv/` subfolder containing initial exploratory notebooks and early experiments.
 
