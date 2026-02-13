@@ -69,9 +69,6 @@ synthetic_network_data_gen/
 │   ├── WGAN/                       # WGAN training notebooks
 │   └── RGAN/                       # RGAN experiments
 │
-├── FEST_eval/                      # FEST evaluation framework
-│   └── synprivutil/                # Privacy-utility evaluation tools
-│
 ├── features.md                     # Detailed feature documentation
 └── README.md                       # This file
 ```
