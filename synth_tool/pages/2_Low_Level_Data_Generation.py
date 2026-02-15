@@ -16,6 +16,7 @@ parent_dir = Path(__file__).parent.parent
 sys.path.insert(0, str(parent_dir))
 
 from wrappers.wgan_wrapper import WGANHandler, Generator
+from post_processing import add_low_level_migration_endpoints
 
 DEFAULT_SEQ_LENGTH = 40
 CONNECTION_CLOSE_COL = 'count_connection_close'
@@ -156,10 +157,15 @@ def sequences_to_dataframe(sequences: list, sequence_columns: list, capture_ids:
     return df
 
 
-def render_download_button(sequences: list, sequence_columns: list, key: str, capture_ids: list = None):
+def render_download_button(sequences: list, sequence_columns: list, key: str, capture_ids: list = None,
+                           add_endpoints: bool = True):
     """Render download button for generated sequences."""
     try:
         df = sequences_to_dataframe(sequences, sequence_columns, capture_ids=capture_ids)
+        if add_endpoints:
+            df, ep_log = add_low_level_migration_endpoints(df)
+            for msg in ep_log:
+                st.caption(msg)
         st.download_button(
             label="📥 Download CSV",
             data=df.to_csv(index=False),
@@ -380,6 +386,9 @@ if mode == "Load Pre-trained Model":
         if st.session_state.wgan_generated_data is not None:
             st.header("4. Export Generated Data")
             
+            add_ep_load = st.checkbox("Add migration endpoint addresses", value=True, key="add_ep_load",
+                                      help="Generate realistic source/destination IPs and ports per packet")
+            
             # Preview generated data
             with st.expander("Preview Generated Data"):
                 preview_df = sequences_to_dataframe(
@@ -387,13 +396,16 @@ if mode == "Load Pre-trained Model":
                     st.session_state.sequence_columns,
                     capture_ids=st.session_state.wgan_capture_ids[:5] if st.session_state.wgan_capture_ids else None
                 )
+                if add_ep_load:
+                    preview_df, _ = add_low_level_migration_endpoints(preview_df)
                 st.dataframe(preview_df.head(50), use_container_width=True)
             
             render_download_button(
                 st.session_state.wgan_generated_data,
                 st.session_state.sequence_columns,
                 capture_ids=st.session_state.wgan_capture_ids,
-                key="download_csv_load"
+                key="download_csv_load",
+                add_endpoints=add_ep_load
             )
 
 elif mode == "Train New Model":
@@ -800,6 +812,9 @@ elif mode == "Train New Model":
                 seq_cols = getattr(st.session_state.wgan_handler.dataset, 'sequence_columns', [])
             
             if seq_cols:
+                add_ep_train = st.checkbox("Add migration endpoint addresses", value=True, key="add_ep_train",
+                                           help="Generate realistic source/destination IPs and ports per packet")
+                
                 # Preview generated data
                 with st.expander("Preview Generated Data"):
                     preview_df = sequences_to_dataframe(
@@ -807,13 +822,16 @@ elif mode == "Train New Model":
                         seq_cols,
                         capture_ids=st.session_state.wgan_capture_ids[:5] if st.session_state.wgan_capture_ids else None
                     )
+                    if add_ep_train:
+                        preview_df, _ = add_low_level_migration_endpoints(preview_df)
                     st.dataframe(preview_df.head(50), use_container_width=True)
                 
                 render_download_button(
                     st.session_state.wgan_generated_data,
                     seq_cols,
                     capture_ids=st.session_state.wgan_capture_ids,
-                    key="download_csv_train"
+                    key="download_csv_train",
+                    add_endpoints=add_ep_train
                 )
             else:
                 st.warning("Unable to export - sequence columns not available")

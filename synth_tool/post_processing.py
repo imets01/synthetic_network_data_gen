@@ -418,6 +418,121 @@ def add_migration_endpoints(
     return df, log
 
 
+def _get_random_public_ip_not_in(rng: random.Random, excluded_ips) -> str:
+    """Generate a random public IPv4 address not in the excluded set."""
+    if isinstance(excluded_ips, str):
+        excluded_ips = [excluded_ips]
+    excluded_set = set(excluded_ips)
+    while True:
+        ip = _get_random_public_ip(rng)
+        if ip not in excluded_set:
+            return ip
+
+
+def add_low_level_migration_endpoints(
+    df: pd.DataFrame,
+    seed: int = 42,
+    server_port: int = 443
+) -> Tuple[pd.DataFrame, List[str]]:
+    """
+    Generate realistic per-packet source/destination IPs and ports for low-level data.
+
+    Detects QUIC migration within each capture_id group by looking at
+    PATH_CHALLENGE / PATH_RESPONSE frame counts. Before the first such frame
+    the initial client endpoint is used; from that frame onward the
+    post-migration endpoint is used. Packet direction (0 = client→server,
+    1 = server→client) determines which IP/port goes into source vs destination.
+
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        Low-level synthetic data with a 'capture_id' column and per-packet rows
+    seed : int
+        Random seed for reproducibility
+    server_port : int
+        Server port (default 443 for QUIC/HTTPS)
+
+    Returns:
+    --------
+    Tuple of (processed DataFrame, list of log messages)
+    """
+    df = df.copy()
+    log = []
+    rng = random.Random(seed)
+
+    if df.empty:
+        log.append("DataFrame is empty, skipping low-level migration endpoints.")
+        return df, log
+
+    if 'capture_id' not in df.columns:
+        log.append("Warning: 'capture_id' column not found, skipping low-level migration endpoints.")
+        return df, log
+
+    for col in ["source_ip", "source_port", "destination_ip", "destination_port"]:
+        df[col] = None
+
+    migration_count = 0
+    total_captures = 0
+
+    for capture_id, group in df.groupby("capture_id", sort=False):
+        total_captures += 1
+        server_ip = _get_random_public_ip(rng)
+
+        initial_client_ip = _get_random_public_ip_not_in(rng, server_ip)
+        initial_client_port = rng.randint(49152, 65535)
+
+        # Detect migration by PATH_CHALLENGE / PATH_RESPONSE frames
+        has_migration = (
+            (group.get("count_path_challenge", pd.Series(dtype=float)).fillna(0) > 0).any()
+            or (group.get("count_path_response", pd.Series(dtype=float)).fillna(0) > 0).any()
+        )
+
+        client_ip_after = initial_client_ip
+        client_port_after = initial_client_port
+
+        if has_migration:
+            migration_count += 1
+            client_ip_after = _get_random_public_ip_not_in(rng, [server_ip, initial_client_ip])
+            client_port_after = max(initial_client_port, 49152) + 1
+
+        # Find the switching point (first PATH_CHALLENGE or PATH_RESPONSE frame)
+        switch_idx = None
+        if has_migration:
+            pc = group.get("count_path_challenge", pd.Series(0, index=group.index))
+            pr = group.get("count_path_response", pd.Series(0, index=group.index))
+            mask = (pc.fillna(0) > 0) | (pr.fillna(0) > 0)
+            if mask.any():
+                switch_idx = group.index[mask][0]
+            else:
+                switch_idx = group.index[0]
+
+        for idx in group.index:
+            after_migration = (switch_idx is not None) and (idx >= switch_idx)
+            current_client_ip = client_ip_after if after_migration else initial_client_ip
+            current_client_port = client_port_after if after_migration else initial_client_port
+
+            direction = int(df.at[idx, "packet_direction"]) if "packet_direction" in df.columns else 0
+
+            if direction == 0:  # client → server
+                df.at[idx, "source_ip"] = current_client_ip
+                df.at[idx, "source_port"] = int(current_client_port)
+                df.at[idx, "destination_ip"] = server_ip
+                df.at[idx, "destination_port"] = int(server_port)
+            else:  # server → client
+                df.at[idx, "source_ip"] = server_ip
+                df.at[idx, "source_port"] = int(server_port)
+                df.at[idx, "destination_ip"] = current_client_ip
+                df.at[idx, "destination_port"] = int(current_client_port)
+
+    log.append(
+        f"Added low-level migration endpoints for {total_captures} captures "
+        f"({migration_count} with migration, {total_captures - migration_count} without)"
+    )
+    log.append(f"  Server port: {server_port}")
+
+    return df, log
+
+
 def apply_post_processing(
     df: pd.DataFrame,
     connection_duration_col: str = 'connection_duration',
