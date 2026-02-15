@@ -343,7 +343,11 @@ if st.session_state.generated and st.session_state.synthetic_df is not None:
                     duration_method=pp_config.get('duration_method', 'clip'),
                     combined_duration_method=pp_config.get('combined_method', 'scale'),
                     fix_integers=pp_config.get('fix_integers', True),
-                    fix_logical=pp_config.get('fix_logical', True)
+                    fix_logical=pp_config.get('fix_logical', True),
+                    add_endpoints=pp_config.get('add_endpoints', True),
+                    endpoint_seed=pp_config.get('endpoint_seed', 42),
+                    server_port=pp_config.get('server_port', 443),
+                    port_rebinding_probability=pp_config.get('port_rebinding_probability', 0.95)
                 )
                 
                 st.session_state.synthetic_df_raw = synthetic_df.copy()

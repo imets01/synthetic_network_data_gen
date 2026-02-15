@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import random
+import ipaddress
 from typing import Dict, List, Tuple, Optional
 
 DURATION_COLS = [
@@ -321,13 +323,112 @@ def fix_logical_constraints(
     return df, log
 
 
+def _get_random_public_ip(rng: random.Random) -> str:
+    """Generate a random public (global, non-multicast) IPv4 address."""
+    while True:
+        ip = ipaddress.IPv4Address(rng.getrandbits(32))
+        if ip.is_global and not ip.is_multicast:
+            return str(ip)
+
+
+def _get_random_public_ip_not_equal(rng: random.Random, excluded_ip: str) -> str:
+    """Generate a random public IPv4 address different from excluded_ip."""
+    while True:
+        ip = _get_random_public_ip(rng)
+        if ip != excluded_ip:
+            return ip
+
+
+def _check_if_migration_occurred(row: pd.Series) -> bool:
+    """Determine whether a QUIC connection migration occurred for a given row."""
+    migration_type = str(row.get("migration_type", "")).strip().lower()
+    path_validation = str(row.get("path_validation_initiated", "")).strip().lower()
+    time_to_migration = float(row.get("time_to_migration", 0) or 0)
+    migration_duration = float(row.get("migration_duration", 0) or 0)
+
+    if migration_type not in ["", "none"]:
+        return True
+    if path_validation in ["yes", "true", "1", "1.0"]:
+        return True
+    if time_to_migration > 0 and migration_duration > 0:
+        return True
+    return False
+
+
+def add_migration_endpoints(
+    df: pd.DataFrame,
+    seed: int = 42,
+    server_port: int = 443,
+    port_rebinding_probability: float = 0.95
+) -> Tuple[pd.DataFrame, List[str]]:
+    df = df.copy()
+    log = []
+    rng = random.Random(seed)
+
+    if df.empty:
+        log.append("DataFrame is empty, skipping migration endpoints.")
+        return df, log
+
+    server_ip_list = []
+    server_port_list = []
+    initial_client_ip_list = []
+    initial_client_port_list = []
+    after_migration_client_ip_list = []
+    after_migration_client_port_list = []
+    migration_count = 0
+
+    for _, row in df.iterrows():
+        is_migration = _check_if_migration_occurred(row)
+
+        server_ip = _get_random_public_ip(rng)
+        client_ip_initial = _get_random_public_ip_not_equal(rng, server_ip)
+        client_port_initial = rng.randint(49152, 65535)
+
+        if is_migration:
+            migration_count += 1
+            client_ip_final = _get_random_public_ip_not_equal(rng, server_ip)
+            while client_ip_final == client_ip_initial:
+                client_ip_final = _get_random_public_ip_not_equal(rng, server_ip)
+
+            if rng.random() < port_rebinding_probability:
+                client_port_final = rng.randint(49152, 65535)
+            else:
+                client_port_final = client_port_initial
+        else:
+            client_ip_final = client_ip_initial
+            client_port_final = client_port_initial
+
+        server_ip_list.append(server_ip)
+        server_port_list.append(int(server_port))
+        initial_client_ip_list.append(client_ip_initial)
+        initial_client_port_list.append(int(client_port_initial))
+        after_migration_client_ip_list.append(client_ip_final)
+        after_migration_client_port_list.append(int(client_port_final))
+
+    df["server_ip"] = server_ip_list
+    df["server_port"] = server_port_list
+    df["client_ip_initial"] = initial_client_ip_list
+    df["client_port_initial"] = initial_client_port_list
+    df["client_ip_post_migration"] = after_migration_client_ip_list
+    df["client_port_post_migration"] = after_migration_client_port_list
+
+    log.append(f"Added migration endpoints for {len(df)} rows ({migration_count} with migration, {len(df) - migration_count} without)")
+    log.append(f"  Server port: {server_port}, Port rebinding probability: {port_rebinding_probability}")
+
+    return df, log
+
+
 def apply_post_processing(
     df: pd.DataFrame,
     connection_duration_col: str = 'connection_duration',
     duration_method: str = 'clip',
     combined_duration_method: str = 'scale',
     fix_integers: bool = True,
-    fix_logical: bool = True
+    fix_logical: bool = True,
+    add_endpoints: bool = True,
+    endpoint_seed: int = 42,
+    server_port: int = 443,
+    port_rebinding_probability: float = 0.95
 ) -> Tuple[pd.DataFrame, List[str]]:
     """
     Apply all post-processing rules to the synthetic data.
@@ -346,6 +447,14 @@ def apply_post_processing(
         Whether to round integer columns
     fix_logical : bool
         Whether to apply additional logical constraints
+    add_endpoints : bool
+        Whether to generate migration endpoint IPs and ports
+    endpoint_seed : int
+        Random seed for endpoint generation
+    server_port : int
+        Server port to use (default 443)
+    port_rebinding_probability : float
+        Probability of client port change on migration (0.0-1.0)
     
     Returns:
     --------
@@ -382,6 +491,17 @@ def apply_post_processing(
     if fix_integers:
         all_logs.append("\n5. Fixing integer columns...")
         df, log = fix_integer_columns(df)
+        all_logs.extend(log)
+    
+    # Step 6: Add migration endpoints
+    if add_endpoints:
+        all_logs.append("\n6. Adding QUIC migration endpoints...")
+        df, log = add_migration_endpoints(
+            df,
+            seed=endpoint_seed,
+            server_port=server_port,
+            port_rebinding_probability=port_rebinding_probability
+        )
         all_logs.extend(log)
     
     all_logs.append("\n" + "=" * 60)

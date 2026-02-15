@@ -327,6 +327,7 @@ Post-processing applies domain-specific constraints to ensure generated data is 
 - **Combined duration**: Ensures handshake + migration ≤ connection_duration
 - **Integer columns**: Rounds count/byte columns to integers
 - **Logical constraints**: Ensures temporal ordering (e.g., migration after handshake)
+- **Migration endpoints**: Adds realistic IP/port addresses for QUIC migration
     """)
     
     enable_postprocessing = st.checkbox(
@@ -376,13 +377,49 @@ Post-processing applies domain-specific constraints to ensure generated data is 
                 value=True,
                 help="Ensure temporal ordering (e.g., migration after handshake)"
             )
+        
+        st.write("**Migration Endpoints**")
+        add_endpoints = st.checkbox(
+            "Add migration endpoint addresses",
+            value=True,
+            help="Generate realistic IP/port addresses for QUIC connection migration"
+        )
+        
+        if add_endpoints:
+            ep_col1, ep_col2, ep_col3 = st.columns(3)
+            with ep_col1:
+                endpoint_seed = st.number_input(
+                    "Random seed",
+                    min_value=0, max_value=999999, value=42,
+                    help="Seed for reproducible endpoint generation"
+                )
+            with ep_col2:
+                server_port = st.number_input(
+                    "Server port",
+                    min_value=1, max_value=65535, value=443,
+                    help="Server port (default 443 for QUIC/HTTPS)"
+                )
+            with ep_col3:
+                port_rebinding_prob = st.slider(
+                    "Port rebinding probability",
+                    min_value=0.0, max_value=1.0, value=0.95, step=0.05,
+                    help="Probability that client port changes after migration"
+                )
+        else:
+            endpoint_seed = 42
+            server_port = 443
+            port_rebinding_prob = 0.95
     
     return {
         'enabled': True,
         'duration_method': duration_method,
         'combined_method': combined_method,
         'fix_integers': fix_integers,
-        'fix_logical': fix_logical
+        'fix_logical': fix_logical,
+        'add_endpoints': add_endpoints,
+        'endpoint_seed': endpoint_seed,
+        'server_port': server_port,
+        'port_rebinding_probability': port_rebinding_prob
     }
 
 
