@@ -517,3 +517,4 @@ See notebooks in `high_level_features/` and `low_level_features/` for detailed p
 
 - **GitHub Copilot**: This project was developed with the assistance of [GitHub Copilot](https://github.com/features/copilot), an AI pair programmer that helped accelerate development and implementation of the codebase.
 - **FEST Framework**: The evaluation module uses the privacy-utility evaluation framework for computing privacy and utility metrics on synthetic data.
+- **TabDDPM**: This project uses the official code for [TabDDPM](https://github.com/yandex-research/tab-ddpm)
